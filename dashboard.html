@@ -1,0 +1,1976 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#172554">
+<title>NEXORA | Smart Living Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+            
+<style>
+/* ==================================================
+   NEXORA DASHBOARD — SINGLE FILE APPLICATION
+   Shared settings: rootBloomTheme / rootBloomDirection
+================================================== */
+
+:root {
+    --primary: #172554;
+    --primary-2: #263f80;
+    --accent: #818cf8;
+    --accent-soft: #eef0ff;
+    --bg: #f5f6fa;
+    --surface: #ffffff;
+    --surface-2: #f8f9fc;
+    --text: #172033;
+    --muted: #7b8498;
+    --border: #e7eaf1;
+    --success: #188b68;
+    --success-soft: #e8f7f0;
+    --warning: #b7791f;
+    --warning-soft: #fff5df;
+    --danger: #d34e60;
+    --danger-soft: #fff0f1;
+    --sidebar-width: 252px;
+    --header-height: 76px;
+    --radius: 12px;
+    --shadow: 0 8px 30px rgba(23,37,84,.045);
+}
+
+body.dark-theme {
+    --primary: #a5b4fc;
+    --primary-2: #c7d2fe;
+    --accent: #a5b4fc;
+    --accent-soft: #202744;
+    --bg: #090b10;
+    --surface: #11141c;
+    --surface-2: #171b25;
+    --text: #f2f4fb;
+    --muted: #a0a8ba;
+    --border: #282d3a;
+    --success: #53d6a7;
+    --success-soft: #142c27;
+    --warning: #f3c76a;
+    --warning-soft: #302719;
+    --danger: #ff8997;
+    --danger-soft: #321b24;
+    --shadow: 0 8px 30px rgba(0,0,0,.16);
+}
+:root {
+    --primary: #0F4C81;
+    --secondary: #00B4D8;
+
+    --primary-dark: #0A355C;
+    --primary-light: #0A355C;
+
+    --secondary-dark: #007F9B;
+    --secondary-light: #42D5F0;
+
+    --primary-soft: rgba(15, 76, 129, .10);
+    --secondary-soft: rgba(0, 180, 216, .12);
+
+    --bg: #F5F9FD;
+    --surface: #FFFFFF;
+    --surface-2: #EAF3FA;
+
+    --text: #14283B;
+    --text-soft: #53697D;
+    --white: #FFFFFF;
+
+    --border: rgba(15, 76, 129, .16);
+
+    --shadow-sm: 0 8px 28px rgba(15, 45, 75, .08);
+    --shadow-lg: 0 28px 80px rgba(15, 45, 75, .16);
+
+    --header-height: 84px;
+
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+
+    --transition: .35s cubic-bezier(.2, .8, .2, 1);
+}
+
+
+/* =========================================================
+   NEXORA04 — DARK THEME
+========================================================= */
+
+body.dark-theme {
+    --primary: #63B4FA;
+    --secondary: #35D8F2;
+
+    --primary-dark: #0A355C;
+    --primary-light: #0A355C;
+
+    --secondary-dark: #00A4C5;
+    --secondary-light: #00A4C5;
+
+    --primary-soft: rgba(99, 180, 250, .14);
+    --secondary-soft: rgba(53, 216, 242, .12);
+
+    --bg: #080D14;
+    --surface: #101A26;
+    --surface-2: #162535;
+
+    --text: #F2F8FF;
+    --text-soft: #B0C2D4;
+    --white: #FFFFFF;
+
+    --border: rgba(157, 204, 245, .17);
+
+    --shadow-sm: 0 10px 30px rgba(0, 0, 0, .28);
+    --shadow-lg: 0 30px 90px rgba(0, 0, 0, .48);
+}
+
+
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    transition: background .25s, color .25s;
+}
+
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+button:focus-visible, a:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+button:disabled { opacity: .5; cursor: not-allowed; }
+
+.app {
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    z-index: 50;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border-inline-end: 1px solid var(--border);
+    transition: transform .25s, background .25s;
+}
+
+.brand {
+    height: var(--header-height);
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+}
+
+.brand-copy { display: flex; flex-direction: column; gap: 3px; }
+
+.brand-name {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    color: var(--text);
+}
+
+.brand-name span { color: var(--accent); }
+
+.brand-tagline {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    font-weight: 800;
+}
+
+.sidebar-scroll {
+    overflow-y: auto;
+    flex: 1;
+    padding: 18px 13px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.nav-label {
+    padding: 12px 12px 8px;
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1.6px;
+    font-weight: 800;
+}
+
+.nav-link {
+    width: 100%;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    margin: 3px 0;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--muted);
+    text-align: start;
+    transition: .2s;
+}
+
+.nav-link i {
+    width: 18px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.nav-link span { flex: 1; }
+
+.nav-link:hover {
+    background: var(--surface-2);
+    color: var(--text);
+}
+
+.nav-link.active {
+    background: var(--accent-soft);
+    color: var(--primary);
+    border-color: rgba(129,140,248,.18);
+    font-weight: 800;
+}
+
+.nav-count {
+    font-size: 10px;
+    min-width: 20px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    text-align: center;
+    background: var(--danger-soft);
+    color: var(--danger);
+}
+
+.sidebar-bottom {
+    padding: 13px;
+    border-top: 1px solid var(--border);
+}
+
+.help-mini {
+    padding: 14px;
+    margin-bottom: 12px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.help-mini strong { display: block; margin-bottom: 5px; }
+.help-mini p { margin: 0 0 10px; color: var(--muted); line-height: 1.6; font-size: 11px; }
+
+.help-mini button {
+    background: transparent;
+    border: 0;
+    color: var(--primary);
+    padding: 0;
+    font-weight: 800;
+    font-size: 11px;
+}
+
+.user-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 3px;
+    min-width: 0;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: var(--accent-soft);
+    color: var(--primary);
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.user-mini-copy { min-width: 0; flex: 1; }
+.user-mini-copy strong, .user-mini-copy small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.user-mini-copy strong { font-size: 11px; }
+.user-mini-copy small { margin-top: 4px; color: var(--muted); font-size: 10px; }
+
+.logout-icon {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    padding: 8px;
+}
+.logout-icon:hover { color: var(--danger); }
+
+/* MAIN AND TOPBAR */
+
+.main {
+    margin-inline-start: var(--sidebar-width);
+    min-height: 100vh;
+    transition: margin .25s;
+}
+
+.topbar {
+    height: var(--header-height);
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 0 40px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar-left, .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.topbar-title strong { display: block; font-size: 13px; }
+.topbar-title small { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; }
+
+.icon-btn {
+    width: 42px;
+    height: 42px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--secondary);
+    border-radius: 9px;
+    background: var(--surface);
+    color: var(--text);
+    transition: .2s;
+}
+
+.icon-btn:hover { border-color: var(--accent); color: var(--primary); }
+
+.notification-dot {
+    position: absolute;
+    top: 7px;
+    inset-inline-end: 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--danger);
+    border: 1px solid var(--surface);
+}
+
+.top-profile {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding-inline-start: 13px;
+    border-inline-start: 1px solid var(--border);
+}
+
+.top-profile .avatar { width: 36px; height: 36px; }
+
+.top-profile-copy strong, .top-profile-copy small { display: block; }
+.top-profile-copy strong { font-size: 11px; }
+.top-profile-copy small { color: var(--muted); margin-top: 3px; font-size: 10px; }
+
+.mobile-menu-btn { display: none; }
+
+.notification-wrap { position: relative; }
+
+.notification-panel {
+    position: absolute;
+    top: 47px;
+    inset-inline-end: 0;
+    width: min(340px, calc(100vw - 28px));
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 15px;
+    display: none;
+}
+
+.notification-panel.open { display: block; }
+
+.notification-panel h3 { margin: 0 0 12px; font-size: 13px; }
+
+.notification-item {
+    display: flex;
+    gap: 10px;
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+}
+
+.notification-item i {
+    color: var(--primary);
+    background: var(--accent-soft);
+    border-radius: 8px;
+    width: 33px;
+    height: 33px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.notification-item strong { display: block; font-size: 11px; }
+.notification-item p { margin: 4px 0 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
+
+.page-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 28px 30px 36px;
+}
+
+.page { display: none; }
+.page.active { display: block; animation: pageIn .2s ease; }
+
+@keyframes pageIn {
+    from { opacity: .55; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 9px;
+    letter-spacing: 1.6px;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+.page-heading h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(25px, 3vw, 34px);
+    line-height: 1.2;
+    letter-spacing: -.5px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.page-heading p {
+    margin: 9px 0 0;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 650px;
+    font-size: 12px;
+}
+
+.heading-actions { display: flex; gap: 9px; flex-wrap: wrap; }
+
+/* BUTTONS */
+
+.btn {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 11px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.btn:hover { border-color: var(--accent); }
+.btn-primary { background: #263b79; border-color: #263b79; color: white; }
+body.dark-theme .btn-primary { background: #818cf8; color: #090b10; border-color: #818cf8; }
+.btn-primary:hover { opacity: .9; }
+.btn-danger { color: var(--danger); }
+.btn-small { min-height: 30px; padding: 6px 10px; font-size: 10px; }
+
+/* CARDS AND GRIDS */
+
+.grid { display: grid; gap: 16px; }
+.metrics-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.two-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.content-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, .85fr); gap: 18px; }
+
+.card {
+    min-width: 0;
+    padding: 19px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.card-heading h2, .card-heading h3 { margin: 0; font-size: 13px; font-weight: 800; }
+.card-heading p { margin: 5px 0 0; color: var(--muted); font-size: 10px; }
+.text-link { color: var(--primary); font-weight: 800; font-size: 10px; white-space: nowrap; }
+
+.metric-card { position: relative; overflow: hidden; }
+.metric-top { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.metric-label { color: var(--muted); font-size: 11px; font-weight: 600; }
+.metric-icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; background: var(--accent-soft); color: var(--primary); font-size: 15px; }
+.metric-value { margin: 18px 0 7px; font-size: clamp(25px, 2.5vw, 32px); font-weight: 800; letter-spacing: -1px; }
+.metric-foot { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.metric-foot .positive { color: var(--success); }
+.metric-foot .neutral { color: var(--muted); }
+
+.welcome-banner {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 25px 27px;
+    border-radius: 13px;
+    color: #fff;
+    background: linear-gradient(115deg, #172554 0%, #293e79 68%, #4756a4 100%);
+}
+
+.welcome-banner::after {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+    inset-inline-end: 40px;
+    top: -100px;
+    box-shadow: 0 0 0 30px rgba(255,255,255,.035), 0 0 0 65px rgba(255,255,255,.025);
+    pointer-events: none;
+}
+
+.welcome-banner h2 { margin: 0; font-family: "Playfair Display", serif; font-size: clamp(20px, 2.4vw, 27px); }
+.welcome-banner p { margin: 9px 0 0; max-width: 520px; color: #dbe3ff; line-height: 1.7; font-size: 11px; }
+.welcome-banner .btn { position: relative; z-index: 1; background: white; color: #172554; border-color: white; white-space: nowrap; }
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.badge.success { background: var(--success-soft); color: var(--success); }
+.badge.warning { background: var(--warning-soft); color: var(--warning); }
+.badge.danger { background: var(--danger-soft); color: var(--danger); }
+.badge.neutral { background: var(--surface-2); color: var(--muted); }
+.badge.info { background: var(--accent-soft); color: var(--primary); }
+
+/* TABLES */
+
+.table-wrap { width: 100%; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: start; white-space: nowrap; }
+th {
+    padding: 12px 11px;
+    text-align: start;
+    color: var(--muted);
+    background: var(--surface-2);
+    font-size: 9px;
+    letter-spacing: .45px;
+    font-weight: 800;
+}
+td { padding: 14px 11px; border-bottom: 1px solid var(--border); font-size: 10px; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: var(--surface-2); }
+.table-primary { font-weight: 800; color: var(--text); }
+.table-secondary { display: block; margin-top: 4px; font-size: 9px; color: var(--muted); }
+
+.device-cell { display: flex; align-items: center; gap: 10px; }
+.device-icon {
+    display: grid;
+    place-items: center;
+    width: 37px;
+    height: 37px;
+    border-radius: 9px;
+    background: var(--accent-soft);
+    color: var(--primary);
+    flex-shrink: 0;
+}
+.device-cell strong { display: block; font-size: 10px; }
+.device-cell small { display: block; margin-top: 4px; color: var(--muted); font-size: 9px; }
+
+/* ACTIVITY */
+
+.activity-list { display: flex; flex-direction: column; }
+.activity {
+    display: flex;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+}
+.activity:last-child { border-bottom: 0; padding-bottom: 0; }
+.activity:first-child { padding-top: 0; }
+.activity-icon { flex-shrink: 0; width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; background: var(--accent-soft); color: var(--primary); }
+.activity-body { flex: 1; min-width: 0; }
+.activity-body strong { display: block; font-size: 10px; }
+.activity-body p { margin: 5px 0 0; color: var(--muted); line-height: 1.6; font-size: 10px; }
+.activity-time { color: var(--muted); font-size: 9px; white-space: nowrap; }
+
+/* PROGRESS */
+
+.progress-row { margin-bottom: 18px; }
+.progress-row:last-child { margin-bottom: 0; }
+.progress-label { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 9px; font-size: 10px; }
+.progress-label span { color: var(--muted); }
+.progress-track { width: 100%; height: 6px; border-radius: 10px; background: var(--surface-2); overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 10px; background: #818cf8; }
+
+/* FORMS */
+
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+.form-group { min-width: 0; }
+.form-group.full { grid-column: 1 / -1; }
+.form-group label { display: block; margin-bottom: 7px; font-size: 10px; font-weight: 800; }
+.form-group label .required { color: var(--danger); }
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    min-height: 41px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    background: var(--surface-2);
+    outline: none;
+}
+.form-group textarea { min-height: 95px; resize: vertical; line-height: 1.6; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--muted); opacity: .8; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+.form-help { display: block; margin-top: 6px; color: var(--muted); font-size: 9px; line-height: 1.6; }
+.form-actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 20px; flex-wrap: wrap; }
+
+.notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px;
+    margin-bottom: 17px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface-2);
+    line-height: 1.7;
+    color: var(--muted);
+    font-size: 10px;
+}
+.notice i { margin-top: 2px; color: var(--primary); }
+.notice strong { color: var(--text); }
+
+/* INSTALLATION TIMELINE */
+
+.timeline { position: relative; padding-inline-start: 24px; }
+.timeline::before { content: ""; position: absolute; inset-block: 8px 14px; inset-inline-start: 7px; width: 2px; background: var(--border); }
+.timeline-step { position: relative; padding: 0 0 23px; }
+.timeline-step:last-child { padding-bottom: 0; }
+.timeline-dot { position: absolute; inset-inline-start: -23px; top: 1px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid var(--surface); background: var(--border); box-shadow: 0 0 0 1px var(--border); }
+.timeline-step.done .timeline-dot { background: var(--success); box-shadow: 0 0 0 1px var(--success); }
+.timeline-step.current .timeline-dot { background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.timeline-step strong { display: block; font-size: 11px; }
+.timeline-step p { margin: 5px 0 0; color: var(--muted); font-size: 10px; line-height: 1.7; }
+.timeline-step small { display: block; margin-top: 6px; color: var(--muted); font-size: 9px; }
+
+/* DEVICE CARDS */
+
+.product-card { overflow: hidden; padding: 0; }
+.product-visual {
+    min-height: 125px;
+    display: grid;
+    place-items: center;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+.product-visual i { font-size: 39px; color: var(--primary); }
+.product-visual span { position: absolute; top: 12px; inset-inline-end: 12px; }
+.product-info { padding: 16px; }
+.product-info h3 { margin: 0; font-size: 12px; }
+.product-info p { margin: 7px 0 12px; color: var(--muted); line-height: 1.6; font-size: 10px; }
+.product-meta { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid var(--border); padding-top: 11px; color: var(--muted); font-size: 9px; }
+
+/* EMPTY STATE / SUPPORT */
+
+.empty-state { padding: 28px 15px; text-align: center; color: var(--muted); }
+.empty-state i { font-size: 25px; color: var(--primary); margin-bottom: 12px; }
+.empty-state strong { display: block; color: var(--text); font-size: 12px; }
+.empty-state p { font-size: 10px; line-height: 1.7; }
+.support-card { display: flex; flex-direction: column; gap: 12px; }
+.support-item { display: flex; gap: 12px; align-items: flex-start; padding: 13px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 9px; }
+.support-item i { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; background: var(--accent-soft); color: var(--primary); flex-shrink: 0; }
+.support-item strong { display: block; font-size: 11px; }
+.support-item p { margin: 5px 0 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+
+/* TOAST */
+
+.toast-container {
+    position: fixed;
+    z-index: 100;
+    inset-block-end: 22px;
+    inset-inline-end: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: min(360px, calc(100vw - 32px));
+}
+
+.toast {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.12);
+    animation: pageIn .2s ease;
+}
+.toast i { color: var(--success); margin-top: 2px; }
+.toast strong { display: block; font-size: 11px; }
+.toast p { margin: 4px 0 0; font-size: 10px; color: var(--muted); line-height: 1.5; }
+
+/* RTL POLISH */
+
+html[dir="rtl"] body { font-family: "DM Sans", sans-serif; }
+html[dir="rtl"] .page-heading h1,
+html[dir="rtl"] .welcome-banner h2 { letter-spacing: 0; }
+html[dir="rtl"] .welcome-banner::after { inset-inline-start: 40px; inset-inline-end: auto; }
+html[dir="rtl"] .timeline::before { inset-inline-start: auto; inset-inline-end: 7px; }
+html[dir="rtl"] .timeline-dot { inset-inline-start: auto; inset-inline-end: -23px; }
+html[dir="rtl"] .top-profile { border-inline-start: 0; border-inline-end: 1px solid var(--border); padding-inline-start: 0; padding-inline-end: 13px; }
+
+/* RESPONSIVE */
+
+@media (min-width: 1500px) {
+    .page-content { padding-inline: 38px; }
+    .topbar { padding-inline: 38px; }
+}
+
+@media (max-width: 1150px) {
+    :root { --sidebar-width: 225px; }
+    .page-content { padding: 23px 20px 30px; }
+    .topbar { padding-inline: 20px; }
+    .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .content-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 760px) {
+    :root { --sidebar-width: 252px; --header-height: 68px; }
+
+    .sidebar { box-shadow: 0 10px 40px rgba(0,0,0,.08); }
+    html[dir="ltr"] .sidebar { transform: translateX(-105%); }
+    html[dir="rtl"] .sidebar { transform: translateX(105%); }
+    html[dir="ltr"] .sidebar.mobile-open,
+    html[dir="rtl"] .sidebar.mobile-open { transform: translateX(0); }
+
+    .main { margin-inline-start: 0; }
+    .mobile-menu-btn { display: grid; }
+    .topbar { padding-inline: 13px; gap: 8px; }
+    .topbar-left, .topbar-right { gap: 7px; }
+    .topbar-title small { display: none; }
+    .top-profile-copy { display: none; }
+    .top-profile { padding-inline-start: 7px; }
+    .top-profile .avatar { width: 34px; height: 34px; }
+    .icon-btn { width: 34px; height: 34px; }
+    .page-content { padding: 20px 14px 28px; }
+    .page-heading { flex-direction: column; gap: 14px; }
+    .page-heading h1 { font-size: 27px; }
+    .welcome-banner { padding: 20px; align-items: flex-start; flex-direction: column; }
+    .welcome-banner .btn { align-self: flex-start; }
+    .three-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .two-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 460px) {
+    .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .metric-card { padding: 13px; }
+    .metric-icon { width: 32px; height: 32px; }
+    .metric-value { font-size: 25px; }
+    .metric-label { font-size: 10px; }
+    .metric-foot { font-size: 9px; }
+    .card { padding: 14px; }
+    .three-grid { grid-template-columns: minmax(0, 1fr); }
+    .form-grid { grid-template-columns: minmax(0, 1fr); }
+    .form-group.full { grid-column: auto; }
+    .heading-actions { width: 100%; }
+    .heading-actions .btn { flex: 1; }
+    .topbar-title strong { font-size: 11px; }
+    .notification-panel { position: fixed; top: 62px; inset-inline: 10px; width: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html" aria-label="NEXORA home">
+        <img src="images/sm1.png" alt="NEXORA logo">
+        <span class="brand-copy">
+            <span class="brand-name">NEX<span>ORA</span></span>
+            <span class="brand-tagline">SMART LIVING</span>
+        </span>
+    </a>
+
+    <nav class="sidebar-scroll" aria-label="Dashboard navigation">
+        <div class="nav-label">WORKSPACE</div>
+        <button class="nav-link active" data-page="overview">
+            <i class="fa-solid fa-chart-pie"></i><span>Overview</span>
+        </button>
+        <button class="nav-link" data-page="devices">
+            <i class="fa-solid fa-house-signal"></i><span>My Devices</span>
+        </button>
+        <button class="nav-link" data-page="requests">
+            <i class="fa-solid fa-file-circle-plus"></i><span>Setup Requests</span><span class="nav-count" id="requestNavCount">2</span>
+        </button>
+        <button class="nav-link" data-page="installations">
+            <i class="fa-solid fa-screwdriver-wrench"></i><span>Installations</span>
+        </button>
+
+        <div class="nav-label">PRODUCT & SERVICE</div>
+        <button class="nav-link" data-page="warranties">
+            <i class="fa-solid fa-shield-halved"></i><span>Warranties</span>
+        </button>
+        <button class="nav-link" data-page="appointments">
+            <i class="fa-regular fa-calendar-check"></i><span>Appointments</span>
+        </button>
+        <button class="nav-link" data-page="support">
+            <i class="fa-regular fa-circle-question"></i><span>Help & Support</span>
+        </button>
+
+        <div class="nav-label">PERSONAL</div>
+        <button class="nav-link" data-page="activity">
+            <i class="fa-solid fa-clock-rotate-left"></i><span>Activity History</span>
+        </button>
+        <button class="nav-link" data-page="profile">
+            <i class="fa-regular fa-user"></i><span>My Profile</span>
+        </button>
+        <button class="nav-link" data-page="settings">
+            <i class="fa-solid fa-sliders"></i><span>Preferences</span>
+        </button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      
+        <div class="user-mini">
+            <div class="avatar" id="sideAvatar">KS</div>
+            <div class="user-mini-copy">
+                <strong id="sideName">Smart Home User</strong>
+                <small>Client account</small>
+            </div>
+            <button class="logout-icon" type="button" data-logout aria-label="Log out" title="Log out">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+    <header class="topbar">
+        <div class="topbar-left">
+            <button class="icon-btn mobile-menu-btn" id="mobileMenu" aria-label="Open navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="topbar-title">
+                <strong id="topPageTitle">User Dashboard</strong>
+                <small>Manage your smart home in one place</small>
+            </div>
+        </div>
+
+        <div class="topbar-right">
+            <button class="icon-btn" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+              <i data-lucide="moon"></i>
+            </button>
+            <button class="icon-btn" id="rtlToggle" title="Toggle RTL / LTR" aria-label="Toggle right-to-left layout">
+               <i data-lucide="arrow-left-right"></i>
+            </button>
+
+            <div class="notification-wrap">
+                <button class="icon-btn" id="notificationToggle" aria-label="Open notifications" aria-expanded="false">
+                    <i class="fa-regular fa-bell"></i><span class="notification-dot" id="notificationDot"></span>
+                </button>
+                <div class="notification-panel" id="notificationPanel">
+                    <h3>Notifications</h3>
+                    <div class="notification-item">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <div><strong>Installation update</strong><p>Your smart lighting request is awaiting a scheduling update.</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div><strong>Warranty reminder</strong><p>Register your eligible devices to keep warranty details organized.</p></div>
+                    </div>
+                    <div class="notification-item">
+                        <i class="fa-solid fa-house-signal"></i>
+                        <div><strong>Welcome to NEXORA</strong><p>Your dashboard is ready to personalize.</p></div>
+                    </div>
+                    <button class="btn btn-small" style="width:100%;margin-top:12px" id="markRead">Mark notifications as read</button>
+                </div>
+            </div>
+
+            <button class="top-profile" type="button" data-go="profile" style="border-top:0;border-bottom:0;border-inline-end:0;background:transparent;color:inherit;text-align:start">
+                <span class="avatar" id="topAvatar">KS</span>
+                <span class="top-profile-copy">
+                    <strong id="topName">Smart Home User</strong>
+                    <small>Client</small>
+                </span>
+                <i class="fa-solid fa-chevron-down" style="font-size:9px;color:var(--muted)"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="page-content">
+
+        <!-- OVERVIEW -->
+        <section class="page active" id="page-overview">
+            <div class="welcome-banner">
+                <div>
+                    <div class="eyebrow" style="color:#c7d2fe">YOUR SMART LIVING SPACE</div>
+                    <h2>Welcome back, <span id="welcomeName">there</span>.</h2>
+                    <p>Your home journey starts here. Track installation progress, organize your devices and keep your product details close at hand.</p>
+                </div>
+                <button class="btn" type="button" data-go="requests"><i class="fa-solid fa-plus"></i> Request a setup</button>
+            </div>
+
+            <div class="grid metrics-grid" style="margin-bottom:20px">
+                <article class="card metric-card">
+                    <div class="metric-top"><span class="metric-label">Registered devices</span><span class="metric-icon"><i class="fa-solid fa-house-signal"></i></span></div>
+                    <div class="metric-value" id="metricDevices">3</div>
+                    <div class="metric-foot"><span class="positive"><i class="fa-solid fa-circle-check"></i> Organized</span><span>in your account</span></div>
+                </article>
+                <article class="card metric-card">
+                    <div class="metric-top"><span class="metric-label">Active requests</span><span class="metric-icon"><i class="fa-solid fa-clipboard-list"></i></span></div>
+                    <div class="metric-value" id="metricRequests">2</div>
+                    <div class="metric-foot"><span class="neutral">Setup & service</span></div>
+                </article>
+                <article class="card metric-card">
+                    <div class="metric-top"><span class="metric-label">Installations</span><span class="metric-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span></div>
+                    <div class="metric-value" id="metricInstallations">1</div>
+                    <div class="metric-foot"><span class="neutral">In progress</span></div>
+                </article>
+                <article class="card metric-card">
+                    <div class="metric-top"><span class="metric-label">Registered warranties</span><span class="metric-icon"><i class="fa-solid fa-shield-halved"></i></span></div>
+                    <div class="metric-value" id="metricWarranties">2</div>
+                    <div class="metric-foot"><span class="positive">Product records</span><span>on file</span></div>
+                </article>
+            </div>
+
+            <div class="content-grid" style="margin-bottom:18px">
+                <article class="card">
+                    <div class="card-heading">
+                        <div><h2>Recent Setup Requests</h2><p>Follow the status of your service requests.</p></div>
+                        <button class="text-link" data-go="requests">View all <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>REQUEST</th><th>SERVICE</th><th>DATE</th><th>STATUS</th></tr></thead>
+                            <tbody id="overviewRequests"></tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-heading"><div><h2>Installation Progress</h2><p>Your current project at a glance.</p></div></div>
+                    <div class="activity" style="padding-top:0">
+                        <div class="activity-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                        <div class="activity-body"><strong>Smart Lighting Setup</strong><p>Living room lighting and connected controls.</p><div style="margin-top:10px"><span class="badge warning">Scheduling</span></div></div>
+                    </div>
+                    <div class="progress-row" style="margin-top:17px">
+                        <div class="progress-label"><strong>Overall progress</strong><span id="overviewProgressLabel">35%</span></div>
+                        <div class="progress-track"><div class="progress-fill" id="overviewProgressBar" style="width:35%"></div></div>
+                    </div>
+                    <button class="btn" style="width:100%;margin-top:15px" data-go="installations">Track installation <i class="fa-solid fa-arrow-right"></i></button>
+                </article>
+            </div>
+
+            <div class="content-grid">
+                <article class="card">
+                    <div class="card-heading"><div><h2>My Smart Devices</h2><p>Your connected home inventory.</p></div><button class="text-link" data-go="devices">Manage devices</button></div>
+                    <div class="activity-list" id="overviewDevices"></div>
+                </article>
+                <article class="card">
+                    <div class="card-heading"><div><h2>Recent Activity</h2><p>Updates from your account.</p></div><button class="text-link" data-go="activity">History</button></div>
+                    <div class="activity-list" id="overviewActivity"></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- MY DEVICES -->
+        <section class="page" id="page-devices">
+            <div class="page-heading">
+                <div><div class="eyebrow">YOUR CONNECTED HOME</div><h1>My Devices</h1><p>Review your smart-home inventory and keep device details organized.</p></div>
+                <div class="heading-actions"><button class="btn btn-primary" data-go="requests"><i class="fa-solid fa-plus"></i> Request device setup</button></div>
+            </div>
+            <div class="notice"><i class="fa-solid fa-circle-info"></i><div><strong>Demo inventory.</strong> These example devices are dashboard records, not live connections to physical hardware.</div></div>
+            <div class="grid three-grid" id="deviceGrid"></div>
+        </section>
+
+        <!-- SETUP REQUESTS -->
+        <section class="page" id="page-requests">
+            <div class="page-heading">
+                <div><div class="eyebrow">PLAN YOUR SMART HOME</div><h1>Setup Requests</h1><p>Submit a new device setup request and review requests you have already created.</p></div>
+                <div class="heading-actions"><button class="btn" data-go="installations"><i class="fa-solid fa-route"></i> Track progress</button></div>
+            </div>
+            <div class="content-grid">
+                <article class="card">
+                    <div class="card-heading"><div><h2>Create a setup request</h2><p>Tell our team what you want to install.</p></div></div>
+                    <form id="requestForm">
+                        <div class="form-grid">
+                            <div class="form-group"><label for="requestService">Service type <span class="required">*</span></label>
+                                <select id="requestService" required>
+                                    <option value="">Select a service</option>
+                                    <option>Smart Lighting</option><option>Smart Security / CCTV</option>
+                                    <option>Climate Control</option><option>Smart Locks & Access</option>
+                                    <option>Home Automation</option><option>Device Integration</option><option>Technical Support</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label for="requestRoom">Room / location <span class="required">*</span></label>
+                                <select id="requestRoom" required>
+                                    <option value="">Choose location</option><option>Living Room</option><option>Bedroom</option><option>Kitchen</option><option>Entrance</option><option>Entire Home</option><option>Outdoor Area</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label for="requestDate">Preferred date</label><input type="date" id="requestDate"></div>
+                            <div class="form-group"><label for="requestPriority">Priority</label>
+                                <select id="requestPriority"><option>Standard</option><option>High</option><option>Flexible</option></select>
+                            </div>
+                            <div class="form-group full"><label for="requestAddress">Installation address <span class="required">*</span></label><input id="requestAddress" required placeholder="Enter the property address"></div>
+                            <div class="form-group full"><label for="requestNotes">Requirements</label><textarea id="requestNotes" placeholder="Describe your devices, preferences or installation needs..."></textarea></div>
+                        </div>
+                        <div class="form-actions"><button class="btn" type="reset">Clear form</button><button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit request</button></div>
+                    </form>
+                </article>
+                <article class="card">
+                    <div class="card-heading"><div><h2>What happens next?</h2><p>Your setup journey.</p></div></div>
+                    <div class="timeline">
+                        <div class="timeline-step done"><span class="timeline-dot"></span><strong>1. Request submitted</strong><p>Your requirements are recorded in your dashboard.</p></div>
+                        <div class="timeline-step current"><span class="timeline-dot"></span><strong>2. Team review</strong><p>Request details can be reviewed by your installation team.</p></div>
+                        <div class="timeline-step"><span class="timeline-dot"></span><strong>3. Appointment confirmation</strong><p>Agree on a suitable date and access arrangements.</p></div>
+                        <div class="timeline-step"><span class="timeline-dot"></span><strong>4. Installation & handover</strong><p>Complete the work and review device operation.</p></div>
+                    </div>
+                    <div class="notice" style="margin-top:22px;margin-bottom:0"><i class="fa-solid fa-circle-info"></i><div>This prototype saves requests in the current browser. It does not send them to a real installation team.</div></div>
+                </article>
+            </div>
+            <article class="card" style="margin-top:18px">
+                <div class="card-heading"><div><h2>All Requests</h2><p>Your submitted and example requests.</p></div></div>
+                <div class="table-wrap"><table><thead><tr><th>REQUEST ID</th><th>SERVICE</th><th>LOCATION</th><th>SUBMITTED</th><th>PRIORITY</th><th>STATUS</th></tr></thead><tbody id="requestsTable"></tbody></table></div>
+            </article>
+        </section>
+
+        <!-- INSTALLATIONS -->
+        <section class="page" id="page-installations">
+            <div class="page-heading"><div><div class="eyebrow">FROM PLAN TO COMPLETION</div><h1>Installation Tracking</h1><p>Review installation milestones and see the latest status recorded in your account.</p></div></div>
+            <div class="grid metrics-grid" style="margin-bottom:18px">
+                <article class="card metric-card"><div class="metric-label">In progress</div><div class="metric-value" id="installationActive">1</div><div class="metric-foot">Projects underway</div></article>
+                <article class="card metric-card"><div class="metric-label">Completed</div><div class="metric-value" id="installationCompleted">1</div><div class="metric-foot">Recorded projects</div></article>
+                <article class="card metric-card"><div class="metric-label">Next milestone</div><div class="metric-value" style="font-size:20px">Review</div><div class="metric-foot">Confirm scheduling</div></article>
+                <article class="card metric-card"><div class="metric-label">Pending action</div><div class="metric-value" style="font-size:20px">1 item</div><div class="metric-foot">Example project</div></article>
+            </div>
+            <div class="grid two-grid">
+                <article class="card">
+                    <div class="card-heading"><div><h2>Smart Lighting Setup</h2><p>Request NX-1042 · Living Room</p></div><span class="badge warning">In progress</span></div>
+                    <div class="progress-row"><div class="progress-label"><strong>Project completion</strong><span>35%</span></div><div class="progress-track"><div class="progress-fill" style="width:35%"></div></div></div>
+                    <div class="timeline" style="margin-top:23px">
+                        <div class="timeline-step done"><span class="timeline-dot"></span><strong>Request received</strong><p>Your smart lighting requirements have been recorded.</p><small>Completed · Example status</small></div>
+                        <div class="timeline-step done"><span class="timeline-dot"></span><strong>Initial review</strong><p>Installation requirements are ready for planning.</p><small>Completed · Example status</small></div>
+                        <div class="timeline-step current"><span class="timeline-dot"></span><strong>Scheduling & site assessment</strong><p>Next step: coordinate a suitable visit.</p><small>Awaiting confirmation</small></div>
+                        <div class="timeline-step"><span class="timeline-dot"></span><strong>Installation</strong><p>Device installation and configuration.</p></div>
+                        <div class="timeline-step"><span class="timeline-dot"></span><strong>Testing & handover</strong><p>Final checks and customer handover.</p></div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-heading"><div><h2>Installation Records</h2><p>Projects associated with your account.</p></div></div>
+                    <div class="table-wrap"><table><thead><tr><th>PROJECT</th><th>LOCATION</th><th>STATUS</th></tr></thead><tbody>
+                        <tr><td><strong>Smart Lighting</strong><span class="table-secondary">NX-1042</span></td><td>Living Room</td><td><span class="badge warning">In progress</span></td></tr>
+                        <tr><td><strong>Smart Entry</strong><span class="table-secondary">NX-1031</span></td><td>Entrance</td><td><span class="badge success">Completed</span></td></tr>
+                    </tbody></table></div>
+                    <div class="notice" style="margin-top:18px;margin-bottom:0"><i class="fa-solid fa-circle-info"></i><div>Milestones and dates shown here are illustrative. Live tracking requires a connected backend or service management system.</div></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- WARRANTIES -->
+        <section class="page" id="page-warranties">
+            <div class="page-heading"><div><div class="eyebrow">PROTECT YOUR PURCHASES</div><h1>Product Warranties</h1><p>Register products and keep serial numbers, purchase dates and warranty information together.</p></div></div>
+            <div class="content-grid">
+                <article class="card">
+                    <div class="card-heading"><div><h2>Register a product</h2><p>Enter the details shown on your product or receipt.</p></div></div>
+                    <form id="warrantyForm">
+                        <div class="form-grid">
+                            <div class="form-group full"><label for="warrantyProduct">Product name <span class="required">*</span></label><input id="warrantyProduct" required placeholder="e.g. Smart Wi-Fi Switch"></div>
+                            <div class="form-group"><label for="warrantyBrand">Brand <span class="required">*</span></label><input id="warrantyBrand" required placeholder="Product manufacturer"></div>
+                            <div class="form-group"><label for="warrantySerial">Serial number <span class="required">*</span></label><input id="warrantySerial" required placeholder="Enter serial number"></div>
+                            <div class="form-group"><label for="warrantyPurchase">Purchase date <span class="required">*</span></label><input type="date" id="warrantyPurchase" required></div>
+                            <div class="form-group"><label for="warrantyPeriod">Warranty period</label><select id="warrantyPeriod"><option value="12">1 year</option><option value="24">2 years</option><option value="36">3 years</option><option value="60">5 years</option></select></div>
+                            <div class="form-group full"><label for="warrantySeller">Purchased from</label><input id="warrantySeller" placeholder="Store or authorized dealer"></div>
+                        </div>
+                        <div class="form-actions"><button class="btn btn-primary" type="submit"><i class="fa-solid fa-shield-halved"></i> Register product</button></div>
+                    </form>
+                </article>
+                <article class="card">
+                    <div class="card-heading"><div><h2>Warranty checklist</h2><p>Keep your product documentation ready.</p></div></div>
+                    <div class="activity-list">
+                        <div class="activity"><div class="activity-icon"><i class="fa-solid fa-receipt"></i></div><div class="activity-body"><strong>Proof of purchase</strong><p>Keep the invoice or receipt for your records.</p></div></div>
+                        <div class="activity"><div class="activity-icon"><i class="fa-solid fa-barcode"></i></div><div class="activity-body"><strong>Serial number</strong><p>Use the exact number printed on the device or box.</p></div></div>
+                        <div class="activity"><div class="activity-icon"><i class="fa-solid fa-file-shield"></i></div><div class="activity-body"><strong>Warranty terms</strong><p>Confirm coverage with the product manufacturer.</p></div></div>
+                    </div>
+                    <div class="notice" style="margin-top:16px;margin-bottom:0"><i class="fa-solid fa-circle-info"></i><div>Registration here is a local record only. It does not activate manufacturer coverage or replace an official warranty claim.</div></div>
+                </article>
+            </div>
+            <article class="card" style="margin-top:18px">
+                <div class="card-heading"><div><h2>Registered Products</h2><p>Your saved warranty records.</p></div></div>
+                <div class="table-wrap"><table><thead><tr><th>PRODUCT</th><th>BRAND</th><th>SERIAL NUMBER</th><th>PURCHASE DATE</th><th>WARRANTY ENDS</th></tr></thead><tbody id="warrantyTable"></tbody></table></div>
+            </article>
+        </section>
+
+        <!-- APPOINTMENTS -->
+        <section class="page" id="page-appointments">
+            <div class="page-heading"><div><div class="eyebrow">PLAN YOUR VISIT</div><h1>Appointments</h1><p>Record a preferred service date and manage your appointment requests.</p></div></div>
+            <div class="content-grid">
+                <article class="card">
+                    <div class="card-heading"><div><h2>Request an appointment</h2><p>Choose a convenient date for your service.</p></div></div>
+                    <form id="appointmentForm">
+                        <div class="form-grid">
+                            <div class="form-group full"><label for="appointmentService">Service <span class="required">*</span></label><select id="appointmentService" required><option value="">Choose a service</option><option>Installation consultation</option><option>Device installation</option><option>Maintenance visit</option><option>Troubleshooting</option><option>System upgrade</option></select></div>
+                            <div class="form-group"><label for="appointmentDate">Preferred date <span class="required">*</span></label><input type="date" id="appointmentDate" required></div>
+                            <div class="form-group"><label for="appointmentTime">Preferred time <span class="required">*</span></label><select id="appointmentTime" required><option value="">Choose a time</option><option>09:00–11:00</option><option>11:00–13:00</option><option>14:00–16:00</option><option>16:00–18:00</option></select></div>
+                            <div class="form-group full"><label for="appointmentNotes">Additional information</label><textarea id="appointmentNotes" placeholder="Tell us what the technician should know..."></textarea></div>
+                        </div>
+                        <div class="form-actions"><button class="btn btn-primary" type="submit"><i class="fa-regular fa-calendar-check"></i> Save appointment request</button></div>
+                    </form>
+                </article>
+                <article class="card">
+                    <div class="card-heading"><div><h2>Before your visit</h2><p>Make your appointment go smoothly.</p></div></div>
+                    <div class="activity-list">
+                        <div class="activity"><div class="activity-icon"><i class="fa-solid fa-door-open"></i></div><div class="activity-body"><strong>Arrange property access</strong><p>Ensure the technician can access the relevant rooms and equipment.</p></div></div>
+                        <div class="activity"><div class="activity-icon"><i class="fa-solid fa-plug"></i></div><div class="activity-body"><strong>Prepare device details</strong><p>Keep model numbers and network details available when relevant.</p></div></div>
+                        <div class="activity"><div class="activity-icon"><i class="fa-solid fa-calendar"></i></div><div class="activity-body"><strong>Wait for confirmation</strong><p>A saved preference is not a confirmed appointment.</p></div></div>
+                    </div>
+                </article>
+            </div>
+            <article class="card" style="margin-top:18px">
+                <div class="card-heading"><div><h2>Your Appointment Requests</h2><p>Dates you have requested in this browser.</p></div></div>
+                <div class="table-wrap"><table><thead><tr><th>REFERENCE</th><th>SERVICE</th><th>DATE</th><th>TIME</th><th>STATUS</th></tr></thead><tbody id="appointmentsTable"></tbody></table></div>
+            </article>
+        </section>
+
+        <!-- SUPPORT -->
+        <section class="page" id="page-support">
+            <div class="page-heading"><div><div class="eyebrow">WE'RE HERE TO HELP</div><h1>Help & Support</h1><p>Find help for setup, installation, warranty questions and account access.</p></div></div>
+            <div class="grid three-grid" style="margin-bottom:18px">
+                <article class="card"><div class="metric-icon"><i class="fa-solid fa-house-signal"></i></div><h3 style="font-size:12px;margin:14px 0 7px">Device setup</h3><p style="font-size:10px;color:var(--muted);line-height:1.7">Get ready for a new device installation or integration.</p><button class="text-link" data-go="requests">Create setup request →</button></article>
+                <article class="card"><div class="metric-icon"><i class="fa-solid fa-route"></i></div><h3 style="font-size:12px;margin:14px 0 7px">Installation progress</h3><p style="font-size:10px;color:var(--muted);line-height:1.7">Review milestones for an existing project.</p><button class="text-link" data-go="installations">Track installation →</button></article>
+                <article class="card"><div class="metric-icon"><i class="fa-solid fa-shield-halved"></i></div><h3 style="font-size:12px;margin:14px 0 7px">Warranty assistance</h3><p style="font-size:10px;color:var(--muted);line-height:1.7">Keep purchase and product details organized.</p><button class="text-link" data-go="warranties">Manage warranties →</button></article>
+            </div>
+            <div class="content-grid">
+                <article class="card">
+                    <div class="card-heading"><div><h2>Contact the Support Team</h2><p>Record a support request in your dashboard.</p></div></div>
+                    <form id="supportForm">
+                        <div class="form-grid">
+                            <div class="form-group"><label for="supportCategory">Topic <span class="required">*</span></label><select id="supportCategory" required><option value="">Choose a topic</option><option>Device setup</option><option>Installation delay</option><option>Warranty query</option><option>Account access</option><option>Other</option></select></div>
+                            <div class="form-group"><label for="supportSubject">Subject <span class="required">*</span></label><input id="supportSubject" required placeholder="Briefly describe the issue"></div>
+                            <div class="form-group full"><label for="supportMessage">Details <span class="required">*</span></label><textarea id="supportMessage" required placeholder="Describe what happened and what help you need..."></textarea></div>
+                        </div>
+                        <div class="form-actions"><button class="btn btn-primary" type="submit"><i class="fa-regular fa-paper-plane"></i> Create support record</button></div>
+                    </form>
+                </article>
+                <article class="card">
+                    <div class="card-heading"><div><h2>Common Questions</h2><p>Quick answers to common dashboard questions.</p></div></div>
+                    <details style="padding:13px 0;border-bottom:1px solid var(--border)"><summary style="font-weight:800;cursor:pointer">How do I request installation?</summary><p style="color:var(--muted);font-size:10px;line-height:1.8">Open Setup Requests, select a service and location, and submit your preferred details.</p></details>
+                    <details style="padding:13px 0;border-bottom:1px solid var(--border)"><summary style="font-weight:800;cursor:pointer">Is my appointment confirmed?</summary><p style="color:var(--muted);font-size:10px;line-height:1.8">No. A saved appointment is a preference, not confirmation from an installation team.</p></details>
+                    <details style="padding:13px 0;border-bottom:1px solid var(--border)"><summary style="font-weight:800;cursor:pointer">How do I register a warranty?</summary><p style="color:var(--muted);font-size:10px;line-height:1.8">Open Warranties and enter the product name, brand, serial number and purchase date.</p></details>
+                    <details style="padding:13px 0"><summary style="font-weight:800;cursor:pointer">Will dark mode apply everywhere?</summary><p style="color:var(--muted);font-size:10px;line-height:1.8">This dashboard saves your theme preference in localStorage. The public pages must read the same setting to synchronize it.</p></details>
+                </article>
+            </div>
+            <article class="card" style="margin-top:18px">
+                <div class="card-heading"><div><h2>Support Records</h2><p>Support items created in this browser.</p></div></div>
+                <div class="table-wrap"><table><thead><tr><th>REFERENCE</th><th>TOPIC</th><th>SUBJECT</th><th>CREATED</th><th>STATUS</th></tr></thead><tbody id="supportTable"></tbody></table></div>
+            </article>
+        </section>
+
+        <!-- ACTIVITY -->
+        <section class="page" id="page-activity">
+            <div class="page-heading"><div><div class="eyebrow">YOUR ACCOUNT TIMELINE</div><h1>Activity History</h1><p>Review actions recorded during your current dashboard session and saved browser records.</p></div><div class="heading-actions"><button class="btn" id="refreshActivity"><i class="fa-solid fa-rotate"></i> Refresh</button></div></div>
+            <article class="card">
+                <div class="card-heading"><div><h2>Recent Activity</h2><p>Newest events appear first.</p></div></div>
+                <div class="activity-list" id="fullActivity"></div>
+            </article>
+            <div class="notice" style="margin-top:17px"><i class="fa-solid fa-circle-info"></i><div>History covers actions recorded by this prototype. It is not an audited server-side activity log.</div></div>
+        </section>
+
+        <!-- PROFILE -->
+        <section class="page" id="page-profile">
+            <div class="page-heading"><div><div class="eyebrow">YOUR PERSONAL DETAILS</div><h1>My Profile</h1><p>Manage your contact details and the name shown in your dashboard.</p></div></div>
+            <div class="content-grid">
+                <article class="card">
+                    <div class="card-heading"><div><h2>Personal Information</h2><p>Update your client profile.</p></div></div>
+                    <form id="profileForm">
+                        <div class="form-grid">
+                            <div class="form-group"><label for="profileName">Full name <span class="required">*</span></label><input id="profileName" required placeholder="Your full name"></div>
+                            <div class="form-group"><label for="profileEmail">Email address</label><input id="profileEmail" type="email" placeholder="you@example.com"></div>
+                            <div class="form-group"><label for="profilePhone">Phone number</label><input id="profilePhone" type="tel" placeholder="Your contact number"></div>
+                            <div class="form-group"><label for="profileType">Account type</label><input id="profileType" value="Client account" readonly></div>
+                            <div class="form-group full"><label for="profileAddress">Property address</label><textarea id="profileAddress" placeholder="Your smart-home installation address"></textarea></div>
+                        </div>
+                        <div class="form-actions"><button class="btn btn-primary" type="submit"><i class="fa-solid fa-check"></i> Save profile</button></div>
+                    </form>
+                </article>
+                <article class="card">
+                    <div class="card-heading"><div><h2>Account Summary</h2><p>Your NEXORA client account.</p></div></div>
+                    <div style="display:flex;align-items:center;gap:14px;padding:10px 0 20px;border-bottom:1px solid var(--border)">
+                        <div class="avatar" id="profileAvatar" style="width:58px;height:58px;font-size:18px">KS</div>
+                        <div><strong id="profileDisplayName" style="font-size:14px">Smart Home User</strong><p style="color:var(--muted);font-size:10px;margin:6px 0 0" id="profileDisplayEmail">No email added</p><span class="badge info" style="margin-top:9px">Client account</span></div>
+                    </div>
+                    <div class="activity-list" style="margin-top:10px">
+                        <div class="activity"><div class="activity-icon"><i class="fa-solid fa-lock"></i></div><div class="activity-body"><strong>Account security</strong><p>Authentication is not configured in this standalone prototype.</p></div></div>
+                        <div class="activity"><div class="activity-icon"><i class="fa-solid fa-database"></i></div><div class="activity-body"><strong>Saved preferences</strong><p>Theme, direction and demo records are stored in this browser.</p></div></div>
+                    </div>
+                    <button class="btn btn-danger" style="width:100%;margin-top:18px" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="page" id="page-settings">
+            <div class="page-heading"><div><div class="eyebrow">MAKE IT YOURS</div><h1>Preferences</h1><p>Customize dashboard appearance, layout direction and your display preferences.</p></div></div>
+            <div class="grid two-grid">
+                <article class="card">
+                    <div class="card-heading"><div><h2>Appearance</h2><p>Choose the look of your dashboard.</p></div></div>
+                    <div class="activity">
+                        <div class="activity-icon"><i class="fa-solid fa-circle-half-stroke"></i></div>
+                        <div class="activity-body"><strong>Color theme</strong><p>Switch between light and dark modes.</p></div>
+                        <button class="btn btn-small" id="settingsTheme">Dark mode</button>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                        <div class="activity-body"><strong>Layout direction</strong><p>Switch between left-to-right and right-to-left layouts.</p></div>
+                        <button class="btn btn-small" id="settingsDirection">Enable RTL</button>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-heading"><div><h2>Dashboard Preferences</h2><p>Control the information shown in this interface.</p></div></div>
+                    <form id="preferencesForm">
+                        <div class="form-group"><label for="dateFormat">Date display</label><select id="dateFormat"><option value="local">Browser local format</option><option value="iso">YYYY-MM-DD</option></select></div>
+                        <div class="form-group" style="margin-top:15px"><label for="startPage">Default dashboard page</label><select id="startPage"><option value="overview">Overview</option><option value="devices">My Devices</option><option value="requests">Setup Requests</option><option value="installations">Installations</option><option value="warranties">Warranties</option></select></div>
+                        <div class="form-actions"><button class="btn btn-primary" type="submit">Save preferences</button></div>
+                    </form>
+                </article>
+                <article class="card">
+                    <div class="card-heading"><div><h2>Data & Privacy</h2><p>Understand where your demo information lives.</p></div></div>
+                    <div class="notice"><i class="fa-solid fa-database"></i><div>Dashboard records are stored locally in this browser. They are not synchronized across devices or sent to a server.</div></div>
+                    <button class="btn btn-danger" id="clearDemoData"><i class="fa-solid fa-trash"></i> Reset demo records</button>
+                </article>
+                <article class="card">
+                    <div class="card-heading"><div><h2>Account Access</h2><p>Return to your site's login page.</p></div></div>
+                    <p style="color:var(--muted);font-size:11px;line-height:1.8">Connect this dashboard to your authentication system before using it for real customer accounts.</p>
+                    <button class="btn" data-logout><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</button>
+                </article>
+            </div>
+        </section>
+
+        <footer style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;margin-top:25px;border-top:1px solid var(--border);color:var(--muted);font-size:9px">
+            <span>© <span id="year"></span> NEXORA · SMART LIVING</span>
+            <span>Client Dashboard · Connected Living, Simplified</span>
+        </footer>
+    </div>
+</main>
+</div>
+
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+<script>
+(() => {
+"use strict";
+
+/* ==================================================
+   STORAGE AND SETTINGS
+================================================== */
+
+const $ = (selector, root = document) => root.querySelector(selector);
+const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+const KEYS = {
+    theme: "rootBloomTheme",
+    direction: "rootBloomDirection",
+    records: "nexoraDashboardRecords",
+    profile: "nexoraDashboardProfile",
+    preferences: "nexoraDashboardPreferences"
+};
+
+function readJSON(key, fallback) {
+    try {
+        const value = localStorage.getItem(key);
+        return value ? JSON.parse(value) : fallback;
+    } catch {
+        return fallback;
+    }
+}
+
+function saveJSON(key, value) {
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+        return true;
+    } catch {
+        notify("Storage unavailable", "Your browser could not save this change.", "warning");
+        return false;
+    }
+}
+
+const today = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+};
+
+function dateText(value) {
+    if (!value) return "Not specified";
+    const pref = readJSON(KEYS.preferences, {});
+    if (pref.dateFormat === "iso") return value;
+    const d = new Date(value + "T12:00:00");
+    return Number.isNaN(d.getTime()) ? value : d.toLocaleDateString(undefined, {
+        day: "numeric", month: "short", year: "numeric"
+    });
+}
+
+function safe(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+    })[char]);
+}
+
+let records = readJSON(KEYS.records, null);
+if (!records || !Array.isArray(records.requests)) {
+    records = {
+        requests: [
+            {id:"NX-1042", service:"Smart Lighting", room:"Living Room", date:today(), priority:"Standard", status:"In progress", notes:"", address:"", created:today()},
+            {id:"NX-1048", service:"Smart Security / CCTV", room:"Entrance", date:"", priority:"High", status:"Under review", notes:"", address:"", created:today()}
+        ],
+        devices: [
+            {id:"DV-201", name:"Smart Lighting", type:"Lighting", room:"Living Room", status:"Registered", icon:"fa-lightbulb"},
+            {id:"DV-202", name:"Smart Entry Lock", type:"Access control", room:"Entrance", status:"Registered", icon:"fa-lock"},
+            {id:"DV-203", name:"Smart Climate Control", type:"Climate", room:"Bedroom", status:"Registered", icon:"fa-temperature-half"}
+        ],
+        warranties: [
+            {id:"WR-301", product:"Smart Entry Lock", brand:"Example brand", serial:"DEMO-LOCK-001", purchase:today(), period:24, seller:"Example retailer"},
+            {id:"WR-302", product:"Smart Lighting Hub", brand:"Example brand", serial:"DEMO-HUB-002", purchase:today(), period:12, seller:"Example retailer"}
+        ],
+        appointments: [],
+        support: [],
+        activity: [
+            {title:"Welcome to NEXORA", detail:"Your client dashboard is ready to personalize.", date:today(), icon:"fa-house"},
+            {title:"Example device records loaded", detail:"Sample smart-home inventory is available.", date:today(), icon:"fa-house-signal"}
+        ]
+    };
+    saveJSON(KEYS.records, records);
+}
+
+let profile = readJSON(KEYS.profile, {
+    name: "Smart Home User", email: "", phone: "", address: ""
+});
+
+let preferences = readJSON(KEYS.preferences, {
+    dateFormat: "local", startPage: "overview"
+});
+
+function persist() {
+    saveJSON(KEYS.records, records);
+}
+
+function addActivity(title, detail, icon = "fa-circle-check") {
+    records.activity.unshift({title, detail, date:today(), icon});
+    records.activity = records.activity.slice(0, 100);
+    persist();
+}
+
+function initials(name) {
+    const parts = String(name || "Smart Home User").trim().split(/\s+/).filter(Boolean);
+    return parts.slice(0,2).map(part => part[0]).join("").toUpperCase() || "NX";
+}
+
+/* ==================================================
+   GLOBAL THEME AND RTL
+   Uses the SAME storage keys as your index page.
+================================================== */
+
+function applyTheme(theme, announce = false) {
+    document.body.classList.toggle("dark-theme", theme === "dark");
+    const icon = $("#themeToggle i");
+    icon.className = theme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
+    $("#themeToggle").title = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+    $("#settingsTheme").textContent = theme === "dark" ? "Light mode" : "Dark mode";
+
+    try { localStorage.setItem(KEYS.theme, theme); } catch {}
+    if (announce) addActivity("Appearance updated", `Changed dashboard to ${theme} mode.`, "fa-circle-half-stroke");
+}
+
+function applyDirection(direction, announce = false) {
+    document.documentElement.dir = direction;
+    $("#settingsDirection").textContent = direction === "rtl" ? "Enable LTR" : "Enable RTL";
+    $("#rtlToggle").title = direction === "rtl" ? "Switch to LTR" : "Switch to RTL";
+    try { localStorage.setItem(KEYS.direction, direction); } catch {}
+    if (announce) addActivity("Layout updated", `Changed dashboard direction to ${direction.toUpperCase()}.`, "fa-arrow-right-arrow-left");
+}
+
+applyTheme(localStorage.getItem(KEYS.theme) === "dark" ? "dark" : "light");
+applyDirection(localStorage.getItem(KEYS.direction) === "rtl" ? "rtl" : "ltr");
+
+$("#themeToggle").addEventListener("click", () => {
+    applyTheme(document.body.classList.contains("dark-theme") ? "light" : "dark", true);
+    renderActivity();
+});
+
+$("#rtlToggle").addEventListener("click", () => {
+    applyDirection(document.documentElement.dir === "rtl" ? "ltr" : "rtl", true);
+    renderActivity();
+});
+
+$("#settingsTheme").addEventListener("click", () => {
+    applyTheme(document.body.classList.contains("dark-theme") ? "light" : "dark", true);
+    renderActivity();
+});
+
+$("#settingsDirection").addEventListener("click", () => {
+    applyDirection(document.documentElement.dir === "rtl" ? "ltr" : "rtl", true);
+    renderActivity();
+});
+
+/* ==================================================
+   PAGE NAVIGATION
+================================================== */
+
+const pageTitles = {
+    overview:"User Dashboard",
+    devices:"My Devices",
+    requests:"Setup Requests",
+    installations:"Installation Tracking",
+    warranties:"Product Warranties",
+    appointments:"Appointments",
+    support:"Help & Support",
+    activity:"Activity History",
+    profile:"My Profile",
+    settings:"Preferences"
+};
+
+function showPage(name, updateHistory = true) {
+    if (!pageTitles[name]) name = "overview";
+
+    $$(".page").forEach(page => page.classList.toggle("active", page.id === `page-${name}`));
+    $$(".nav-link").forEach(link => {
+        const active = link.dataset.page === name;
+        link.classList.toggle("active", active);
+        if (active) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+    });
+
+    $("#topPageTitle").textContent = pageTitles[name];
+    $("#sidebar").classList.remove("mobile-open");
+    $("#mobileMenu i").className = "fa-solid fa-bars";
+    $("#notificationPanel").classList.remove("open");
+    $("#notificationToggle").setAttribute("aria-expanded", "false");
+
+    if (updateHistory) {
+        try { history.replaceState(null, "", "#" + name); } catch {}
+    }
+
+    if (name === "profile") fillProfile();
+    if (name === "settings") fillPreferences();
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+
+$$("[data-page]").forEach(button => button.addEventListener("click", () => showPage(button.dataset.page)));
+$$("[data-go]").forEach(button => button.addEventListener("click", () => showPage(button.dataset.go)));
+
+const initialPage = location.hash.replace("#", "");
+const firstPage = pageTitles[initialPage] ? initialPage :
+    (pageTitles[preferences.startPage] ? preferences.startPage : "overview");
+showPage(firstPage, false);
+
+/* ==================================================
+   MOBILE SIDEBAR
+================================================== */
+
+$("#mobileMenu").addEventListener("click", () => {
+    const opened = $("#sidebar").classList.toggle("mobile-open");
+    $("#mobileMenu i").className = opened ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+});
+
+document.addEventListener("click", event => {
+    if (window.innerWidth > 760) return;
+    if (!$("#sidebar").contains(event.target) && !$("#mobileMenu").contains(event.target)) {
+        $("#sidebar").classList.remove("mobile-open");
+        $("#mobileMenu i").className = "fa-solid fa-bars";
+    }
+});
+
+/* ==================================================
+   NOTIFICATIONS
+================================================== */
+
+$("#notificationToggle").addEventListener("click", event => {
+    event.stopPropagation();
+    const panel = $("#notificationPanel");
+    const open = panel.classList.toggle("open");
+    $("#notificationToggle").setAttribute("aria-expanded", String(open));
+});
+
+$("#notificationPanel").addEventListener("click", event => event.stopPropagation());
+
+document.addEventListener("click", event => {
+    if (!event.target.closest(".notification-wrap")) {
+        $("#notificationPanel").classList.remove("open");
+        $("#notificationToggle").setAttribute("aria-expanded", "false");
+    }
+});
+
+$("#markRead").addEventListener("click", () => {
+    $("#notificationDot").style.display = "none";
+    $("#notificationPanel").classList.remove("open");
+    $("#notificationToggle").setAttribute("aria-expanded", "false");
+    notify("Notifications updated", "Notifications marked as read.");
+});
+
+/* ==================================================
+   LOGOUT
+================================================== */
+
+$$("[data-logout]").forEach(button => button.addEventListener("click", () => {
+    if (confirm("Log out and return to the NEXORA login page?")) {
+        window.location.href = "login.html";
+    }
+}));
+
+/* ==================================================
+   TOAST MESSAGES
+================================================== */
+
+function notify(title, message, type = "success") {
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    const icon = type === "warning" ? "fa-triangle-exclamation" : "fa-circle-check";
+    toast.innerHTML = `<i class="fa-solid ${icon}"></i><div><strong>${safe(title)}</strong><p>${safe(message)}</p></div>`;
+    $("#toastContainer").appendChild(toast);
+    window.setTimeout(() => toast.remove(), 4500);
+}
+
+/* ==================================================
+   PROFILE
+================================================== */
+
+function renderProfileSummary() {
+    const name = profile.name || "Smart Home User";
+    const initialsText = initials(name);
+
+    $("#sideName").textContent = name;
+    $("#topName").textContent = name;
+    $("#welcomeName").textContent = name.split(/\s+/)[0];
+    $("#sideAvatar").textContent = initialsText;
+    $("#topAvatar").textContent = initialsText;
+    $("#profileAvatar").textContent = initialsText;
+    $("#profileDisplayName").textContent = name;
+    $("#profileDisplayEmail").textContent = profile.email || "No email added";
+}
+
+function fillProfile() {
+    $("#profileName").value = profile.name || "";
+    $("#profileEmail").value = profile.email || "";
+    $("#profilePhone").value = profile.phone || "";
+    $("#profileAddress").value = profile.address || "";
+}
+
+$("#profileForm").addEventListener("submit", event => {
+    event.preventDefault();
+    profile = {
+        name: $("#profileName").value.trim(),
+        email: $("#profileEmail").value.trim(),
+        phone: $("#profilePhone").value.trim(),
+        address: $("#profileAddress").value.trim()
+    };
+    saveJSON(KEYS.profile, profile);
+    renderProfileSummary();
+    addActivity("Profile updated", "Your personal information was updated.", "fa-user-pen");
+    notify("Profile saved", "Your dashboard profile has been updated.");
+    renderActivity();
+});
+
+/* ==================================================
+   PREFERENCES
+================================================== */
+
+function fillPreferences() {
+    $("#dateFormat").value = preferences.dateFormat || "local";
+    $("#startPage").value = preferences.startPage || "overview";
+}
+
+$("#preferencesForm").addEventListener("submit", event => {
+    event.preventDefault();
+    preferences = {
+        dateFormat: $("#dateFormat").value,
+        startPage: $("#startPage").value
+    };
+    saveJSON(KEYS.preferences, preferences);
+    addActivity("Preferences saved", "Dashboard display preferences were updated.", "fa-sliders");
+    renderAll();
+    notify("Preferences saved", "Your dashboard preferences have been updated.");
+});
+
+/* ==================================================
+   SHARED TABLE AND RENDER HELPERS
+================================================== */
+
+function statusClass(status) {
+    const s = String(status).toLowerCase();
+    if (s.includes("complete") || s.includes("registered") || s.includes("resolved")) return "success";
+    if (s.includes("progress") || s.includes("review") || s.includes("pending") || s.includes("requested")) return "warning";
+    if (s.includes("cancel") || s.includes("issue")) return "danger";
+    return "info";
+}
+
+function badge(status) {
+    return `<span class="badge ${statusClass(status)}">${safe(status)}</span>`;
+}
+
+function emptyRow(cols, message) {
+    return `<tr><td colspan="${cols}" style="text-align:center;padding:25px;color:var(--muted)">${safe(message)}</td></tr>`;
+}
+
+function renderRequests() {
+    const overview = records.requests.slice(0,4);
+    $("#overviewRequests").innerHTML = overview.length ? overview.map(r => `
+        <tr>
+            <td><strong>${safe(r.id)}</strong></td>
+            <td>${safe(r.service)}</td>
+            <td>${safe(dateText(r.created))}</td>
+            <td>${badge(r.status)}</td>
+        </tr>`).join("") : emptyRow(4, "No requests yet. Create your first setup request.");
+
+    $("#requestsTable").innerHTML = records.requests.length ? records.requests.map(r => `
+        <tr>
+            <td><strong>${safe(r.id)}</strong></td>
+            <td>${safe(r.service)}</td>
+            <td>${safe(r.room || "Not specified")}</td>
+            <td>${safe(dateText(r.created))}</td>
+            <td>${badge(r.priority || "Standard")}</td>
+            <td>${badge(r.status)}</td>
+        </tr>`).join("") : emptyRow(6, "No setup requests yet.");
+
+    const active = records.requests.filter(r => !["Completed","Cancelled"].includes(r.status)).length;
+    $("#metricRequests").textContent = active;
+    $("#requestNavCount").textContent = active;
+    $("#requestNavCount").style.display = active ? "inline-block" : "none";
+}
+
+function renderDevices() {
+    $("#metricDevices").textContent = records.devices.length;
+    $("#deviceGrid").innerHTML = records.devices.length ? records.devices.map(d => `
+        <article class="card product-card">
+            <div class="product-visual">
+                <i class="fa-solid ${safe(d.icon || "fa-house-signal")}"></i>
+                <span>${badge(d.status || "Registered")}</span>
+            </div>
+            <div class="product-info">
+                <h3>${safe(d.name)}</h3>
+                <p>${safe(d.type)} · ${safe(d.room)}</p>
+                <div class="product-meta"><span>ID: ${safe(d.id)}</span><span>${safe(d.status || "Registered")}</span></div>
+            </div>
+        </article>`).join("") : `<div class="card empty-state"><i class="fa-solid fa-house-signal"></i><strong>No devices recorded</strong><p>Submit a setup request to get started.</p></div>`;
+
+    $("#overviewDevices").innerHTML = records.devices.slice(0,4).map(d => `
+        <div class="activity">
+            <div class="activity-icon"><i class="fa-solid ${safe(d.icon || "fa-house-signal")}"></i></div>
+            <div class="activity-body"><strong>${safe(d.name)}</strong><p>${safe(d.room)} · ${safe(d.type)}</p></div>
+            ${badge(d.status || "Registered")}
+        </div>`).join("") || `<div class="empty-state">No devices added yet.</div>`;
+}
+
+function renderWarranties() {
+    $("#metricWarranties").textContent = records.warranties.length;
+    $("#warrantyTable").innerHTML = records.warranties.length ? records.warranties.map(w => {
+        const purchaseDate = new Date((w.purchase || today()) + "T12:00:00");
+        purchaseDate.setMonth(purchaseDate.getMonth() + Number(w.period || 12));
+        const endDate = `${purchaseDate.getFullYear()}-${String(purchaseDate.getMonth()+1).padStart(2,"0")}-${String(purchaseDate.getDate()).padStart(2,"0")}`;
+        return `<tr>
+            <td><strong>${safe(w.product)}</strong><span class="table-secondary">${safe(w.id)}</span></td>
+            <td>${safe(w.brand)}</td>
+            <td>${safe(w.serial)}</td>
+            <td>${safe(dateText(w.purchase))}</td>
+            <td>${safe(dateText(endDate))}</td>
+        </tr>`;
+    }).join("") : emptyRow(5, "No warranty records. Register a product above.");
+}
+
+function renderAppointments() {
+    $("#appointmentsTable").innerHTML = records.appointments.length ? records.appointments.map(a => `
+        <tr><td><strong>${safe(a.id)}</strong></td><td>${safe(a.service)}</td><td>${safe(dateText(a.date))}</td><td>${safe(a.time)}</td><td>${badge(a.status)}</td></tr>
+    `).join("") : emptyRow(5, "No appointment requests yet.");
+}
+
+function renderSupport() {
+    $("#supportTable").innerHTML = records.support.length ? records.support.map(s => `
+        <tr><td><strong>${safe(s.id)}</strong></td><td>${safe(s.category)}</td><td>${safe(s.subject)}</td><td>${safe(dateText(s.created))}</td><td>${badge(s.status)}</td></tr>
+    `).join("") : emptyRow(5, "No support records yet.");
+}
+
+function renderActivity() {
+    const items = records.activity || [];
+    const html = items.slice(0,6).map(a => `
+        <div class="activity">
+            <div class="activity-icon"><i class="fa-solid ${safe(a.icon || "fa-clock")}"></i></div>
+            <div class="activity-body"><strong>${safe(a.title)}</strong><p>${safe(a.detail)}</p></div>
+            <span class="activity-time">${safe(dateText(a.date))}</span>
+        </div>`).join("");
+
+    $("#overviewActivity").innerHTML = html || `<div class="empty-state">No activity recorded.</div>`;
+
+    $("#fullActivity").innerHTML = items.length ? items.map(a => `
+        <div class="activity">
+            <div class="activity-icon"><i class="fa-solid ${safe(a.icon || "fa-clock")}"></i></div>
+            <div class="activity-body"><strong>${safe(a.title)}</strong><p>${safe(a.detail)}</p></div>
+            <span class="activity-time">${safe(dateText(a.date))}</span>
+        </div>`).join("") : `<div class="empty-state">No activity recorded.</div>`;
+}
+
+function renderMetrics() {
+    const active = records.requests.filter(r => !["Completed","Cancelled"].includes(r.status)).length;
+    const activeInstallations = records.requests.filter(r => r.status === "In progress").length;
+    const completed = records.requests.filter(r => r.status === "Completed").length;
+
+    $("#metricRequests").textContent = active;
+    $("#metricInstallations").textContent = activeInstallations;
+    $("#installationActive").textContent = activeInstallations;
+    $("#installationCompleted").textContent = completed;
+    $("#metricDevices").textContent = records.devices.length;
+    $("#metricWarranties").textContent = records.warranties.length;
+
+    const percent = activeInstallations ? 35 : (completed ? 100 : 0);
+    $("#overviewProgressLabel").textContent = percent + "%";
+    $("#overviewProgressBar").style.width = percent + "%";
+}
+
+function renderAll() {
+    renderProfileSummary();
+    renderRequests();
+    renderDevices();
+    renderWarranties();
+    renderAppointments();
+    renderSupport();
+    renderMetrics();
+    renderActivity();
+    $("#year").textContent = new Date().getFullYear();
+}
+
+/* ==================================================
+   SETUP REQUEST FORM
+================================================== */
+
+$("#requestDate").min = today();
+$("#appointmentDate").min = today();
+$("#warrantyPurchase").max = today();
+
+$("#requestForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const request = {
+        id: "NX-" + (1050 + records.requests.length + records.appointments.length + records.support.length),
+        service: $("#requestService").value,
+        room: $("#requestRoom").value,
+        date: $("#requestDate").value,
+        priority: $("#requestPriority").value,
+        address: $("#requestAddress").value.trim(),
+        notes: $("#requestNotes").value.trim(),
+        status: "Under review",
+        created: today()
+    };
+
+    records.requests.unshift(request);
+    addActivity("Setup request created", `${request.service} request for ${request.room}. Reference ${request.id}.`, "fa-file-circle-plus");
+    $("#requestForm").reset();
+    persist();
+    renderAll();
+    notify("Request recorded", `${request.id} has been added to this browser's dashboard records.`);
+});
+
+/* ==================================================
+   WARRANTY REGISTRATION
+================================================== */
+
+$("#warrantyForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const serial = $("#warrantySerial").value.trim();
+    if (records.warranties.some(w => w.serial.toLowerCase() === serial.toLowerCase())) {
+        notify("Serial number already exists", "Use a unique serial number for each product.", "warning");
+        return;
+    }
+
+    const item = {
+        id: "WR-" + (310 + records.warranties.length),
+        product: $("#warrantyProduct").value.trim(),
+        brand: $("#warrantyBrand").value.trim(),
+        serial,
+        purchase: $("#warrantyPurchase").value,
+        period: Number($("#warrantyPeriod").value),
+        seller: $("#warrantySeller").value.trim()
+    };
+
+    records.warranties.unshift(item);
+    addActivity("Product warranty record created", `${item.product} was added to your local warranty list.`, "fa-shield-halved");
+    $("#warrantyForm").reset();
+    persist();
+    renderAll();
+    notify("Product registered", "The warranty details were saved locally. Manufacturer coverage is not activated by this demo.");
+});
+
+/* ==================================================
+   APPOINTMENT REQUESTS
+================================================== */
+
+$("#appointmentForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const date = $("#appointmentDate").value;
+    if (date < today()) {
+        notify("Choose a future date", "The preferred appointment date cannot be in the past.", "warning");
+        return;
+    }
+
+    const appointment = {
+        id: "AP-" + (401 + records.appointments.length),
+        service: $("#appointmentService").value,
+        date,
+        time: $("#appointmentTime").value,
+        notes: $("#appointmentNotes").value.trim(),
+        status: "Awaiting confirmation",
+        created: today()
+    };
+
+    records.appointments.unshift(appointment);
+    addActivity("Appointment preference saved", `${appointment.service} requested for ${dateText(date)}. Awaiting confirmation.`, "fa-calendar-check");
+    $("#appointmentForm").reset();
+    persist();
+    renderAll();
+    notify("Appointment request saved", "Your preferred time is recorded but has not been confirmed by a service team.");
+});
+
+/* ==================================================
+   SUPPORT RECORDS
+================================================== */
+
+$("#supportForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const item = {
+        id: "SP-" + (501 + records.support.length),
+        category: $("#supportCategory").value,
+        subject: $("#supportSubject").value.trim(),
+        message: $("#supportMessage").value.trim(),
+        status: "Recorded locally",
+        created: today()
+    };
+
+    records.support.unshift(item);
+    addActivity("Support record created", `${item.category}: ${item.subject}`, "fa-circle-question");
+    $("#supportForm").reset();
+    persist();
+    renderAll();
+    notify("Support record saved", "Your record is in this browser only; it has not been sent to a support agent.");
+});
+
+/* ==================================================
+   REFRESH AND RESET
+================================================== */
+
+$("#refreshActivity").addEventListener("click", () => {
+    renderActivity();
+    notify("Activity refreshed", "The latest locally recorded activity is displayed.");
+});
+
+$("#clearDemoData").addEventListener("click", () => {
+    if (!confirm("Reset all dashboard demo records, including requests, devices, warranties, appointments, support and activity? Your profile and theme settings will be retained.")) return;
+
+    records = {
+        requests: [],
+        devices: [],
+        warranties: [],
+        appointments: [],
+        support: [],
+        activity: []
+    };
+
+    persist();
+    renderAll();
+    notify("Demo records reset", "Your dashboard record lists have been cleared.");
+});
+
+/* ==================================================
+   INITIAL RENDER
+================================================== */
+
+renderAll();
+fillProfile();
+fillPreferences();
+
+})();
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+});
+</script>
+</body>
+</html>

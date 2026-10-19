@@ -1,0 +1,1117 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<title>NEXORA | Smart Login</title>
+<link rel="icon" type="image/png" href="images/sm1.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Apply saved preferences before rendering -->
+
+<script>
+(function () {
+    try {
+        const theme = localStorage.getItem("rootBloomTheme") || "light";
+        const direction = localStorage.getItem("rootBloomDirection") || "ltr";
+
+        document.documentElement.dir =
+            direction === "rtl" ? "rtl" : "ltr";
+
+        document.documentElement.dataset.direction =
+            document.documentElement.dir;
+
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark-theme");
+        }
+    } catch (e) {}
+})();
+</script>
+
+
+<style>
+/* =========================================================
+   NEXORA LOGIN — SAME DIMENSIONS AND LAYOUT
+========================================================= */
+
+:root {
+    --primary:#172554;
+    --secondary:#818CF8;
+    --bg:#F8F8FC;
+    --surface:#FFFFFF;
+    --surface-2:#F1F1F8;
+    --text:#17172A;
+    --muted:#707083;
+    --border:rgba(23,23,42,.09);
+    --heading:"Playfair Display",serif;
+    --body:"DM Sans",sans-serif;
+    --shadow:0 25px 70px rgba(23,23,42,.10);
+}
+
+html.dark-theme,
+body.dark-theme {
+    --bg:#080B16;
+    --surface:#11172A;
+    --surface-2:#191F35;
+    --text:#F5F5FA;
+    --muted:#A8B0C7;
+    --border:rgba(255,255,255,.09);
+    --shadow:0 25px 70px rgba(0,0,0,.38);
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body {
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body {
+    font-family:var(--body);
+    color:var(--text);
+    background:
+        radial-gradient(circle at 5% 5%,rgba(129,140,248,.14),transparent 27%),
+        radial-gradient(circle at 95% 95%,rgba(23,37,84,.10),transparent 28%),
+        var(--bg);
+    transition:background .3s ease,color .3s ease;
+}
+
+button,
+input {
+    font:inherit;
+}
+
+button {
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* AUTH PAGE */
+
+.nx-auth-page {
+    width:100%;
+    height:100dvh;
+    min-height:500px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px;
+    position:relative;
+    overflow:hidden;
+}
+
+.nx-auth-page::before {
+    content:"";
+    position:absolute;
+    width:430px;
+    height:430px;
+    border:1px solid rgba(129,140,248,.13);
+    border-radius:50%;
+    top:-270px;
+    left:-180px;
+}
+
+.nx-auth-page::after {
+    content:"";
+    position:absolute;
+    width:380px;
+    height:380px;
+    border:1px solid rgba(23,37,84,.12);
+    border-radius:50%;
+    right:-220px;
+    bottom:-240px;
+}
+
+html[dir="rtl"] .nx-auth-page::before {
+    left:auto;
+    right:-180px;
+}
+
+html[dir="rtl"] .nx-auth-page::after {
+    right:auto;
+    left:-220px;
+}
+
+/* TOP CONTROLS */
+
+.nx-auth-controls {
+    position:fixed;
+    top:15px;
+    right:17px;
+    display:flex;
+    gap:7px;
+    z-index:20;
+}
+
+html[dir="rtl"] .nx-auth-controls {
+    right:auto;
+    left:17px;
+}
+
+.nx-auth-control {
+    width:36px;
+    height:36px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    background:var(--surface);
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 7px 20px rgba(20,22,50,.06);
+    transition:transform .2s ease,color .2s ease,
+        border-color .2s ease,background .2s ease;
+}
+
+.nx-auth-control:hover {
+    color:var(--secondary);
+    border-color:rgba(129,140,248,.45);
+    transform:translateY(-2px);
+}
+
+.nx-auth-control:active {
+    transform:translateY(0);
+}
+
+.nx-auth-control svg {
+    width:16px;
+    height:16px;
+}
+
+/* LOGIN CARD */
+
+.nx-auth-card {
+    width:min(100%,430px);
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    padding:25px 31px 21px;
+    position:relative;
+    z-index:2;
+    transition:background .3s ease,border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.nx-auth-card::before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:70px;
+    height:3px;
+    border-radius:0 0 10px 10px;
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+}
+
+/* BRAND */
+
+.nx-auth-brand {
+    display:flex;
+    justify-content:center;
+    margin-bottom:15px;
+}
+
+.nx-brand {
+    display:flex;
+    align-items:center;
+    gap:3px;
+    text-decoration:none;
+    flex-shrink:0;
+}
+
+.nx-logo-image {
+    width:43px;
+    height:43px;
+    object-fit:contain;
+    background:transparent;
+}
+
+.nx-brand-text {
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+}
+
+.nx-brand-name {
+    font-size:25px;
+    font-weight:600;
+    letter-spacing:-.8px;
+    white-space:nowrap;
+}
+
+.nx-brand-primary {
+    color:var(--primary);
+}
+
+.nx-brand-secondary {
+    color:var(--secondary);
+}
+
+.nx-brand-tagline {
+    margin-top:5px;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:1.55px;
+    color:var(--muted);
+    white-space:nowrap;
+}
+
+/* HEADING */
+
+.nx-auth-heading {
+    text-align:center;
+    margin-bottom:17px;
+}
+
+.nx-auth-eyebrow {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:9px;
+    font-weight:600;
+    letter-spacing:1.6px;
+    color:var(--secondary);
+    margin-bottom:5px;
+}
+
+.nx-auth-eyebrow::before,
+.nx-auth-eyebrow::after {
+    content:"";
+    width:14px;
+    height:1px;
+    background:var(--secondary);
+}
+
+.nx-auth-heading h1 {
+    font-family:var(--heading);
+    font-size:27px;
+    line-height:1.1;
+    letter-spacing:-.5px;
+    margin-bottom:5px;
+}
+
+.nx-auth-heading p {
+    font-size:12px;
+    line-height:1.5;
+    color:var(--muted);
+}
+
+/* FORM */
+
+.nx-auth-form {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.nx-field {
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.nx-field label {
+    font-size:12px;
+    font-weight:600;
+    color:var(--text);
+}
+
+/* INPUTS */
+
+.nx-input-wrap {
+    position:relative;
+}
+
+.nx-input {
+    width:100%;
+    height:41px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--surface-2);
+    color:var(--text);
+    outline:none;
+    padding:0 12px;
+    font-size:12px;
+    transition:background .2s ease,border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.nx-input::placeholder {
+    color:var(--muted);
+    opacity:.72;
+}
+
+.nx-input:focus {
+    background:var(--surface);
+    border-color:var(--secondary);
+    box-shadow:0 0 0 3px rgba(129,140,248,.12);
+}
+
+.nx-password-input {
+    padding-right:40px;
+}
+
+html[dir="rtl"] .nx-password-input {
+    padding-right:12px;
+    padding-left:40px;
+}
+
+/* PASSWORD VISIBILITY */
+
+.nx-password-toggle {
+    position:absolute;
+    right:9px;
+    top:50%;
+    transform:translateY(-50%);
+    width:25px;
+    height:25px;
+    border:0;
+    background:transparent;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+html[dir="rtl"] .nx-password-toggle {
+    right:auto;
+    left:9px;
+}
+
+.nx-password-toggle:hover {
+    color:var(--secondary);
+}
+
+.nx-password-toggle svg {
+    width:14px;
+    height:14px;
+}
+
+/* REMEMBER / FORGOT */
+
+.nx-form-row {
+    min-height:19px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.nx-remember {
+    display:flex;
+    align-items:center;
+    gap:5px;
+    color:var(--muted);
+    font-size:10px;
+    cursor:pointer;
+}
+
+.nx-remember input {
+    width:12px;
+    height:12px;
+    accent-color:var(--secondary);
+    cursor:pointer;
+}
+
+.nx-forgot {
+    color:var(--secondary);
+    font-size:10px;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.nx-forgot:hover {
+    text-decoration:underline;
+}
+
+/* SIGN IN BUTTON */
+
+.nx-auth-btn {
+    width:100%;
+    height:42px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(110deg,#172554,#5967C9);
+    color:#fff;
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 9px 20px rgba(23,37,84,.20);
+    transition:transform .2s ease,box-shadow .2s ease;
+}
+
+.nx-auth-btn:hover {
+    transform:translateY(-1px);
+    box-shadow:0 12px 23px rgba(23,37,84,.27);
+}
+
+.nx-auth-btn:active {
+    transform:translateY(0);
+}
+
+/* DIVIDER */
+
+.nx-divider {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:13px 0 10px;
+}
+
+.nx-divider span {
+    flex:1;
+    height:1px;
+    background:var(--border);
+}
+
+.nx-divider p {
+    font-size:9px;
+    color:var(--muted);
+    letter-spacing:.6px;
+    white-space:nowrap;
+}
+
+/* SOCIAL LOGIN */
+
+.nx-social-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+}
+
+.nx-social-btn {
+    width:100%;
+    height:38px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--surface);
+    color:var(--text);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    font-size:9px;
+    font-weight:600;
+    cursor:pointer;
+    transition:background .2s ease,border-color .2s ease,
+        transform .2s ease;
+}
+
+.nx-social-btn:hover {
+    background:var(--surface-2);
+    border-color:rgba(129,140,248,.4);
+    transform:translateY(-1px);
+}
+
+.nx-social-btn svg {
+    width:15px;
+    height:15px;
+}
+
+.nx-apple-logo {
+    width:15px;
+    height:17px;
+    display:block;
+}
+
+/* FOOTER */
+
+.nx-auth-footer {
+    border-top:1px solid var(--border);
+    margin-top:13px;
+    padding-top:12px;
+    text-align:center;
+    font-size:10px;
+    color:var(--muted);
+}
+
+.nx-auth-footer a {
+    color:var(--secondary);
+    font-weight:600;
+    font-size:10px;
+    text-decoration:none;
+}
+
+.nx-auth-footer a:hover {
+    text-decoration:underline;
+}
+
+/* SMALL MOBILE — ORIGINAL BREAKPOINT */
+
+@media(max-width:380px) {
+    .nx-auth-page {
+        padding:10px;
+        min-height:500px;
+    }
+
+    .nx-auth-controls {
+        top:8px;
+        right:9px;
+    }
+
+    html[dir="rtl"] .nx-auth-controls {
+        right:auto;
+        left:9px;
+    }
+
+    .nx-auth-control {
+        width:33px;
+        height:33px;
+        border-radius:9px;
+    }
+
+    .nx-auth-card {
+        width:100%;
+        max-width:340px;
+        padding:19px 16px 15px;
+        border-radius:19px;
+    }
+
+    .nx-auth-brand {
+        margin-bottom:11px;
+    }
+
+    .nx-logo-image {
+        width:37px;
+        height:37px;
+    }
+
+    .nx-brand-name {
+        font-size:22px;
+    }
+
+    .nx-brand-tagline {
+        font-size:7px;
+        letter-spacing:1.3px;
+    }
+
+    .nx-auth-heading {
+        margin-bottom:13px;
+    }
+
+    .nx-auth-heading h1 {
+        font-size:23px;
+    }
+
+    .nx-auth-heading p {
+        font-size:8px;
+    }
+
+    .nx-auth-form {
+        gap:8px;
+    }
+
+    .nx-field {
+        gap:4px;
+    }
+
+    .nx-field label {
+        font-size:8px;
+    }
+
+    .nx-input {
+        height:38px;
+        border-radius:9px;
+        font-size:9px;
+    }
+
+    .nx-auth-btn {
+        height:39px;
+        border-radius:9px;
+        font-size:9px;
+    }
+
+    .nx-divider {
+        margin:10px 0 8px;
+    }
+
+    .nx-social-btn {
+        height:35px;
+        border-radius:9px;
+        font-size:8px;
+    }
+
+    .nx-auth-footer {
+        margin-top:10px;
+        padding-top:9px;
+        font-size:7px;
+    }
+}
+
+/* SHORT SCREENS */
+
+@media(max-height:620px) {
+    .nx-auth-page {
+        padding:6px;
+    }
+
+    .nx-auth-card {
+        padding-top:15px;
+        padding-bottom:12px;
+    }
+
+    .nx-auth-brand {
+        margin-bottom:8px;
+    }
+
+    .nx-auth-heading {
+        margin-bottom:9px;
+    }
+
+    .nx-auth-form {
+        gap:6px;
+    }
+
+    .nx-divider {
+        margin:8px 0 6px;
+    }
+
+    .nx-auth-footer {
+        margin-top:7px;
+        padding-top:7px;
+    }
+}
+
+/* RTL FORM */
+
+html[dir="rtl"] .nx-auth-heading {
+    text-align:center;
+}
+
+html[dir="rtl"] .nx-field label {
+    text-align:right;
+}
+
+html[dir="rtl"] .nx-form-row {
+    flex-direction:row;
+}
+</style>
+</head>
+
+<body>
+
+<main class="nx-auth-page">
+
+    <!-- CONTROLS: SAME IDS AS THE WEBSITE HEADER -->
+    <div class="nx-auth-controls">
+
+        <button type="button"
+                class="nx-auth-control"
+                id="rtlToggle"
+                aria-label="Toggle RTL"
+                title="RTL / LTR">
+            <i data-lucide="arrow-left-right"></i>
+        </button>
+
+        <button type="button"
+                class="nx-auth-control"
+                id="themeToggle"
+                aria-label="Toggle dark mode"
+                title="Dark / Light">
+            <i data-lucide="moon"></i>
+        </button>
+
+    </div>
+
+    <!-- LOGIN CARD -->
+    <section class="nx-auth-card">
+
+        <!-- BRAND -->
+        <div class="nx-auth-brand">
+            <a href="index.html" class="nx-brand">
+
+                <img src="images/sm1.png"
+                     alt="NEXORA Smart Home Logo"
+                     class="nx-logo-image">
+
+                <span class="nx-brand-text">
+                    <span class="nx-brand-name">
+                        <span class="nx-brand-primary">NEX</span><span class="nx-brand-secondary">ORA</span>
+                    </span>
+
+                    <span class="nx-brand-tagline">
+                        SMART LIVING
+                    </span>
+                </span>
+
+            </a>
+        </div>
+
+        <!-- HEADING -->
+        <div class="nx-auth-heading">
+
+            <div class="nx-auth-eyebrow">YOUR SMART HOME</div>
+
+            <h1>Welcome Back</h1>
+
+            <p>
+                Sign in to manage your smart devices,
+                automation and connected home.
+            </p>
+
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form class="nx-auth-form" id="loginForm">
+
+            <div class="nx-field">
+                <label for="loginEmail">Email Address</label>
+
+                <input class="nx-input"
+                       id="loginEmail"
+                       name="email"
+                       type="email"
+                       placeholder="Enter your email"
+                       autocomplete="email"
+                       required>
+            </div>
+
+            <div class="nx-field">
+                <label for="loginPassword">Password</label>
+
+                <div class="nx-input-wrap">
+
+                    <input class="nx-input nx-password-input"
+                           id="loginPassword"
+                           name="password"
+                           type="password"
+                           placeholder="Enter your password"
+                           autocomplete="current-password"
+                           required>
+
+                    <button type="button"
+                            class="nx-password-toggle"
+                            data-password="loginPassword"
+                            aria-label="Show password">
+                        <i data-lucide="eye"></i>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="nx-form-row">
+
+                <label class="nx-remember">
+                    <input type="checkbox" id="rememberMe">
+                    <span>Remember Me</span>
+                </label>
+
+                <a href="forgot-password.html" class="nx-forgot">
+                    Forgot Password?
+                </a>
+
+            </div>
+
+            <button type="submit" class="nx-auth-btn">
+                Smart Login
+            </button>
+
+        </form>
+
+        <!-- DIVIDER -->
+        <div class="nx-divider">
+            <span></span>
+            <p>OR CONTINUE WITH</p>
+            <span></span>
+        </div>
+
+        <!-- SOCIAL LOGIN -->
+        <div class="nx-social-grid">
+
+            <button type="button"
+                    class="nx-social-btn"
+                    id="googleLogin">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="#4285F4" d="M21.35 12.27c0-.79-.07-1.55-.22-2.27H12v4.3h5.24a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.7 2.91-4.2 2.91-7.42z"/>
+                    <path fill="#34A853" d="M12 21.5c2.63 0 4.84-.87 6.45-2.36l-3.14-2.45c-.87.58-1.98.92-3.31.92-2.54 0-4.7-1.72-5.47-4.03H3.29v2.53A9.74 9.74 0 0 0 12 21.5z"/>
+                    <path fill="#FBBC05" d="M6.53 13.58A5.86 5.86 0 0 1 6.22 12c0-.55.1-1.08.31-1.58V7.89H3.29A9.5 9.5 0 0 0 2.25 12c0 1.48.35 2.88 1.04 4.11l3.24-2.53z"/>
+                    <path fill="#EA4335" d="M12 6.39c1.43 0 2.72.49 3.73 1.46l2.8-2.8C16.83 3.48 14.62 2.5 12 2.5a9.74 9.74 0 0 0-8.71 5.39l3.24 2.53C7.3 8.11 9.46 6.39 12 6.39z"/>
+                </svg>
+
+                Google
+            </button>
+
+            <button type="button"
+                    class="nx-social-btn"
+                    id="appleLogin">
+
+                <svg class="nx-apple-logo"
+                     viewBox="0 0 24 24"
+                     aria-hidden="true">
+                    <path fill="currentColor" d="M17.05 12.67c-.02-2.14 1.75-3.17 1.83-3.22a3.94 3.94 0 0 0-3.1-1.68c-1.3-.14-2.54.77-3.2.77-.67 0-1.7-.75-2.8-.73a4.13 4.13 0 0 0-3.47 2.12c-1.5 2.6-.38 6.44 1.06 8.55.71 1.03 1.55 2.18 2.66 2.14 1.07-.04 1.48-.69 2.78-.69 1.29 0 1.66.69 2.79.67 1.16-.02 1.9-1.05 2.61-2.09a8.5 8.5 0 0 0 1.19-2.42 3.75 3.75 0 0 1-2.35-3.42zM14.95 6.4a3.73 3.73 0 0 0 .85-2.7 3.84 3.84 0 0 0-2.46 1.27 3.57 3.57 0 0 0-.88 2.6 3.18 3.18 0 0 0 2.49-1.17z"/>
+                </svg>
+
+                Apple
+            </button>
+
+        </div>
+
+        <!-- SIGN UP -->
+        <div class="nx-auth-footer">
+            Don't have an account?
+            <a href="signup.html">Create Account</a>
+        </div>
+
+    </section>
+</main>
+
+
+<script>
+(function () {
+    "use strict";
+
+    /* =========================================================
+       LUCIDE ICONS
+    ========================================================= */
+
+    function refreshIcons() {
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+    }
+
+    /* =========================================================
+       SHARED SETTINGS — MATCH THE WEBSITE HEADER
+    ========================================================= */
+
+    const THEME_KEY = "rootBloomTheme";
+    const DIRECTION_KEY = "rootBloomDirection";
+
+    const themeToggle = document.getElementById("themeToggle");
+    const rtlToggle = document.getElementById("rtlToggle");
+    const loginForm = document.getElementById("loginForm");
+
+    /* =========================================================
+       DARK / LIGHT THEME
+    ========================================================= */
+
+    function applyTheme(theme, save = true) {
+        theme = theme === "dark" ? "dark" : "light";
+
+        document.documentElement.classList.toggle(
+            "dark-theme",
+            theme === "dark"
+        );
+
+        document.body.classList.toggle(
+            "dark-theme",
+            theme === "dark"
+        );
+
+        if (save) {
+            try {
+                localStorage.setItem(THEME_KEY, theme);
+            } catch (e) {}
+        }
+
+        if (themeToggle) {
+            themeToggle.innerHTML = theme === "dark"
+                ? '<i data-lucide="sun"></i>'
+                : '<i data-lucide="moon"></i>';
+
+            themeToggle.setAttribute(
+                "aria-label",
+                theme === "dark"
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"
+            );
+
+            themeToggle.title =
+                theme === "dark" ? "Light Mode" : "Dark Mode";
+        }
+
+        refreshIcons();
+    }
+
+    /* =========================================================
+       RTL / LTR DIRECTION
+    ========================================================= */
+
+    function applyDirection(direction, save = true) {
+        direction = direction === "rtl" ? "rtl" : "ltr";
+
+        document.documentElement.dir = direction;
+        document.documentElement.dataset.direction = direction;
+
+        if (save) {
+            try {
+                localStorage.setItem(DIRECTION_KEY, direction);
+            } catch (e) {}
+        }
+
+        if (rtlToggle) {
+            rtlToggle.setAttribute(
+                "aria-label",
+                direction === "rtl" ? "Switch to LTR" : "Switch to RTL"
+            );
+
+            rtlToggle.title =
+                direction === "rtl" ? "LTR" : "RTL";
+        }
+    }
+
+    /* =========================================================
+       LOAD SETTINGS SAVED BY THE HEADER
+    ========================================================= */
+
+    function loadPreferences() {
+        let theme = "light";
+        let direction = "ltr";
+
+        try {
+            theme = localStorage.getItem(THEME_KEY) || "light";
+            direction = localStorage.getItem(DIRECTION_KEY) || "ltr";
+        } catch (e) {}
+
+        applyTheme(theme, false);
+        applyDirection(direction, false);
+    }
+
+    loadPreferences();
+
+    /* =========================================================
+       THEME TOGGLE
+    ========================================================= */
+
+    if (themeToggle) {
+        themeToggle.addEventListener("click", function () {
+            const isDark =
+                document.documentElement.classList.contains("dark-theme");
+
+            applyTheme(isDark ? "light" : "dark");
+        });
+    }
+
+    /* =========================================================
+       RTL / LTR TOGGLE
+    ========================================================= */
+
+    if (rtlToggle) {
+        rtlToggle.addEventListener("click", function () {
+            const isRTL = document.documentElement.dir === "rtl";
+
+            applyDirection(isRTL ? "ltr" : "rtl");
+        });
+    }
+
+    /* =========================================================
+       PASSWORD SHOW / HIDE
+    ========================================================= */
+
+    document.querySelectorAll(".nx-password-toggle").forEach(function (button) {
+        button.addEventListener("click", function () {
+            const input = document.getElementById(button.dataset.password);
+
+            if (!input) return;
+
+            const show = input.type === "password";
+            input.type = show ? "text" : "password";
+
+            button.innerHTML = show
+                ? '<i data-lucide="eye-off"></i>'
+                : '<i data-lucide="eye"></i>';
+
+            button.setAttribute(
+                "aria-label",
+                show ? "Hide password" : "Show password"
+            );
+
+            refreshIcons();
+        });
+    });
+
+    /* =========================================================
+       LOGIN FORM
+       Connect your authentication service here.
+    ========================================================= */
+
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (!loginForm.reportValidity()) return;
+
+            alert("Connect your NEXORA authentication service to enable login.");
+        });
+    }
+
+    /* =========================================================
+       GOOGLE SIGN-IN PLACEHOLDER
+    ========================================================= */
+
+    const googleLogin = document.getElementById("googleLogin");
+
+    if (googleLogin) {
+        googleLogin.addEventListener("click", function () {
+            alert("Connect Google OAuth to enable Google sign-in.");
+        });
+    }
+
+    /* =========================================================
+       APPLE SIGN-IN PLACEHOLDER
+    ========================================================= */
+
+    const appleLogin = document.getElementById("appleLogin");
+
+    if (appleLogin) {
+        appleLogin.addEventListener("click", function () {
+            alert("Connect Sign in with Apple to enable Apple sign-in.");
+        });
+    }
+
+    /* =========================================================
+       SYNC PREFERENCES ACROSS OPEN TABS
+    ========================================================= */
+
+    window.addEventListener("storage", function (event) {
+        if (event.key === THEME_KEY || event.key === null) {
+            let theme = "light";
+
+            try {
+                theme = localStorage.getItem(THEME_KEY) || "light";
+            } catch (e) {}
+
+            applyTheme(theme, false);
+        }
+
+        if (event.key === DIRECTION_KEY || event.key === null) {
+            let direction = "ltr";
+
+            try {
+                direction =
+                    localStorage.getItem(DIRECTION_KEY) || "ltr";
+            } catch (e) {}
+
+            applyDirection(direction, false);
+        }
+    });
+
+    /* =========================================================
+       FINAL ICON INITIALIZATION
+    ========================================================= */
+
+    refreshIcons();
+
+})();
+</script>
+
+</body>
+</html>

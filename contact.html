@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nexora| Home Automation &amp; Smart Home Installer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="header.css">
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="rb-header" id="rbHeader">
+
+    <div class="rb-header-inner">
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="rb-brand">
+
+            <img
+                src="images/sm1.png"
+                alt="NexoraSmart Home Logo"
+                class="rb-logo"
+            >
+
+            <span class="rb-brand-text">
+
+                <span class="rb-brand-name">
+                    <span class="rb-brand-primary">NEX</span>
+                    <span class="rb-brand-secondary">ORA</span>
+                </span>
+
+                <span class="rb-brand-tagline">
+                    SMART LIVING 
+                </span>
+
+            </span>
+
+        </a>
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav class="rb-main-nav">
+
+            <!-- HOME -->
+
+            <div class="rb-home-dropdown">
+
+                <a href="index.html" class="rb-nav-link">
+                    Home
+                    <i data-lucide="chevron-down"></i>
+                </a>
+
+                <div class="rb-dropdown">
+
+                    <div class="rb-dropdown-heading">
+                        Discover NEXORA
+                    </div>
+
+                    <a href="index.html" class="rb-dropdown-link">
+                        <strong>Home 1</strong>
+                    </a>
+
+                    <a href="home-2.html" class="rb-dropdown-link">
+                        <strong>Home 2</strong>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- ABOUT -->
+
+            <a href="about.html" class="rb-nav-link">
+                About Us
+            </a>
+
+            <!-- SOLUTIONS -->
+
+            <a href="solutions.html" class="rb-nav-link">
+                Solutions
+            </a>
+
+            <!-- PRICING -->
+
+            <a href="pricing.html" class="rb-nav-link">
+                Pricing
+            </a>
+
+            <!-- CONTACT -->
+
+            <a href="contact.html" class="rb-nav-link">
+                Contact
+            </a>
+
+            <!-- DASHBOARD -->
+
+            <a href="dashboard.html" class="rb-nav-link">
+                Dashboard
+            </a>
+
+        </nav>
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="rb-header-actions">
+
+            <!-- DARK / LIGHT -->
+
+            <button
+                class="rb-control-btn"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle dark mode"
+                title="Dark / Light">
+
+                <i data-lucide="moon"></i>
+
+            </button>
+
+            <!-- RTL -->
+
+            <button
+                class="rb-control-btn"
+                id="rtlToggle"
+                type="button"
+                aria-label="Toggle RTL"
+                title="RTL / LTR">
+
+                <i data-lucide="arrow-left-right"></i>
+
+            </button>
+
+            <!-- SMART LOGIN -->
+
+            <a href="login.html" class="rb-reservation-btn">
+
+                <span>Smart Login</span>
+
+                <i data-lucide="arrow-up-right"></i>
+
+            </a>
+
+            <!-- MOBILE MENU -->
+
+            <button
+                class="rb-menu-btn"
+                id="menuToggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false">
+
+                <i data-lucide="menu"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+
+    <div class="rb-mobile-menu" id="mobileMenu">
+
+        <!-- HOME -->
+
+        <div class="rb-mobile-home">
+
+            <button
+                class="rb-mobile-home-head"
+                id="mobileHomeToggle"
+                type="button">
+
+                <span>Home</span>
+
+                <i data-lucide="chevron-down"></i>
+
+            </button>
+
+            <div class="rb-mobile-submenu" id="mobileHomeSubmenu">
+
+                <a href="index.html" class="rb-mobile-sub-link">
+                    Home 1
+                </a>
+
+                <a href="home-2.html" class="rb-mobile-sub-link">
+                    Home 2
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- SOLUTIONS -->
+
+        <a href="solutions.html" class="rb-mobile-link">
+            Solutions
+        </a>
+
+        <!-- ABOUT -->
+
+        <a href="about.html" class="rb-mobile-link">
+            About Us
+        </a>
+
+        <!-- PRICING -->
+
+        <a href="pricing.html" class="rb-mobile-link">
+            Pricing
+        </a>
+
+        <!-- CONTACT -->
+
+        <a href="contact.html" class="rb-mobile-link">
+            Contact
+        </a>
+
+        <!-- DASHBOARD -->
+
+        <a href="dashboard.html" class="rb-mobile-link">
+            Dashboard
+        </a>
+
+        <!-- SMART LOGIN -->
+
+        <a href="login.html" class="rb-mobile-reservation">
+
+            Open Smart Dashboard
+
+            <i data-lucide="arrow-up-right"></i>
+
+        </a>
+
+    </div>
+
+</header>
+
+<section class="sh-hero" id="home">
+    <div class="sh-hero-container">
+
+        <div class="sh-hero-copy">
+            <div class="sh-hero-eyebrow">
+                <span class="sh-hero-dot"></span>
+                SMART LIVING, BEAUTIFULLY CONNECTED
+            </div>
+
+            <h1>
+                A better way<br>
+                to live 
+            </h1>
+
+            <p class="sh-hero-description">
+                Thoughtfully integrated lighting, climate, security and
+                entertainment. Experience a home that responds to you,
+                simplifies your routines and feels effortlessly yours.
+            </p>
+
+            <div class="sh-hero-actions">
+                <a href="#contact" class="sh-btn-primary">
+                    Design your smart home
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+                <a href="#solutions" class="sh-btn-secondary">
+                    <span class="sh-play-icon">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </span>
+                    Explore solutions
+                </a>
+            </div>
+
+            <div class="sh-hero-bottom">
+                <div class="sh-hero-bottom-icon">
+                    <i class="fa-solid fa-house-signal"></i>
+                </div>
+                <div>
+                    <strong>One home. One seamless experience.</strong>
+                    <span>Comfort, control and convenience — connected.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sh-hero-art">
+            <div class="sh-hero-image-frame">
+                <img
+                    id="shHeroImage"
+                    src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1500&q=85"
+                    alt="Elegant contemporary living room with warm ambient lighting"
+                    fetchpriority="high"
+                >
+
+                <div class="sh-image-shade"></div>
+
+                <div class="sh-image-topline">
+                    <span>01 — THE LIVING SPACE</span>
+                    <span><i class="fa-solid fa-location-crosshairs"></i> YOUR HOME</span>
+                </div>
+
+                <div class="sh-image-caption">
+                    <span id="shSceneNumber">01 / 03</span>
+                    <h2 id="shSceneTitle">Lighting that<br>sets the mood.</h2>
+                    <p id="shSceneDescription">
+                        Every room, a different feeling.
+                    </p>
+                </div>
+            </div>
+
+            <div class="sh-image-controls" aria-label="Choose a room">
+                <button class="sh-scene-btn is-active"
+                        type="button"
+                        data-scene="0"
+                        aria-label="Living room"
+                        aria-pressed="true">
+                    <span class="sh-scene-thumb">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=180&q=70" alt="">
+                    </span>
+                    <span class="sh-scene-label">
+                        <small>01</small>
+                        Living
+                    </span>
+                </button>
+
+                <button class="sh-scene-btn"
+                        type="button"
+                        data-scene="1"
+                        aria-label="Bedroom"
+                        aria-pressed="false">
+                    <span class="sh-scene-thumb">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=180&q=70" alt="">
+                    </span>
+                    <span class="sh-scene-label">
+                        <small>02</small>
+                        Bedroom
+                    </span>
+                </button>
+
+                <button class="sh-scene-btn"
+                        type="button"
+                        data-scene="2"
+                        aria-label="Modern interior"
+                        aria-pressed="false">
+                    <span class="sh-scene-thumb">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=180&q=70" alt="">
+                    </span>
+                    <span class="sh-scene-label">
+                        <small>03</small>
+                        Interiors
+                    </span>
+                </button>
+            </div>
+
+            <div class="sh-floating-card">
+                <div class="sh-floating-heading">
+                    <div class="sh-floating-icon">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <div>
+                        <strong>Home control</strong>
+                        <span>YOUR SPACE, YOUR SETTINGS</span>
+                    </div>
+                </div>
+
+                <div class="sh-control-row">
+                    <span><i class="fa-regular fa-lightbulb"></i> Lighting</span>
+                    <button class="sh-toggle is-on"
+                            type="button"
+                            aria-label="Toggle lighting"
+                            aria-pressed="true">
+                        <span></span>
+                    </button>
+                </div>
+
+                <div class="sh-control-row">
+                    <span><i class="fa-solid fa-temperature-half"></i> Climate</span>
+                    <button class="sh-toggle is-on"
+                            type="button"
+                            aria-label="Toggle climate"
+                            aria-pressed="true">
+                        <span></span>
+                    </button>
+                </div>
+
+                <div class="sh-control-row">
+                    <span><i class="fa-solid fa-shield-halved"></i> Security</span>
+                    <button class="sh-toggle is-on"
+                            type="button"
+                            aria-label="Toggle security"
+                            aria-pressed="true">
+                        <span></span>
+                    </button>
+                </div>
+
+                <div class="sh-card-footer">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Interactive concept preview</span>
+                </div>
+            </div>
+
+            <div class="sh-hero-index" aria-hidden="true">
+                <span>01</span>
+                <span class="sh-index-line"></span>
+                <span>03</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sh-hero-footer">
+        <span>TECHNOLOGY THAT FEELS NATURAL</span>
+        <a href="#solutions">
+            DISCOVER WHAT'S POSSIBLE
+            <i class="fa-solid fa-arrow-down"></i>
+        </a>
+    </div>
+</section>
+
+<style>
+/* =====================================================
+   SMART HOME — EDITORIAL HERO
+   Scoped styles | Light theme only
+===================================================== */
+
+.sh-hero {
+    --sh-primary: #0F4C81;
+    --sh-secondary: #00B4D8;
+    --sh-primary-dark: #0A355C;
+    --sh-secondary-dark: #007F9B;
+    --sh-bg: #FFFFFF;
+    --sh-surface: #F3F8FA;
+    --sh-text: #142B3B;
+    --sh-muted: #70818C;
+    --sh-border: #DFE8ED;
+
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    overflow: hidden;
+    color: var(--sh-text);
+    background:
+        radial-gradient(ellipse at 0% 0%,
+            rgba(0,180,216,.065), transparent 34%),
+        var(--sh-bg);
+    font-family: "DM Sans", sans-serif;
+}
+
+.sh-hero *,
+.sh-hero *::before,
+.sh-hero *::after {
+    box-sizing: border-box;
+}
+
+.sh-hero a {
+    text-decoration: none;
+}
+
+.sh-hero-container {
+    width: min(1320px, calc(100% - 80px));
+    min-height: 650px;
+    margin: 0 auto;
+    padding: 60px 0 72px;
+    display: grid;
+    grid-template-columns: .91fr 1.09fr;
+    align-items: center;
+    gap: clamp(38px, 6vw, 88px);
+}
+
+/* LEFT CONTENT */
+
+.sh-hero-copy {
+    position: relative;
+    z-index: 3;
+    min-width: 0;
+}
+
+.sh-hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--sh-primary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    line-height: 1.7;
+}
+
+.sh-hero-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+    border-radius: 50%;
+    background: var(--sh-secondary);
+    box-shadow: 0 0 0 5px rgba(0,180,216,.10);
+}
+
+.sh-hero-copy > h1 {
+    margin: 27px 0 25px;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(48px, 5.4vw, 76px);
+    font-weight: 700;
+    line-height: 1.045;
+    letter-spacing: -.075em;
+    overflow-wrap: normal;
+}
+
+.sh-hero-copy > h1 span {
+    color: var(--sh-primary);
+    position: relative;
+    white-space: nowrap;
+}
+
+.sh-hero-copy > h1 span::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    right: 3px;
+    bottom: -5px;
+    height: 3px;
+    background: var(--sh-secondary);
+    transform: scaleX(.74);
+    transform-origin: left;
+}
+
+.sh-hero-description {
+    max-width: 440px;
+    margin: 0 0 30px;
+    color: var(--sh-muted);
+    font-size: 14px;
+    line-height: 1.95;
+}
+
+.sh-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 13px;
+}
+
+.sh-btn-primary,
+.sh-btn-secondary {
+    display: inline-flex;
+    min-height: 53px;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    padding: 0 19px;
+    font-size: 11px;
+    font-weight: 700;
+    transition: background .25s ease, color .25s ease,
+                border-color .25s ease, transform .25s ease;
+}
+
+.sh-btn-primary {
+    color: #FFFFFF;
+    background: var(--sh-primary);
+    border: 1px solid var(--sh-primary);
+}
+
+.sh-btn-primary:hover {
+    background: var(--sh-primary-dark);
+    transform: translateY(-2px);
+}
+
+.sh-btn-primary i { font-size: 11px; }
+
+.sh-btn-secondary {
+    color: var(--sh-primary);
+    border: 1px solid var(--sh-border);
+    background: #FFFFFF;
+}
+
+.sh-btn-secondary:hover {
+    border-color: var(--sh-secondary);
+    transform: translateY(-2px);
+}
+
+.sh-play-icon {
+    display: grid;
+    width: 27px;
+    height: 27px;
+    place-items: center;
+    color: var(--sh-primary);
+    background: #EAF8FB;
+    border-radius: 50%;
+}
+
+.sh-play-icon i { font-size: 10px; }
+
+.sh-hero-bottom {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    max-width: 420px;
+    margin-top: 36px;
+    padding-top: 22px;
+    border-top: 1px solid var(--sh-border);
+}
+
+.sh-hero-bottom-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 43px;
+    width: 43px;
+    height: 43px;
+    color: var(--sh-primary);
+    background: var(--sh-surface);
+    border: 1px solid var(--sh-border);
+    border-radius: 50%;
+}
+
+.sh-hero-bottom-icon i { font-size: 16px; }
+
+.sh-hero-bottom strong,
+.sh-hero-bottom span {
+    display: block;
+}
+
+.sh-hero-bottom strong {
+    margin-bottom: 4px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.sh-hero-bottom div:last-child span {
+    color: var(--sh-muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+/* RIGHT IMAGE COMPOSITION */
+
+.sh-hero-art {
+    position: relative;
+    min-width: 0;
+    padding: 0 15px 62px 0;
+}
+
+.sh-hero-image-frame {
+    position: relative;
+    height: clamp(390px, 42vw, 560px);
+    min-height: 0;
+    overflow: hidden;
+    background: #EAF0F2;
+    border-radius: 3px 100px 3px 3px;
+}
+
+.sh-hero-image-frame > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity .2s ease, transform .8s ease;
+}
+
+.sh-hero-image-frame > img.sh-image-changing {
+    opacity: .45;
+    transform: scale(1.025);
+}
+
+.sh-image-shade {
+    position: absolute;
+    inset: 30% 0 0;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(5,19,29,.18) 30%,
+        rgba(5,19,29,.76) 100%
+    );
+    pointer-events: none;
+}
+
+.sh-image-topline {
+    position: absolute;
+    top: 22px;
+    left: 23px;
+    right: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: white;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-shadow: 0 1px 8px rgba(0,0,0,.3);
+}
+
+.sh-image-topline span:last-child {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.sh-image-topline i { color: #73E8FA; }
+
+.sh-image-caption {
+    position: absolute;
+    left: 27px;
+    bottom: 29px;
+    color: #FFFFFF;
+}
+
+.sh-image-caption > span {
+    display: block;
+    margin-bottom: 12px;
+    color: #85E9F8;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.sh-image-caption h2 {
+    margin: 0 0 9px;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(25px, 3vw, 39px);
+    font-weight: 600;
+    letter-spacing: -.055em;
+    line-height: 1.15;
+}
+
+.sh-image-caption p {
+    margin: 0;
+    color: rgba(255,255,255,.85);
+    font-size: 11px;
+}
+
+/* IMAGE SELECTOR */
+
+.sh-image-controls {
+    position: absolute;
+    z-index: 3;
+    right: 35px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    max-width: calc(100% - 20px);
+    padding: 7px;
+    background: #FFFFFF;
+    border: 1px solid var(--sh-border);
+    box-shadow: 0 12px 40px rgba(15,40,57,.10);
+}
+
+.sh-scene-btn {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+    padding: 7px;
+    border: 1px solid transparent;
+    background: #FFFFFF;
+    color: var(--sh-text);
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+}
+
+.sh-scene-btn:hover,
+.sh-scene-btn.is-active {
+    background: #EFF9FB;
+    border-color: #BFEAF2;
+}
+
+.sh-scene-thumb {
+    display: block;
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    overflow: hidden;
+    background: var(--sh-surface);
+}
+
+.sh-scene-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sh-scene-label {
+    display: grid;
+    gap: 3px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.sh-scene-label small {
+    color: var(--sh-secondary-dark);
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+/* FLOATING SMART-HOME PANEL */
+
+.sh-floating-card {
+    position: absolute;
+    z-index: 4;
+    left: -35px;
+    top: 50%;
+    width: 205px;
+    padding: 19px;
+    background: #FFFFFF;
+    border: 1px solid rgba(15,76,129,.12);
+    box-shadow: 0 18px 55px rgba(12,36,52,.14);
+    transform: translateY(-48%);
+}
+
+.sh-floating-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--sh-border);
+}
+
+.sh-floating-icon {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    color: var(--sh-primary);
+    background: #EAF8FB;
+    border-radius: 8px;
+}
+
+.sh-floating-heading strong,
+.sh-floating-heading span {
+    display: block;
+}
+
+.sh-floating-heading strong {
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.sh-floating-heading span {
+    margin-top: 3px;
+    color: var(--sh-muted);
+    font-size: 7px;
+    letter-spacing: .6px;
+}
+
+.sh-control-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 0;
+    border-bottom: 1px solid #EDF1F3;
+}
+
+.sh-control-row > span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #425B6B;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.sh-control-row > span i {
+    width: 15px;
+    color: var(--sh-primary);
+    text-align: center;
+}
+
+.sh-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 32px;
+    height: 18px;
+    flex: 0 0 32px;
+    padding: 2px;
+    border: 0;
+    border-radius: 20px;
+    background: #C8D3D9;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.sh-toggle > span {
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,.15);
+    transition: transform .2s;
+}
+
+.sh-toggle.is-on { background: var(--sh-secondary); }
+.sh-toggle.is-on > span { transform: translateX(14px); }
+
+.sh-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding-top: 12px;
+    color: var(--sh-muted);
+    font-size: 8px;
+}
+
+.sh-card-footer i { color: var(--sh-secondary-dark); }
+
+.sh-hero-index {
+    position: absolute;
+    top: 12px;
+    right: -2px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--sh-muted);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    writing-mode: vertical-rl;
+}
+
+.sh-hero-index span:first-child { color: var(--sh-primary); }
+
+.sh-index-line {
+    width: 1px;
+    height: 35px;
+    background: var(--sh-secondary);
+}
+
+/* BOTTOM EDITORIAL BAR */
+
+.sh-hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: min(1320px, calc(100% - 80px));
+    margin: 0 auto;
+    padding: 17px 0;
+    border-top: 1px solid var(--sh-border);
+}
+
+.sh-hero-footer > span,
+.sh-hero-footer > a {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.25px;
+}
+
+.sh-hero-footer > span { color: var(--sh-muted); }
+
+.sh-hero-footer > a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--sh-primary);
+}
+
+.sh-hero-footer > a i { color: var(--sh-secondary-dark); }
+
+/* TABLET */
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .sh-hero-container {
+        width: calc(100% - 48px);
+        min-height: auto;
+        grid-template-columns: .95fr 1.05fr;
+        gap: 26px;
+        padding: 54px 0 57px;
+    }
+
+    .sh-hero-copy > h1 {
+        font-size: clamp(42px, 6vw, 56px);
+    }
+
+    .sh-hero-eyebrow {
+        font-size: 8px;
+        letter-spacing: 1.15px;
+    }
+
+    .sh-hero-description {
+        font-size: 12px;
+        line-height: 1.85;
+    }
+
+    .sh-hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .sh-hero-actions > a { width: fit-content; }
+
+    .sh-hero-image-frame {
+        height: 390px;
+        border-top-right-radius: 65px;
+    }
+
+    .sh-floating-card {
+        left: -18px;
+        width: 175px;
+        padding: 13px;
+    }
+
+    .sh-image-controls {
+        right: 14px;
+        gap: 2px;
+    }
+
+    .sh-scene-btn {
+        gap: 5px;
+        padding: 5px;
+    }
+
+    .sh-scene-thumb {
+        width: 31px;
+        height: 34px;
+        flex-basis: 31px;
+    }
+
+    .sh-scene-label { font-size: 9px; }
+
+    .sh-hero-footer { width: calc(100% - 48px); }
+}
+
+/* SAMSUNG S8 / MOBILE */
+
+@media (max-width: 599px) {
+    .sh-hero-container {
+        width: calc(100% - 36px);
+        min-height: 0;
+        grid-template-columns: minmax(0,1fr);
+        gap: 34px;
+        padding: 39px 0 48px;
+    }
+
+    .sh-hero-eyebrow {
+        font-size: 9px;
+        letter-spacing: 1.1px;
+    }
+
+    .sh-hero-copy > h1 {
+        margin: 23px 0 21px;
+        font-size: clamp(44px, 11.9vw, 62px);
+        line-height: 1.07;
+    }
+
+    .sh-hero-description {
+        max-width: 440px;
+        margin-bottom: 23px;
+        font-size: 13px;
+        line-height: 1.85;
+    }
+
+    .sh-hero-actions {
+        display: grid;
+        grid-template-columns: minmax(0,1fr);
+        gap: 10px;
+    }
+
+    .sh-hero-actions > a {
+        width: 100%;
+        min-height: 49px;
+    }
+
+    .sh-hero-bottom {
+        margin-top: 25px;
+        padding-top: 18px;
+    }
+
+    .sh-hero-art {
+        padding: 0 0 51px 0;
+        margin-top: 3px;
+    }
+
+    .sh-hero-image-frame {
+        height: clamp(315px, 100vw, 440px);
+        border-top-right-radius: 72px;
+    }
+
+    .sh-image-topline {
+        top: 16px;
+        left: 15px;
+        right: 15px;
+        font-size: 7px;
+        letter-spacing: .7px;
+    }
+
+    .sh-image-caption {
+        left: 19px;
+        bottom: 23px;
+    }
+
+    .sh-image-caption h2 { font-size: 31px; }
+    .sh-image-caption p { font-size: 10px; }
+
+    .sh-floating-card {
+        left: 10px;
+        top: auto;
+        bottom: 0;
+        width: 194px;
+        padding: 13px;
+        transform: none;
+    }
+
+    .sh-floating-heading { padding-bottom: 10px; }
+    .sh-floating-icon { width: 29px; height: 29px; flex-basis: 29px; }
+    .sh-control-row { padding: 9px 0; }
+    .sh-card-footer { padding-top: 9px; }
+
+    .sh-image-controls {
+        right: 0;
+        bottom: 0;
+        gap: 1px;
+        max-width: calc(100% - 178px);
+        padding: 4px;
+    }
+
+    .sh-scene-btn {
+        justify-content: center;
+        flex-direction: column;
+        gap: 3px;
+        padding: 4px 3px;
+        flex: 1 1 0;
+    }
+
+    .sh-scene-thumb {
+        width: 28px;
+        height: 27px;
+        flex: 0 0 27px;
+    }
+
+    .sh-scene-label {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 8px;
+    }
+
+    .sh-scene-label small { display: none; }
+    .sh-hero-index { display: none; }
+
+    .sh-hero-footer {
+        width: calc(100% - 36px);
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 11px;
+        padding: 15px 0 20px;
+    }
+
+    .sh-hero-footer > span,
+    .sh-hero-footer > a {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+}
+
+/* NARROW PHONES */
+
+@media (max-width: 380px) {
+    .sh-hero-container,
+    .sh-hero-footer {
+        width: calc(100% - 28px);
+    }
+
+    .sh-hero-container { padding-top: 31px; }
+
+    .sh-hero-copy > h1 { font-size: 43px; }
+
+    .sh-hero-eyebrow {
+        font-size: 8px;
+        letter-spacing: .8px;
+    }
+
+    .sh-hero-image-frame {
+        height: 320px;
+        border-top-right-radius: 55px;
+    }
+
+    .sh-floating-card {
+        left: 5px;
+        width: 174px;
+        padding: 10px;
+    }
+
+    .sh-floating-heading strong { font-size: 10px; }
+    .sh-floating-heading span { font-size: 6px; }
+    .sh-control-row > span { font-size: 9px; }
+
+    .sh-image-controls {
+        max-width: calc(100% - 158px);
+        padding: 3px;
+    }
+
+    .sh-scene-thumb {
+        width: 24px;
+        height: 24px;
+        flex-basis: 24px;
+    }
+
+    .sh-scene-label { font-size: 7px; }
+    .sh-image-caption h2 { font-size: 27px; }
+    .sh-image-caption { left: 14px; bottom: 17px; }
+}
+
+/* NEST HUB / SHORT LANDSCAPE DESKTOP */
+
+@media (min-width: 901px) and (max-height: 700px) {
+    .sh-hero-container {
+        min-height: 0;
+        padding-top: 28px;
+        padding-bottom: 37px;
+        gap: 46px;
+    }
+
+    .sh-hero-copy > h1 {
+        margin-top: 18px;
+        margin-bottom: 18px;
+        font-size: clamp(43px, 4.4vw, 60px);
+    }
+
+    .sh-hero-description {
+        margin-bottom: 20px;
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .sh-hero-bottom {
+        margin-top: 22px;
+        padding-top: 15px;
+    }
+
+    .sh-hero-image-frame {
+        height: min(390px, calc(100svh - 215px));
+        min-height: 275px;
+    }
+
+    .sh-floating-card { padding: 13px; }
+    .sh-floating-heading { padding-bottom: 10px; }
+    .sh-control-row { padding: 8px 0; }
+    .sh-card-footer { padding-top: 8px; }
+
+    .sh-hero-footer { padding: 13px 0; }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .sh-hero *,
+    .sh-hero *::before,
+    .sh-hero *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+</style>
+
+<script>
+(() => {
+    const root = document.querySelector(".sh-hero");
+    if (!root) return;
+
+    const image = root.querySelector("#shHeroImage");
+    const title = root.querySelector("#shSceneTitle");
+    const description = root.querySelector("#shSceneDescription");
+    const number = root.querySelector("#shSceneNumber");
+    const buttons = [...root.querySelectorAll(".sh-scene-btn")];
+
+    const scenes = [
+        {
+            image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1500&q=85",
+            alt: "Contemporary living room with warm ambient lighting",
+            title: "Lighting that<br>sets the mood.",
+            description: "Every room, a different feeling."
+        },
+        {
+            image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1500&q=85",
+            alt: "Calm contemporary bedroom interior",
+            title: "Comfort that<br>comes naturally.",
+            description: "A more considered everyday routine."
+        },
+        {
+            image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1500&q=85",
+            alt: "Modern architectural home interior",
+            title: "A smarter home.<br>Beautifully yours.",
+            description: "Technology that belongs in your space."
+        }
+    ];
+
+    let activeIndex = 0;
+
+    function selectScene(index) {
+        if (index === activeIndex) return;
+        activeIndex = index;
+
+        buttons.forEach((button, i) => {
+            const active = i === index;
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-pressed", String(active));
+        });
+
+        const scene = scenes[index];
+        image.classList.add("sh-image-changing");
+
+        const nextImage = new Image();
+        nextImage.onload = () => {
+            image.src = scene.image;
+            image.alt = scene.alt;
+            title.innerHTML = scene.title;
+            description.textContent = scene.description;
+            number.textContent = `0${index + 1} / 03`;
+
+            requestAnimationFrame(() => {
+                image.classList.remove("sh-image-changing");
+            });
+        };
+
+        nextImage.onerror = () => {
+            image.classList.remove("sh-image-changing");
+        };
+
+        nextImage.src = scene.image;
+    }
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            selectScene(Number(button.dataset.scene));
+        });
+    });
+
+    root.querySelectorAll(".sh-toggle").forEach(toggle => {
+        toggle.addEventListener("click", () => {
+            const enabled = toggle.getAttribute("aria-pressed") === "true";
+            toggle.setAttribute("aria-pressed", String(!enabled));
+            toggle.classList.toggle("is-on", !enabled);
+        });
+    });
+})();
+</script>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="rb-footer">
+
+    <div class="rb-footer-inner">
+
+        <!-- FOOTER GRID -->
+
+        <div class="rb-footer-grid">
+
+            <!-- BRAND COLUMN -->
+
+            <div class="rb-footer-column rb-footer-brand-column">
+
+                <a href="index.html" class="rb-footer-brand">
+
+                    <img
+                        src="images/sm1.png"
+                        alt="NexoraSmart Home Logo"
+                        class="rb-footer-logo"
+                    >
+
+                    <span class="rb-footer-brand-text">
+
+                        <span class="rb-footer-brand-name">
+
+                            <span class="rb-brand-primary">
+                                NEX
+                            </span>
+                            <span class="rb-brand-secondary">
+                              ORA
+                            </span>
+
+                        </span>
+
+                        <span class="rb-footer-tagline">
+                             SMART LIVING 
+                        </span>
+
+                    </span>
+
+                </a>
+
+                <p class="rb-footer-description">
+                    Transform your home with intelligent lighting,
+                    connected devices, smart security and seamless
+                    automation designed around your lifestyle.
+                </p>
+
+                <!-- SOCIAL -->
+
+                <div class="rb-socials">
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="Facebook">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="YouTube">
+
+                        <i class="fa-brands fa-youtube"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="LinkedIn">
+
+                        <i class="fa-brands fa-linkedin-in"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- EXPLORE -->
+
+            <div class="rb-footer-column">
+
+                <h3>Explore</h3>
+
+                <div class="rb-footer-links">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="about.html">
+                        About Us
+                    </a>
+
+                    <a href="solutions.html">
+                        Smart Solutions
+                    </a>
+
+                    <a href="pricing.html">
+                        Pricing Packages
+                    </a>
+
+                    <a href="contact.html">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- SMART SOLUTIONS -->
+
+            <div class="rb-footer-column">
+
+                <h3>Smart Solutions</h3>
+
+                <div class="rb-footer-links">
+
+                    <a href="solutions.html#lighting">
+                        Smart Lighting
+                    </a>
+
+                    <a href="solutions.html#security">
+                        Smart Security
+                    </a>
+
+                    <a href="solutions.html#climate">
+                        Climate Control
+                    </a>
+
+                    <a href="solutions.html#devices">
+                        Connected Devices
+                    </a>
+
+                    <a href="solutions.html#automation">
+                        Home Automation
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- OUR SERVICES -->
+
+            <div class="rb-footer-column">
+
+                <h3>Our Services</h3>
+
+                <div class="rb-footer-links">
+
+                    <a href="solutions.html">
+                        Smart Home Installation
+                    </a>
+
+                    <a href="solutions.html#consultation">
+                        Home Automation Planning
+                    </a>
+
+                    <a href="solutions.html#integration">
+                        Device Integration
+                    </a>
+
+                    <a href="solutions.html#support">
+                        System Support
+                    </a>
+
+                    <a href="pricing.html">
+                        Installation Packages
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- CONTACT -->
+
+            <div class="rb-footer-column">
+
+<h3>Contact</h3>
+
+<div class="rb-contact-links">
+
+    <a href="tel:+910000000000" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="phone"></i>
+        </span>
+        <span>Contact Our Team</span>
+    </a>
+
+    <a href="mailto:hello@nexora04.com" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="mail"></i>
+        </span>
+        <span>hello@nexora04.com</span>
+    </a>
+
+    <a href="contact.html" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="map-pin"></i>
+        </span>
+        <span>Service Locations</span>
+    </a>
+
+    <!-- Added contact link -->
+    <a href="contact.html" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="clock"></i>
+        </span>
+        <span>Business Hours</span>
+    </a>
+
+</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="rb-footer-bottom">
+
+            <p class="rb-copyright">
+
+                © <span id="currentYear"></span>
+                NEXORA04.
+                Smarter Homes. Better Living.
+
+            </p>
+
+            <div class="rb-bottom-links">
+
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms
+                </a>
+
+                <a href="accessibility.html">
+                    Accessibility
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+
+/* =========================================================
+   LUCIDE
+========================================================= */
+
+lucide.createIcons();
+
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const rbHeader =
+    document.getElementById("rbHeader");
+
+window.addEventListener("scroll", () => {
+
+    rbHeader.classList.toggle(
+        "scrolled",
+        window.scrollY > 15
+    );
+
+});
+
+/* =========================================================
+   DARK / LIGHT
+========================================================= */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const savedTheme =
+    localStorage.getItem("rootBloomTheme");
+
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-theme");
+}
+
+function updateThemeIcon() {
+
+    themeToggle.innerHTML =
+        document.body.classList.contains("dark-theme")
+            ? '<i data-lucide="sun"></i>'
+            : '<i data-lucide="moon"></i>';
+
+    lucide.createIcons();
+
+}
+
+updateThemeIcon();
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark-theme");
+
+    const isDark =
+        document.body.classList.contains("dark-theme");
+
+    localStorage.setItem(
+        "rootBloomTheme",
+        isDark ? "dark" : "light"
+    );
+
+    updateThemeIcon();
+
+});
+
+/* =========================================================
+   RTL / LTR
+========================================================= */
+
+const rtlToggle =
+    document.getElementById("rtlToggle");
+
+const savedDirection =
+    localStorage.getItem("rootBloomDirection");
+
+document.documentElement.dir =
+    savedDirection === "rtl"
+        ? "rtl"
+        : "ltr";
+
+rtlToggle.addEventListener("click", () => {
+
+    const isRTL =
+        document.documentElement.dir === "rtl";
+
+    document.documentElement.dir =
+        isRTL ? "ltr" : "rtl";
+
+    localStorage.setItem(
+        "rootBloomDirection",
+        isRTL ? "ltr" : "rtl"
+    );
+
+});
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+menuToggle.addEventListener("click", () => {
+
+    const opened =
+        mobileMenu.classList.toggle("active");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        opened
+    );
+
+    menuToggle.innerHTML =
+        opened
+            ? '<i data-lucide="x"></i>'
+            : '<i data-lucide="menu"></i>';
+
+    lucide.createIcons();
+
+});
+
+/* =========================================================
+   MOBILE HOME
+========================================================= */
+
+const mobileHomeToggle =
+    document.getElementById("mobileHomeToggle");
+
+const mobileHomeSubmenu =
+    document.getElementById("mobileHomeSubmenu");
+
+mobileHomeToggle.addEventListener("click", () => {
+
+    mobileHomeSubmenu.classList.toggle("active");
+
+    mobileHomeToggle.classList.toggle("open");
+
+});
+
+/* =========================================================
+   CLOSE MOBILE MENU ON LINK CLICK
+========================================================= */
+
+document
+    .querySelectorAll(
+        ".rb-mobile-link, .rb-mobile-sub-link, .rb-mobile-reservation"
+    )
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mobileMenu.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.innerHTML =
+                '<i data-lucide="menu"></i>';
+
+            lucide.createIcons();
+
+        });
+
+    });
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+        mobileMenu.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuToggle.innerHTML =
+            '<i data-lucide="menu"></i>';
+
+        lucide.createIcons();
+
+    }
+
+});
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+/* =========================================================
+   FINAL ICON INITIALIZATION
+========================================================= */
+
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>
