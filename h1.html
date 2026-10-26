@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -2842,4 +2843,2850 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
+=======
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#061426">
+  <title>Nexora | Contact & Smart Living</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* =========================================
+       NEXORA CONTACT HERO
+       Complete, scoped, responsive component
+    ========================================= */
+
+    .nx-contact-page {
+      --nx-primary: #172554;
+      --nx-secondary: #9292FF;
+      --nx-secondary-light: #B8F3FF;
+
+      --nx-hero-bg: #061426;
+      --nx-hero-panel: rgba(9, 32, 52, .9);
+      --nx-hero-text: #FFFFFF;
+      --nx-hero-muted: #B4C7D7;
+      --nx-hero-border: rgba(119, 213, 239, .2);
+      --nx-hero-cyan: #42D5F0;
+
+      width: 100%;
+      overflow: hidden;
+      color: var(--nx-hero-text);
+      background: var(--nx-hero-bg);
+      font-family: "Manrope", sans-serif;
+    }
+
+    .nx-contact-page *,
+    .nx-contact-page *::before,
+    .nx-contact-page *::after {
+      box-sizing: border-box;
+    }
+
+    .nx-contact-page a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nx-contact-page .nx-hero {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 650px;
+      padding: 65px max(5%, calc((100% - 1240px) / 2)) 24px;
+      background:
+        radial-gradient(ellipse at 78% 42%, rgba(0,180,216,.13), transparent 34%),
+        radial-gradient(ellipse at 5% 100%, rgba(15,76,129,.25), transparent 38%),
+        linear-gradient(115deg, #051426 0%, #092541 53%, #06182B 100%);
+    }
+
+    /* Background details */
+
+    .nx-contact-page .nx-hero-grid {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      pointer-events: none;
+      opacity: .18;
+      background-image:
+        linear-gradient(rgba(66,213,240,.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(66,213,240,.09) 1px, transparent 1px);
+      background-size: 42px 42px;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 35%, #000);
+      mask-image: linear-gradient(90deg, transparent, #000 35%, #000);
+    }
+
+    .nx-contact-page .nx-hero-glow {
+      position: absolute;
+      z-index: -1;
+      top: 5%;
+      right: 7%;
+      width: 350px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #00B4D8;
+      opacity: .12;
+      filter: blur(110px);
+      pointer-events: none;
+    }
+
+    .nx-contact-page .nx-hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
+      align-items: center;
+      gap: clamp(28px, 4.6vw, 68px);
+      width: 100%;
+      max-width: 1240px;
+      margin-inline: auto;
+    }
+
+    /* Eyebrow */
+
+    .nx-contact-page .nx-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+      color: #B9E8F5;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.65px;
+      line-height: 1.7;
+    }
+
+    .nx-contact-page .nx-pulse {
+      position: relative;
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      border-radius: 50%;
+      background: #57E5B0;
+      box-shadow: 0 0 12px rgba(87,229,176,.75);
+    }
+
+    .nx-contact-page .nx-pulse::after {
+      position: absolute;
+      inset: -4px;
+      border: 1px solid rgba(87,229,176,.5);
+      border-radius: 50%;
+      content: "";
+      animation: nxHeroPulse 2s ease-out infinite;
+    }
+
+    .nx-contact-page .nx-eyebrow-line {
+      width: 24px;
+      height: 1px;
+      background: rgba(66,213,240,.55);
+    }
+
+    .nx-contact-page .nx-eyebrow-tag {
+      color: #92AFC4;
+      font-size: 9px;
+    }
+
+    /* Main copy */
+
+    .nx-contact-page .nx-hero-copy {
+      position: relative;
+      z-index: 2;
+      min-width: 0;
+      animation: nxHeroEnter .8s ease both;
+    }
+
+    .nx-contact-page .nx-hero h1 {
+      margin: 0 0 22px;
+      color: #FFFFFF;
+      font-size: clamp(40px, 5vw, 67px);
+      font-weight: 750;
+      line-height: 1.08;
+      letter-spacing: -.065em;
+    }
+
+    .nx-contact-page .nx-hero-gradient {
+      color: transparent;
+      background: linear-gradient(
+        100deg,
+        #FFFFFF 0%,
+        #B8F3FF 46%,
+        #42D5F0 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .nx-contact-page .nx-hero-description {
+      max-width: 445px;
+      margin: 0 0 28px;
+      color: var(--nx-hero-muted);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.95;
+    }
+
+    /* CTA buttons */
+
+    .nx-contact-page .nx-hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .nx-contact-page .nx-btn {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 0 17px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 750;
+      transition:
+        background .25s ease,
+        border-color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .nx-contact-page .nx-btn-primary {
+      color: #071626;
+      border-color: #42D5F0;
+      background: #42D5F0;
+      box-shadow: 0 5px 22px rgba(0,180,216,.13);
+    }
+
+    .nx-contact-page .nx-btn-primary:hover {
+      transform: translateY(-2px);
+      background: #A7F1FF;
+      border-color: #A7F1FF;
+      box-shadow: 0 10px 28px rgba(0,180,216,.22);
+    }
+
+    .nx-contact-page .nx-btn-arrow {
+      display: grid;
+      width: 25px;
+      height: 25px;
+      flex: 0 0 25px;
+      place-items: center;
+      border: 1px solid rgba(7,22,38,.2);
+      border-radius: 4px;
+      font-size: 16px;
+      transition: transform .25s ease;
+    }
+
+    .nx-contact-page .nx-btn-primary:hover .nx-btn-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    .nx-contact-page .nx-btn-glass {
+      color: #E0EDF6;
+      border-color: rgba(166,217,238,.24);
+      background: rgba(255,255,255,.035);
+    }
+
+    .nx-contact-page .nx-btn-glass:hover {
+      transform: translateY(-2px);
+      border-color: rgba(66,213,240,.6);
+      background: rgba(66,213,240,.08);
+    }
+
+    .nx-contact-page .nx-btn-glass > span {
+      color: #86E9FA;
+      font-size: 16px;
+    }
+
+    /* Trust indicator */
+
+    .nx-contact-page .nx-hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 31px;
+    }
+
+    .nx-contact-page .nx-proof-icon {
+      display: grid;
+      width: 31px;
+      height: 31px;
+      flex: 0 0 31px;
+      place-items: center;
+      border: 1px solid rgba(66,213,240,.35);
+      border-radius: 50%;
+      color: #A7F1FF;
+      background: rgba(0,180,216,.08);
+      font-size: 13px;
+    }
+
+    .nx-contact-page .nx-hero-proof strong,
+    .nx-contact-page .nx-hero-proof span {
+      display: block;
+    }
+
+    .nx-contact-page .nx-hero-proof strong {
+      color: #E7F5FC;
+      font-size: 10px;
+      font-weight: 750;
+    }
+
+    .nx-contact-page .nx-hero-proof div:last-child span {
+      margin-top: 5px;
+      color: #88A6BA;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       FUTURISTIC SMART HOME ILLUSTRATION
+    ========================================= */
+
+    .nx-contact-page .nx-hero-art {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      width: 100%;
+      max-width: 570px;
+      min-width: 0;
+      aspect-ratio: 1 / 1;
+      margin-inline: auto;
+      place-items: center;
+      animation: nxHeroEnter .9s .12s ease both;
+    }
+
+    .nx-contact-page .nx-art-orbit {
+      position: absolute;
+      aspect-ratio: 1;
+      border: 1px solid rgba(66,213,240,.2);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .nx-contact-page .nx-art-orbit-a {
+      width: 86%;
+      animation: nxHeroRotate 38s linear infinite;
+    }
+
+    .nx-contact-page .nx-art-orbit-b {
+      width: 69%;
+      border-style: dashed;
+      border-color: rgba(66,213,240,.3);
+      animation: nxHeroRotate 46s linear infinite reverse;
+    }
+
+    .nx-contact-page .nx-art-orbit-c {
+      width: 52%;
+      border-color: rgba(66,213,240,.11);
+    }
+
+    .nx-contact-page .nx-art-top-label {
+      position: absolute;
+      z-index: 2;
+      top: 3%;
+      right: 4%;
+      left: 4%;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #9DBBCF;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .nx-contact-page .nx-live-dot {
+      width: 6px;
+      height: 6px;
+      flex: 0 0 6px;
+      border-radius: 50%;
+      background: #57E5B0;
+      box-shadow: 0 0 11px #57E5B0;
+    }
+
+    .nx-contact-page .nx-art-top-code {
+      margin-inline-start: auto;
+      color: #B8F3FF;
+    }
+
+    .nx-contact-page .nx-house-stage {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 460px;
+      padding: 8px;
+      filter: drop-shadow(0 15px 35px rgba(0,180,216,.12));
+    }
+
+    .nx-contact-page .nx-house-stage svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .nx-contact-page .nx-house-stage .nx-house-glass {
+      animation: nxGlassGlow 4s ease-in-out infinite;
+    }
+
+    /* Floating cards */
+
+    .nx-contact-page .nx-float-card {
+      position: absolute;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: calc(100% - 12px);
+      padding: 11px 12px;
+      border: 1px solid rgba(105,209,234,.24);
+      border-radius: 9px;
+      background: rgba(7,27,46,.92);
+      box-shadow: 0 15px 38px rgba(0,0,0,.23);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      animation: nxHeroFloat 5s ease-in-out infinite;
+    }
+
+    .nx-contact-page .nx-float-light {
+      top: 20%;
+      right: -1%;
+    }
+
+    .nx-contact-page .nx-float-control {
+      bottom: 18%;
+      left: -1%;
+      animation-delay: -2.5s;
+    }
+
+    .nx-contact-page .nx-float-symbol,
+    .nx-contact-page .nx-control-icon {
+      display: grid;
+      width: 35px;
+      height: 35px;
+      flex: 0 0 35px;
+      place-items: center;
+      border: 1px solid rgba(66,213,240,.2);
+      border-radius: 7px;
+      color: #B8F3FF;
+      background: rgba(0,180,216,.1);
+      font-size: 21px;
+    }
+
+    .nx-contact-page .nx-float-copy {
+      min-width: 0;
+    }
+
+    .nx-contact-page .nx-float-copy span,
+    .nx-contact-page .nx-float-copy strong {
+      display: block;
+    }
+
+    .nx-contact-page .nx-float-copy span {
+      margin-bottom: 5px;
+      color: #83A9BF;
+      font-size: 7px;
+      font-weight: 800;
+      letter-spacing: .8px;
+    }
+
+    .nx-contact-page .nx-float-copy strong {
+      color: #F0FAFF;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.45;
+      white-space: nowrap;
+    }
+
+    .nx-contact-page .nx-toggle {
+      display: flex;
+      width: 28px;
+      height: 16px;
+      flex: 0 0 28px;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 2px;
+      border-radius: 20px;
+      background: #42D5F0;
+    }
+
+    .nx-contact-page .nx-toggle i {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #FFFFFF;
+    }
+
+    .nx-contact-page .nx-control-status {
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      margin-inline-start: 4px;
+      border-radius: 50%;
+      background: #57E5B0;
+      box-shadow: 0 0 9px rgba(87,229,176,.65);
+    }
+
+    .nx-contact-page .nx-art-bottom {
+      position: absolute;
+      right: 4%;
+      bottom: 3%;
+      left: 4%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: #86A6BB;
+      font-size: 7px;
+      font-weight: 750;
+      letter-spacing: 1px;
+    }
+
+    /* Bottom navigation strip */
+
+    .nx-contact-page .nx-hero-bottom {
+      display: flex;
+      width: 100%;
+      max-width: 1240px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 22px auto 0;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      color: #7898AE;
+      font-size: 8px;
+      font-weight: 750;
+      letter-spacing: 1.2px;
+    }
+
+    .nx-contact-page .nx-hero-bottom a {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: #B8F3FF;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .nx-contact-page .nx-hero-bottom a:hover {
+      color: #FFFFFF;
+    }
+
+    .nx-contact-page .nx-hero-bottom a span {
+      font-size: 15px;
+      transition: transform .2s ease;
+    }
+
+    .nx-contact-page .nx-hero-bottom a:hover span {
+      transform: translateY(3px);
+    }
+
+    /* Focus accessibility */
+
+    .nx-contact-page a:focus-visible {
+      outline: 2px solid #B8F3FF;
+      outline-offset: 4px;
+    }
+
+    /* =========================================
+       RESPONSIVE TABLET
+    ========================================= */
+
+    @media (max-width: 980px) {
+      .nx-contact-page .nx-hero {
+        min-height: auto;
+        padding: 58px 5% 23px;
+      }
+
+      .nx-contact-page .nx-hero-inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+        gap: 25px;
+      }
+
+      .nx-contact-page .nx-hero h1 {
+        font-size: clamp(37px, 5.2vw, 54px);
+      }
+
+      .nx-contact-page .nx-hero-description {
+        font-size: 12px;
+      }
+
+      .nx-contact-page .nx-hero-art {
+        transform: scale(.96);
+      }
+
+      .nx-contact-page .nx-float-card {
+        gap: 8px;
+        padding: 9px;
+      }
+
+      .nx-contact-page .nx-float-light {
+        right: -3%;
+      }
+
+      .nx-contact-page .nx-float-control {
+        left: -3%;
+      }
+    }
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 680px) {
+      .nx-contact-page .nx-hero {
+        padding: 43px 20px 20px;
+      }
+
+      .nx-contact-page .nx-hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .nx-contact-page .nx-hero-copy {
+        width: 100%;
+      }
+
+      .nx-contact-page .nx-eyebrow {
+        gap: 8px;
+        margin-bottom: 20px;
+        font-size: 8px;
+        letter-spacing: 1.2px;
+      }
+
+      .nx-contact-page .nx-eyebrow-line {
+        width: 17px;
+      }
+
+      .nx-contact-page .nx-eyebrow-tag {
+        font-size: 8px;
+      }
+
+      .nx-contact-page .nx-hero h1 {
+        margin-bottom: 17px;
+        font-size: clamp(39px, 10vw, 55px);
+        letter-spacing: -.06em;
+        line-height: 1.08;
+      }
+
+      .nx-contact-page .nx-hero-description {
+        max-width: 460px;
+        margin-bottom: 22px;
+        font-size: 12px;
+        line-height: 1.85;
+      }
+
+      .nx-contact-page .nx-hero-actions {
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .nx-contact-page .nx-btn {
+        min-height: 46px;
+        gap: 12px;
+        padding-inline: 13px;
+        font-size: 10px;
+      }
+
+      .nx-contact-page .nx-btn-primary {
+        flex: 0 0 auto;
+      }
+
+      .nx-contact-page .nx-btn-glass {
+        flex: 1 1 auto;
+      }
+
+      .nx-contact-page .nx-hero-proof {
+        margin-top: 22px;
+      }
+
+      .nx-contact-page .nx-hero-art {
+        width: min(100%, 460px);
+        aspect-ratio: 1 / .92;
+        margin-top: 5px;
+        transform: none;
+      }
+
+      .nx-contact-page .nx-art-orbit-a {
+        width: 82%;
+      }
+
+      .nx-contact-page .nx-art-orbit-b {
+        width: 65%;
+      }
+
+      .nx-contact-page .nx-art-orbit-c {
+        width: 48%;
+      }
+
+      .nx-contact-page .nx-house-stage {
+        width: 96%;
+        padding: 0;
+      }
+
+      .nx-contact-page .nx-art-top-label {
+        top: 2%;
+        font-size: 7px;
+        letter-spacing: 1px;
+      }
+
+      .nx-contact-page .nx-float-card {
+        gap: 7px;
+        padding: 8px;
+        border-radius: 7px;
+      }
+
+      .nx-contact-page .nx-float-light {
+        top: 19%;
+        right: -1%;
+      }
+
+      .nx-contact-page .nx-float-control {
+        bottom: 18%;
+        left: -1%;
+      }
+
+      .nx-contact-page .nx-float-symbol,
+      .nx-contact-page .nx-control-icon {
+        width: 29px;
+        height: 29px;
+        flex-basis: 29px;
+        font-size: 18px;
+      }
+
+      .nx-contact-page .nx-float-copy span {
+        font-size: 6px;
+        letter-spacing: .5px;
+      }
+
+      .nx-contact-page .nx-float-copy strong {
+        font-size: 8px;
+      }
+
+      .nx-contact-page .nx-toggle {
+        width: 24px;
+        height: 14px;
+        flex-basis: 24px;
+      }
+
+      .nx-contact-page .nx-toggle i {
+        width: 10px;
+        height: 10px;
+      }
+
+      .nx-contact-page .nx-art-bottom {
+        right: 3%;
+        bottom: 2%;
+        left: 3%;
+        gap: 7px;
+        font-size: 6px;
+        letter-spacing: .65px;
+      }
+
+      .nx-contact-page .nx-hero-bottom {
+        align-items: flex-start;
+        gap: 12px;
+        margin-top: 13px;
+        padding-top: 13px;
+        font-size: 7px;
+        letter-spacing: .65px;
+      }
+
+      .nx-contact-page .nx-hero-bottom a {
+        gap: 5px;
+        text-align: end;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .nx-contact-page .nx-hero {
+        padding-inline: 15px;
+      }
+
+      .nx-contact-page .nx-hero h1 {
+        font-size: 37px;
+      }
+
+      .nx-contact-page .nx-btn {
+        gap: 8px;
+        padding-inline: 10px;
+        font-size: 9px;
+      }
+
+      .nx-contact-page .nx-float-card {
+        gap: 5px;
+        padding: 7px;
+      }
+
+      .nx-contact-page .nx-float-copy strong {
+        font-size: 7px;
+      }
+
+      .nx-contact-page .nx-art-bottom {
+        font-size: 5px;
+      }
+
+      .nx-contact-page .nx-hero-bottom {
+        font-size: 6px;
+      }
+    }
+
+    /* RTL */
+
+    html[dir="rtl"] .nx-contact-page .nx-hero {
+      text-align: right;
+    }
+
+    html[dir="rtl"] .nx-contact-page .nx-hero-description {
+      margin-inline: 0 0;
+    }
+
+    html[dir="rtl"] .nx-contact-page .nx-hero-actions {
+      justify-content: flex-start;
+    }
+
+    html[dir="rtl"] .nx-contact-page .nx-art-top-label {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .nx-contact-page .nx-art-top-code {
+      margin-inline-start: auto;
+    }
+
+    html[dir="rtl"] .nx-contact-page .nx-float-light {
+      right: auto;
+      left: -1%;
+    }
+
+    html[dir="rtl"] .nx-contact-page .nx-float-control {
+      right: -1%;
+      left: auto;
+    }
+
+    html[dir="rtl"] .nx-contact-page .nx-art-bottom {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .nx-contact-page .nx-hero-bottom {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .nx-contact-page .nx-hero-bottom a {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .nx-contact-page .nx-btn-arrow {
+      transform: scaleX(-1);
+    }
+
+    @media (max-width: 680px) {
+      html[dir="rtl"] .nx-contact-page .nx-float-light {
+        right: auto;
+        left: -1%;
+      }
+
+      html[dir="rtl"] .nx-contact-page .nx-float-control {
+        right: -1%;
+        left: auto;
+      }
+    }
+
+    /* Motion */
+
+    @keyframes nxHeroEnter {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes nxHeroFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    @keyframes nxHeroRotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes nxHeroPulse {
+      0% {
+        opacity: .8;
+        transform: scale(.7);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.9);
+      }
+    }
+
+    @keyframes nxGlassGlow {
+      0%, 100% {
+        opacity: .88;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nx-contact-page *,
+      .nx-contact-page *::before,
+      .nx-contact-page *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+
+<body style="margin:0">
+
+<div class="nx-contact-page">
+  <section class="nx-hero" id="nx-contact-home">
+
+    <div class="nx-hero-grid" aria-hidden="true"></div>
+    <div class="nx-hero-glow" aria-hidden="true"></div>
+
+    <div class="nx-hero-inner">
+
+      <!-- HERO COPY -->
+      <div class="nx-hero-copy">
+
+        <div class="nx-eyebrow">
+          <span class="nx-pulse"></span>
+          <span>NEXORA SMART LIVING</span>
+          <span class="nx-eyebrow-line"></span>
+          <span class="nx-eyebrow-tag">CONTACT</span>
+        </div>
+
+        <h1>
+          Your home.<br>
+          Your lifestyle.<br>
+          <span class="nx-hero-gradient">Your intelligence.</span>
+        </h1>
+
+        <p class="nx-hero-description">
+          Every great smart home starts with a conversation.
+          Tell us what you envision, and let's turn everyday
+          living into something extraordinary.
+        </p>
+
+        <div class="nx-hero-actions">
+          <a href="#nx-enquiry" class="nx-btn nx-btn-primary">
+            Let's Talk
+            <span class="nx-btn-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <a href="#nx-contact-options" class="nx-btn nx-btn-glass">
+            Explore Contact Options
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <div class="nx-hero-proof">
+          <div class="nx-proof-icon" aria-hidden="true">✓</div>
+          <div>
+            <strong>Thoughtfully connected living</strong>
+            <span>Personalised guidance for your home</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FUTURISTIC SMART HOME VISUAL -->
+      <div class="nx-hero-art" aria-label="Smart home illustration">
+
+        <div class="nx-art-orbit nx-art-orbit-a"></div>
+        <div class="nx-art-orbit nx-art-orbit-b"></div>
+        <div class="nx-art-orbit nx-art-orbit-c"></div>
+
+        <div class="nx-art-top-label">
+          <span class="nx-live-dot"></span>
+          <span>SMART LIVING SYSTEM</span>
+          <span class="nx-art-top-code">NX.001</span>
+        </div>
+
+        <div class="nx-house-stage">
+          <svg viewBox="0 0 460 390" role="img"
+               aria-label="Illustration of a connected smart home">
+            <defs>
+              <linearGradient id="nxRoof" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#42D5F0"/>
+                <stop offset="100%" stop-color="#0F4C81"/>
+              </linearGradient>
+
+              <linearGradient id="nxWall" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#173F61"/>
+                <stop offset="100%" stop-color="#071B30"/>
+              </linearGradient>
+
+              <linearGradient id="nxGlass" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#42D5F0" stop-opacity=".9"/>
+                <stop offset="100%" stop-color="#00B4D8" stop-opacity=".12"/>
+              </linearGradient>
+
+              <filter id="nxGlow">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <ellipse cx="230" cy="326" rx="172" ry="28"
+              fill="#00B4D8" opacity=".12"/>
+
+            <ellipse cx="230" cy="326" rx="135" ry="18"
+              fill="none" stroke="#42D5F0" stroke-opacity=".35"/>
+
+            <path d="M83 171 L230 64 L377 171"
+              fill="none" stroke="#42D5F0" stroke-width="2"
+              stroke-opacity=".55"/>
+
+            <path d="M95 170 L230 76 L365 170"
+              fill="none" stroke="url(#nxRoof)" stroke-width="8"
+              stroke-linejoin="round" stroke-linecap="round"
+              filter="url(#nxGlow)"/>
+
+            <path d="M112 164 V300 H348 V164 L230 91 Z"
+              fill="url(#nxWall)" stroke="#42D5F0"
+              stroke-opacity=".65" stroke-width="1.5"/>
+
+            <path d="M230 91 V300"
+              stroke="#42D5F0" stroke-opacity=".3"/>
+
+            <g class="nx-house-glass">
+              <rect x="132" y="186" width="69" height="66" rx="3"
+                fill="url(#nxGlass)" stroke="#42D5F0" stroke-width="1.5"/>
+
+              <path d="M166.5 186 V252 M132 219 H201"
+                stroke="#0F4C81" stroke-width="2"/>
+
+              <rect x="259" y="186" width="65" height="66" rx="3"
+                fill="url(#nxGlass)" stroke="#42D5F0" stroke-width="1.5"/>
+
+              <path d="M291.5 186 V252 M259 219 H324"
+                stroke="#0F4C81" stroke-width="2"/>
+            </g>
+
+            <rect x="203" y="224" width="54" height="76" rx="3"
+              fill="#06172A" stroke="#42D5F0" stroke-width="1.5"/>
+
+            <circle cx="245" cy="265" r="2.5" fill="#42D5F0"/>
+
+            <path d="M115 300 H345"
+              stroke="#42D5F0" stroke-width="3" stroke-linecap="round"/>
+
+            <path d="M145 312 H315"
+              stroke="#42D5F0" stroke-opacity=".35"
+              stroke-width="2" stroke-linecap="round"/>
+
+            <g transform="translate(205 118)">
+              <circle cx="25" cy="25" r="34" fill="#00B4D8" opacity=".12"/>
+
+              <circle cx="25" cy="25" r="25" fill="#071D34"
+                stroke="#42D5F0" stroke-width="1.5"/>
+
+              <path d="M25 10 V25 L36 32" fill="none"
+                stroke="#42D5F0" stroke-width="2.5"
+                stroke-linecap="round"/>
+
+              <circle cx="25" cy="25" r="3" fill="#42D5F0"/>
+            </g>
+
+            <g stroke="#42D5F0" stroke-width="1"
+               stroke-opacity=".65" fill="none">
+              <path d="M110 145 L69 116 H31"/>
+              <path d="M350 145 L390 113 H427"/>
+              <path d="M342 277 L383 298 H426"/>
+            </g>
+
+            <g fill="#42D5F0">
+              <circle cx="110" cy="145" r="3"/>
+              <circle cx="350" cy="145" r="3"/>
+              <circle cx="342" cy="277" r="3"/>
+            </g>
+
+            <g fill="#BCEFFC" font-family="Arial, sans-serif"
+               font-size="9" letter-spacing="1.5">
+              <text x="31" y="107">AUTOMATION</text>
+              <text x="360" y="103">CONNECTED</text>
+              <text x="375" y="315">SECURE</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Lighting card -->
+        <div class="nx-float-card nx-float-light">
+          <div class="nx-float-symbol" aria-hidden="true">☼</div>
+
+          <div class="nx-float-copy">
+            <span>AMBIENT LIGHTING</span>
+            <strong>Atmosphere, perfected</strong>
+          </div>
+
+          <span class="nx-toggle" aria-hidden="true"><i></i></span>
+        </div>
+
+        <!-- Connected home card -->
+        <div class="nx-float-card nx-float-control">
+          <div class="nx-control-icon" aria-hidden="true">⌂</div>
+
+          <div class="nx-float-copy">
+            <span>SMART HOME</span>
+            <strong>Everything in sync</strong>
+          </div>
+
+          <span class="nx-control-status" aria-hidden="true"></span>
+        </div>
+
+        <div class="nx-art-bottom">
+          <span>COMFORT / CONTROL / SECURITY</span>
+          <span>DESIGNED AROUND YOU</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BOTTOM STRIP -->
+    <div class="nx-hero-bottom">
+      <span>01 — START A CONVERSATION</span>
+
+      <a href="#nx-contact-options">
+        DISCOVER WAYS TO CONNECT
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+
+  </section>
+
+  
+<main class="nx-contact">
+
+    <!-- SECTION 1: CONTACT CHANNELS -->
+    <section class="nx-contact-channels" id="contact-options">
+        <div class="nx-contact-container">
+
+            <div class="nx-contact-heading">
+                <span class="nx3-eyebrow"><span class="nx3-eyebrow-dot"></span> CONNECT WITH OUR TEAM</span>
+                <h2>Let's make your home <span>smarter.</span></h2>
+                <p>Have a question about automation, installation, or your next project? Our team is ready to help.</p>
+            </div>
+
+            <div class="nx-contact-channel-grid">
+                <a class="nx-contact-channel" href="mailto:hello@nexorasmartliving.com">
+                    <span class="nx-contact-channel-icon"><i data-lucide="mail"></i></span>
+                    <span class="nx-contact-card-label">EMAIL OUR TEAM</span>
+                    <strong>Send us an email</strong>
+                    <p>Share your requirements and receive a thoughtful response.</p>
+                    <span class="nx-contact-card-action">Write to us <i data-lucide="arrow-up-right"></i></span>
+                </a>
+
+                <a class="nx-contact-channel" href="tel:+910000000000">
+                    <span class="nx-contact-channel-icon"><i data-lucide="phone-call"></i></span>
+                    <span class="nx-contact-card-label">TALK TO AN EXPERT</span>
+                    <strong>Let's have a call</strong>
+                    <p>Discuss your smart-home needs with our team directly.</p>
+                    <span class="nx-contact-card-action">Call our team <i data-lucide="arrow-up-right"></i></span>
+                </a>
+
+                <a class="nx-contact-channel" href="https://wa.me/910000000000" target="_blank" rel="noopener noreferrer">
+                    <span class="nx-contact-channel-icon"><i data-lucide="message-circle"></i></span>
+                    <span class="nx-contact-card-label">QUICK ENQUIRY</span>
+                    <strong>Message us</strong>
+                    <p>Send a quick message about your space or installation.</p>
+                    <span class="nx-contact-card-action">Start a conversation <i data-lucide="arrow-up-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 2: CONTACT INFORMATION + MAP -->
+    <section class="nx-contact-location" id="contact-location">
+        <div class="nx-contact-container">
+
+            <div class="nx-contact-heading">
+                <span class="nx3-eyebrow"><span class="nx3-eyebrow-dot"></span> FIND AND CONNECT</span>
+                <h2>We’re here to help <span>you connect.</span></h2>
+                <p>Discuss your ideas with our team and explore possibilities for your home.</p>
+            </div>
+
+            <div class="nx-contact-location-grid">
+
+                <div class="nx-contact-location-content">
+                    <span class="nx-contact-location-tag"><i data-lucide="map-pin"></i> GET IN TOUCH</span>
+                    <h3>Your vision.<br><span>Our expertise.</span></h3>
+                    <p class="nx-contact-location-intro">From a single smart light to a fully connected home, we help you explore the right solutions for your space.</p>
+
+                    <div class="nx-contact-detail">
+                        <span class="nx-contact-detail-icon"><i data-lucide="map-pin"></i></span>
+                        <div>
+                            <strong>Our location</strong>
+                            <p>Add your office address here</p>
+                        </div>
+                    </div>
+
+                    <div class="nx-contact-detail">
+                        <span class="nx-contact-detail-icon"><i data-lucide="clock-3"></i></span>
+                        <div>
+                            <strong>Working hours</strong>
+                            <p>Monday – Saturday · 9:00 AM – 6:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="nx-contact-detail">
+                        <span class="nx-contact-detail-icon"><i data-lucide="calendar-check"></i></span>
+                        <div>
+                            <strong>Plan a visit</strong>
+                            <p>Contact us to arrange a convenient consultation.</p>
+                        </div>
+                    </div>
+
+                    <a class="nx-contact-button nx-contact-button-primary" href="#nx-contact-form">
+                        Plan a consultation <i data-lucide="arrow-up-right"></i>
+                    </a>
+                </div>
+
+                <div class="nx-contact-map-panel">
+                    <div class="nx-contact-map-top">
+                        <span class="nx-contact-map-status"><span></span> OUR LOCATION</span>
+                        <span class="nx-contact-map-caption">Explore the area</span>
+                    </div>
+
+                    <div class="nx-contact-map-frame">
+                        <!-- Replace with your actual office address -->
+                        <iframe
+                            title="Office location map"
+                            src="https://maps.google.com/maps?q=Vijayawada%2C%20Andhra%20Pradesh&t=&z=12&ie=UTF8&iwloc=&output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen>
+                        </iframe>
+
+                        <div class="nx-contact-map-overlay">
+                            <span class="nx-contact-map-pin"><i data-lucide="map-pin"></i></span>
+                            <div>
+                                <strong>Let's connect in person</strong>
+                                <p>We look forward to learning about your project.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="nx-contact-map-link"
+                       href="https://www.google.com/maps/search/?api=1&query=Vijayawada%2C%20Andhra%20Pradesh"
+                       target="_blank" rel="noopener noreferrer">
+                        Open in Google Maps <i data-lucide="external-link"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 3: CONTACT FORM -->
+    <section class="nx-contact-form-section" id="nx-contact-form">
+        <div class="nx-contact-container">
+
+            <div class="nx-contact-heading">
+                <span class="nx3-eyebrow"><span class="nx3-eyebrow-dot"></span> START YOUR PROJECT</span>
+                <h2>Tell us what you have <span>in mind.</span></h2>
+                <p>Share your requirements and let’s explore the right automation solution for your space.</p>
+            </div>
+
+            <div class="nx-contact-form-grid">
+
+                <div class="nx-contact-form-aside">
+                    <div class="nx-contact-form-aside-visual">
+                        <div class="nx-contact-aside-ring nx-contact-aside-ring-one"></div>
+                        <div class="nx-contact-aside-ring nx-contact-aside-ring-two"></div>
+                        <div class="nx-contact-aside-home"><i data-lucide="house"></i></div>
+                        <span class="nx-contact-aside-node nx-contact-aside-node-one"><i data-lucide="lightbulb"></i></span>
+                        <span class="nx-contact-aside-node nx-contact-aside-node-two"><i data-lucide="shield-check"></i></span>
+                        <span class="nx-contact-aside-node nx-contact-aside-node-three"><i data-lucide="smartphone"></i></span>
+                    </div>
+
+                    <h3>A smarter home starts with a conversation.</h3>
+                    <p>Tell us what matters most to you. We’ll help you understand the options, compatibility, and next steps.</p>
+
+                    <div class="nx-contact-promise">
+                        <span><i data-lucide="check-circle-2"></i></span>
+                        <div><strong>Personalised guidance</strong><p>Recommendations tailored to your space and needs.</p></div>
+                    </div>
+
+                    <div class="nx-contact-promise">
+                        <span><i data-lucide="check-circle-2"></i></span>
+                        <div><strong>Clear next steps</strong><p>Understand your options before making a decision.</p></div>
+                    </div>
+                </div>
+
+                <form class="nx-contact-form" id="nxContactForm">
+                    <div class="nx-contact-form-heading">
+                        <span>YOUR ENQUIRY</span>
+                        <h3>Let's get started</h3>
+                        <p>Fields marked with * are required.</p>
+                    </div>
+
+                    <div class="nx-contact-input-grid">
+                        <label class="nx-contact-field">
+                            <span>Full name *</span>
+                            <input type="text" name="name" placeholder="Your full name" autocomplete="name" required>
+                        </label>
+
+                        <label class="nx-contact-field">
+                            <span>Email address *</span>
+                            <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                        </label>
+
+                        <label class="nx-contact-field">
+                            <span>Phone number</span>
+                            <input type="tel" name="phone" placeholder="+91 00000 00000" autocomplete="tel">
+                        </label>
+
+                        <label class="nx-contact-field">
+                            <span>I'm interested in *</span>
+                            <select name="service" required>
+                                <option value="" disabled selected>Select a solution</option>
+                                <option>Smart Lighting</option>
+                                <option>Smart Curtains & Blinds</option>
+                                <option>Voice Control</option>
+                                <option>Home Security</option>
+                                <option>Complete Home Automation</option>
+                                <option>Consultation / Other</option>
+                            </select>
+                        </label>
+
+                        <label class="nx-contact-field nx-contact-field-full">
+                            <span>Tell us about your project *</span>
+                            <textarea name="message" rows="4" placeholder="What would you like to automate?" required></textarea>
+                        </label>
+                    </div>
+
+                    <button class="nx-contact-button nx-contact-button-primary nx-contact-submit" type="submit">
+                        Prepare my enquiry <i data-lucide="arrow-up-right"></i>
+                    </button>
+
+                    <p class="nx-contact-form-note"><i data-lucide="shield-check"></i> Your details will be used to respond to your enquiry.</p>
+                    <p class="nx-contact-form-feedback" id="nxContactFeedback" role="status" aria-live="polite"></p>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 4: OUR PROCESS -->
+    <section class="nx-contact-process" id="contact-process">
+        <div class="nx-contact-container">
+
+            <div class="nx-contact-heading">
+                <span class="nx3-eyebrow"><span class="nx3-eyebrow-dot"></span> SIMPLE FROM THE START</span>
+                <h2>From first hello to <span>smart living.</span></h2>
+                <p>A clear, collaborative process to help you move forward with confidence.</p>
+            </div>
+
+            <div class="nx-contact-process-grid">
+                <article class="nx-contact-process-card">
+                    <div class="nx-contact-process-top">
+                        <span class="nx-contact-process-number">01</span>
+                        <span class="nx-contact-process-icon"><i data-lucide="messages-square"></i></span>
+                    </div>
+                    <h3>Share your ideas</h3>
+                    <p>Tell us about your property, everyday routines, and what you want to simplify.</p>
+                    <span class="nx-contact-process-line"></span>
+                </article>
+
+                <article class="nx-contact-process-card">
+                    <div class="nx-contact-process-top">
+                        <span class="nx-contact-process-number">02</span>
+                        <span class="nx-contact-process-icon"><i data-lucide="scan"></i></span>
+                    </div>
+                    <h3>Explore solutions</h3>
+                    <p>Discuss suitable devices, integrations, requirements, and possibilities.</p>
+                    <span class="nx-contact-process-line"></span>
+                </article>
+
+                <article class="nx-contact-process-card">
+                    <div class="nx-contact-process-top">
+                        <span class="nx-contact-process-number">03</span>
+                        <span class="nx-contact-process-icon"><i data-lucide="clipboard-check"></i></span>
+                    </div>
+                    <h3>Plan your setup</h3>
+                    <p>Review the recommended scope, installation approach, and next steps.</p>
+                    <span class="nx-contact-process-line"></span>
+                </article>
+
+                <article class="nx-contact-process-card">
+                    <div class="nx-contact-process-top">
+                        <span class="nx-contact-process-number">04</span>
+                        <span class="nx-contact-process-icon"><i data-lucide="house-plug"></i></span>
+                    </div>
+                    <h3>Move toward smart living</h3>
+                    <p>Proceed with a plan designed around your home and preferred experience.</p>
+                    <span class="nx-contact-process-line"></span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SECTION 5: FAQ — EQUAL LEFT AND RIGHT COLUMNS -->
+    <section class="nx-contact-faq" id="contact-faq">
+        <div class="nx-contact-container">
+
+            <div class="nx-contact-heading">
+                <span class="nx3-eyebrow"><span class="nx3-eyebrow-dot"></span> QUESTIONS, ANSWERED</span>
+                <h2>Everything you need to <span>know.</span></h2>
+                <p>Find answers to common questions about planning and installing a smart-home system.</p>
+            </div>
+
+            <div class="nx-contact-faq-grid">
+
+                <!-- Equal-width left column -->
+                <div class="nx-contact-faq-column">
+                    <div class="nx-contact-faq-column-heading">
+                        <span class="nx-contact-faq-column-icon"><i data-lucide="house"></i></span>
+                        <div><strong>Getting started</strong><p>Planning your smart home</p></div>
+                    </div>
+
+                    <details class="nx-contact-faq-item" open>
+                        <summary>Can I automate just one room?<span class="nx-contact-faq-toggle"><i data-lucide="plus"></i></span></summary>
+                        <div class="nx-contact-faq-answer"><p>Yes. You can start with a single room or feature, such as smart lighting, and explore additional automation as your needs grow.</p></div>
+                    </details>
+
+                    <details class="nx-contact-faq-item">
+                        <summary>Can smart devices work in an existing home?<span class="nx-contact-faq-toggle"><i data-lucide="plus"></i></span></summary>
+                        <div class="nx-contact-faq-answer"><p>Many solutions can be added to existing homes. Compatibility depends on your wiring, network, devices, and the automation system selected.</p></div>
+                    </details>
+
+                    <details class="nx-contact-faq-item">
+                        <summary>How do I get an estimate?<span class="nx-contact-faq-toggle"><i data-lucide="plus"></i></span></summary>
+                        <div class="nx-contact-faq-answer"><p>Share your preferred features, approximate property size, and project location. Your team can then discuss the next step toward an estimate.</p></div>
+                    </details>
+                </div>
+
+                <!-- Equal-width right column -->
+                <div class="nx-contact-faq-column">
+                    <div class="nx-contact-faq-column-heading">
+                        <span class="nx-contact-faq-column-icon"><i data-lucide="settings-2"></i></span>
+                        <div><strong>Devices & installation</strong><p>Compatibility and support</p></div>
+                    </div>
+
+                    <details class="nx-contact-faq-item">
+                        <summary>Can I control devices from my phone?<span class="nx-contact-faq-toggle"><i data-lucide="plus"></i></span></summary>
+                        <div class="nx-contact-faq-answer"><p>Many compatible systems support mobile control. Available features depend on the selected devices, platform, and network setup.</p></div>
+                    </details>
+
+                    <details class="nx-contact-faq-item">
+                        <summary>Do you provide consultations?<span class="nx-contact-faq-toggle"><i data-lucide="plus"></i></span></summary>
+                        <div class="nx-contact-faq-answer"><p>Use the contact form to request a consultation. Your team can confirm available options, scheduling, and any applicable charges.</p></div>
+                    </details>
+
+                    <details class="nx-contact-faq-item">
+                        <summary>Can I add more devices later?<span class="nx-contact-faq-toggle"><i data-lucide="plus"></i></span></summary>
+                        <div class="nx-contact-faq-answer"><p>Expansion may be possible when the existing system supports additional devices. Planning for compatibility at the beginning can make future upgrades easier.</p></div>
+                    </details>
+                </div>
+
+            </div>
+
+            <div class="nx-contact-faq-bottom">
+                <p>Still have a question?</p>
+                <a href="#nx-contact-form">Talk to our team <i data-lucide="arrow-up-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SECTION 6: FINAL CTA -->
+    <section class="nx-contact-final" id="contact-next-step">
+        <div class="nx-contact-container">
+
+            <div class="nx-contact-final-shell">
+                <div class="nx-contact-final-grid-pattern"></div>
+                <span class="nx-contact-final-orb nx-contact-final-orb-one"></span>
+                <span class="nx-contact-final-orb nx-contact-final-orb-two"></span>
+
+                <div class="nx-contact-final-content">
+                    <span class="nx-contact-final-label"><span></span> YOUR HOME, REIMAGINED</span>
+                    <h2>Ready to make everyday life <span>effortless?</span></h2>
+                    <p>Let's explore a smarter way to live, built around your space, your routines, and your vision.</p>
+
+                    <div class="nx-contact-final-actions">
+                        <a href="#nx-contact-form" class="nx-contact-button nx-contact-button-light">Start your enquiry <i data-lucide="arrow-up-right"></i></a>
+                        <a href="#contact-options" class="nx-contact-final-secondary">Explore contact options <i data-lucide="arrow-down-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="nx-contact-final-visual" aria-hidden="true">
+                    <div class="nx-contact-final-ring nx-contact-final-ring-one"></div>
+                    <div class="nx-contact-final-ring nx-contact-final-ring-two"></div>
+                    <div class="nx-contact-final-ring nx-contact-final-ring-three"></div>
+                    <div class="nx-contact-final-home"><i data-lucide="house"></i></div>
+                    <span class="nx-contact-floating-node nx-contact-node-one"><i data-lucide="lightbulb"></i></span>
+                    <span class="nx-contact-floating-node nx-contact-node-two"><i data-lucide="shield-check"></i></span>
+                    <span class="nx-contact-floating-node nx-contact-node-three"><i data-lucide="thermometer"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+
+<style>
+/* =========================================================
+   NEXORA SMART LIVING — CONTACT PAGE
+   All styles are scoped to .nx-contact.
+========================================================= */
+
+.nx-contact {
+    --nxc-primary: var(--primary, #0F4C81);
+    --nxc-secondary: var(--secondary, #00B4D8);
+    --nxc-bg: var(--bg, #f5f8fc);
+    --nxc-surface: var(--surface, #ffffff);
+    --nxc-text: var(--text, #142338);
+    --nxc-muted: var(--muted, #64748b);
+    --nxc-border: var(--border, rgba(100,116,139,.19));
+    --nxc-primary-soft: color-mix(in srgb, var(--nxc-primary) 8%, transparent);
+    --nxc-secondary-soft: color-mix(in srgb, var(--nxc-secondary) 10%, transparent);
+    --nxc-shadow: 0 20px 60px rgba(15,40,70,.07);
+
+    width: 100%;
+    overflow: clip;
+    color: var(--nxc-text);
+    background: var(--nxc-bg);
+    font-family: inherit;
+}
+
+.nx-contact *,
+.nx-contact *::before,
+.nx-contact *::after {
+    box-sizing: border-box;
+}
+
+.nx-contact a { color: inherit; text-decoration: none; }
+.nx-contact button,
+.nx-contact input,
+.nx-contact textarea,
+.nx-contact select { font: inherit; }
+
+.nx-contact-container {
+    width: min(1160px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.nx-contact section {
+    position: relative;
+    padding: 84px 0;
+}
+
+.nx-contact h2,
+.nx-contact h3,
+.nx-contact p { margin-top: 0; }
+
+.nx-contact h2 {
+    margin-bottom: 17px;
+    color: var(--nxc-text);
+    font-size: clamp(30px, 3.6vw, 45px);
+    font-weight: 760;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+.nx-contact h2 > span { color: var(--nxc-secondary); }
+
+.nx-contact p {
+    color: var(--nxc-muted);
+    line-height: 1.8;
+}
+
+.nx-contact .nx3-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+    margin: 0 0 18px;
+    padding: 9px 13px;
+    border: 1px solid color-mix(in srgb, var(--nxc-secondary) 30%, transparent);
+    border-radius: 50px;
+    background: var(--nxc-secondary-soft);
+    color: var(--nxc-secondary);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 1.5px;
+}
+
+.nx-contact .nx3-eyebrow-dot {
+    position: relative;
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--nxc-secondary);
+    box-shadow: 0 0 12px var(--nxc-secondary);
+}
+
+.nx-contact .nx3-eyebrow-dot::after {
+    position: absolute;
+    inset: -5px;
+    content: "";
+    border: 1px solid var(--nxc-secondary);
+    border-radius: 50%;
+    animation: nx3-pulse 2s ease-out infinite;
+}
+
+@keyframes nx3-pulse {
+    0% { transform: scale(.55); opacity: .9; }
+    100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* Centered headings across sections */
+.nx-contact-heading {
+    width: 100%;
+    max-width: 740px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.nx-contact-heading > p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+.nx-contact-button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 19px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.nx-contact-button:hover { transform: translateY(-3px); }
+.nx-contact-button svg { width: 17px; height: 17px; }
+
+.nx-contact-button-primary {
+    color: #fff !important;
+    background: var(--nxc-primary);
+    box-shadow: 0 8px 22px color-mix(in srgb, var(--nxc-primary) 22%, transparent);
+}
+
+.nx-contact-button-primary:hover {
+    background: var(--nxc-secondary);
+    box-shadow: 0 12px 28px color-mix(in srgb, var(--nxc-secondary) 25%, transparent);
+}
+
+
+/* SECTION 1 — CONTACT CHANNELS */
+.nx-contact-channels {
+    background:
+        radial-gradient(ellipse at 50% 0%, var(--nxc-secondary-soft), transparent 52%),
+        var(--nxc-bg);
+}
+
+.nx-contact-channel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.nx-contact-channel {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 265px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px;
+    overflow: hidden;
+    border: 1px solid var(--nxc-border);
+    border-radius: 18px;
+    background: var(--nxc-surface);
+    box-shadow: var(--nxc-shadow);
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.nx-contact-channel::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    content: "";
+    background: linear-gradient(90deg, var(--nxc-primary), var(--nxc-secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+}
+
+.nx-contact-channel:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--nxc-secondary) 45%, var(--nxc-border));
+    box-shadow: 0 25px 60px color-mix(in srgb, var(--nxc-primary) 12%, transparent);
+}
+
+.nx-contact-channel:hover::before { transform: scaleX(1); }
+
+.nx-contact-channel-icon,
+.nx-contact-detail-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--nxc-secondary) 24%, transparent);
+    border-radius: 14px;
+    background: var(--nxc-secondary-soft);
+    color: var(--nxc-secondary);
+}
+
+.nx-contact-channel-icon svg { width: 22px; height: 22px; }
+
+.nx-contact-card-label {
+    margin-top: 23px;
+    color: var(--nxc-secondary);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.45px;
+}
+
+.nx-contact-channel strong {
+    margin-top: 9px;
+    font-size: 19px;
+    font-weight: 750;
+}
+
+.nx-contact-channel p {
+    margin: 9px 0 18px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.nx-contact-card-action {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: auto;
+    color: var(--nxc-secondary);
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.nx-contact-card-action svg {
+    width: 15px;
+    height: 15px;
+    transition: transform .25s ease;
+}
+
+.nx-contact-channel:hover .nx-contact-card-action svg {
+    transform: translate(3px, -3px);
+}
+
+
+/* SECTION 2 — BALANCED HALF-CONTENT / HALF-MAP */
+.nx-contact-location {
+    border-block: 1px solid var(--nxc-border);
+    background: var(--nxc-surface);
+}
+
+.nx-contact-location-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 30px;
+}
+
+.nx-contact-location-content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.nx-contact-location-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    color: var(--nxc-secondary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.nx-contact-location-tag svg { width: 16px; height: 16px; }
+
+.nx-contact-location-content h3 {
+    margin-bottom: 14px;
+    color: var(--nxc-text);
+    font-size: clamp(29px, 3vw, 39px);
+    font-weight: 760;
+    line-height: 1.15;
+    letter-spacing: -1.2px;
+}
+
+.nx-contact-location-content h3 span { color: var(--nxc-secondary); }
+
+.nx-contact-location-intro {
+    max-width: 460px;
+    margin-bottom: 26px;
+    font-size: 14px;
+}
+
+.nx-contact-detail {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.nx-contact-detail-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+}
+
+.nx-contact-detail-icon svg { width: 19px; height: 19px; }
+
+.nx-contact-detail strong {
+    display: block;
+    margin: 2px 0 5px;
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.nx-contact-detail p {
+    margin: 0;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.nx-contact-location-content > .nx-contact-button { margin-top: 5px; }
+
+.nx-contact-map-panel {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 17px;
+    border: 1px solid var(--nxc-border);
+    border-radius: 20px;
+    background: var(--nxc-bg);
+    box-shadow: var(--nxc-shadow);
+}
+
+.nx-contact-map-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 2px 2px 15px;
+}
+
+.nx-contact-map-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--nxc-text);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.nx-contact-map-status > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--nxc-secondary);
+    box-shadow: 0 0 10px var(--nxc-secondary);
+}
+
+.nx-contact-map-caption { color: var(--nxc-muted); font-size: 11px; }
+
+.nx-contact-map-frame {
+    position: relative;
+    flex: 1;
+    min-height: 370px;
+    overflow: hidden;
+    border: 1px solid var(--nxc-border);
+    border-radius: 14px;
+    background: var(--nxc-primary-soft);
+}
+
+.nx-contact-map-frame iframe {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: saturate(.8);
+}
+
+.nx-contact-map-overlay {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 12px;
+    background: rgba(255,255,255,.95);
+    box-shadow: 0 8px 28px rgba(12,31,54,.12);
+    color: #142338;
+    pointer-events: none;
+}
+
+.nx-contact-map-pin {
+    display: grid;
+    width: 39px;
+    height: 39px;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 11px;
+    background: #e3f9fc;
+    color: #007f9b;
+}
+
+.nx-contact-map-pin svg { width: 19px; height: 19px; }
+
+.nx-contact-map-overlay strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 12px;
+}
+
+.nx-contact-map-overlay p {
+    margin: 0;
+    color: #5d6b7a;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.nx-contact-map-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 15px 3px 2px;
+    color: var(--nxc-secondary) !important;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.nx-contact-map-link svg { width: 16px; height: 16px; }
+
+
+/* SECTION 3 — FORM */
+.nx-contact-form-section {
+    background:
+        radial-gradient(ellipse at 0% 45%, var(--nxc-primary-soft), transparent 42%),
+        var(--nxc-bg);
+}
+
+.nx-contact-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 28px;
+}
+
+.nx-contact-form-aside {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    overflow: hidden;
+    border: 1px solid var(--nxc-border);
+    border-radius: 20px;
+    background: var(--nxc-surface);
+    box-shadow: var(--nxc-shadow);
+}
+
+.nx-contact-form-aside-visual {
+    position: relative;
+    display: grid;
+    width: min(100%, 260px);
+    aspect-ratio: 1.25;
+    align-self: center;
+    place-items: center;
+    margin: 0 auto 20px;
+}
+
+.nx-contact-aside-ring {
+    position: absolute;
+    inset: 9%;
+    border: 1px solid color-mix(in srgb, var(--nxc-secondary) 35%, transparent);
+    border-radius: 50%;
+    animation: nx-contact-orbit 24s linear infinite;
+}
+
+.nx-contact-aside-ring-two {
+    inset: 23%;
+    border-style: dashed;
+    animation-direction: reverse;
+    animation-duration: 18s;
+}
+
+@keyframes nx-contact-orbit { to { transform: rotate(360deg); } }
+
+.nx-contact-aside-home {
+    display: grid;
+    width: 75px;
+    height: 75px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--nxc-secondary) 40%, transparent);
+    border-radius: 23px;
+    background: var(--nxc-secondary-soft);
+    color: var(--nxc-secondary);
+    box-shadow: 0 0 35px var(--nxc-secondary-soft);
+}
+
+.nx-contact-aside-home svg { width: 36px; height: 36px; }
+
+.nx-contact-aside-node {
+    position: absolute;
+    display: grid;
+    width: 37px;
+    height: 37px;
+    place-items: center;
+    border: 1px solid var(--nxc-border);
+    border-radius: 12px;
+    background: var(--nxc-surface);
+    color: var(--nxc-secondary);
+    box-shadow: var(--nxc-shadow);
+}
+
+.nx-contact-aside-node svg { width: 18px; height: 18px; }
+.nx-contact-aside-node-one { top: 10%; right: 20%; }
+.nx-contact-aside-node-two { bottom: 10%; left: 19%; }
+.nx-contact-aside-node-three { right: 8%; bottom: 22%; }
+
+.nx-contact-form-aside h3 {
+    margin-bottom: 12px;
+    color: var(--nxc-text);
+    font-size: clamp(22px, 2.4vw, 29px);
+    font-weight: 760;
+    line-height: 1.25;
+    letter-spacing: -.8px;
+}
+
+.nx-contact-form-aside > p {
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+.nx-contact-promise {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 17px;
+}
+
+.nx-contact-promise > span {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 9px;
+    background: var(--nxc-secondary-soft);
+    color: var(--nxc-secondary);
+}
+
+.nx-contact-promise svg { width: 17px; height: 17px; }
+
+.nx-contact-promise strong {
+    display: block;
+    margin: 2px 0 5px;
+    font-size: 13px;
+}
+
+.nx-contact-promise p { margin: 0; font-size: 12px; }
+
+.nx-contact-form {
+    min-width: 0;
+    padding: clamp(22px, 3.5vw, 36px);
+    border: 1px solid var(--nxc-border);
+    border-radius: 20px;
+    background: var(--nxc-surface);
+    box-shadow: var(--nxc-shadow);
+}
+
+.nx-contact-form-heading { margin-bottom: 26px; }
+
+.nx-contact-form-heading > span {
+    color: var(--nxc-secondary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.nx-contact-form-heading h3 {
+    margin: 9px 0 6px;
+    font-size: 25px;
+    font-weight: 760;
+    letter-spacing: -.7px;
+}
+
+.nx-contact-form-heading p { margin: 0; font-size: 12px; }
+
+.nx-contact-input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 15px;
+}
+
+.nx-contact-field {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nx-contact-field > span {
+    color: var(--nxc-text);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.nx-contact-field input,
+.nx-contact-field select,
+.nx-contact-field textarea {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    border: 1px solid var(--nxc-border);
+    border-radius: 10px;
+    outline: none;
+    background: var(--nxc-bg);
+    color: var(--nxc-text);
+    font-size: 12px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.nx-contact-field input,
+.nx-contact-field select { min-height: 47px; padding: 0 13px; }
+.nx-contact-field textarea { min-height: 115px; padding: 13px; resize: vertical; }
+
+.nx-contact-field input::placeholder,
+.nx-contact-field textarea::placeholder { color: var(--nxc-muted); opacity: .8; }
+
+.nx-contact-field input:focus,
+.nx-contact-field select:focus,
+.nx-contact-field textarea:focus {
+    border-color: var(--nxc-secondary);
+    box-shadow: 0 0 0 3px var(--nxc-secondary-soft);
+}
+
+.nx-contact-field-full { grid-column: 1 / -1; }
+
+.nx-contact-submit {
+    width: 100%;
+    margin-top: 22px;
+    cursor: pointer;
+}
+
+.nx-contact-form-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 14px 0 0;
+    font-size: 11px;
+    text-align: center;
+}
+
+.nx-contact-form-note svg {
+    width: 15px;
+    height: 15px;
+    flex: 0 0 auto;
+    color: var(--nxc-secondary);
+}
+
+.nx-contact-form-feedback {
+    margin: 12px 0 0;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* SECTION 4 — PROCESS */
+.nx-contact-process {
+    border-block: 1px solid var(--nxc-border);
+    background: var(--nxc-surface);
+}
+
+.nx-contact-process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.nx-contact-process-card {
+    position: relative;
+    min-width: 0;
+    min-height: 230px;
+    padding: 23px 20px;
+    overflow: hidden;
+    border: 1px solid var(--nxc-border);
+    border-radius: 15px;
+    background: var(--nxc-bg);
+    transition: transform .25s ease, border-color .25s ease;
+}
+
+.nx-contact-process-card:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--nxc-secondary) 50%, var(--nxc-border));
+}
+
+.nx-contact-process-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.nx-contact-process-number {
+    color: var(--nxc-secondary);
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.nx-contact-process-icon {
+    display: grid;
+    width: 43px;
+    height: 43px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--nxc-secondary) 25%, transparent);
+    border-radius: 12px;
+    background: var(--nxc-secondary-soft);
+    color: var(--nxc-secondary);
+}
+
+.nx-contact-process-icon svg { width: 20px; height: 20px; }
+
+.nx-contact-process-card h3 {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.nx-contact-process-card p { margin-bottom: 0; font-size: 12px; line-height: 1.75; }
+
+.nx-contact-process-line {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    left: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--nxc-primary), var(--nxc-secondary));
+    transform: scaleX(.25);
+    transform-origin: left;
+    transition: transform .3s ease;
+}
+
+.nx-contact-process-card:hover .nx-contact-process-line { transform: scaleX(1); }
+
+
+/* SECTION 5 — FAQ: EXACTLY EQUAL COLUMNS */
+.nx-contact-faq {
+    background:
+        radial-gradient(ellipse at 100% 0%, var(--nxc-secondary-soft), transparent 45%),
+        var(--nxc-bg);
+}
+
+.nx-contact-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 24px;
+}
+
+.nx-contact-faq-column {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px;
+    border: 1px solid var(--nxc-border);
+    border-radius: 18px;
+    background: var(--nxc-surface);
+    box-shadow: var(--nxc-shadow);
+}
+
+.nx-contact-faq-column-heading {
+    display: flex;
+    min-height: 68px;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 5px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--nxc-border);
+}
+
+.nx-contact-faq-column-icon {
+    display: grid;
+    width: 45px;
+    height: 45px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--nxc-secondary) 25%, transparent);
+    border-radius: 13px;
+    background: var(--nxc-secondary-soft);
+    color: var(--nxc-secondary);
+}
+
+.nx-contact-faq-column-icon svg { width: 21px; height: 21px; }
+
+.nx-contact-faq-column-heading strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.nx-contact-faq-column-heading p { margin: 0; font-size: 11px; }
+
+.nx-contact-faq-item {
+    overflow: hidden;
+    border: 1px solid var(--nxc-border);
+    border-radius: 12px;
+    background: var(--nxc-bg);
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.nx-contact-faq-item[open] {
+    border-color: color-mix(in srgb, var(--nxc-secondary) 42%, var(--nxc-border));
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--nxc-primary) 5%, transparent);
+}
+
+.nx-contact-faq-item summary {
+    display: flex;
+    min-height: 66px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 13px;
+    padding: 15px;
+    color: var(--nxc-text);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.55;
+    list-style: none;
+    cursor: pointer;
+}
+
+.nx-contact-faq-item summary::-webkit-details-marker { display: none; }
+
+.nx-contact-faq-toggle {
+    display: grid;
+    width: 29px;
+    height: 29px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid var(--nxc-border);
+    border-radius: 9px;
+    background: var(--nxc-surface);
+    color: var(--nxc-secondary);
+    transition: background .25s ease;
+}
+
+.nx-contact-faq-toggle svg {
+    width: 15px;
+    height: 15px;
+    transition: transform .25s ease;
+}
+
+.nx-contact-faq-item[open] .nx-contact-faq-toggle { background: var(--nxc-secondary-soft); }
+.nx-contact-faq-item[open] .nx-contact-faq-toggle svg { transform: rotate(45deg); }
+
+.nx-contact-faq-answer {
+    padding: 0 15px 17px;
+    animation: nx-contact-faq-reveal .25s ease both;
+}
+
+.nx-contact-faq-answer p { margin: 0; font-size: 12px; line-height: 1.8; }
+
+@keyframes nx-contact-faq-reveal {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.nx-contact-faq-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.nx-contact-faq-bottom p { margin: 0; font-size: 13px; }
+
+.nx-contact-faq-bottom a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--nxc-secondary) !important;
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.nx-contact-faq-bottom svg { width: 15px; height: 15px; }
+
+
+/* SECTION 6 — FINAL CTA */
+.nx-contact-final { background: var(--nxc-bg); }
+
+.nx-contact-final-shell {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(220px, .8fr);
+    min-height: 360px;
+    align-items: center;
+    gap: 24px;
+    padding: clamp(30px, 5vw, 65px);
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--nxc-secondary) 28%, transparent);
+    border-radius: 24px;
+    background:
+        radial-gradient(ellipse at 90% 15%, rgba(0,180,216,.2), transparent 40%),
+        linear-gradient(125deg, var(--nxc-primary), color-mix(in srgb, var(--nxc-primary) 72%, #07172d));
+    box-shadow: 0 25px 70px color-mix(in srgb, var(--nxc-primary) 20%, transparent);
+    isolation: isolate;
+}
+
+.nx-contact-final-grid-pattern {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(110deg, #000, transparent 78%);
+    pointer-events: none;
+}
+
+.nx-contact-final-orb {
+    position: absolute;
+    z-index: -1;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(66,213,240,.22);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.nx-contact-final-orb-one { top: -170px; right: 15%; }
+
+.nx-contact-final-orb-two {
+    right: -100px;
+    bottom: -190px;
+    width: 320px;
+    height: 320px;
+}
+
+.nx-contact-final-content { position: relative; z-index: 2; min-width: 0; }
+
+.nx-contact-final-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 20px;
+    color: #7ce9fa;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.nx-contact-final-label > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #7ce9fa;
+    box-shadow: 0 0 14px #7ce9fa;
+}
+
+.nx-contact-final h2 {
+    max-width: 610px;
+    margin-bottom: 17px;
+    color: #fff;
+    font-size: clamp(32px, 4.5vw, 52px);
+}
+
+.nx-contact-final h2 > span { color: #70e4f6; }
+
+.nx-contact-final-content > p {
+    max-width: 500px;
+    margin-bottom: 25px;
+    color: rgba(255,255,255,.77);
+    font-size: 14px;
+}
+
+.nx-contact-final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 17px;
+}
+
+.nx-contact-button-light {
+    color: var(--nxc-primary) !important;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+.nx-contact-button-light:hover { background: #dffaff; }
+
+.nx-contact-final-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.9) !important;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.nx-contact-final-secondary svg {
+    width: 16px;
+    height: 16px;
+    transition: transform .2s ease;
+}
+
+.nx-contact-final-secondary:hover svg { transform: translate(3px, 3px); }
+
+.nx-contact-final-visual {
+    position: relative;
+    display: grid;
+    width: min(100%, 310px);
+    aspect-ratio: 1;
+    justify-self: center;
+    place-items: center;
+}
+
+.nx-contact-final-ring {
+    position: absolute;
+    inset: 10%;
+    border: 1px solid rgba(91,226,247,.25);
+    border-radius: 50%;
+    animation: nx-contact-ring 22s linear infinite;
+}
+
+.nx-contact-final-ring-one { border-style: dashed; }
+
+.nx-contact-final-ring-two {
+    inset: 22%;
+    border-color: rgba(91,226,247,.42);
+    animation-direction: reverse;
+    animation-duration: 17s;
+}
+
+.nx-contact-final-ring-three {
+    inset: 34%;
+    border-color: rgba(255,255,255,.2);
+}
+
+@keyframes nx-contact-ring { to { transform: rotate(360deg); } }
+
+.nx-contact-final-home {
+    display: grid;
+    width: 88px;
+    height: 88px;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 25px;
+    background: linear-gradient(145deg, rgba(255,255,255,.22), rgba(0,180,216,.17));
+    box-shadow: 0 0 55px rgba(0,180,216,.22), inset 0 0 25px rgba(255,255,255,.07);
+    color: #fff;
+    animation: nx-contact-float 4s ease-in-out infinite;
+}
+
+.nx-contact-final-home svg { width: 42px; height: 42px; }
+
+@keyframes nx-contact-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.nx-contact-floating-node {
+    position: absolute;
+    display: grid;
+    width: 43px;
+    height: 43px;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 14px;
+    background: rgba(255,255,255,.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    color: #8ceafa;
+    backdrop-filter: blur(8px);
+}
+
+.nx-contact-floating-node svg { width: 19px; height: 19px; }
+.nx-contact-node-one { top: 15%; right: 18%; }
+.nx-contact-node-two { bottom: 18%; left: 12%; }
+.nx-contact-node-three { right: 8%; bottom: 29%; }
+
+
+/* TABLET */
+@media (max-width: 900px) {
+    .nx-contact section { padding: 68px 0; }
+
+    .nx-contact-channel-grid { gap: 14px; }
+    .nx-contact-channel { padding: 22px; }
+
+    .nx-contact-location-grid { gap: 20px; }
+    .nx-contact-map-frame { min-height: 340px; }
+
+    .nx-contact-form-grid { gap: 20px; }
+    .nx-contact-form-aside { padding: 22px; }
+    .nx-contact-form { padding: 24px; }
+
+    .nx-contact-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .nx-contact-process-card { min-height: 215px; }
+
+    .nx-contact-faq-grid { gap: 16px; }
+    .nx-contact-faq-column { padding: 16px; }
+
+    .nx-contact-final-shell {
+        grid-template-columns: minmax(0, 1.2fr) minmax(170px, .8fr);
+        padding: 35px;
+    }
+}
+
+
+/* MOBILE */
+@media (max-width: 640px) {
+    .nx-contact-container { width: calc(100% - 32px); }
+    .nx-contact section { padding: 54px 0; }
+
+    .nx-contact h2 {
+        font-size: clamp(29px, 8vw, 37px);
+        letter-spacing: -1.1px;
+    }
+
+    .nx-contact-heading { margin-bottom: 28px; }
+    .nx-contact-heading > p { font-size: 13px; }
+
+    .nx-contact-channel-grid { grid-template-columns: minmax(0, 1fr); gap: 13px; }
+    .nx-contact-channel { min-height: auto; padding: 23px; }
+    .nx-contact-card-label { margin-top: 18px; }
+
+    .nx-contact-location-grid,
+    .nx-contact-form-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+
+    .nx-contact-location-content { padding: 0; }
+    .nx-contact-map-panel { min-height: 0; padding: 11px; }
+    .nx-contact-map-frame { min-height: 300px; }
+
+    .nx-contact-map-overlay {
+        right: 9px;
+        bottom: 9px;
+        left: 9px;
+        padding: 10px;
+    }
+
+    .nx-contact-form-aside { padding: 22px; }
+    .nx-contact-form-aside-visual { width: min(100%, 230px); }
+
+    .nx-contact-form { padding: 22px 17px; border-radius: 16px; }
+    .nx-contact-input-grid { grid-template-columns: minmax(0, 1fr); gap: 15px; }
+    .nx-contact-field-full { grid-column: auto; }
+
+    .nx-contact-process-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .nx-contact-process-card { min-height: auto; padding: 20px; }
+    .nx-contact-process-top { margin-bottom: 18px; }
+
+    /* FAQ stacks on small screens to keep text readable */
+    .nx-contact-faq-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+    .nx-contact-faq-column { padding: 16px; }
+    .nx-contact-faq-item summary { min-height: 60px; padding: 14px; }
+    .nx-contact-faq-answer { padding: 0 14px 15px; }
+
+    .nx-contact-final-shell {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+        padding: 29px 22px 22px;
+        border-radius: 19px;
+    }
+
+    .nx-contact-final h2 { font-size: clamp(32px, 9vw, 43px); }
+    .nx-contact-final-content > p { font-size: 13px; }
+
+    .nx-contact-final-actions {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+    }
+
+    .nx-contact-final-visual { width: min(72%, 230px); margin-top: 4px; }
+}
+
+
+/* SMALL MOBILE */
+@media (max-width: 380px) {
+    .nx-contact-container { width: calc(100% - 26px); }
+
+    .nx-contact .nx3-eyebrow {
+        gap: 8px;
+        padding: 8px 10px;
+        font-size: 9px;
+        letter-spacing: 1.1px;
+    }
+
+    .nx-contact-channel { padding: 19px; }
+    .nx-contact-map-frame { min-height: 265px; }
+    .nx-contact-form { padding: 19px 14px; }
+
+    .nx-contact-faq-column { padding: 12px; }
+    .nx-contact-faq-item summary { font-size: 11px; gap: 8px; }
+
+    .nx-contact-final-shell { padding: 25px 17px 18px; }
+    .nx-contact-final-secondary { font-size: 11px; }
+}
+
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    .nx-contact *,
+    .nx-contact *::before,
+    .nx-contact *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* Refresh Lucide icons when the library is loaded */
+    function renderContactIcons() {
+        if (window.lucide && typeof window.lucide.createIcons === "function") {
+            window.lucide.createIcons();
+        }
+    }
+
+    renderContactIcons();
+
+    /* FAQ: allow only one open item at a time */
+    const faqItems = document.querySelectorAll(".nx-contact-faq-item");
+
+    faqItems.forEach(function (item) {
+        item.addEventListener("toggle", function () {
+            if (!item.open) return;
+
+            faqItems.forEach(function (otherItem) {
+                if (otherItem !== item) {
+                    otherItem.open = false;
+                }
+            });
+        });
+    });
+
+    /* Form prepares an email draft.
+       Replace this with your real business email. */
+    const form = document.getElementById("nxContactForm");
+    const feedback = document.getElementById("nxContactFeedback");
+
+    if (form && feedback) {
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            if (!form.reportValidity()) return;
+
+            const data = new FormData(form);
+            const name = data.get("name") || "";
+            const email = data.get("email") || "";
+            const phone = data.get("phone") || "";
+            const service = data.get("service") || "";
+            const message = data.get("message") || "";
+
+            const recipient = "hello@nexorasmartliving.com";
+            const subject = encodeURIComponent("Smart Home Enquiry — " + name);
+            const body = encodeURIComponent(
+                "New smart-home enquiry\n\n" +
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Phone: " + phone + "\n" +
+                "Interested in: " + service + "\n\n" +
+                "Project details:\n" + message
+            );
+
+            feedback.textContent = "Opening your email application to prepare the enquiry…";
+
+            window.location.href =
+                "mailto:" + recipient +
+                "?subject=" + subject +
+                "&body=" + body;
+        });
+    }
+});
+</script>
+
+</div>
+
+<script>
+  (() => {
+    const root = document.querySelector(".nx-contact-page");
+    if (!root) return;
+
+    if (window.lucide) {
+      window.lucide.createIcons({ nodes: [root] });
+    }
+  })();
+</script>
+
+</body>
+</html>
+>>>>>>> b5a699f87660c56aefa46ae194d8f79fe8376051
 ```
