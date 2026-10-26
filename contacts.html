@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nexora| Home Automation &amp; Smart Home Installer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="header.css">
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="rb-header" id="rbHeader">
+
+    <div class="rb-header-inner">
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="rb-brand">
+
+            <img
+                src="images/sm1.png"
+                alt="NexoraSmart Home Logo"
+                class="rb-logo"
+            >
+
+            <span class="rb-brand-text">
+
+                <span class="rb-brand-name">
+                    <span class="rb-brand-primary">NEX</span>
+                    <span class="rb-brand-secondary">ORA</span>
+                </span>
+
+                <span class="rb-brand-tagline">
+                    SMART LIVING 
+                </span>
+
+            </span>
+
+        </a>
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav class="rb-main-nav">
+
+            <!-- HOME -->
+
+            <div class="rb-home-dropdown">
+
+                <a href="index.html" class="rb-nav-link">
+                    Home
+                    <i data-lucide="chevron-down"></i>
+                </a>
+
+                <div class="rb-dropdown">
+
+                    <div class="rb-dropdown-heading">
+                        Discover NEXORA
+                    </div>
+
+                    <a href="index.html" class="rb-dropdown-link">
+                        <strong>Home 1</strong>
+                    </a>
+
+                    <a href="home-2.html" class="rb-dropdown-link">
+                        <strong>Home 2</strong>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- ABOUT -->
+
+            <a href="about.html" class="rb-nav-link">
+                About Us
+            </a>
+
+            <!-- SOLUTIONS -->
+
+            <a href="solutions.html" class="rb-nav-link">
+                Solutions
+            </a>
+
+            <!-- PRICING -->
+
+            <a href="pricing.html" class="rb-nav-link">
+                Pricing
+            </a>
+
+            <!-- CONTACT -->
+
+            <a href="contact.html" class="rb-nav-link">
+                Contact
+            </a>
+
+            <!-- DASHBOARD -->
+
+            <a href="dashboard.html" class="rb-nav-link">
+                Dashboard
+            </a>
+
+        </nav>
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="rb-header-actions">
+
+            <!-- DARK / LIGHT -->
+
+            <button
+                class="rb-control-btn"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle dark mode"
+                title="Dark / Light">
+
+                <i data-lucide="moon"></i>
+
+            </button>
+
+            <!-- RTL -->
+
+            <button
+                class="rb-control-btn"
+                id="rtlToggle"
+                type="button"
+                aria-label="Toggle RTL"
+                title="RTL / LTR">
+
+                <i data-lucide="arrow-left-right"></i>
+
+            </button>
+
+            <!-- SMART LOGIN -->
+
+            <a href="login.html" class="rb-reservation-btn">
+
+                <span>Smart Login</span>
+
+                <i data-lucide="arrow-up-right"></i>
+
+            </a>
+
+            <!-- MOBILE MENU -->
+
+            <button
+                class="rb-menu-btn"
+                id="menuToggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false">
+
+                <i data-lucide="menu"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+
+    <div class="rb-mobile-menu" id="mobileMenu">
+
+        <!-- HOME -->
+
+        <div class="rb-mobile-home">
+
+            <button
+                class="rb-mobile-home-head"
+                id="mobileHomeToggle"
+                type="button">
+
+                <span>Home</span>
+
+                <i data-lucide="chevron-down"></i>
+
+            </button>
+
+            <div class="rb-mobile-submenu" id="mobileHomeSubmenu">
+
+                <a href="index.html" class="rb-mobile-sub-link">
+                    Home 1
+                </a>
+
+                <a href="home-2.html" class="rb-mobile-sub-link">
+                    Home 2
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- SOLUTIONS -->
+
+        <a href="solutions.html" class="rb-mobile-link">
+            Solutions
+        </a>
+
+        <!-- ABOUT -->
+
+        <a href="about.html" class="rb-mobile-link">
+            About Us
+        </a>
+
+        <!-- PRICING -->
+
+        <a href="pricing.html" class="rb-mobile-link">
+            Pricing
+        </a>
+
+        <!-- CONTACT -->
+
+        <a href="contact.html" class="rb-mobile-link">
+            Contact
+        </a>
+
+        <!-- DASHBOARD -->
+
+        <a href="dashboard.html" class="rb-mobile-link">
+            Dashboard
+        </a>
+
+        <!-- SMART LOGIN -->
+
+        <a href="login.html" class="rb-mobile-reservation">
+
+            Open Smart Dashboard
+
+            <i data-lucide="arrow-up-right"></i>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<div class="nx-contact-page">
+
+  <!-- SECTION 1: CONTACT HERO -->
+  <section class="nx-contact-hero">
+    <div class="nx-contact-hero-grid"></div>
+
+    <div class="nx-contact-hero-inner">
+      <div class="nx-contact-hero-copy">
+        <span class="nx-eyebrow">
+          <span class="nx-eyebrow-dot"></span>
+          LET'S CONNECT
+        </span>
+
+        <h1>Let's Make Your<br><span>Home Smarter.</span></h1>
+
+        <p>
+          Tell us how you imagine your ideal home. Our smart-living
+          specialists will help you create a connected space that
+          feels effortless, secure, and uniquely yours.
+        </p>
+
+        <div class="nx-hero-actions">
+          <a href="#nx-enquiry" class="nx-btn nx-btn-primary">
+            Start Your Project <span>↗</span>
+          </a>
+          <a href="#nx-contact-options" class="nx-btn nx-btn-outline">
+            Explore Contact Options
+          </a>
+        </div>
+
+        <div class="nx-hero-trust">
+          <span class="nx-trust-mark">✓</span>
+          <span>Personalised guidance</span>
+          <span class="nx-trust-divider"></span>
+          <span>Smart solutions</span>
+        </div>
+      </div>
+
+      <div class="nx-hero-visual">
+        <div class="nx-visual-orbit nx-orbit-one"></div>
+        <div class="nx-visual-orbit nx-orbit-two"></div>
+
+        <div class="nx-home-illustration">
+          <svg viewBox="0 0 420 360" role="img" aria-label="Smart home illustration">
+            <defs>
+              <linearGradient id="nxHomeGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#42D5F0"/>
+                <stop offset="100%" stop-color="#0F4C81"/>
+              </linearGradient>
+              <linearGradient id="nxWindowGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#42D5F0" stop-opacity=".85"/>
+                <stop offset="100%" stop-color="#00B4D8" stop-opacity=".15"/>
+              </linearGradient>
+            </defs>
+
+            <circle cx="210" cy="170" r="142" fill="#00B4D8" opacity=".055"/>
+            <circle cx="210" cy="170" r="110" fill="none" stroke="#42D5F0" stroke-opacity=".22" stroke-dasharray="3 9"/>
+
+            <path d="M72 165 L210 55 L348 165" fill="none" stroke="url(#nxHomeGradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M96 155 V278 H324 V155" fill="#102E4C" stroke="#42D5F0" stroke-opacity=".65" stroke-width="2"/>
+
+            <rect x="119" y="178" width="68" height="64" rx="5" fill="url(#nxWindowGradient)" stroke="#42D5F0" stroke-width="2"/>
+            <path d="M153 179 V241 M120 210 H186" stroke="#0F4C81" stroke-width="2"/>
+
+            <rect x="232" y="178" width="68" height="100" rx="5" fill="#071D34" stroke="#42D5F0" stroke-width="2"/>
+            <circle cx="285" cy="229" r="3" fill="#42D5F0"/>
+            <rect x="244" y="190" width="44" height="67" rx="2" fill="url(#nxWindowGradient)" opacity=".65"/>
+
+            <path d="M84 278 H336" stroke="#42D5F0" stroke-width="3" stroke-linecap="round"/>
+            <path d="M110 292 H310" stroke="#42D5F0" stroke-opacity=".3" stroke-width="2" stroke-linecap="round"/>
+
+            <g transform="translate(180 112)">
+              <circle cx="30" cy="30" r="34" fill="#00B4D8" opacity=".13"/>
+              <circle cx="30" cy="30" r="25" fill="#0B2947" stroke="#42D5F0" stroke-width="2"/>
+              <path d="M30 14 V31 L41 38" stroke="#42D5F0" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <circle cx="30" cy="30" r="3" fill="#42D5F0"/>
+            </g>
+
+            <g fill="#42D5F0">
+              <circle cx="82" cy="95" r="4"/>
+              <circle cx="337" cy="106" r="4"/>
+              <circle cx="345" cy="240" r="3"/>
+              <circle cx="91" cy="235" r="3"/>
+            </g>
+
+            <g stroke="#42D5F0" stroke-opacity=".6" fill="none" stroke-width="1.5">
+              <path d="M82 95 L48 72 H24"/>
+              <path d="M337 106 L369 83 H394"/>
+              <path d="M345 240 L376 260 H398"/>
+            </g>
+
+            <g font-size="10" fill="#BDEFFC" font-family="Arial, sans-serif" letter-spacing="1">
+              <text x="22" y="64">CONNECTED</text>
+              <text x="342" y="74">CONTROL</text>
+              <text x="344" y="277">SECURE</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="nx-floating-card nx-floating-top">
+          <span class="nx-status-light"></span>
+          <div>
+            <strong>Smart living</strong>
+            <small>Designed around you</small>
+          </div>
+        </div>
+
+        <div class="nx-floating-card nx-floating-bottom">
+          <span class="nx-mini-icon">⌂</span>
+          <div>
+            <strong>One connected home</strong>
+            <small>Lighting · Comfort · Security</small>
+          </div>
+        </div>
+
+        <div class="nx-visual-caption">
+          <span>01 / CONNECT</span>
+          <span>Intelligent living, made simple</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nx-hero-bottom-line">
+      <span>SMARTER SPACES. SIMPLER LIVING.</span>
+      <a href="#nx-enquiry">LET'S TALK <span>↓</span></a>
+    </div>
+  </section>
+
+
+  <!-- SECTION 2: CONTACT CHANNELS -->
+  <section class="nx-contact-options" id="nx-contact-options">
+    <div class="nx-section-heading">
+      <span class="nx-eyebrow nx-eyebrow-light">
+        <span class="nx-eyebrow-dot"></span>
+        WE'RE HERE TO HELP
+      </span>
+      <h2>Choose how you'd like<br>to <span>connect with us.</span></h2>
+      <p>Have a question or planning a project? Reach out through the channel that works for you.</p>
+    </div>
+
+    <div class="nx-contact-cards">
+
+      <article class="nx-contact-card">
+        <div class="nx-card-top">
+          <span class="nx-contact-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m4 7 8 6 8-6"/>
+            </svg>
+          </span>
+          <span class="nx-card-number">01</span>
+        </div>
+        <h3>Email Support</h3>
+        <p>Share your requirements or questions with our team.</p>
+        <a href="mailto:YOUR_EMAIL@example.com" class="nx-card-link">
+          Send an email <span>↗</span>
+        </a>
+      </article>
+
+      <article class="nx-contact-card nx-contact-card-featured">
+        <div class="nx-card-top">
+          <span class="nx-contact-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 16.5v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 10.2 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.9 3.2 2 2 0 0 1 3.9 1h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.9L6.9 9.5a16 16 0 0 0 6 6l1.9-1.9a2 2 0 0 1 1.9-.6l3 .5a2 2 0 0 1 1.3 3Z"/>
+            </svg>
+          </span>
+          <span class="nx-card-number">02</span>
+        </div>
+        <h3>Call Our Team</h3>
+        <p>Talk through your smart-home ideas with our specialists.</p>
+        <a href="tel:+910000000000" class="nx-card-link">
+          +91 00000 00000 <span>↗</span>
+        </a>
+      </article>
+
+      <article class="nx-contact-card">
+        <div class="nx-card-top">
+          <span class="nx-contact-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/>
+              <path d="M8.5 9.5c1 2 2 3 4 4l1.5-1 2 1v2c-4 1-9-4-8-8h2l1 2Z"/>
+            </svg>
+          </span>
+          <span class="nx-card-number">03</span>
+        </div>
+        <h3>WhatsApp Enquiry</h3>
+        <p>Send a quick message to discuss your project.</p>
+        <a href="https://wa.me/910000000000" target="_blank" rel="noopener noreferrer" class="nx-card-link">
+          Message us <span>↗</span>
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 3: ENQUIRY FORM + MAP -->
+  <section class="nx-enquiry-section" id="nx-enquiry">
+    <div class="nx-enquiry-heading">
+      <div>
+        <span class="nx-eyebrow nx-eyebrow-light">
+          <span class="nx-eyebrow-dot"></span>
+          YOUR NEXT STEP
+        </span>
+        <h2>Tell us about<br>your <span>smart home.</span></h2>
+      </div>
+      <p>Complete the form and let us know what you'd like to automate. We'll help you explore the right solution.</p>
+    </div>
+
+    <div class="nx-enquiry-layout">
+
+      <!-- FORM -->
+      <div class="nx-form-panel">
+        <div class="nx-form-title">
+          <div>
+            <h3>Project enquiry</h3>
+            <p>Fields marked * are required.</p>
+          </div>
+          <span class="nx-form-step">01 / 02</span>
+        </div>
+
+        <form class="nx-enquiry-form" id="nxEnquiryForm">
+          <div class="nx-form-row">
+            <div class="nx-field">
+              <label for="nxName">Full name *</label>
+              <input id="nxName" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="nx-field">
+              <label for="nxEmail">Email address *</label>
+              <input id="nxEmail" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+
+          <div class="nx-form-row">
+            <div class="nx-field">
+              <label for="nxPhone">Phone number *</label>
+              <input id="nxPhone" name="phone" type="tel" placeholder="+91 00000 00000" required>
+            </div>
+            <div class="nx-field">
+              <label for="nxService">Service of interest *</label>
+              <select id="nxService" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Smart Lighting</option>
+                <option>Smart Curtains & Blinds</option>
+                <option>Home Automation</option>
+                <option>Voice Control</option>
+                <option>Smart Security</option>
+                <option>Complete Smart Home</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="nx-field">
+            <label for="nxLocation">Project location *</label>
+            <input id="nxLocation" name="location" type="text" placeholder="City or area" required>
+          </div>
+
+          <div class="nx-field">
+            <label for="nxMessage">Tell us about your project *</label>
+            <textarea id="nxMessage" name="message" rows="4" placeholder="What would you like to automate?" required></textarea>
+          </div>
+
+          <button type="submit" class="nx-btn nx-btn-primary nx-submit-btn">
+            Prepare My Enquiry <span>↗</span>
+          </button>
+
+          <p class="nx-form-note">
+            Submitting opens your email application with the enquiry prepared. It does not send automatically.
+          </p>
+          <p class="nx-form-feedback" id="nxFormFeedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <!-- COMPACT MAP PANEL -->
+      <aside class="nx-map-panel">
+        <div class="nx-map-heading">
+          <div>
+            <span class="nx-map-kicker">OUR LOCATION</span>
+            <h3>Let's meet.</h3>
+          </div>
+          <span class="nx-map-pin">⌖</span>
+        </div>
+
+        <p class="nx-map-description">
+          Planning a new installation? Get in touch to discuss your location and project needs.
+        </p>
+
+        <div class="nx-map-frame">
+          <!-- Replace YOUR_BUSINESS_ADDRESS with your real business address -->
+          <iframe
+            title="Nexora Smart Living business location"
+            src="https://maps.google.com/maps?q=India&t=&z=5&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+          <div class="nx-map-overlay">
+            <span class="nx-map-live-dot"></span>
+            Location map
+          </div>
+        </div>
+
+        <div class="nx-map-address">
+          <span class="nx-address-icon">⌖</span>
+          <div>
+            <strong>Service location</strong>
+            <p>Contact us to confirm service availability in your area.</p>
+          </div>
+        </div>
+
+        <a
+          class="nx-map-directions"
+          href="https://www.google.com/maps/search/?api=1&query=YOUR+BUSINESS+ADDRESS"
+          target="_blank"
+          rel="noopener noreferrer">
+          Open Google Maps <span>↗</span>
+        </a>
+
+        <div class="nx-map-bottom">
+          <span>PERSONALISED CONSULTATION</span>
+          <span>NX / 01</span>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 4: OUR PROCESS -->
+  <section class="nx-process-section">
+    <div class="nx-section-heading">
+      <span class="nx-eyebrow nx-eyebrow-light">
+        <span class="nx-eyebrow-dot"></span>
+        SIMPLE BY DESIGN
+      </span>
+      <h2>From first hello to<br><span>smarter living.</span></h2>
+      <p>A clear, collaborative process to take your smart-home idea forward.</p>
+    </div>
+
+    <div class="nx-process-grid">
+      <article class="nx-process-card">
+        <span class="nx-process-number">01</span>
+        <div class="nx-process-line"></div>
+        <h3>Tell Us Your Vision</h3>
+        <p>Share your ideas, lifestyle needs, and preferred features.</p>
+      </article>
+
+      <article class="nx-process-card">
+        <span class="nx-process-number">02</span>
+        <div class="nx-process-line"></div>
+        <h3>Explore Solutions</h3>
+        <p>Discuss suitable devices, automation options, and compatibility.</p>
+      </article>
+
+      <article class="nx-process-card">
+        <span class="nx-process-number">03</span>
+        <div class="nx-process-line"></div>
+        <h3>Plan Your Setup</h3>
+        <p>Review the proposed setup, scope, and installation requirements.</p>
+      </article>
+
+      <article class="nx-process-card">
+        <span class="nx-process-number">04</span>
+        <div class="nx-process-line"></div>
+        <h3>Bring It to Life</h3>
+        <p>Move forward with your agreed smart-home installation plan.</p>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- SECTION 5: FAQ -->
+  <section class="nx-faq-section">
+    <div class="nx-faq-layout">
+      <div class="nx-faq-intro">
+        <span class="nx-eyebrow nx-eyebrow-light">
+          <span class="nx-eyebrow-dot"></span>
+          QUICK ANSWERS
+        </span>
+        <h2>Good questions.<br><span>Clear answers.</span></h2>
+        <p>Find answers to common questions about getting started with home automation.</p>
+        <a href="#nx-enquiry" class="nx-faq-contact-link">
+          Still have a question? <span>Contact us ↗</span>
+        </a>
+      </div>
+
+      <div class="nx-faq-list">
+
+        <details class="nx-faq-item" open>
+          <summary>
+            <span>What is included in home automation?</span>
+            <span class="nx-faq-toggle"></span>
+          </summary>
+          <p>Depending on your needs, a smart-home setup can include connected lighting, curtains, voice control, security devices, and centralised control.</p>
+        </details>
+
+        <details class="nx-faq-item">
+          <summary>
+            <span>Can I automate my existing home?</span>
+            <span class="nx-faq-toggle"></span>
+          </summary>
+          <p>Many existing homes can be upgraded. The right approach depends on your wiring, devices, network, and the automation features you want.</p>
+        </details>
+
+        <details class="nx-faq-item">
+          <summary>
+            <span>How much does a smart-home setup cost?</span>
+            <span class="nx-faq-toggle"></span>
+          </summary>
+          <p>Pricing depends on the number of devices, selected features, installation requirements, and property size. Contact us for a solution based on your needs.</p>
+        </details>
+
+        <details class="nx-faq-item">
+          <summary>
+            <span>Can I control devices from my phone?</span>
+            <span class="nx-faq-toggle"></span>
+          </summary>
+          <p>Compatible devices can often be controlled through a smartphone app. Available features depend on the selected devices and their supported platforms.</p>
+        </details>
+
+        <details class="nx-faq-item">
+          <summary>
+            <span>Do you provide installation assistance?</span>
+            <span class="nx-faq-toggle"></span>
+          </summary>
+          <p>Contact our team to discuss installation, configuration, and support options available for your location and chosen solution.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 6: FINAL CTA -->
+  <section class="nx-final-cta-section">
+    <div class="nx-final-cta">
+      <div class="nx-cta-glow nx-cta-glow-one"></div>
+      <div class="nx-cta-glow nx-cta-glow-two"></div>
+      <div class="nx-cta-grid"></div>
+
+      <div class="nx-cta-content">
+        <span class="nx-cta-eyebrow">
+          <span></span> YOUR NEXT CHAPTER STARTS HERE
+        </span>
+
+        <h2>Your smarter home<br>starts <span>with a conversation.</span></h2>
+
+        <p>
+          Better comfort. Thoughtful automation. A home that works around you.
+          Let's plan what's possible.
+        </p>
+
+        <div class="nx-cta-actions">
+          <a href="#nx-enquiry" class="nx-btn nx-btn-cta">
+            Book a Consultation <span>↗</span>
+          </a>
+          <a href="mailto:YOUR_EMAIL@example.com" class="nx-cta-text-link">
+            Email our team <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nx-cta-side-mark" aria-hidden="true">
+        <span>NX</span>
+        <div class="nx-cta-side-line"></div>
+        <small>SMART LIVING<br>REIMAGINED</small>
+      </div>
+
+      <div class="nx-cta-footer">
+        <span>NEXORA SMART LIVING</span>
+        <span>DESIGNED AROUND YOU <span class="nx-cta-footer-dot"></span></span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<style>
+/* =====================================================
+   NEXORA SMART LIVING — COMPLETE CONTACT PAGE
+   Scoped CSS | No header or footer
+===================================================== */
+
+.nx-contact-page {
+  --nx-primary: var(--primary, #0F4C81);
+  --nx-secondary: var(--secondary, #00B4D8);
+  --nx-primary-dark: var(--primary-dark, #0A355C);
+  --nx-secondary-dark: var(--secondary-dark, #007F9B);
+  --nx-secondary-light: var(--secondary-light, #42D5F0);
+  --nx-bg: var(--bg, #F4F8FC);
+  --nx-surface: var(--surface, #FFFFFF);
+  --nx-text: var(--text, #15283B);
+  --nx-muted: var(--text-muted, #687C90);
+  --nx-border: var(--border, #DFE9F2);
+  --nx-radius: 22px;
+  color: var(--nx-text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  width: 100%;
+  overflow: hidden;
+  background: var(--nx-bg);
+}
+
+.nx-contact-page *,
+.nx-contact-page *::before,
+.nx-contact-page *::after {
+  box-sizing: border-box;
+}
+
+.nx-contact-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nx-contact-page button,
+.nx-contact-page input,
+.nx-contact-page select,
+.nx-contact-page textarea {
+  font: inherit;
+}
+
+.nx-contact-page section {
+  position: relative;
+  width: 100%;
+}
+
+.nx-contact-page h1,
+.nx-contact-page h2,
+.nx-contact-page h3,
+.nx-contact-page p {
+  margin-top: 0;
+}
+
+.nx-contact-page h1,
+.nx-contact-page h2,
+.nx-contact-page h3 {
+  letter-spacing: -0.045em;
+}
+
+.nx-contact-page .nx-eyebrow {
+ display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+    margin: 0 0 18px;
+    padding: 9px 13px;
+    border: 1px solid rgba(0,180,216,.3);
+    border-radius: 50px;
+    background: rgba(0,180,216,.07);
+    color: var(--nx3-secondary);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 1.5px;
+}
+
+.nx-contact-page .nx-eyebrow-dot,
+.nx-contact-page .nx-cta-eyebrow > span {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  background: var(--nx-secondary);
+  border-radius: 50%;
+  box-shadow: 0 0 14px var(--nx-secondary);
+}
+
+.nx-contact-page .nx-eyebrow-light {
+  color: var(--nx-primary);
+}
+
+.nx-contact-page .nx-eyebrow-light .nx-eyebrow-dot {
+  background: var(--nx-secondary);
+}
+
+/* BUTTONS */
+
+.nx-contact-page .nx-btn {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 13px 20px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.4;
+  transition: transform .25s ease, background .25s ease,
+              color .25s ease, border-color .25s ease;
+}
+
+.nx-contact-page .nx-btn:hover {
+  transform: translateY(-3px);
+}
+
+.nx-contact-page .nx-btn span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.nx-contact-page .nx-btn-primary {
+  color: #FFFFFF;
+  background: var(--nx-primary);
+}
+
+.nx-contact-page .nx-btn-primary:hover {
+  background: var(--nx-secondary-dark);
+}
+
+.nx-contact-page .nx-btn-outline {
+  color: #FFFFFF;
+  border-color: rgba(255,255,255,.27);
+  background: rgba(255,255,255,.035);
+}
+
+.nx-contact-page .nx-btn-outline:hover {
+  border-color: var(--nx-secondary);
+  background: rgba(0,180,216,.09);
+}
+
+/* SECTION 1 — HERO */
+
+.nx-contact-page .nx-contact-hero {
+  isolation: isolate;
+  min-height: 590px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 74px max(6%, calc((100% - 1240px) / 2)) 28px;
+  color: #FFFFFF;
+  background:
+    radial-gradient(ellipse at 80% 42%, rgba(0,180,216,.13), transparent 37%),
+    linear-gradient(120deg, #061629 0%, #0A2744 55%, #071B30 100%);
+}
+
+.nx-contact-page .nx-contact-hero-grid,
+.nx-contact-page .nx-cta-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .22;
+  background-image:
+    linear-gradient(rgba(66,213,240,.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(66,213,240,.09) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(90deg, transparent, #000 70%, #000);
+}
+
+.nx-contact-page .nx-contact-hero-inner {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, .92fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 86px);
+}
+
+.nx-contact-page .nx-contact-hero-copy {
+  min-width: 0;
+  animation: nxFadeUp .7s ease both;
+}
+
+.nx-contact-page .nx-contact-hero h1 {
+  margin: 22px 0 20px;
+  color: #FFFFFF;
+  font-size: clamp(39px, 5vw, 67px);
+  font-weight: 760;
+  line-height: 1.06;
+}
+
+.nx-contact-page .nx-contact-hero h1 span,
+.nx-contact-page .nx-section-heading h2 span,
+.nx-contact-page .nx-enquiry-heading h2 span,
+.nx-contact-page .nx-faq-intro h2 span {
+  color: var(--nx-secondary-light);
+}
+
+.nx-contact-page .nx-contact-hero-copy > p {
+  max-width: 485px;
+  margin-bottom: 25px;
+  color: #B8CADA;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.nx-contact-page .nx-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.nx-contact-page .nx-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 27px;
+  color: #C0D0DE;
+  font-size: 10px;
+}
+
+.nx-contact-page .nx-trust-mark {
+  display: grid;
+  width: 19px;
+  height: 19px;
+  place-items: center;
+  border: 1px solid var(--nx-secondary);
+  border-radius: 50%;
+  color: var(--nx-secondary-light);
+}
+
+.nx-contact-page .nx-trust-divider {
+  width: 1px;
+  height: 13px;
+  background: rgba(255,255,255,.24);
+}
+
+.nx-contact-page .nx-hero-visual {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  aspect-ratio: 1.06 / 1;
+  display: grid;
+  place-items: center;
+  animation: nxFadeUp .9s .12s ease both;
+}
+
+.nx-contact-page .nx-home-illustration {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  filter: drop-shadow(0 20px 40px rgba(0,180,216,.09));
+}
+
+.nx-contact-page .nx-home-illustration svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.nx-contact-page .nx-visual-orbit {
+  position: absolute;
+  border: 1px solid rgba(66,213,240,.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.nx-contact-page .nx-orbit-one {
+  width: 82%;
+  aspect-ratio: 1;
+  animation: nxOrbit 28s linear infinite;
+}
+
+.nx-contact-page .nx-orbit-two {
+  width: 66%;
+  aspect-ratio: 1;
+  border-style: dashed;
+  animation: nxOrbit 36s linear infinite reverse;
+}
+
+.nx-contact-page .nx-floating-card {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  max-width: calc(100% - 10px);
+  padding: 12px 15px;
+  border: 1px solid rgba(100,210,235,.22);
+  border-radius: 12px;
+  background: rgba(9,31,52,.91);
+  box-shadow: 0 15px 35px rgba(0,0,0,.18);
+  backdrop-filter: blur(14px);
+}
+
+.nx-contact-page .nx-floating-card strong,
+.nx-contact-page .nx-floating-card small {
+  display: block;
+}
+
+.nx-contact-page .nx-floating-card strong {
+  color: #FFFFFF;
+  font-size: 11px;
+  letter-spacing: -.2px;
+}
+
+.nx-contact-page .nx-floating-card small {
+  margin-top: 4px;
+  color: #A6BECE;
+  font-size: 9px;
+}
+
+.nx-contact-page .nx-floating-top {
+  top: 12%;
+  right: -1%;
+}
+
+.nx-contact-page .nx-floating-bottom {
+  bottom: 13%;
+  left: 0;
+}
+
+.nx-contact-page .nx-status-light {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: #51DCA2;
+  box-shadow: 0 0 12px rgba(81,220,162,.7);
+}
+
+.nx-contact-page .nx-mini-icon {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border-radius: 9px;
+  color: var(--nx-secondary-light);
+  background: rgba(0,180,216,.13);
+  font-size: 19px;
+}
+
+.nx-contact-page .nx-visual-caption {
+  position: absolute;
+  right: 0;
+  bottom: 2%;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #91A9BC;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.nx-contact-page .nx-hero-bottom-line {
+  width: 100%;
+  max-width: 1240px;
+  margin: 40px auto 0;
+  padding-top: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  color: #7E9BAF;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.nx-contact-page .nx-hero-bottom-line a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--nx-secondary-light);
+  font-weight: 750;
+}
+
+/* SECTION 2 — CONTACT CHANNELS */
+
+.nx-contact-page .nx-contact-options {
+  padding: 90px max(6%, calc((100% - 1120px) / 2));
+  background: var(--bg);
+}
+
+.nx-contact-page .nx-section-heading {
+  max-width: 680px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.nx-contact-page .nx-section-heading h2,
+.nx-contact-page .nx-enquiry-heading h2,
+.nx-contact-page .nx-faq-intro h2 {
+  margin: 17px 0 14px;
+  color: var(--nx-primary-dark);
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 760;
+  line-height: 1.12;
+}
+
+.nx-contact-page .nx-section-heading h2 span,
+.nx-contact-page .nx-enquiry-heading h2 span,
+.nx-contact-page .nx-faq-intro h2 span {
+  color: var(--nx-secondary-dark);
+}
+
+.nx-contact-page .nx-section-heading > p {
+  max-width: 550px;
+  margin: 0 auto;
+  color: var(--nx-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.nx-contact-page .nx-contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.nx-contact-page .nx-contact-card {
+  position: relative;
+  min-width: 0;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid var(--nx-border);
+  border-radius: var(--nx-radius);
+  background: var(--nx-surface);
+  box-shadow: 0 10px 32px rgba(15,76,129,.035);
+  transition: transform .25s ease, border-color .25s ease,
+              box-shadow .25s ease;
+}
+
+.nx-contact-page .nx-contact-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0,180,216,.55);
+  box-shadow: 0 20px 40px rgba(15,76,129,.09);
+}
+
+.nx-contact-page .nx-contact-card-featured {
+  border-color: rgba(0,180,216,.65);
+  background: linear-gradient(145deg, var(--nx-primary-dark), var(--nx-primary));
+}
+
+.nx-contact-page .nx-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.nx-contact-page .nx-contact-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(0,180,216,.25);
+  border-radius: 12px;
+  background: rgba(0,180,216,.08);
+  color: var(--nx-secondary-dark);
+}
+
+.nx-contact-page .nx-contact-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nx-contact-page .nx-card-number {
+  color: #91A7B8;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.nx-contact-page .nx-contact-card-featured .nx-card-number {
+  color: #9DB8CA;
+}
+
+.nx-contact-page .nx-contact-card h3 {
+  margin: 21px 0 8px;
+  color: var(--nx-primary-dark);
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -.4px;
+}
+
+.nx-contact-page .nx-contact-card-featured h3 {
+  color: #FFFFFF;
+}
+
+.nx-contact-page .nx-contact-card > p {
+  flex: 1;
+  margin: 0 0 20px;
+  color: var(--nx-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.nx-contact-page .nx-contact-card-featured > p {
+  color: #C0D3E2;
+}
+
+.nx-contact-page .nx-card-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--nx-border);
+  color: var(--nx-primary);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.nx-contact-page .nx-contact-card-featured .nx-card-link {
+  color: var(--nx-secondary-light);
+  border-color: rgba(255,255,255,.17);
+}
+
+/* SECTION 3 — FORM + MAP */
+
+.nx-contact-page .nx-enquiry-section {
+  padding: 88px max(5%, calc((100% - 1160px) / 2)) 95px;
+  background:
+    var(--bg)
+}
+
+.nx-contact-page .nx-enquiry-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 35px;
+  max-width: 1160px;
+  margin: 0 auto 36px;
+}
+
+.nx-contact-page .nx-enquiry-heading h2 {
+  margin-bottom: 0;
+}
+
+.nx-contact-page .nx-enquiry-heading > p {
+  max-width: 360px;
+  margin: 0 0 5px;
+  color: var(--nx-muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.nx-contact-page .nx-enquiry-layout {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  align-items: stretch;
+  gap: 22px;
+}
+
+.nx-contact-page .nx-form-panel,
+.nx-contact-page .nx-map-panel {
+  min-width: 0;
+  border: 1px solid #DCE7F0;
+  border-radius: 20px;
+  background: var(--nx-surface);
+  box-shadow: 0 14px 40px rgba(15,76,129,.055);
+}
+
+.nx-contact-page .nx-form-panel {
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.nx-contact-page .nx-form-title {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 25px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--nx-border);
+}
+
+.nx-contact-page .nx-form-title h3,
+.nx-contact-page .nx-map-heading h3 {
+  margin: 0 0 6px;
+  color: var(--nx-primary-dark);
+  font-size: 22px;
+  font-weight: 760;
+}
+
+.nx-contact-page .nx-form-title p {
+  margin: 0;
+  color: var(--nx-muted);
+  font-size: 11px;
+}
+
+.nx-contact-page .nx-form-step {
+  padding: 7px 9px;
+  border-radius: 6px;
+  color: var(--nx-primary);
+  background: rgba(0,180,216,.09);
+  font-size: 9px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.nx-contact-page .nx-enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.nx-contact-page .nx-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.nx-contact-page .nx-field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nx-contact-page .nx-field label {
+  color: var(--nx-primary-dark);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.nx-contact-page .nx-field input,
+.nx-contact-page .nx-field select,
+.nx-contact-page .nx-field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #DCE6EE;
+  border-radius: 8px;
+  outline: none;
+  background: #FAFCFE;
+  color: var(--nx-text);
+  font-size: 12px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.nx-contact-page .nx-field input,
+.nx-contact-page .nx-field select {
+  min-height: 44px;
+  padding: 0 12px;
+}
+
+.nx-contact-page .nx-field textarea {
+  min-height: 105px;
+  padding: 12px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.nx-contact-page .nx-field input::placeholder,
+.nx-contact-page .nx-field textarea::placeholder {
+  color: #9BAAB8;
+}
+
+.nx-contact-page .nx-field input:focus,
+.nx-contact-page .nx-field select:focus,
+.nx-contact-page .nx-field textarea:focus {
+  border-color: var(--nx-secondary);
+  box-shadow: 0 0 0 3px rgba(0,180,216,.10);
+}
+
+.nx-contact-page .nx-submit-btn {
+  width: 100%;
+  min-height: 49px;
+  cursor: pointer;
+  border: 0;
+}
+
+.nx-contact-page .nx-form-note {
+  margin: -7px 0 0;
+  color: var(--nx-muted);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.nx-contact-page .nx-form-feedback {
+  margin: 0;
+  color: var(--nx-secondary-dark);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* MAP CARD: compact content, aligned to form */
+
+.nx-contact-page .nx-map-panel {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 2.6vw, 30px);
+  overflow: hidden;
+}
+
+.nx-contact-page .nx-map-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nx-contact-page .nx-map-kicker {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--nx-secondary-dark);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.nx-contact-page .nx-map-heading h3 {
+  margin-bottom: 0;
+  font-size: 24px;
+}
+
+.nx-contact-page .nx-map-pin {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  flex: 0 0 43px;
+  border-radius: 12px;
+  color: var(--nx-secondary-dark);
+  background: rgba(0,180,216,.1);
+  font-size: 25px;
+}
+
+.nx-contact-page .nx-map-description {
+  margin: 12px 0 17px;
+  color: var(--nx-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.nx-contact-page .nx-map-frame {
+  position: relative;
+  flex: 1;
+  min-height: 210px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #E3EDF4;
+}
+
+.nx-contact-page .nx-map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 210px;
+  border: 0;
+}
+
+.nx-contact-page .nx-map-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 7px;
+  background: rgba(255,255,255,.95);
+  color: var(--nx-primary-dark);
+  font-size: 9px;
+  font-weight: 750;
+  box-shadow: 0 4px 14px rgba(15,76,129,.1);
+}
+
+.nx-contact-page .nx-map-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--nx-secondary);
+}
+
+.nx-contact-page .nx-map-address {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  margin-top: 17px;
+}
+
+.nx-contact-page .nx-address-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  border-radius: 9px;
+  color: var(--nx-primary);
+  background: #EAF5FA;
+  font-size: 19px;
+}
+
+.nx-contact-page .nx-map-address strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--nx-primary-dark);
+  font-size: 11px;
+}
+
+.nx-contact-page .nx-map-address p {
+  margin: 0;
+  color: var(--nx-muted);
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.nx-contact-page .nx-map-directions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 12px 0;
+  border-top: 1px solid var(--nx-border);
+  border-bottom: 1px solid var(--nx-border);
+  color: var(--nx-primary);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.nx-contact-page .nx-map-directions span {
+  color: var(--nx-secondary-dark);
+  font-size: 16px;
+}
+
+.nx-contact-page .nx-map-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  color: #92A3B2;
+  font-size: 8px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+
+/* SECTION 4 — PROCESS */
+
+.nx-contact-page .nx-process-section {
+  padding: 90px max(6%, calc((100% - 1120px) / 2));
+  background: var(--nx-bg);
+}
+
+.nx-contact-page .nx-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.nx-contact-page .nx-process-card {
+  min-width: 0;
+  min-height: 185px;
+  padding: 23px 19px;
+  border: 1px solid var(--nx-border);
+  border-radius: 15px;
+  background: var(--nx-surface);
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.nx-contact-page .nx-process-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--nx-secondary);
+}
+
+.nx-contact-page .nx-process-number {
+  color: var(--nx-secondary-dark);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 1px;
+}
+
+.nx-contact-page .nx-process-line {
+  width: 42px;
+  height: 2px;
+  margin: 15px 0;
+  background: linear-gradient(90deg, var(--nx-primary), var(--nx-secondary));
+}
+
+.nx-contact-page .nx-process-card h3 {
+  margin-bottom: 9px;
+  color: var(--nx-primary-dark);
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.45;
+  letter-spacing: -.3px;
+}
+
+.nx-contact-page .nx-process-card p {
+  margin: 0;
+  color: var(--nx-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* SECTION 5 — FAQ */
+
+.nx-contact-page .nx-faq-section {
+  padding: 90px max(6%, calc((100% - 1120px) / 2));
+  background:
+    radial-gradient(ellipse at 5% 90%, rgba(0,180,216,.07), transparent 34%),
+    #EAF2F8;
+}
+
+.nx-contact-page .nx-faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: clamp(35px, 7vw, 95px);
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.nx-contact-page .nx-faq-intro {
+  position: sticky;
+  top: 30px;
+}
+
+.nx-contact-page .nx-faq-intro h2 {
+  margin-bottom: 18px;
+}
+
+.nx-contact-page .nx-faq-intro > p {
+  max-width: 350px;
+  margin-bottom: 24px;
+  color: var(--nx-muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.nx-contact-page .nx-faq-contact-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 7px;
+  color: var(--nx-muted);
+  font-size: 11px;
+}
+
+.nx-contact-page .nx-faq-contact-link span {
+  color: var(--nx-primary);
+  font-weight: 800;
+}
+
+.nx-contact-page .nx-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nx-contact-page .nx-faq-item {
+  border: 1px solid #DCE7F0;
+  border-radius: 12px;
+  background: rgba(255,255,255,.88);
+  overflow: hidden;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.nx-contact-page .nx-faq-item[open] {
+  border-color: rgba(0,180,216,.55);
+  box-shadow: 0 8px 22px rgba(15,76,129,.04);
+}
+
+.nx-contact-page .nx-faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 62px;
+  padding: 17px 20px;
+  color: var(--nx-primary-dark);
+  cursor: pointer;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+.nx-contact-page .nx-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.nx-contact-page .nx-faq-toggle {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  border: 1px solid #D8E7EF;
+  border-radius: 50%;
+}
+
+.nx-contact-page .nx-faq-toggle::before,
+.nx-contact-page .nx-faq-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 1.5px;
+  background: var(--nx-primary);
+  transform: translate(-50%, -50%);
+}
+
+.nx-contact-page .nx-faq-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: transform .2s ease;
+}
+
+.nx-contact-page .nx-faq-item[open] .nx-faq-toggle::after {
+  transform: translate(-50%, -50%) rotate(0);
+}
+
+.nx-contact-page .nx-faq-item > p {
+  margin: 0;
+  padding: 0 20px 20px;
+  color: var(--nx-muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+/* SECTION 6 — FINAL CTA */
+
+.nx-contact-page .nx-final-cta-section {
+  padding: 75px 5%;
+  background: var(--nx-bg);
+}
+
+.nx-contact-page .nx-final-cta {
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  min-height: 335px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: clamp(32px, 6vw, 70px);
+  overflow: hidden;
+  border: 1px solid rgba(66,213,240,.25);
+  border-radius: 25px;
+  color: #FFFFFF;
+  background:
+    radial-gradient(ellipse at 85% 10%, rgba(0,180,216,.24), transparent 36%),
+    linear-gradient(120deg, #07182A, #0B3152 62%, #09223A);
+  box-shadow: 0 24px 60px rgba(15,76,129,.12);
+}
+
+.nx-contact-page .nx-cta-glow {
+  position: absolute;
+  z-index: -1;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: var(--nx-secondary);
+  filter: blur(110px);
+  opacity: .13;
+  pointer-events: none;
+}
+
+.nx-contact-page .nx-cta-glow-one {
+  top: -160px;
+  right: 10%;
+}
+
+.nx-contact-page .nx-cta-glow-two {
+  right: 28%;
+  bottom: -240px;
+}
+
+.nx-contact-page .nx-cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding-bottom: 28px;
+}
+
+.nx-contact-page .nx-cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #A5C7D9;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.nx-contact-page .nx-final-cta h2 {
+  margin: 20px 0 15px;
+  color: #FFFFFF;
+  font-size: clamp(31px, 4.3vw, 50px);
+  font-weight: 760;
+  line-height: 1.12;
+}
+
+.nx-contact-page .nx-final-cta h2 span {
+  color: var(--nx-secondary-light);
+}
+
+.nx-contact-page .nx-cta-content > p {
+  max-width: 530px;
+  margin-bottom: 25px;
+  color: #B6CADA;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.nx-contact-page .nx-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 23px;
+}
+
+.nx-contact-page .nx-btn-cta {
+  color: #05253B;
+  background: var(--nx-secondary-light);
+}
+
+.nx-contact-page .nx-btn-cta:hover {
+  color: #FFFFFF;
+  background: var(--nx-secondary-dark);
+}
+
+.nx-contact-page .nx-cta-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #D1E2ED;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.nx-contact-page .nx-cta-text-link span {
+  color: var(--nx-secondary-light);
+  font-size: 15px;
+}
+
+.nx-contact-page .nx-cta-side-mark {
+  position: absolute;
+  top: 50%;
+  right: 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  transform: translateY(-50%);
+  opacity: .7;
+  pointer-events: none;
+}
+
+.nx-contact-page .nx-cta-side-mark > span {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(66,213,240,.55);
+  font-size: clamp(55px, 9vw, 110px);
+  font-weight: 850;
+  letter-spacing: -9px;
+}
+
+.nx-contact-page .nx-cta-side-line {
+  width: 75px;
+  height: 1px;
+  background: var(--nx-secondary);
+}
+
+.nx-contact-page .nx-cta-side-mark small {
+  color: #A3C3D5;
+  font-size: 8px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.nx-contact-page .nx-cta-footer {
+  position: absolute;
+  right: clamp(24px, 4vw, 50px);
+  bottom: 22px;
+  left: clamp(24px, 4vw, 50px);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  color: #8CA8BB;
+  font-size: 8px;
+  letter-spacing: 1.4px;
+}
+
+.nx-contact-page .nx-cta-footer > span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.nx-contact-page .nx-cta-footer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--nx-secondary-light);
+}
+
+/* ANIMATIONS */
+
+@keyframes nxFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nxOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .nx-contact-page .nx-contact-hero {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .nx-contact-page .nx-contact-hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, .8fr);
+    gap: 22px;
+  }
+
+  .nx-contact-page .nx-contact-hero h1 {
+    font-size: clamp(36px, 5.5vw, 51px);
+  }
+
+  .nx-contact-page .nx-hero-actions {
+    gap: 8px;
+  }
+
+  .nx-contact-page .nx-btn {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .nx-contact-page .nx-floating-card {
+    padding: 9px 11px;
+  }
+
+  .nx-contact-page .nx-contact-options,
+  .nx-contact-page .nx-process-section,
+  .nx-contact-page .nx-faq-section {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .nx-contact-page .nx-enquiry-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+    gap: 15px;
+  }
+
+  .nx-contact-page .nx-form-panel,
+  .nx-contact-page .nx-map-panel {
+    padding: 20px;
+  }
+
+  .nx-contact-page .nx-form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .nx-contact-page .nx-process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nx-contact-page .nx-faq-layout {
+    gap: 30px;
+  }
+
+  .nx-contact-page .nx-cta-side-mark {
+    right: 4%;
+    opacity: .35;
+  }
+
+  .nx-contact-page .nx-cta-content {
+    max-width: 72%;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .nx-contact-page .nx-contact-hero {
+    min-height: auto;
+    padding: 58px 20px 23px;
+  }
+
+  .nx-contact-page .nx-contact-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .nx-contact-page .nx-contact-hero h1 {
+    margin-top: 19px;
+    font-size: clamp(36px, 10vw, 49px);
+  }
+
+  .nx-contact-page .nx-contact-hero-copy > p {
+    font-size: 13px;
+  }
+
+  .nx-contact-page .nx-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .nx-contact-page .nx-hero-actions .nx-btn {
+    width: 100%;
+  }
+
+  .nx-contact-page .nx-hero-trust {
+    gap: 8px;
+    font-size: 9px;
+  }
+
+  .nx-contact-page .nx-hero-visual {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 5px;
+    aspect-ratio: 1.05 / .85;
+  }
+
+  .nx-contact-page .nx-home-illustration {
+    max-width: 330px;
+  }
+
+  .nx-contact-page .nx-floating-top {
+    top: 7%;
+    right: 0;
+  }
+
+  .nx-contact-page .nx-floating-bottom {
+    bottom: 9%;
+    left: 0;
+  }
+
+  .nx-contact-page .nx-floating-card strong {
+    font-size: 10px;
+  }
+
+  .nx-contact-page .nx-floating-card small {
+    font-size: 8px;
+  }
+
+  .nx-contact-page .nx-visual-caption {
+    bottom: 0;
+    font-size: 7px;
+  }
+
+  .nx-contact-page .nx-hero-bottom-line {
+    margin-top: 27px;
+    font-size: 7px;
+  }
+
+  .nx-contact-page .nx-contact-options,
+  .nx-contact-page .nx-process-section,
+  .nx-contact-page .nx-faq-section {
+    padding: 65px 20px;
+  }
+
+  .nx-contact-page .nx-section-heading {
+    margin-bottom: 30px;
+  }
+
+  .nx-contact-page .nx-section-heading h2,
+  .nx-contact-page .nx-enquiry-heading h2,
+  .nx-contact-page .nx-faq-intro h2 {
+    font-size: 34px;
+  }
+
+  .nx-contact-page .nx-contact-cards {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .nx-contact-page .nx-contact-card {
+    min-height: 195px;
+    padding: 22px;
+  }
+
+  .nx-contact-page .nx-enquiry-section {
+    padding: 65px 16px;
+  }
+
+  .nx-contact-page .nx-enquiry-heading {
+    display: block;
+    margin-bottom: 27px;
+  }
+
+  .nx-contact-page .nx-enquiry-heading > p {
+    margin-top: 17px;
+  }
+
+  .nx-contact-page .nx-enquiry-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .nx-contact-page .nx-form-panel,
+  .nx-contact-page .nx-map-panel {
+    padding: 21px 17px;
+    border-radius: 16px;
+  }
+
+  .nx-contact-page .nx-form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .nx-contact-page .nx-field input,
+  .nx-contact-page .nx-field select {
+    padding: 0 9px;
+    font-size: 11px;
+  }
+
+  .nx-contact-page .nx-map-frame {
+    height: 230px;
+    min-height: 230px;
+    flex: initial;
+  }
+
+  .nx-contact-page .nx-map-frame iframe {
+    min-height: 230px;
+  }
+
+  .nx-contact-page .nx-process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .nx-contact-page .nx-process-card {
+    min-height: 185px;
+    padding: 17px 14px;
+  }
+
+  .nx-contact-page .nx-process-card h3 {
+    font-size: 13px;
+  }
+
+  .nx-contact-page .nx-process-card p {
+    font-size: 10px;
+  }
+
+  .nx-contact-page .nx-faq-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .nx-contact-page .nx-faq-intro {
+    position: static;
+  }
+
+  .nx-contact-page .nx-faq-item summary {
+    padding: 15px;
+    font-size: 11px;
+  }
+
+  .nx-contact-page .nx-faq-item > p {
+    padding: 0 15px 16px;
+    font-size: 11px;
+  }
+
+  .nx-contact-page .nx-final-cta-section {
+    padding: 40px 16px;
+  }
+
+  .nx-contact-page .nx-final-cta {
+    min-height: 380px;
+    align-items: flex-start;
+    padding: 32px 22px 65px;
+    border-radius: 19px;
+  }
+
+  .nx-contact-page .nx-cta-content {
+    max-width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .nx-contact-page .nx-final-cta h2 {
+    font-size: clamp(31px, 8vw, 39px);
+  }
+
+  .nx-contact-page .nx-cta-content > p {
+    max-width: 340px;
+  }
+
+  .nx-contact-page .nx-cta-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+  }
+
+  .nx-contact-page .nx-cta-side-mark {
+    right: 12px;
+    bottom: 70px;
+    top: auto;
+    transform: none;
+    opacity: .15;
+  }
+
+  .nx-contact-page .nx-cta-side-mark > span {
+    font-size: 66px;
+  }
+
+  .nx-contact-page .nx-cta-footer {
+    right: 20px;
+    bottom: 17px;
+    left: 20px;
+    font-size: 6px;
+    letter-spacing: .7px;
+  }
+}
+
+/* SMALL MOBILE: Samsung S8 / 360px */
+
+@media (max-width: 380px) {
+  .nx-contact-page .nx-contact-hero {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .nx-contact-page .nx-contact-hero h1 {
+    font-size: 35px;
+  }
+
+  .nx-contact-page .nx-hero-trust {
+    flex-wrap: wrap;
+  }
+
+  .nx-contact-page .nx-hero-visual {
+    aspect-ratio: 1 / .88;
+  }
+
+  .nx-contact-page .nx-floating-card {
+    gap: 7px;
+    padding: 8px;
+  }
+
+  .nx-contact-page .nx-floating-card small {
+    max-width: 145px;
+    line-height: 1.4;
+  }
+
+  .nx-contact-page .nx-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .nx-contact-page .nx-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nx-contact-page .nx-process-card {
+    min-height: auto;
+  }
+
+  .nx-contact-page .nx-hero-bottom-line {
+    letter-spacing: .6px;
+  }
+
+  .nx-contact-page .nx-cta-footer > span:last-child {
+    gap: 5px;
+  }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .nx-contact-page *,
+  .nx-contact-page *::before,
+  .nx-contact-page *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("nxEnquiryForm");
+  const feedback = document.getElementById("nxFormFeedback");
+
+  if (!form || !feedback) return;
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const formData = new FormData(form);
+
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const phone = formData.get("phone");
+    const service = formData.get("service");
+    const location = formData.get("location");
+    const message = formData.get("message");
+
+    // Replace this with your actual business email.
+    const businessEmail = "YOUR_EMAIL@example.com";
+
+    if (businessEmail === "YOUR_EMAIL@example.com") {
+      feedback.textContent =
+        "Please replace YOUR_EMAIL@example.com in the code with your actual business email before using the form.";
+      return;
+    }
+
+    const subject = encodeURIComponent(
+      "Smart Home Enquiry — " + name
+    );
+
+    const body = encodeURIComponent(
+      "New smart-home enquiry\n\n" +
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Phone: " + phone + "\n" +
+      "Service: " + service + "\n" +
+      "Project location: " + location + "\n\n" +
+      "Project details:\n" + message
+    );
+
+    feedback.textContent =
+      "Opening your email application. Please review and send your message there.";
+
+    window.location.href =
+      "mailto:" + businessEmail +
+      "?subject=" + subject +
+      "&body=" + body;
+  });
+
+  // Keep only one FAQ open at a time.
+  const faqItems = document.querySelectorAll(
+    ".nx-contact-page .nx-faq-item"
+  );
+
+  faqItems.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (!item.open) return;
+
+      faqItems.forEach(function (otherItem) {
+        if (otherItem !== item) {
+          otherItem.open = false;
+        }
+      });
+    });
+  });
+});
+</script>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="rb-footer">
+
+    <div class="rb-footer-inner">
+
+        <!-- FOOTER GRID -->
+
+        <div class="rb-footer-grid">
+
+            <!-- BRAND COLUMN -->
+
+            <div class="rb-footer-column rb-footer-brand-column">
+
+                <a href="index.html" class="rb-footer-brand">
+
+                    <img
+                        src="images/sm1.png"
+                        alt="NexoraSmart Home Logo"
+                        class="rb-footer-logo"
+                    >
+
+                    <span class="rb-footer-brand-text">
+
+                        <span class="rb-footer-brand-name">
+
+                            <span class="rb-brand-primary">
+                                NEX
+                            </span>
+                            <span class="rb-brand-secondary">
+                              ORA
+                            </span>
+
+                        </span>
+
+                        <span class="rb-footer-tagline">
+                             SMART LIVING 
+                        </span>
+
+                    </span>
+
+                </a>
+
+                <p class="rb-footer-description">
+                    Transform your home with intelligent lighting,
+                    connected devices, smart security and seamless
+                    automation designed around your lifestyle.
+                </p>
+
+                <!-- SOCIAL -->
+
+                <div class="rb-socials">
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="Facebook">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="YouTube">
+
+                        <i class="fa-brands fa-youtube"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="LinkedIn">
+
+                        <i class="fa-brands fa-linkedin-in"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- EXPLORE -->
+
+            <div class="rb-footer-column">
+
+                <h3>Explore</h3>
+
+                <div class="rb-footer-links">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="about.html">
+                        About Us
+                    </a>
+
+                    <a href="solutions.html">
+                        Smart Solutions
+                    </a>
+
+                    <a href="pricing.html">
+                        Pricing Packages
+                    </a>
+
+                    <a href="contact.html">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- SMART SOLUTIONS -->
+
+            <div class="rb-footer-column">
+
+                <h3>Smart Solutions</h3>
+
+                <div class="rb-footer-links">
+
+                    <a href="solutions.html#lighting">
+                        Smart Lighting
+                    </a>
+
+                    <a href="solutions.html#security">
+                        Smart Security
+                    </a>
+
+                    <a href="solutions.html#climate">
+                        Climate Control
+                    </a>
+
+                    <a href="solutions.html#devices">
+                        Connected Devices
+                    </a>
+
+                    <a href="solutions.html#automation">
+                        Home Automation
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- OUR SERVICES -->
+
+            <div class="rb-footer-column">
+
+                <h3>Our Services</h3>
+
+                <div class="rb-footer-links">
+
+                    <a href="solutions.html">
+                        Smart Home Installation
+                    </a>
+
+                    <a href="solutions.html#consultation">
+                        Home Automation Planning
+                    </a>
+
+                    <a href="solutions.html#integration">
+                        Device Integration
+                    </a>
+
+                    <a href="solutions.html#support">
+                        System Support
+                    </a>
+
+                    <a href="pricing.html">
+                        Installation Packages
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- CONTACT -->
+
+            <div class="rb-footer-column">
+
+<h3>Contact</h3>
+
+<div class="rb-contact-links">
+
+    <a href="tel:+910000000000" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="phone"></i>
+        </span>
+        <span>Contact Our Team</span>
+    </a>
+
+    <a href="mailto:hello@nexora04.com" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="mail"></i>
+        </span>
+        <span>hello@nexora04.com</span>
+    </a>
+
+    <a href="contact.html" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="map-pin"></i>
+        </span>
+        <span>Service Locations</span>
+    </a>
+
+    <!-- Added contact link -->
+    <a href="contact.html" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="clock"></i>
+        </span>
+        <span>Business Hours</span>
+    </a>
+
+</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="rb-footer-bottom">
+
+            <p class="rb-copyright">
+
+                © <span id="currentYear"></span>
+                NEXORA04.
+                Smarter Homes. Better Living.
+
+            </p>
+
+            <div class="rb-bottom-links">
+
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms
+                </a>
+
+                <a href="accessibility.html">
+                    Accessibility
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+
+/* =========================================================
+   LUCIDE
+========================================================= */
+
+lucide.createIcons();
+
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const rbHeader =
+    document.getElementById("rbHeader");
+
+window.addEventListener("scroll", () => {
+
+    rbHeader.classList.toggle(
+        "scrolled",
+        window.scrollY > 15
+    );
+
+});
+
+/* =========================================================
+   DARK / LIGHT
+========================================================= */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const savedTheme =
+    localStorage.getItem("rootBloomTheme");
+
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-theme");
+}
+
+function updateThemeIcon() {
+
+    themeToggle.innerHTML =
+        document.body.classList.contains("dark-theme")
+            ? '<i data-lucide="sun"></i>'
+            : '<i data-lucide="moon"></i>';
+
+    lucide.createIcons();
+
+}
+
+updateThemeIcon();
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark-theme");
+
+    const isDark =
+        document.body.classList.contains("dark-theme");
+
+    localStorage.setItem(
+        "rootBloomTheme",
+        isDark ? "dark" : "light"
+    );
+
+    updateThemeIcon();
+
+});
+
+/* =========================================================
+   RTL / LTR
+========================================================= */
+
+const rtlToggle =
+    document.getElementById("rtlToggle");
+
+const savedDirection =
+    localStorage.getItem("rootBloomDirection");
+
+document.documentElement.dir =
+    savedDirection === "rtl"
+        ? "rtl"
+        : "ltr";
+
+rtlToggle.addEventListener("click", () => {
+
+    const isRTL =
+        document.documentElement.dir === "rtl";
+
+    document.documentElement.dir =
+        isRTL ? "ltr" : "rtl";
+
+    localStorage.setItem(
+        "rootBloomDirection",
+        isRTL ? "ltr" : "rtl"
+    );
+
+});
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+menuToggle.addEventListener("click", () => {
+
+    const opened =
+        mobileMenu.classList.toggle("active");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        opened
+    );
+
+    menuToggle.innerHTML =
+        opened
+            ? '<i data-lucide="x"></i>'
+            : '<i data-lucide="menu"></i>';
+
+    lucide.createIcons();
+
+});
+
+/* =========================================================
+   MOBILE HOME
+========================================================= */
+
+const mobileHomeToggle =
+    document.getElementById("mobileHomeToggle");
+
+const mobileHomeSubmenu =
+    document.getElementById("mobileHomeSubmenu");
+
+mobileHomeToggle.addEventListener("click", () => {
+
+    mobileHomeSubmenu.classList.toggle("active");
+
+    mobileHomeToggle.classList.toggle("open");
+
+});
+
+/* =========================================================
+   CLOSE MOBILE MENU ON LINK CLICK
+========================================================= */
+
+document
+    .querySelectorAll(
+        ".rb-mobile-link, .rb-mobile-sub-link, .rb-mobile-reservation"
+    )
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mobileMenu.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.innerHTML =
+                '<i data-lucide="menu"></i>';
+
+            lucide.createIcons();
+
+        });
+
+    });
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+        mobileMenu.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuToggle.innerHTML =
+            '<i data-lucide="menu"></i>';
+
+        lucide.createIcons();
+
+    }
+
+});
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+/* =========================================================
+   FINAL ICON INITIALIZATION
+========================================================= */
+
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>

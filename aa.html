@@ -1,0 +1,4395 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F5F8FB">
+<title>Smart Living — Intelligent Home Automation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+/* =========================================================
+   NX2 — PREMIUM SMART HOME EXPERIENCE
+   Standalone page | No header | No footer
+   Samsung S8 | iPad mini | Nest Hub
+========================================================= */
+
+:root {
+    color-scheme: light;
+
+    --primary: #0F4C81;
+    --secondary: #00B4D8;
+    --primary-dark: #0A355C;
+    --primary-light: #3977A6;
+    --secondary-dark: #007F9B;
+    --secondary-light: #42D5F0;
+
+    --bg: #F5F8FB;
+    --surface: #FFFFFF;
+    --surface-2: #EDF3F8;
+    --text: #142B3D;
+    --muted: #6A7D8D;
+    --border: #DCE6EE;
+
+    --container: 1200px;
+    --radius: 22px;
+    --shadow: 0 20px 60px rgba(15, 76, 129, .09);
+    --heading-font: "Manrope", sans-serif;
+    --body-font: "DM Sans", sans-serif;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --bg: #091722;
+    --surface: #102331;
+    --surface-2: #172E3E;
+    --text: #F2F8FC;
+    --muted: #A8BAC8;
+    --border: #294353;
+    --shadow: 0 20px 60px rgba(0, 0, 0, .2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+}
+
+body {
+    margin: 0;
+    min-width: 0;
+    overflow-x: clip;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body-font);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.65;
+    transition: background .25s, color .25s;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    color: inherit;
+}
+
+img,
+svg {
+    display: block;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+h1,
+h2,
+h3,
+p {
+    overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    font-family: var(--heading-font);
+    line-height: 1.13;
+    letter-spacing: -.045em;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 4px;
+}
+
+.nx2-container {
+    width: min(var(--container), calc(100% - 64px));
+    margin-inline: auto;
+}
+
+.nx2-section {
+    position: relative;
+    padding-block: 96px;
+}
+
+.nx2-section-heading {
+    width: min(740px, 100%);
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.nx2-section-heading h2 {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: clamp(34px, 4.3vw, 53px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -.06em;
+}
+
+.nx2-section-heading > p:last-child {
+    max-width: 560px;
+    margin: 17px auto 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+/* EXACT EYEBROW STYLE REQUESTED */
+
+.nx2-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    margin: 0 0 clamp(18px, 2.8vh, 27px);
+    padding: 9px 13px;
+    border: 1px solid rgba(0,180,216,.3);
+    border-radius: 50px;
+    background: rgba(0,180,216,.07);
+    color: var(--secondary-dark);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+html[data-theme="dark"] .nx2-eyebrow {
+    color: var(--secondary-light);
+}
+
+.nx2-eyebrow-dot {
+    position: relative;
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--secondary);
+    box-shadow: 0 0 12px var(--secondary);
+}
+
+.nx2-eyebrow-dot::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border: 1px solid var(--secondary);
+    border-radius: 50%;
+    animation: nx2-pulse 2s ease-out infinite;
+}
+
+@keyframes nx2-pulse {
+    0% { transform: scale(.65); opacity: .9; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+.nx2-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 49px;
+    padding: 13px 21px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: transform .25s, background .25s, border-color .25s;
+}
+
+.nx2-btn:hover {
+    transform: translateY(-2px);
+    background: var(--primary-dark);
+}
+
+.nx2-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+.nx2-btn--cyan {
+    background: var(--secondary);
+    color: #06283A;
+}
+
+.nx2-btn--cyan:hover {
+    background: var(--secondary-light);
+}
+
+.nx2-btn--outline {
+    border-color: var(--border);
+    background: transparent;
+    color: var(--text);
+}
+
+.nx2-btn--outline:hover {
+    background: var(--surface-2);
+}
+
+.nx2-theme-toggle {
+    position: fixed;
+    z-index: 100;
+    top: 17px;
+    right: 17px;
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 50%;
+    background: rgba(255,255,255,.94);
+    color: #12334A;
+    box-shadow: 0 5px 25px rgba(0,0,0,.13);
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+}
+
+.nx2-theme-toggle svg {
+    width: 19px;
+    height: 19px;
+}
+
+/* =========================================================
+   HERO — CENTERED EDITORIAL COMPOSITION
+========================================================= */
+
+.nx2-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 760px;
+    min-height: min(850px, 100svh);
+    padding: 90px 26px 85px;
+    overflow: hidden;
+    isolation: isolate;
+    background: #071B2A;
+    color: #fff;
+}
+
+.nx2-hero::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background:
+        url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90")
+        center 54% / cover no-repeat;
+    transform: scale(1.025);
+    animation: nx2-hero-arrive 1.2s ease both;
+}
+
+.nx2-hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 35%, rgba(8, 50, 76, .05), rgba(3, 17, 29, .42) 75%),
+        linear-gradient(180deg, rgba(4, 19, 31, .35), rgba(4, 19, 31, .7));
+}
+
+@keyframes nx2-hero-arrive {
+    from { opacity: .4; transform: scale(1.07); }
+    to { opacity: 1; transform: scale(1.025); }
+}
+
+.nx2-hero-inner {
+    width: min(940px, 100%);
+    margin: auto;
+    text-align: center;
+    animation: nx2-content-arrive .85s .12s both;
+}
+
+@keyframes nx2-content-arrive {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.nx2-hero .nx2-eyebrow {
+    margin-bottom: 26px;
+    border-color: rgba(66,213,240,.35);
+    background: rgba(5,29,43,.35);
+    color: var(--secondary-light);
+    backdrop-filter: blur(14px);
+}
+
+.nx2-hero h1 {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: clamp(48px, 7.7vw, 91px);
+    font-weight: 800;
+    line-height: .99;
+    letter-spacing: -.075em;
+    text-wrap: balance;
+}
+
+.nx2-hero h1 span {
+    display: inline-block;
+    color: var(--secondary-light);
+}
+
+.nx2-hero-description {
+    max-width: 600px;
+    margin: 26px auto 0;
+    color: rgba(255,255,255,.82);
+    font-size: clamp(14px, 1.6vw, 17px);
+    line-height: 1.9;
+    text-wrap: pretty;
+}
+
+.nx2-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.nx2-hero .nx2-btn--outline {
+    border-color: rgba(255,255,255,.42);
+    background: rgba(255,255,255,.06);
+    color: #fff;
+    backdrop-filter: blur(10px);
+}
+
+.nx2-hero .nx2-btn--outline:hover {
+    background: rgba(255,255,255,.15);
+}
+
+.nx2-hero-meta {
+    position: absolute;
+    right: 28px;
+    bottom: 24px;
+    left: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    color: rgba(255,255,255,.77);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+.nx2-hero-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nx2-hero-meta svg {
+    width: 15px;
+    height: 15px;
+    color: var(--secondary-light);
+}
+
+/* =========================================================
+   VALUE BAR
+========================================================= */
+
+.nx2-value-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.nx2-value-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.nx2-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 24px 12px;
+    border-right: 1px solid var(--border);
+}
+
+.nx2-value:last-child {
+    border-right: 0;
+}
+
+.nx2-value-icon {
+    display: grid;
+    place-items: center;
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    border: 1px solid rgba(0,180,216,.18);
+    border-radius: 13px;
+    background: var(--surface-2);
+    color: var(--primary);
+}
+
+html[data-theme="dark"] .nx2-value-icon {
+    color: var(--secondary-light);
+}
+
+.nx2-value-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.nx2-value-text {
+    min-width: 0;
+}
+
+.nx2-value-text strong {
+    display: block;
+    font-family: var(--heading-font);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.nx2-value-text span {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* =========================================================
+   SCENE EXPERIENCE
+========================================================= */
+
+.nx2-scenes {
+    background:
+        radial-gradient(ellipse at 8% 12%, rgba(0,180,216,.055), transparent 35%),
+        var(--bg);
+}
+
+.nx2-scene-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    align-items: stretch;
+    gap: 25px;
+}
+
+.nx2-scene-photo {
+    position: relative;
+    min-width: 0;
+    min-height: 455px;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: #163246;
+    box-shadow: var(--shadow);
+}
+
+.nx2-scene-photo > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity .25s, transform .65s;
+}
+
+.nx2-scene-photo:hover > img {
+    transform: scale(1.025);
+}
+
+.nx2-scene-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(3,19,31,.84), transparent 57%);
+    pointer-events: none;
+}
+
+.nx2-scene-caption {
+    position: absolute;
+    z-index: 1;
+    right: 24px;
+    bottom: 24px;
+    left: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    color: #fff;
+}
+
+.nx2-scene-caption strong {
+    display: block;
+    font-family: var(--heading-font);
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.nx2-scene-caption small {
+    display: block;
+    margin-top: 6px;
+    color: rgba(255,255,255,.76);
+    font-size: 12px;
+}
+
+.nx2-live-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 10px;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 50px;
+    background: rgba(0,0,0,.2);
+    font-size: 9px;
+    font-weight: 800;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+}
+
+.nx2-live-tag .nx2-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    flex-basis: 6px;
+}
+
+.nx2-live-tag .nx2-eyebrow-dot::after {
+    display: none;
+}
+
+.nx2-scene-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: clamp(25px, 4vw, 43px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+
+.nx2-scene-panel .nx2-eyebrow {
+    align-self: flex-start;
+}
+
+.nx2-scene-panel h3 {
+    margin: 0;
+    font-size: clamp(30px, 3.5vw, 42px);
+    letter-spacing: -.06em;
+}
+
+.nx2-scene-description {
+    min-height: 80px;
+    margin: 15px 0 24px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.nx2-scene-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.nx2-scene-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    min-height: 62px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    text-align: left;
+    cursor: pointer;
+    transition: border-color .2s, background .2s, transform .2s;
+}
+
+.nx2-scene-option:hover {
+    transform: translateY(-2px);
+}
+
+.nx2-scene-option.active {
+    border-color: var(--secondary);
+    background: var(--surface-2);
+    box-shadow: inset 0 0 0 1px rgba(0,180,216,.08);
+}
+
+.nx2-scene-option-icon {
+    display: grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+    flex: 0 0 35px;
+    border-radius: 10px;
+    background: var(--surface-2);
+    color: var(--primary);
+}
+
+html[data-theme="dark"] .nx2-scene-option-icon {
+    color: var(--secondary-light);
+}
+
+.nx2-scene-option-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.nx2-scene-option strong {
+    display: block;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.nx2-scene-option small {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+.nx2-scene-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 19px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.nx2-scene-status svg {
+    width: 16px;
+    height: 16px;
+    color: var(--secondary-dark);
+}
+
+/* =========================================================
+   SOLUTIONS — MATCHING CARD HEIGHTS
+========================================================= */
+
+.nx2-solutions {
+    background: var(--surface);
+    border-block: 1px solid var(--border);
+}
+
+.nx2-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 22px;
+}
+
+.nx2-solution-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    background: var(--surface);
+    transition: transform .28s, box-shadow .28s, border-color .28s;
+}
+
+.nx2-solution-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0,180,216,.7);
+    box-shadow: var(--shadow);
+}
+
+.nx2-solution-image {
+    position: relative;
+    flex: 0 0 auto;
+    aspect-ratio: 1.48 / 1;
+    overflow: hidden;
+    background: var(--surface-2);
+}
+
+.nx2-solution-image img {
+    width: 100%;
+    height: 100%;
+    transition: transform .6s;
+}
+
+.nx2-solution-card:hover .nx2-solution-image img {
+    transform: scale(1.045);
+}
+
+.nx2-image-index {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 10px;
+    background: rgba(5,24,38,.6);
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    backdrop-filter: blur(10px);
+}
+
+.nx2-solution-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+}
+
+.nx2-card-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 17px;
+    border: 1px solid rgba(0,180,216,.15);
+    border-radius: 13px;
+    background: rgba(0,180,216,.09);
+    color: var(--primary);
+}
+
+html[data-theme="dark"] .nx2-card-icon {
+    color: var(--secondary-light);
+}
+
+.nx2-card-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.nx2-solution-body h3 {
+    min-height: 54px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -.045em;
+}
+
+.nx2-solution-body > p {
+    flex: 1 1 auto;
+    min-height: 84px;
+    margin: 12px 0 21px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+.nx2-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+html[data-theme="dark"] .nx2-card-link {
+    color: var(--secondary-light);
+}
+
+.nx2-card-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform .2s;
+}
+
+.nx2-card-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   CONTROL EXPERIENCE
+========================================================= */
+
+.nx2-control {
+    background:
+        radial-gradient(ellipse at 95% 45%, rgba(0,180,216,.06), transparent 35%),
+        var(--bg);
+}
+
+.nx2-control-layout {
+    display: grid;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: clamp(35px, 6vw, 82px);
+}
+
+.nx2-control-copy .nx2-eyebrow {
+    justify-content: flex-start;
+}
+
+.nx2-control-copy h2 {
+    max-width: 540px;
+    margin: 0;
+    font-size: clamp(36px, 4.5vw, 55px);
+    letter-spacing: -.065em;
+}
+
+.nx2-control-copy > p {
+    max-width: 510px;
+    margin: 20px 0 26px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.nx2-check-list {
+    display: grid;
+    gap: 15px;
+    margin: 0 0 30px;
+    padding: 0;
+    list-style: none;
+}
+
+.nx2-check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.nx2-check-list svg {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 19px;
+    color: var(--secondary-dark);
+}
+
+.nx2-control-visual {
+    position: relative;
+    min-width: 0;
+    min-height: 440px;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: #142F43;
+    box-shadow: var(--shadow);
+}
+
+.nx2-control-visual > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nx2-control-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(4,20,32,.65), transparent 72%);
+}
+
+.nx2-device-panel {
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    bottom: 20px;
+    width: min(290px, calc(100% - 40px));
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,.55);
+    border-radius: 18px;
+    background: rgba(255,255,255,.95);
+    color: #142B3D;
+    box-shadow: 0 15px 45px rgba(0,0,0,.15);
+    backdrop-filter: blur(16px);
+}
+
+.nx2-device-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 17px;
+}
+
+.nx2-device-panel-header strong {
+    font-family: var(--heading-font);
+    font-size: 15px;
+}
+
+.nx2-device-panel-header span {
+    color: #71818D;
+    font-size: 9px;
+}
+
+.nx2-device-row {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 13px;
+}
+
+.nx2-device-icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    border-radius: 11px;
+    background: #E8F5FA;
+    color: #0F4C81;
+}
+
+.nx2-device-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.nx2-device-copy {
+    flex: 1;
+    min-width: 0;
+}
+
+.nx2-device-copy strong {
+    display: block;
+    font-size: 11px;
+}
+
+.nx2-device-copy small {
+    display: block;
+    margin-top: 3px;
+    color: #72828D;
+    font-size: 9px;
+}
+
+.nx2-switch {
+    position: relative;
+    width: 39px;
+    height: 23px;
+    flex: 0 0 39px;
+    padding: 0;
+    border: 0;
+    border-radius: 50px;
+    background: #C7D2DA;
+    cursor: pointer;
+}
+
+.nx2-switch::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: white;
+    transition: transform .2s;
+}
+
+.nx2-switch[aria-checked="true"] {
+    background: #00A8C7;
+}
+
+.nx2-switch[aria-checked="true"]::after {
+    transform: translateX(16px);
+}
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.nx2-process {
+    background: var(--surface);
+    border-block: 1px solid var(--border);
+}
+
+.nx2-process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 22px;
+}
+
+.nx2-process-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+    padding: 29px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--bg);
+}
+
+.nx2-process-number {
+    display: grid;
+    place-items: center;
+    width: 49px;
+    height: 49px;
+    margin-bottom: 24px;
+    border-radius: 14px;
+    background: var(--primary);
+    color: white;
+    font-family: var(--heading-font);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.nx2-process-card h3 {
+    min-height: 50px;
+    margin: 0;
+    font-size: 20px;
+}
+
+.nx2-process-card p {
+    flex: 1;
+    min-height: 76px;
+    margin: 13px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+/* =========================================================
+   PRICING — EQUAL HEIGHTS
+========================================================= */
+
+.nx2-pricing {
+    background: var(--bg);
+}
+
+.nx2-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 20px;
+}
+
+.nx2-price-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    background: var(--surface);
+    transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+
+.nx2-price-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.nx2-price-card.featured {
+    border: 2px solid var(--secondary);
+    box-shadow: var(--shadow);
+}
+
+.nx2-popular {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    max-width: calc(100% - 28px);
+    transform: translateX(-50%);
+    padding: 6px 13px;
+    border-radius: 50px;
+    background: var(--secondary);
+    color: #06283A;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.nx2-price-top {
+    min-height: 108px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid var(--border);
+}
+
+.nx2-price-top h3 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.nx2-price-top p {
+    margin: 9px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.nx2-price-amount {
+    margin: 22px 0;
+    font-family: var(--heading-font);
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.nx2-price-amount small {
+    color: var(--muted);
+    font-family: var(--body-font);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.nx2-price-features {
+    display: grid;
+    flex: 1;
+    align-content: start;
+    gap: 14px;
+    margin: 0 0 26px;
+    padding: 0;
+    list-style: none;
+}
+
+.nx2-price-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.nx2-price-features svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    margin-top: 2px;
+    color: var(--secondary-dark);
+}
+
+.nx2-price-card .nx2-btn {
+    width: 100%;
+    margin-top: auto;
+}
+
+/* =========================================================
+   LOGIN PORTAL
+========================================================= */
+
+.nx2-portal {
+    background: var(--surface);
+    border-block: 1px solid var(--border);
+}
+
+.nx2-portal-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+    align-items: stretch;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--bg);
+}
+
+.nx2-portal-intro {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    min-height: 410px;
+    padding: clamp(30px, 5vw, 60px);
+    overflow: hidden;
+    background: linear-gradient(135deg, #092B45, #0F4C81 72%, #087D9D);
+    color: #fff;
+}
+
+.nx2-portal-intro::after {
+    content: "";
+    position: absolute;
+    right: -120px;
+    bottom: -150px;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(66,213,240,.25);
+    border-radius: 50%;
+    box-shadow: 0 0 0 35px rgba(66,213,240,.04), 0 0 0 75px rgba(66,213,240,.035);
+    pointer-events: none;
+}
+
+.nx2-portal-intro .nx2-eyebrow {
+    color: var(--secondary-light);
+}
+
+.nx2-portal-intro h2 {
+    position: relative;
+    max-width: 480px;
+    margin: 0;
+    font-size: clamp(35px, 4.5vw, 52px);
+    letter-spacing: -.065em;
+}
+
+.nx2-portal-intro > p:not(.nx2-eyebrow) {
+    position: relative;
+    max-width: 420px;
+    margin: 18px 0 24px;
+    color: rgba(255,255,255,.77);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.nx2-portal-benefits {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.nx2-portal-benefits span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255,255,255,.88);
+    font-size: 11px;
+}
+
+.nx2-portal-benefits svg {
+    width: 15px;
+    height: 15px;
+    color: var(--secondary-light);
+}
+
+.nx2-portal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: clamp(26px, 4vw, 46px);
+    background: var(--surface);
+}
+
+.nx2-portal-form h3 {
+    margin: 0;
+    font-size: 27px;
+}
+
+.nx2-portal-form > p {
+    margin: 8px 0 25px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.nx2-field {
+    margin-bottom: 17px;
+}
+
+.nx2-label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.nx2-input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+}
+
+.nx2-input::placeholder {
+    color: var(--muted);
+}
+
+.nx2-form-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 20px;
+    font-size: 11px;
+}
+
+.nx2-remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--muted);
+}
+
+.nx2-remember input {
+    accent-color: var(--primary);
+}
+
+.nx2-text-link {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+html[data-theme="dark"] .nx2-text-link {
+    color: var(--secondary-light);
+}
+
+.nx2-portal-form .nx2-btn {
+    width: 100%;
+}
+
+.nx2-form-message {
+    min-height: 35px;
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.nx2-faq {
+    background:
+        radial-gradient(ellipse at 90% 20%, rgba(0,180,216,.045), transparent 35%),
+        var(--bg);
+}
+
+.nx2-faq-list {
+    width: min(820px, 100%);
+    margin-inline: auto;
+    border-top: 1px solid var(--border);
+}
+
+.nx2-faq-item {
+    border-bottom: 1px solid var(--border);
+}
+
+.nx2-faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+    min-height: 70px;
+    padding: 18px 4px;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    font-family: var(--heading-font);
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.nx2-faq-question svg {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 19px;
+    transition: transform .2s;
+}
+
+.nx2-faq-question[aria-expanded="true"] svg {
+    transform: rotate(45deg);
+}
+
+.nx2-faq-answer {
+    padding: 0 35px 21px 4px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.nx2-faq-answer[hidden] {
+    display: none;
+}
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.nx2-final-cta {
+    padding: 14px 0 88px;
+    background: var(--bg);
+}
+
+.nx2-cta-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: clamp(30px, 5vw, 56px);
+    overflow: hidden;
+    border-radius: 23px;
+    background: linear-gradient(115deg, #082B47, #0F4C81 66%, #087D9D);
+    color: #fff;
+}
+
+.nx2-cta-inner::after {
+    content: "";
+    position: absolute;
+    top: -135px;
+    right: 16%;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(255,255,255,.17);
+    border-radius: 50%;
+    box-shadow: 0 0 0 32px rgba(255,255,255,.035), 0 0 0 66px rgba(255,255,255,.025);
+    pointer-events: none;
+}
+
+.nx2-cta-copy {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+.nx2-cta-copy h2 {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 44px);
+    letter-spacing: -.06em;
+}
+
+.nx2-cta-copy p {
+    max-width: 530px;
+    margin: 13px 0 0;
+    color: rgba(255,255,255,.77);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+.nx2-cta-inner > .nx2-btn {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+}
+
+/* =========================================================
+   IPAD MINI — PORTRAIT AND TABLET
+========================================================= */
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .nx2-container {
+        width: calc(100% - 42px);
+    }
+
+    .nx2-section {
+        padding-block: 70px;
+    }
+
+    .nx2-section-heading {
+        margin-bottom: 32px;
+    }
+
+    .nx2-section-heading h2 {
+        font-size: 39px;
+    }
+
+    .nx2-hero {
+        min-height: 650px;
+        padding-inline: 30px;
+    }
+
+    .nx2-hero h1 {
+        font-size: clamp(55px, 8vw, 74px);
+    }
+
+    .nx2-value-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nx2-value {
+        justify-content: flex-start;
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nx2-value:nth-child(2) {
+        border-right: 0;
+    }
+
+    .nx2-value:nth-child(3),
+    .nx2-value:nth-child(4) {
+        border-bottom: 0;
+    }
+
+    .nx2-scene-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 17px;
+    }
+
+    .nx2-scene-photo {
+        min-height: 0;
+        aspect-ratio: 1.65 / 1;
+    }
+
+    .nx2-scene-panel {
+        padding: 28px;
+    }
+
+    .nx2-card-grid {
+        gap: 14px;
+    }
+
+    .nx2-solution-body {
+        padding: 17px;
+    }
+
+    .nx2-card-icon {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 13px;
+    }
+
+    .nx2-solution-body h3 {
+        min-height: 52px;
+        font-size: 17px;
+    }
+
+    .nx2-solution-body > p {
+        min-height: 125px;
+        font-size: 12px;
+    }
+
+    .nx2-control-layout {
+        gap: 25px;
+    }
+
+    .nx2-control-copy h2 {
+        font-size: 37px;
+    }
+
+    .nx2-control-visual {
+        min-height: 380px;
+    }
+
+    .nx2-device-panel {
+        right: 12px;
+        bottom: 12px;
+        width: calc(100% - 24px);
+        padding: 14px;
+    }
+
+    .nx2-process-grid,
+    .nx2-pricing-grid {
+        gap: 13px;
+    }
+
+    .nx2-process-card {
+        padding: 20px;
+    }
+
+    .nx2-process-card h3 {
+        min-height: 47px;
+        font-size: 17px;
+    }
+
+    .nx2-process-card p {
+        min-height: 110px;
+        font-size: 12px;
+    }
+
+    .nx2-price-card {
+        padding: 19px 15px;
+    }
+
+    .nx2-price-top {
+        min-height: 108px;
+    }
+
+    .nx2-price-top h3 {
+        font-size: 19px;
+    }
+
+    .nx2-price-amount {
+        font-size: 26px;
+    }
+
+    .nx2-price-features li {
+        gap: 7px;
+        font-size: 11px;
+    }
+
+    .nx2-price-card .nx2-btn {
+        padding-inline: 9px;
+        font-size: 11px;
+    }
+
+    .nx2-portal-shell {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+    }
+
+    .nx2-portal-intro {
+        min-height: 400px;
+        padding: 28px;
+    }
+
+    .nx2-portal-intro h2 {
+        font-size: 36px;
+    }
+
+    .nx2-portal-benefits {
+        flex-direction: column;
+    }
+
+    .nx2-portal-form {
+        padding: 24px;
+    }
+
+    .nx2-cta-inner {
+        gap: 20px;
+    }
+}
+
+/* =========================================================
+   SAMSUNG S8 — 360px MOBILE
+========================================================= */
+
+@media (max-width: 599px) {
+    .nx2-container {
+        width: calc(100% - 32px);
+    }
+
+    .nx2-section {
+        padding-block: 55px;
+    }
+
+    .nx2-section-heading {
+        margin-bottom: 29px;
+    }
+
+    .nx2-section-heading h2 {
+        font-size: clamp(30px, 8.5vw, 36px);
+    }
+
+    .nx2-section-heading > p:last-child {
+        margin-top: 12px;
+        font-size: 13px;
+    }
+
+    .nx2-theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .nx2-hero {
+        min-height: 720px;
+        min-height: 100svh;
+        padding: 76px 19px 72px;
+    }
+
+    .nx2-hero::before {
+        background-position: 56% center;
+    }
+
+    .nx2-hero::after {
+        background:
+            linear-gradient(180deg, rgba(4,19,31,.48), rgba(4,19,31,.62)),
+            linear-gradient(0deg, rgba(4,19,31,.25), transparent);
+    }
+
+    .nx2-hero .nx2-eyebrow {
+        margin-bottom: 22px;
+        padding: 8px 11px;
+        gap: 8px;
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .nx2-hero h1 {
+        max-width: 460px;
+        font-size: clamp(40px, 11.4vw, 55px);
+        line-height: 1.02;
+        letter-spacing: -.065em;
+    }
+
+    .nx2-hero-description {
+        margin-top: 19px;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .nx2-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: min(300px, 100%);
+        margin: 26px auto 0;
+        gap: 10px;
+    }
+
+    .nx2-hero-actions .nx2-btn {
+        width: 100%;
+        min-height: 47px;
+    }
+
+    .nx2-hero-meta {
+        right: 15px;
+        bottom: 14px;
+        left: 15px;
+        gap: 10px;
+        font-size: 8px;
+        letter-spacing: .6px;
+    }
+
+    .nx2-hero-meta span {
+        gap: 5px;
+    }
+
+    .nx2-hero-meta svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .nx2-value-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nx2-value {
+        justify-content: flex-start;
+        gap: 9px;
+        padding: 14px 7px;
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nx2-value:nth-child(2) {
+        border-right: 0;
+    }
+
+    .nx2-value:nth-child(3),
+    .nx2-value:nth-child(4) {
+        border-bottom: 0;
+    }
+
+    .nx2-value-icon {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+        border-radius: 10px;
+    }
+
+    .nx2-value-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .nx2-value-text strong {
+        font-size: 10px;
+    }
+
+    .nx2-value-text span {
+        font-size: 9px;
+        line-height: 1.4;
+    }
+
+    .nx2-scene-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .nx2-scene-photo {
+        min-height: 0;
+        aspect-ratio: 1 / 1.02;
+        border-radius: 16px;
+    }
+
+    .nx2-scene-caption {
+        right: 16px;
+        bottom: 17px;
+        left: 16px;
+    }
+
+    .nx2-scene-caption strong {
+        font-size: 19px;
+    }
+
+    .nx2-scene-caption small {
+        font-size: 10px;
+    }
+
+    .nx2-live-tag {
+        padding: 7px 8px;
+        font-size: 8px;
+    }
+
+    .nx2-scene-panel {
+        padding: 21px;
+        border-radius: 16px;
+    }
+
+    .nx2-scene-panel h3 {
+        font-size: 30px;
+    }
+
+    .nx2-scene-description {
+        min-height: 0;
+        margin: 12px 0 18px;
+        font-size: 13px;
+    }
+
+    .nx2-scene-options {
+        gap: 8px;
+    }
+
+    .nx2-scene-option {
+        min-height: 56px;
+        gap: 7px;
+        padding: 8px 7px;
+    }
+
+    .nx2-scene-option-icon {
+        width: 29px;
+        height: 29px;
+        flex-basis: 29px;
+        border-radius: 9px;
+    }
+
+    .nx2-scene-option-icon svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .nx2-scene-option strong {
+        font-size: 10px;
+    }
+
+    .nx2-scene-option small {
+        font-size: 8px;
+    }
+
+    .nx2-scene-status {
+        margin-top: 14px;
+        padding-top: 13px;
+        font-size: 10px;
+    }
+
+    .nx2-card-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .nx2-solution-card {
+        border-radius: 16px;
+    }
+
+    .nx2-solution-image {
+        aspect-ratio: 1.6 / 1;
+    }
+
+    .nx2-solution-body {
+        padding: 20px;
+    }
+
+    .nx2-card-icon {
+        width: 39px;
+        height: 39px;
+        margin-bottom: 13px;
+    }
+
+    .nx2-solution-body h3 {
+        min-height: 0;
+        font-size: 20px;
+    }
+
+    .nx2-solution-body > p {
+        min-height: 0;
+        margin: 11px 0 18px;
+        font-size: 13px;
+    }
+
+    .nx2-control-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+    }
+
+    .nx2-control-copy h2 {
+        font-size: 35px;
+    }
+
+    .nx2-control-copy > p {
+        margin: 15px 0 20px;
+        font-size: 13px;
+    }
+
+    .nx2-check-list {
+        gap: 13px;
+        margin-bottom: 23px;
+    }
+
+    .nx2-check-list li {
+        font-size: 12px;
+    }
+
+    .nx2-control-visual {
+        min-height: 0;
+        aspect-ratio: 1 / 1.08;
+        border-radius: 16px;
+    }
+
+    .nx2-device-panel {
+        right: 12px;
+        bottom: 12px;
+        width: calc(100% - 24px);
+        padding: 14px;
+    }
+
+    .nx2-device-panel-header {
+        margin-bottom: 12px;
+    }
+
+    .nx2-device-row {
+        margin-top: 9px;
+    }
+
+    .nx2-device-icon {
+        width: 33px;
+        height: 33px;
+        flex-basis: 33px;
+    }
+
+    .nx2-device-copy strong {
+        font-size: 10px;
+    }
+
+    .nx2-device-copy small {
+        font-size: 9px;
+    }
+
+    .nx2-process-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .nx2-process-card {
+        padding: 21px;
+        border-radius: 15px;
+    }
+
+    .nx2-process-number {
+        width: 41px;
+        height: 41px;
+        margin-bottom: 16px;
+    }
+
+    .nx2-process-card h3 {
+        min-height: 0;
+        font-size: 19px;
+    }
+
+    .nx2-process-card p {
+        min-height: 0;
+        margin-top: 9px;
+        font-size: 13px;
+    }
+
+    .nx2-pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 19px;
+    }
+
+    .nx2-price-card {
+        padding: 24px;
+    }
+
+    .nx2-price-card.featured {
+        margin-top: 7px;
+    }
+
+    .nx2-price-top {
+        min-height: 0;
+        padding-bottom: 17px;
+    }
+
+    .nx2-price-top h3 {
+        font-size: 21px;
+    }
+
+    .nx2-price-amount {
+        margin: 19px 0;
+        font-size: 31px;
+    }
+
+    .nx2-price-features {
+        gap: 12px;
+        margin-bottom: 21px;
+    }
+
+    .nx2-price-features li {
+        font-size: 12px;
+    }
+
+    .nx2-portal-shell {
+        grid-template-columns: minmax(0, 1fr);
+        border-radius: 17px;
+    }
+
+    .nx2-portal-intro {
+        min-height: 0;
+        padding: 29px 23px;
+    }
+
+    .nx2-portal-intro h2 {
+        font-size: 36px;
+    }
+
+    .nx2-portal-intro > p:not(.nx2-eyebrow) {
+        margin: 14px 0 20px;
+        font-size: 13px;
+    }
+
+    .nx2-portal-benefits {
+        gap: 10px;
+    }
+
+    .nx2-portal-form {
+        padding: 25px 22px;
+    }
+
+    .nx2-portal-form h3 {
+        font-size: 25px;
+    }
+
+    .nx2-form-meta {
+        font-size: 10px;
+    }
+
+    .nx2-faq-question {
+        min-height: 64px;
+        padding: 15px 0;
+        font-size: 13px;
+    }
+
+    .nx2-faq-answer {
+        padding-right: 20px;
+        font-size: 12px;
+    }
+
+    .nx2-final-cta {
+        padding: 10px 0 55px;
+    }
+
+    .nx2-cta-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 22px;
+        padding: 28px 22px;
+        border-radius: 17px;
+    }
+
+    .nx2-cta-copy h2 {
+        font-size: 31px;
+    }
+
+    .nx2-cta-copy p {
+        font-size: 12px;
+    }
+
+    .nx2-cta-inner > .nx2-btn {
+        width: 100%;
+    }
+}
+
+/* EXTRA-NARROW MOBILE */
+
+@media (max-width: 374px) {
+    .nx2-container {
+        width: calc(100% - 28px);
+    }
+
+    .nx2-hero {
+        padding-inline: 15px;
+    }
+
+    .nx2-hero h1 {
+        font-size: 39px;
+    }
+
+    .nx2-hero-description {
+        font-size: 12px;
+    }
+
+    .nx2-hero .nx2-eyebrow {
+        gap: 7px;
+        padding-inline: 9px;
+        font-size: 8px;
+        letter-spacing: .8px;
+    }
+
+    .nx2-hero-meta {
+        font-size: 7px;
+    }
+
+    .nx2-value {
+        gap: 6px;
+        padding-inline: 5px;
+    }
+
+    .nx2-value-icon {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+    }
+
+    .nx2-value-text strong {
+        font-size: 9px;
+    }
+
+    .nx2-value-text span {
+        font-size: 8px;
+    }
+
+    .nx2-scene-panel {
+        padding: 17px;
+    }
+
+    .nx2-scene-option {
+        gap: 5px;
+        padding-inline: 5px;
+    }
+
+    .nx2-scene-option-icon {
+        width: 26px;
+        height: 26px;
+        flex-basis: 26px;
+    }
+
+    .nx2-scene-option strong {
+        font-size: 9px;
+    }
+
+    .nx2-scene-option small {
+        font-size: 8px;
+    }
+
+    .nx2-solution-body {
+        padding: 17px;
+    }
+
+    .nx2-price-card {
+        padding: 20px;
+    }
+
+    .nx2-portal-intro {
+        padding: 25px 19px;
+    }
+
+    .nx2-portal-form {
+        padding: 22px 18px;
+    }
+}
+
+/* =========================================================
+   NEST HUB — 1024 × 600 SHORT LANDSCAPE
+========================================================= */
+
+@media (min-width: 901px) and (max-width: 1100px) and (max-height: 700px) {
+    .nx2-container {
+        width: calc(100% - 52px);
+    }
+
+    .nx2-section {
+        padding-block: 48px;
+    }
+
+    .nx2-section-heading {
+        margin-bottom: 27px;
+    }
+
+    .nx2-section-heading h2 {
+        font-size: 36px;
+    }
+
+    .nx2-section-heading > p:last-child {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+    .nx2-hero {
+        min-height: 530px;
+        padding: 58px 35px 55px;
+    }
+
+    .nx2-hero h1 {
+        font-size: clamp(50px, 6.2vw, 68px);
+    }
+
+    .nx2-hero .nx2-eyebrow {
+        margin-bottom: 17px;
+    }
+
+    .nx2-hero-description {
+        margin-top: 16px;
+        font-size: 13px;
+    }
+
+    .nx2-hero-actions {
+        margin-top: 21px;
+    }
+
+    .nx2-hero-meta {
+        right: 22px;
+        bottom: 13px;
+        left: 22px;
+    }
+
+    .nx2-value {
+        gap: 8px;
+        padding: 13px 7px;
+    }
+
+    .nx2-value-icon {
+        width: 35px;
+        height: 35px;
+        flex-basis: 35px;
+    }
+
+    .nx2-value-text strong {
+        font-size: 10px;
+    }
+
+    .nx2-value-text span {
+        font-size: 9px;
+    }
+
+    .nx2-scene-layout {
+        gap: 17px;
+    }
+
+    .nx2-scene-photo {
+        min-height: 315px;
+    }
+
+    .nx2-scene-panel {
+        padding: 23px;
+    }
+
+    .nx2-scene-panel h3 {
+        font-size: 30px;
+    }
+
+    .nx2-scene-description {
+        min-height: 0;
+        margin: 10px 0 15px;
+        font-size: 12px;
+    }
+
+    .nx2-scene-option {
+        min-height: 48px;
+        gap: 7px;
+        padding: 7px;
+    }
+
+    .nx2-scene-option-icon {
+        width: 28px;
+        height: 28px;
+        flex-basis: 28px;
+    }
+
+    .nx2-scene-option strong {
+        font-size: 10px;
+    }
+
+    .nx2-scene-option small {
+        font-size: 9px;
+    }
+
+    .nx2-scene-status {
+        margin-top: 12px;
+        padding-top: 11px;
+    }
+
+    .nx2-card-grid,
+    .nx2-process-grid,
+    .nx2-pricing-grid {
+        gap: 14px;
+    }
+
+    .nx2-solution-body {
+        padding: 16px;
+    }
+
+    .nx2-card-icon {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 10px;
+    }
+
+    .nx2-solution-body h3 {
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    .nx2-solution-body > p {
+        min-height: 85px;
+        margin: 8px 0 14px;
+        font-size: 11px;
+    }
+
+    .nx2-control-layout {
+        gap: 29px;
+    }
+
+    .nx2-control-copy h2 {
+        font-size: 37px;
+    }
+
+    .nx2-control-copy > p {
+        margin: 12px 0 17px;
+        font-size: 12px;
+    }
+
+    .nx2-check-list {
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .nx2-check-list li {
+        font-size: 11px;
+    }
+
+    .nx2-control-visual {
+        min-height: 320px;
+    }
+
+    .nx2-device-panel {
+        right: 12px;
+        bottom: 12px;
+        width: 250px;
+        padding: 13px;
+    }
+
+    .nx2-device-panel-header {
+        margin-bottom: 10px;
+    }
+
+    .nx2-device-row {
+        margin-top: 8px;
+    }
+
+    .nx2-process-card {
+        padding: 19px;
+    }
+
+    .nx2-process-number {
+        width: 39px;
+        height: 39px;
+        margin-bottom: 15px;
+    }
+
+    .nx2-process-card h3 {
+        min-height: 40px;
+        font-size: 16px;
+    }
+
+    .nx2-process-card p {
+        min-height: 67px;
+        font-size: 11px;
+    }
+
+    .nx2-price-card {
+        padding: 19px 16px;
+    }
+
+    .nx2-price-top {
+        min-height: 91px;
+    }
+
+    .nx2-price-top h3 {
+        font-size: 18px;
+    }
+
+    .nx2-price-top p {
+        font-size: 10px;
+    }
+
+    .nx2-price-amount {
+        margin: 15px 0;
+        font-size: 26px;
+    }
+
+    .nx2-price-features {
+        gap: 9px;
+        margin-bottom: 17px;
+    }
+
+    .nx2-price-features li {
+        font-size: 10px;
+    }
+
+    .nx2-price-card .nx2-btn {
+        min-height: 42px;
+        padding-inline: 8px;
+        font-size: 10px;
+    }
+
+    .nx2-portal-intro {
+        min-height: 330px;
+        padding: 29px;
+    }
+
+    .nx2-portal-intro h2 {
+        font-size: 35px;
+    }
+
+    .nx2-portal-intro > p:not(.nx2-eyebrow) {
+        margin: 12px 0 16px;
+        font-size: 11px;
+    }
+
+    .nx2-portal-form {
+        padding: 24px;
+    }
+
+    .nx2-portal-form h3 {
+        font-size: 22px;
+    }
+
+    .nx2-portal-form > p {
+        margin-bottom: 16px;
+    }
+
+    .nx2-field {
+        margin-bottom: 11px;
+    }
+
+    .nx2-input {
+        min-height: 42px;
+    }
+
+    .nx2-form-meta {
+        margin-bottom: 12px;
+        font-size: 10px;
+    }
+
+    .nx2-faq-question {
+        min-height: 54px;
+        padding-block: 12px;
+        font-size: 12px;
+    }
+
+    .nx2-faq-answer {
+        padding-bottom: 14px;
+        font-size: 11px;
+    }
+
+    .nx2-final-cta {
+        padding: 10px 0 45px;
+    }
+
+    .nx2-cta-inner {
+        padding: 27px 32px;
+    }
+
+    .nx2-cta-copy h2 {
+        font-size: 31px;
+    }
+
+    .nx2-cta-copy p {
+        font-size: 11px;
+    }
+}
+
+/* SHORTER LAPTOP / TABLET LANDSCAPE */
+
+@media (min-width: 600px) and (max-height: 650px) {
+    .nx2-hero {
+        min-height: 500px;
+    }
+
+    .nx2-hero h1 {
+        font-size: clamp(45px, 6vw, 67px);
+    }
+
+    .nx2-hero-description {
+        margin-top: 14px;
+    }
+
+    .nx2-hero-actions {
+        margin-top: 18px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     HERO — CENTERED HEADING
+===================================================== -->
+
+<section class="nx2-hero" id="home">
+    <div class="nx2-hero-inner">
+        <p class="nx2-eyebrow">
+            <span class="nx2-eyebrow-dot"></span>
+            Intelligent homes · Thoughtfully designed
+        </p>
+
+        <h1>
+            Your home,<br>
+            <span id="nx2HeroWord">reimagined.</span>
+        </h1>
+
+        <p class="nx2-hero-description">
+            A more intuitive way to live. Bring lighting, security, climate and entertainment together in one beautifully connected experience.
+        </p>
+
+        <div class="nx2-hero-actions">
+            <a href="#nx2Scenes" class="nx2-btn nx2-btn--cyan">
+                Explore smart living <i data-lucide="arrow-up-right"></i>
+            </a>
+
+            <a href="#nx2Solutions" class="nx2-btn nx2-btn--outline">
+                Discover our solutions <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="nx2-hero-meta">
+        <span><i data-lucide="move-down"></i> Explore the experience</span>
+        <span>Comfort · Control · Confidence</span>
+    </div>
+</section>
+
+<!-- VALUE STRIP -->
+
+<div class="nx2-value-bar">
+    <div class="nx2-container nx2-value-grid">
+
+        <div class="nx2-value">
+            <div class="nx2-value-icon"><i data-lucide="lightbulb"></i></div>
+            <div class="nx2-value-text">
+                <strong>Ambient lighting</strong>
+                <span>Made for your moments</span>
+            </div>
+        </div>
+
+        <div class="nx2-value">
+            <div class="nx2-value-icon"><i data-lucide="shield-check"></i></div>
+            <div class="nx2-value-text">
+                <strong>Connected security</strong>
+                <span>Confidence at a glance</span>
+            </div>
+        </div>
+
+        <div class="nx2-value">
+            <div class="nx2-value-icon"><i data-lucide="thermometer"></i></div>
+            <div class="nx2-value-text">
+                <strong>Effortless comfort</strong>
+                <span>Your preferred environment</span>
+            </div>
+        </div>
+
+        <div class="nx2-value">
+            <div class="nx2-value-icon"><i data-lucide="smartphone"></i></div>
+            <div class="nx2-value-text">
+                <strong>Unified control</strong>
+                <span>Your home in reach</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- =====================================================
+     SMART SCENES
+===================================================== -->
+
+<section class="nx2-section nx2-scenes" id="nx2Scenes">
+    <div class="nx2-container">
+
+        <div class="nx2-section-heading">
+            <p class="nx2-eyebrow">
+                <span class="nx2-eyebrow-dot"></span>
+                Life, beautifully connected
+            </p>
+            <h2>One home. A thousand possibilities.</h2>
+            <p>
+                The right atmosphere for every moment, with connected experiences designed around the way you live.
+            </p>
+        </div>
+
+        <div class="nx2-scene-layout">
+
+            <div class="nx2-scene-photo">
+                <img id="nx2SceneImage"
+                     src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1100&q=85"
+                     alt="Premium living room with warm interior lighting">
+
+                <div class="nx2-scene-caption">
+                    <div>
+                        <strong id="nx2SceneImageTitle">Welcome home</strong>
+                        <small id="nx2SceneImageSubtitle">A warmer way to arrive</small>
+                    </div>
+                    <span class="nx2-live-tag">
+                        <span class="nx2-eyebrow-dot"></span>
+                        SCENE PREVIEW
+                    </span>
+                </div>
+            </div>
+
+            <div class="nx2-scene-panel">
+                <p class="nx2-eyebrow">
+                    <span class="nx2-eyebrow-dot"></span>
+                    Choose your atmosphere
+                </p>
+
+                <h3 id="nx2SceneTitle">Welcome home.</h3>
+
+                <p class="nx2-scene-description" id="nx2SceneDescription">
+                    Let compatible lighting, temperature and connected devices work together to create a comfortable arrival.
+                </p>
+
+                <div class="nx2-scene-options">
+
+                    <button class="nx2-scene-option active" type="button" data-scene="welcome" aria-pressed="true">
+                        <span class="nx2-scene-option-icon"><i data-lucide="sunset"></i></span>
+                        <span>
+                            <strong>Welcome home</strong>
+                            <small>Ease into your evening</small>
+                        </span>
+                    </button>
+
+                    <button class="nx2-scene-option" type="button" data-scene="focus" aria-pressed="false">
+                        <span class="nx2-scene-option-icon"><i data-lucide="monitor"></i></span>
+                        <span>
+                            <strong>Focus mode</strong>
+                            <small>Space to concentrate</small>
+                        </span>
+                    </button>
+
+                    <button class="nx2-scene-option" type="button" data-scene="movie" aria-pressed="false">
+                        <span class="nx2-scene-option-icon"><i data-lucide="clapperboard"></i></span>
+                        <span>
+                            <strong>Movie night</strong>
+                            <small>Your cinema atmosphere</small>
+                        </span>
+                    </button>
+
+                    <button class="nx2-scene-option" type="button" data-scene="sleep" aria-pressed="false">
+                        <span class="nx2-scene-option-icon"><i data-lucide="moon-star"></i></span>
+                        <span>
+                            <strong>Good night</strong>
+                            <small>Wind down comfortably</small>
+                        </span>
+                    </button>
+
+                </div>
+
+                <div class="nx2-scene-status">
+                    <i data-lucide="check-circle-2"></i>
+                    <span id="nx2SceneStatus" aria-live="polite">Welcome home selected — explore your ideal setup.</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     SOLUTIONS
+===================================================== -->
+
+<section class="nx2-section nx2-solutions" id="nx2Solutions">
+    <div class="nx2-container">
+
+        <div class="nx2-section-heading">
+            <p class="nx2-eyebrow">
+                <span class="nx2-eyebrow-dot"></span>
+                Thoughtfully integrated
+            </p>
+            <h2>Intelligence in every detail.</h2>
+            <p>
+                Distinct capabilities, one cohesive experience. Start with what matters today and expand when you are ready.
+            </p>
+        </div>
+
+        <div class="nx2-card-grid">
+
+            <article class="nx2-solution-card">
+                <div class="nx2-solution-image">
+                    <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=850&q=85"
+                         alt="Contemporary interior lighting" loading="lazy">
+                    <span class="nx2-image-index">01</span>
+                </div>
+                <div class="nx2-solution-body">
+                    <div class="nx2-card-icon"><i data-lucide="lightbulb"></i></div>
+                    <h3>Lighting, with intention.</h3>
+                    <p>
+                        Shape the mood of every room with connected lighting, personalised scenes and schedules for everyday life.
+                    </p>
+                    <a href="#nx2Portal" class="nx2-card-link">
+                        Explore lighting <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="nx2-solution-card">
+                <div class="nx2-solution-image">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=850&q=85"
+                         alt="Connected home technology" loading="lazy">
+                    <span class="nx2-image-index">02</span>
+                </div>
+                <div class="nx2-solution-body">
+                    <div class="nx2-card-icon"><i data-lucide="shield-check"></i></div>
+                    <h3>Security, thoughtfully connected.</h3>
+                    <p>
+                        Coordinate compatible locks, cameras, sensors and notifications for more convenient home monitoring.
+                    </p>
+                    <a href="#nx2Portal" class="nx2-card-link">
+                        Explore security <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="nx2-solution-card">
+                <div class="nx2-solution-image">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=850&q=85"
+                         alt="Calm and comfortable contemporary home" loading="lazy">
+                    <span class="nx2-image-index">03</span>
+                </div>
+                <div class="nx2-solution-body">
+                    <div class="nx2-card-icon"><i data-lucide="thermometer-sun"></i></div>
+                    <h3>Comfort, made personal.</h3>
+                    <p>
+                        Bring compatible climate controls, curtains and connected devices into routines that fit your day.
+                    </p>
+                    <a href="#nx2Portal" class="nx2-card-link">
+                        Explore comfort <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     NX2 — INTERACTIVE SMART HOME VISUALIZER
+     Responsive | Interactive | No header or footer
+===================================================== -->
+
+<section class="nx2-visualizer nx2-section" id="nx2-visualizer">
+    <div class="nx2-container">
+
+        <div class="nx2-section-heading">
+            <p class="nx2-eyebrow">
+                <span class="nx2-eyebrow-dot"></span>
+                YOUR HOME, INTELLIGENTLY CONNECTED
+            </p>
+
+            <h2>
+                One home.
+                <span class="nx2-viz-gradient">Endless possibilities.</span>
+            </h2>
+
+            <p>
+                Explore how connected lighting, climate, security and
+                entertainment work together in every room.
+            </p>
+        </div>
+
+        <div class="nx2-viz-shell">
+
+            <!-- INTERACTIVE FLOOR PLAN -->
+            <div class="nx2-viz-map">
+
+                <div class="nx2-viz-map-top">
+                    <div>
+                        <span class="nx2-viz-kicker">INTERACTIVE FLOOR PLAN</span>
+                        <h3>Explore your home</h3>
+                    </div>
+
+                    <span class="nx2-viz-live">
+                        <span></span> SYSTEM ONLINE
+                    </span>
+                </div>
+
+                <div class="nx2-viz-floorplan">
+
+                    <button class="nx2-viz-room nx2-viz-living is-active"
+                            data-room="living"
+                            aria-pressed="true">
+                        <span class="nx2-viz-room-icon">
+                            <i data-lucide="sofa"></i>
+                        </span>
+                        <strong>Living room</strong>
+                        <small>Lighting · Entertainment</small>
+                        <span class="nx2-viz-room-status">ACTIVE</span>
+                    </button>
+
+                    <button class="nx2-viz-room nx2-viz-bedroom"
+                            data-room="bedroom"
+                            aria-pressed="false">
+                        <span class="nx2-viz-room-icon">
+                            <i data-lucide="bed-double"></i>
+                        </span>
+                        <strong>Bedroom</strong>
+                        <small>Comfort · Sleep</small>
+                        <span class="nx2-viz-room-status">READY</span>
+                    </button>
+
+                    <button class="nx2-viz-room nx2-viz-kitchen"
+                            data-room="kitchen"
+                            aria-pressed="false">
+                        <span class="nx2-viz-room-icon">
+                            <i data-lucide="cooking-pot"></i>
+                        </span>
+                        <strong>Kitchen</strong>
+                        <small>Appliances · Safety</small>
+                        <span class="nx2-viz-room-status">READY</span>
+                    </button>
+
+                    <button class="nx2-viz-room nx2-viz-entry"
+                            data-room="entry"
+                            aria-pressed="false">
+                        <span class="nx2-viz-room-icon">
+                            <i data-lucide="shield-check"></i>
+                        </span>
+                        <strong>Entrance</strong>
+                        <small>Access · Security</small>
+                        <span class="nx2-viz-room-status">SECURED</span>
+                    </button>
+
+                    <div class="nx2-viz-corridor">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="nx2-viz-floor-label">
+                        <i data-lucide="house"></i>
+                        CONNECTED HOME
+                    </div>
+                </div>
+
+                <div class="nx2-viz-map-footer">
+                    <span><i data-lucide="mouse-pointer-2"></i> Select any room to explore</span>
+                    <span><i data-lucide="wifi"></i> Connected ecosystem</span>
+                </div>
+            </div>
+
+            <!-- ROOM DETAILS -->
+            <aside class="nx2-viz-details" aria-live="polite">
+
+                <div class="nx2-viz-detail-head">
+                    <span class="nx2-viz-detail-icon" id="nx2VizIcon">
+                        <i data-lucide="sofa"></i>
+                    </span>
+
+                    <div>
+                        <span class="nx2-viz-kicker">ROOM OVERVIEW</span>
+                        <h3 id="nx2VizTitle">Living room</h3>
+                    </div>
+                </div>
+
+                <p class="nx2-viz-description" id="nx2VizDescription">
+                    Set the perfect atmosphere with intelligent lighting,
+                    effortless entertainment and personalized scenes.
+                </p>
+
+                <div class="nx2-viz-feature-heading">
+                    <span>CONNECTED FEATURES</span>
+                    <span id="nx2VizCount">03 FEATURES</span>
+                </div>
+
+                <div class="nx2-viz-features" id="nx2VizFeatures">
+                    <div class="nx2-viz-feature">
+                        <span class="nx2-viz-feature-icon">
+                            <i data-lucide="lightbulb"></i>
+                        </span>
+                        <span><strong>Smart lighting</strong><small>Adjust the ambience</small></span>
+                        <span class="nx2-viz-feature-check"><i data-lucide="check"></i></span>
+                    </div>
+
+                    <div class="nx2-viz-feature">
+                        <span class="nx2-viz-feature-icon">
+                            <i data-lucide="tv"></i>
+                        </span>
+                        <span><strong>Entertainment</strong><small>Connected media control</small></span>
+                        <span class="nx2-viz-feature-check"><i data-lucide="check"></i></span>
+                    </div>
+
+                    <div class="nx2-viz-feature">
+                        <span class="nx2-viz-feature-icon">
+                            <i data-lucide="thermometer"></i>
+                        </span>
+                        <span><strong>Climate control</strong><small>Personalized comfort</small></span>
+                        <span class="nx2-viz-feature-check"><i data-lucide="check"></i></span>
+                    </div>
+                </div>
+
+                <div class="nx2-viz-scene">
+                    <div>
+                        <span class="nx2-viz-kicker">AUTOMATION SCENE</span>
+                        <strong id="nx2VizSceneTitle">Relax mode</strong>
+                        <p id="nx2VizSceneText">
+                            Create a comfortable atmosphere for your evening.
+                        </p>
+                    </div>
+
+                    <button type="button" class="nx2-viz-scene-btn"
+                            id="nx2VizSceneButton" aria-pressed="false">
+                        <i data-lucide="power"></i>
+                        <span>Activate scene</span>
+                    </button>
+                </div>
+
+                <p class="nx2-viz-note">
+                    <i data-lucide="info"></i>
+                    Interactive concept preview. Actual device features depend
+                    on the installed equipment.
+                </p>
+
+            </aside>
+        </div>
+    </div>
+</section>
+
+<style>
+/* =====================================================
+   SMART HOME VISUALIZER — SCOPED STYLES
+===================================================== */
+
+.nx2-visualizer {
+    --viz-cyan: #00B4D8;
+    --viz-blue: #0F4C81;
+    --viz-border: var(--border, #DCE6EE);
+    --viz-surface: var(--surface, #FFFFFF);
+    --viz-bg: var(--bg, #F5F8FB);
+    --viz-text: var(--text, #142B3D);
+    --viz-muted: var(--muted, #6A7D8D);
+
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 4% 45%,
+            rgba(0,180,216,.07),
+            transparent 36%
+        ),
+        var(--viz-bg);
+}
+
+.nx2-visualizer .nx2-section-heading {
+    margin-bottom: 44px;
+}
+
+.nx2-visualizer .nx2-eyebrow {
+    justify-content: center;
+}
+
+.nx2-visualizer .nx2-section-heading h2 {
+    max-width: 780px;
+}
+
+.nx2-viz-gradient {
+    display: block;
+    color: var(--viz-blue);
+}
+
+html[data-theme="dark"] .nx2-viz-gradient {
+    color: var(--secondary-light, #42D5F0);
+}
+
+.nx2-viz-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+    align-items: stretch;
+    gap: 20px;
+}
+
+.nx2-viz-map,
+.nx2-viz-details {
+    min-width: 0;
+    border: 1px solid var(--viz-border);
+    border-radius: 22px;
+    background: var(--viz-surface);
+}
+
+.nx2-viz-map {
+    padding: clamp(17px, 3vw, 30px);
+}
+
+.nx2-viz-map-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.nx2-viz-kicker {
+    display: block;
+    color: var(--viz-muted);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+}
+
+.nx2-viz-map-top h3 {
+    margin: 5px 0 0;
+    color: var(--viz-text);
+    font-size: clamp(21px, 2.5vw, 29px);
+    letter-spacing: -.055em;
+}
+
+.nx2-viz-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+    padding: 8px 10px;
+    border: 1px solid rgba(0,180,216,.2);
+    border-radius: 50px;
+    background: rgba(0,180,216,.07);
+    color: var(--viz-blue);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .7px;
+}
+
+.nx2-viz-live > span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #15B887;
+    box-shadow: 0 0 0 4px rgba(21,184,135,.12);
+}
+
+.nx2-viz-floorplan {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 9px;
+    min-height: 395px;
+    padding: 13px;
+    overflow: hidden;
+    border: 1px solid var(--viz-border);
+    border-radius: 16px;
+    background:
+        linear-gradient(var(--viz-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--viz-border) 1px, transparent 1px),
+        var(--viz-bg);
+    background-size: 23px 23px;
+}
+
+.nx2-viz-room {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    min-height: 0;
+    padding: clamp(11px, 2vw, 22px);
+    overflow: hidden;
+    border: 1px solid var(--viz-border);
+    border-radius: 12px;
+    background: var(--viz-surface);
+    color: var(--viz-text);
+    text-align: left;
+    cursor: pointer;
+    transition:
+        background .25s,
+        border-color .25s,
+        box-shadow .25s,
+        transform .25s;
+}
+
+.nx2-viz-room:hover {
+    transform: translateY(-2px);
+    border-color: var(--viz-cyan);
+}
+
+.nx2-viz-room.is-active {
+    border-color: var(--viz-cyan);
+    background: rgba(0,180,216,.09);
+    box-shadow: inset 0 0 0 1px rgba(0,180,216,.16);
+}
+
+.nx2-viz-room-icon {
+    display: grid;
+    place-items: center;
+    width: 41px;
+    height: 41px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(0,180,216,.18);
+    border-radius: 12px;
+    background: var(--viz-bg);
+    color: var(--viz-blue);
+}
+
+html[data-theme="dark"] .nx2-viz-room-icon {
+    color: var(--secondary-light, #42D5F0);
+}
+
+.nx2-viz-room-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.nx2-viz-room strong {
+    font-family: var(--heading-font, "Manrope", sans-serif);
+    font-size: clamp(12px, 1.4vw, 16px);
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.nx2-viz-room small {
+    margin-top: 5px;
+    color: var(--viz-muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.nx2-viz-room-status {
+    margin-top: 14px;
+    padding: 5px 7px;
+    border-radius: 5px;
+    background: var(--viz-bg);
+    color: var(--viz-muted);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .8px;
+}
+
+.nx2-viz-room.is-active .nx2-viz-room-status {
+    background: var(--viz-cyan);
+    color: #06283A;
+}
+
+.nx2-viz-corridor {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 72px;
+    height: 25px;
+    transform: translate(-50%, -50%);
+    border: 5px solid var(--viz-bg);
+    border-radius: 20px;
+    background: var(--viz-cyan);
+}
+
+.nx2-viz-corridor span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.nx2-viz-floor-label {
+    position: absolute;
+    right: 17px;
+    bottom: 17px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--viz-muted);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.nx2-viz-floor-label svg {
+    width: 13px;
+    height: 13px;
+}
+
+.nx2-viz-map-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 17px;
+    color: var(--viz-muted);
+    font-size: 10px;
+}
+
+.nx2-viz-map-footer span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.nx2-viz-map-footer svg {
+    width: 14px;
+    height: 14px;
+    color: var(--viz-cyan);
+}
+
+.nx2-viz-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(22px, 3vw, 34px);
+}
+
+.nx2-viz-detail-head {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nx2-viz-detail-icon {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    border-radius: 15px;
+    background: rgba(0,180,216,.1);
+    color: var(--viz-blue);
+}
+
+html[data-theme="dark"] .nx2-viz-detail-icon {
+    color: var(--secondary-light, #42D5F0);
+}
+
+.nx2-viz-detail-icon svg {
+    width: 25px;
+    height: 25px;
+}
+
+.nx2-viz-detail-head h3 {
+    margin: 3px 0 0;
+    color: var(--viz-text);
+    font-size: clamp(23px, 2.6vw, 30px);
+    letter-spacing: -.055em;
+}
+
+.nx2-viz-description {
+    min-height: 77px;
+    margin: 20px 0 25px;
+    color: var(--viz-muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.nx2-viz-feature-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--viz-border);
+    color: var(--viz-muted);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.nx2-viz-features {
+    display: grid;
+}
+
+.nx2-viz-feature {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--viz-border);
+    animation: nx2-viz-enter .25s ease both;
+}
+
+@keyframes nx2-viz-enter {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.nx2-viz-feature-icon {
+    display: grid;
+    place-items: center;
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    border-radius: 10px;
+    background: var(--viz-bg);
+    color: var(--viz-blue);
+}
+
+html[data-theme="dark"] .nx2-viz-feature-icon {
+    color: var(--secondary-light, #42D5F0);
+}
+
+.nx2-viz-feature-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.nx2-viz-feature > span:nth-child(2) {
+    flex: 1;
+    min-width: 0;
+}
+
+.nx2-viz-feature strong,
+.nx2-viz-feature small {
+    display: block;
+}
+
+.nx2-viz-feature strong {
+    color: var(--viz-text);
+    font-size: 11px;
+}
+
+.nx2-viz-feature small {
+    margin-top: 3px;
+    color: var(--viz-muted);
+    font-size: 10px;
+}
+
+.nx2-viz-feature-check {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    border-radius: 50%;
+    background: rgba(21,184,135,.12);
+    color: #159A75;
+}
+
+.nx2-viz-feature-check svg {
+    width: 13px;
+    height: 13px;
+}
+
+.nx2-viz-scene {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 17px;
+    margin-top: 22px;
+    padding: 18px;
+    border: 1px solid var(--viz-border);
+    border-radius: 14px;
+    background: var(--viz-bg);
+}
+
+.nx2-viz-scene strong {
+    display: block;
+    margin-top: 5px;
+    color: var(--viz-text);
+    font-family: var(--heading-font, "Manrope", sans-serif);
+    font-size: 17px;
+}
+
+.nx2-viz-scene p {
+    margin: 5px 0 0;
+    color: var(--viz-muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.nx2-viz-scene-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    min-height: 45px;
+    padding: 11px 15px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    background: var(--viz-blue);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+.nx2-viz-scene-btn:hover {
+    transform: translateY(-1px);
+    background: #0A355C;
+}
+
+.nx2-viz-scene-btn.is-on {
+    border-color: var(--viz-cyan);
+    background: var(--viz-cyan);
+    color: #06283A;
+}
+
+.nx2-viz-scene-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.nx2-viz-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 15px 0 0;
+    color: var(--viz-muted);
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+.nx2-viz-note svg {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+}
+
+/* TABLET */
+@media (min-width: 600px) and (max-width: 900px) {
+    .nx2-viz-shell {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .nx2-viz-floorplan {
+        min-height: 420px;
+    }
+
+    .nx2-viz-details {
+        padding: 28px;
+    }
+
+    .nx2-viz-description {
+        min-height: 0;
+    }
+}
+
+/* SAMSUNG S8 AND SMALL MOBILE */
+@media (max-width: 599px) {
+    .nx2-visualizer.nx2-section {
+        padding-block: 54px;
+    }
+
+    .nx2-visualizer .nx2-section-heading {
+        margin-bottom: 27px;
+    }
+
+    .nx2-visualizer .nx2-section-heading h2 {
+        font-size: clamp(30px, 8.5vw, 37px);
+        line-height: 1.12;
+    }
+
+    .nx2-visualizer .nx2-eyebrow {
+        gap: 7px;
+        padding: 8px 10px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .nx2-viz-shell {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .nx2-viz-map {
+        padding: 13px;
+        border-radius: 16px;
+    }
+
+    .nx2-viz-map-top {
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+
+    .nx2-viz-map-top h3 {
+        font-size: 22px;
+    }
+
+    .nx2-viz-live {
+        gap: 5px;
+        padding: 7px;
+        font-size: 7px;
+        letter-spacing: .3px;
+    }
+
+    .nx2-viz-floorplan {
+        min-height: 365px;
+        gap: 7px;
+        padding: 8px;
+    }
+
+    .nx2-viz-room {
+        padding: 10px;
+        border-radius: 9px;
+    }
+
+    .nx2-viz-room-icon {
+        width: 34px;
+        height: 34px;
+        margin-bottom: 12px;
+        border-radius: 9px;
+    }
+
+    .nx2-viz-room-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .nx2-viz-room strong {
+        font-size: 11px;
+    }
+
+    .nx2-viz-room small {
+        font-size: 9px;
+    }
+
+    .nx2-viz-room-status {
+        margin-top: 10px;
+        padding: 4px 5px;
+        font-size: 7px;
+        letter-spacing: .4px;
+    }
+
+    .nx2-viz-corridor {
+        width: 48px;
+        height: 19px;
+        border-width: 4px;
+    }
+
+    .nx2-viz-floor-label {
+        right: 11px;
+        bottom: 10px;
+        font-size: 7px;
+    }
+
+    .nx2-viz-map-footer {
+        font-size: 9px;
+    }
+
+    .nx2-viz-details {
+        padding: 21px;
+        border-radius: 16px;
+    }
+
+    .nx2-viz-detail-icon {
+        width: 47px;
+        height: 47px;
+        flex-basis: 47px;
+    }
+
+    .nx2-viz-detail-head h3 {
+        font-size: 25px;
+    }
+
+    .nx2-viz-description {
+        min-height: 0;
+        margin: 16px 0 20px;
+        font-size: 12px;
+    }
+
+    .nx2-viz-scene {
+        margin-top: 18px;
+        padding: 15px;
+    }
+}
+
+/* NEST HUB AND SHORT LANDSCAPE VIEWPORTS */
+@media (min-width: 901px) and (max-height: 650px) {
+    .nx2-visualizer.nx2-section {
+        padding-block: 55px;
+    }
+
+    .nx2-visualizer .nx2-section-heading {
+        margin-bottom: 28px;
+    }
+
+    .nx2-viz-floorplan {
+        min-height: 310px;
+    }
+
+    .nx2-viz-details {
+        padding: 22px;
+    }
+
+    .nx2-viz-description {
+        min-height: 0;
+        margin-block: 12px 16px;
+    }
+
+    .nx2-viz-feature {
+        padding-block: 9px;
+    }
+
+    .nx2-viz-scene {
+        margin-top: 15px;
+        padding: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nx2-visualizer *,
+    .nx2-visualizer *::before,
+    .nx2-visualizer *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+
+<script>
+(() => {
+    const root = document.querySelector("#nx2-visualizer");
+    if (!root || root.dataset.initialized === "true") return;
+    root.dataset.initialized = "true";
+
+    const rooms = {
+        living: {
+            title: "Living room",
+            icon: "sofa",
+            description: "Set the perfect atmosphere with intelligent lighting, effortless entertainment and personalized scenes.",
+            scene: "Relax mode",
+            sceneText: "Create a comfortable atmosphere for your evening.",
+            features: [
+                ["lightbulb", "Smart lighting", "Adjust the ambience"],
+                ["tv", "Entertainment", "Connected media control"],
+                ["thermometer", "Climate control", "Personalized comfort"]
+            ]
+        },
+        bedroom: {
+            title: "Bedroom",
+            icon: "bed-double",
+            description: "Create a calmer bedroom with sleep-friendly lighting, personalized comfort and simple bedside control.",
+            scene: "Sleep mode",
+            sceneText: "Prepare your room for a more comfortable night.",
+            features: [
+                ["moon", "Sleep lighting", "Softer evening ambience"],
+                ["thermometer", "Climate comfort", "Personalized temperature"],
+                ["alarm-clock", "Wake-up routine", "A gentler morning start"]
+            ]
+        },
+        kitchen: {
+            title: "Kitchen",
+            icon: "cooking-pot",
+            description: "Bring everyday convenience to your kitchen with connected lighting, appliance routines and compatible safety sensors.",
+            scene: "Cooking mode",
+            sceneText: "Set up practical lighting and a kitchen-ready environment.",
+            features: [
+                ["lightbulb", "Task lighting", "Focused countertop lighting"],
+                ["plug", "Smart appliances", "Control compatible devices"],
+                ["shield-check", "Safety sensors", "Monitor compatible alerts"]
+            ]
+        },
+        entry: {
+            title: "Entrance",
+            icon: "shield-check",
+            description: "Manage your arrival with connected access options, entry lighting and compatible security monitoring.",
+            scene: "Away mode",
+            sceneText: "Prepare selected lights and security devices when leaving.",
+            features: [
+                ["lock-keyhole", "Smart access", "Compatible entry controls"],
+                ["video", "Security monitoring", "View supported camera feeds"],
+                ["lamp", "Entry lighting", "Automated welcome lighting"]
+            ]
+        }
+    };
+
+    const title = root.querySelector("#nx2VizTitle");
+    const description = root.querySelector("#nx2VizDescription");
+    const icon = root.querySelector("#nx2VizIcon");
+    const features = root.querySelector("#nx2VizFeatures");
+    const count = root.querySelector("#nx2VizCount");
+    const sceneTitle = root.querySelector("#nx2VizSceneTitle");
+    const sceneText = root.querySelector("#nx2VizSceneText");
+    const sceneButton = root.querySelector("#nx2VizSceneButton");
+    let activeRoom = "living";
+    let sceneOn = false;
+
+    function renderIcon(name) {
+        return window.lucide && lucide.icons && lucide.icons[name]
+            ? `<i data-lucide="${name}"></i>`
+            : `<span aria-hidden="true">•</span>`;
+    }
+
+    function refreshIcons() {
+        if (window.lucide) {
+            window.lucide.createIcons({ attrs: { "stroke-width": 1.8 } });
+        }
+    }
+
+    function selectRoom(roomKey) {
+        const room = rooms[roomKey];
+        if (!room) return;
+
+        activeRoom = roomKey;
+        sceneOn = false;
+
+        root.querySelectorAll(".nx2-viz-room").forEach(button => {
+            const active = button.dataset.room === roomKey;
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-pressed", String(active));
+
+            const status = button.querySelector(".nx2-viz-room-status");
+            if (status) {
+                status.textContent = active
+                    ? (roomKey === "entry" ? "SECURED" : "ACTIVE")
+                    : "READY";
+            }
+        });
+
+        title.textContent = room.title;
+        description.textContent = room.description;
+        icon.innerHTML = renderIcon(room.icon);
+        sceneTitle.textContent = room.scene;
+        sceneText.textContent = room.sceneText;
+        count.textContent = String(room.features.length).padStart(2, "0") + " FEATURES";
+
+        features.innerHTML = room.features.map((feature, index) => `
+            <div class="nx2-viz-feature" style="animation-delay:${index * 45}ms">
+                <span class="nx2-viz-feature-icon">${renderIcon(feature[0])}</span>
+                <span>
+                    <strong>${feature[1]}</strong>
+                    <small>${feature[2]}</small>
+                </span>
+                <span class="nx2-viz-feature-check">${renderIcon("check")}</span>
+            </div>
+        `).join("");
+
+        sceneButton.classList.remove("is-on");
+        sceneButton.setAttribute("aria-pressed", "false");
+        sceneButton.innerHTML = `${renderIcon("power")}<span>Activate scene</span>`;
+
+        refreshIcons();
+    }
+
+    root.querySelectorAll(".nx2-viz-room").forEach(button => {
+        button.addEventListener("click", () => selectRoom(button.dataset.room));
+    });
+
+    sceneButton.addEventListener("click", () => {
+        sceneOn = !sceneOn;
+        sceneButton.classList.toggle("is-on", sceneOn);
+        sceneButton.setAttribute("aria-pressed", String(sceneOn));
+        sceneButton.innerHTML = sceneOn
+            ? `${renderIcon("check-circle")}<span>Scene activated</span>`
+            : `${renderIcon("power")}<span>Activate scene</span>`;
+
+        sceneText.textContent = sceneOn
+            ? `${rooms[activeRoom].scene} is active in this interactive preview.`
+            : rooms[activeRoom].sceneText;
+
+        refreshIcons();
+    });
+
+    refreshIcons();
+})();
+</script>
+
+<!-- =====================================================
+     CONNECTED CONTROL
+===================================================== -->
+
+<section class="nx2-section nx2-control" id="nx2Control">
+    <div class="nx2-container nx2-control-layout">
+
+        <div class="nx2-control-copy">
+            <p class="nx2-eyebrow">
+                <span class="nx2-eyebrow-dot"></span>
+                One considered experience
+            </p>
+
+            <h2>Less managing. More living.</h2>
+
+            <p>
+                Bring compatible devices into one clear interface. Create routines, adjust settings and organise your home around the moments that matter.
+            </p>
+
+            <ul class="nx2-check-list">
+                <li><i data-lucide="check-circle-2"></i> Control compatible devices from one interface.</li>
+                <li><i data-lucide="check-circle-2"></i> Create personalised routines for your schedule.</li>
+                <li><i data-lucide="check-circle-2"></i> Adjust lighting and comfort by room.</li>
+                <li><i data-lucide="check-circle-2"></i> Expand your system as your needs evolve.</li>
+            </ul>
+
+            <a href="#nx2Portal" class="nx2-btn">
+                Discover connected control <i data-lucide="arrow-up-right"></i>
+            </a>
+        </div>
+
+        <div class="nx2-control-visual">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=85"
+                 alt="Elegant modern residential interior" loading="lazy">
+
+            <div class="nx2-device-panel">
+                <div class="nx2-device-panel-header">
+                    <strong>Home overview</strong>
+                    <span>Interactive preview</span>
+                </div>
+
+                <div class="nx2-device-row">
+                    <div class="nx2-device-icon"><i data-lucide="lightbulb"></i></div>
+                    <div class="nx2-device-copy">
+                        <strong>Living room lights</strong>
+                        <small class="nx2-device-status">Lights are on</small>
+                    </div>
+                    <button class="nx2-switch" type="button" role="switch" aria-checked="true" aria-label="Toggle living room lights"></button>
+                </div>
+
+                <div class="nx2-device-row">
+                    <div class="nx2-device-icon"><i data-lucide="thermometer"></i></div>
+                    <div class="nx2-device-copy">
+                        <strong>Climate control</strong>
+                        <small class="nx2-device-status">Comfort setting active</small>
+                    </div>
+                    <button class="nx2-switch" type="button" role="switch" aria-checked="true" aria-label="Toggle climate control"></button>
+                </div>
+
+                <div class="nx2-device-row">
+                    <div class="nx2-device-icon"><i data-lucide="shield-check"></i></div>
+                    <div class="nx2-device-copy">
+                        <strong>Home security</strong>
+                        <small class="nx2-device-status">Monitoring enabled</small>
+                    </div>
+                    <button class="nx2-switch" type="button" role="switch" aria-checked="true" aria-label="Toggle home security"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
+
+<section class="nx2-section nx2-process" id="nx2Process">
+    <div class="nx2-container">
+
+        <div class="nx2-section-heading">
+            <p class="nx2-eyebrow">
+                <span class="nx2-eyebrow-dot"></span>
+                Simple by design
+            </p>
+            <h2>Designed around your life.</h2>
+            <p>
+                A considered process brings the right technology into your home without unnecessary complexity.
+            </p>
+        </div>
+
+        <div class="nx2-process-grid">
+
+            <article class="nx2-process-card">
+                <span class="nx2-process-number">01</span>
+                <h3>Understand your home.</h3>
+                <p>
+                    Discuss your spaces, existing devices, everyday routines and priorities before choosing a solution.
+                </p>
+            </article>
+
+            <article class="nx2-process-card">
+                <span class="nx2-process-number">02</span>
+                <h3>Plan the experience.</h3>
+                <p>
+                    Select compatible devices, plan connectivity and define the scenes and controls you actually need.
+                </p>
+            </article>
+
+            <article class="nx2-process-card">
+                <span class="nx2-process-number">03</span>
+                <h3>Bring it to life.</h3>
+                <p>
+                    Configure the system, test key functions and learn how to manage your connected home confidently.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     PACKAGES
+===================================================== -->
+
+<section class="nx2-section nx2-pricing" id="nx2Pricing">
+    <div class="nx2-container">
+
+        <div class="nx2-section-heading">
+            <p class="nx2-eyebrow">
+                <span class="nx2-eyebrow-dot"></span>
+                Flexible by design
+            </p>
+            <h2>The right level of intelligence.</h2>
+            <p>
+                Compare package directions and tailor the final configuration to your space, device compatibility and installation requirements.
+            </p>
+        </div>
+
+        <div class="nx2-pricing-grid">
+
+            <article class="nx2-price-card">
+                <div class="nx2-price-top">
+                    <h3>Essential</h3>
+                    <p>A thoughtful starting point for connected living.</p>
+                </div>
+
+                <div class="nx2-price-amount">Custom <small>/ quote</small></div>
+
+                <ul class="nx2-price-features">
+                    <li><i data-lucide="check"></i> Selected smart lighting</li>
+                    <li><i data-lucide="check"></i> Compatible app configuration</li>
+                    <li><i data-lucide="check"></i> Essential automation routines</li>
+                    <li><i data-lucide="check"></i> Setup and handover guidance</li>
+                </ul>
+
+                <a href="#nx2Portal" class="nx2-btn nx2-btn--outline">Discuss essential</a>
+            </article>
+
+            <article class="nx2-price-card featured">
+                <span class="nx2-popular">Most versatile</span>
+
+                <div class="nx2-price-top">
+                    <h3>Connected</h3>
+                    <p>Bring multiple smart home experiences together.</p>
+                </div>
+
+                <div class="nx2-price-amount">Custom <small>/ quote</small></div>
+
+                <ul class="nx2-price-features">
+                    <li><i data-lucide="check"></i> Connected lighting scenes</li>
+                    <li><i data-lucide="check"></i> Selected security devices</li>
+                    <li><i data-lucide="check"></i> Multi-device automation</li>
+                    <li><i data-lucide="check"></i> Personalised control setup</li>
+                    <li><i data-lucide="check"></i> Installation support</li>
+                </ul>
+
+                <a href="#nx2Portal" class="nx2-btn nx2-btn--cyan">Discuss connected</a>
+            </article>
+
+            <article class="nx2-price-card">
+                <div class="nx2-price-top">
+                    <h3>Signature</h3>
+                    <p>A tailored direction for a more integrated home.</p>
+                </div>
+
+                <div class="nx2-price-amount">Custom <small>/ quote</small></div>
+
+                <ul class="nx2-price-features">
+                    <li><i data-lucide="check"></i> Multi-room automation planning</li>
+                    <li><i data-lucide="check"></i> Advanced compatible controls</li>
+                    <li><i data-lucide="check"></i> Integrated comfort routines</li>
+                    <li><i data-lucide="check"></i> Personalised scenes</li>
+                    <li><i data-lucide="check"></i> Tailored installation plan</li>
+                </ul>
+
+                <a href="#nx2Portal" class="nx2-btn nx2-btn--outline">Discuss signature</a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     SMART HOME PORTAL
+===================================================== -->
+
+<section class="nx2-section nx2-portal" id="nx2Portal">
+    <div class="nx2-container">
+
+        <div class="nx2-portal-shell">
+
+            <div class="nx2-portal-intro">
+                <p class="nx2-eyebrow">
+                    <span class="nx2-eyebrow-dot"></span>
+                    Your connected home
+                </p>
+
+                <h2>Your home, always within reach.</h2>
+
+                <p>
+                    A dedicated portal experience for organising compatible devices, personalising controls and managing your connected home.
+                </p>
+
+                <div class="nx2-portal-benefits">
+                    <span><i data-lucide="lock-keyhole"></i> Secure access design</span>
+                    <span><i data-lucide="sliders-horizontal"></i> Personalised controls</span>
+                </div>
+            </div>
+
+            <div class="nx2-portal-form">
+                <h3>Welcome back.</h3>
+                <p>Sign in to your smart home portal.</p>
+
+                <form id="nx2LoginForm">
+                    <div class="nx2-field">
+                        <label class="nx2-label" for="nx2Email">Email address</label>
+                        <input class="nx2-input" type="email" id="nx2Email" name="email"
+                               placeholder="you@example.com" autocomplete="email" required>
+                    </div>
+
+                    <div class="nx2-field">
+                        <label class="nx2-label" for="nx2Password">Password</label>
+                        <input class="nx2-input" type="password" id="nx2Password" name="password"
+                               placeholder="Enter your password" autocomplete="current-password" required>
+                    </div>
+
+                    <div class="nx2-form-meta">
+                        <label class="nx2-remember">
+                            <input type="checkbox" name="remember">
+                            Remember me
+                        </label>
+
+                        <a href="#nx2Portal" class="nx2-text-link" id="nx2Forgot">
+                            Forgot password?
+                        </a>
+                    </div>
+
+                    <button type="submit" class="nx2-btn">
+                        Sign in to portal <i data-lucide="arrow-right"></i>
+                    </button>
+
+                    <p class="nx2-form-message" id="nx2FormMessage" aria-live="polite">
+                        Demo interface — connect your authentication service to enable sign-in.
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section class="nx2-section nx2-faq" id="nx2Faq">
+    <div class="nx2-container">
+
+        <div class="nx2-section-heading">
+            <p class="nx2-eyebrow">
+                <span class="nx2-eyebrow-dot"></span>
+                A little more clarity
+            </p>
+            <h2>Good questions. Clear answers.</h2>
+            <p>
+                Understand the essentials before choosing the right connected home experience.
+            </p>
+        </div>
+
+        <div class="nx2-faq-list">
+
+            <div class="nx2-faq-item">
+                <button class="nx2-faq-question" type="button" aria-expanded="false">
+                    Can I start with a single room?
+                    <i data-lucide="plus"></i>
+                </button>
+                <div class="nx2-faq-answer" hidden>
+                    Yes. Start with selected compatible devices in one room and plan the setup so you can expand later.
+                </div>
+            </div>
+
+            <div class="nx2-faq-item">
+                <button class="nx2-faq-question" type="button" aria-expanded="false">
+                    Will my existing smart devices work?
+                    <i data-lucide="plus"></i>
+                </button>
+                <div class="nx2-faq-answer" hidden>
+                    It depends on the device, communication protocol, network and chosen platform. Check compatibility before integrating equipment.
+                </div>
+            </div>
+
+            <div class="nx2-faq-item">
+                <button class="nx2-faq-question" type="button" aria-expanded="false">
+                    Can I control devices when away from home?
+                    <i data-lucide="plus"></i>
+                </button>
+                <div class="nx2-faq-answer" hidden>
+                    Many systems support remote access through a compatible app and internet connection. Availability depends on your specific configuration.
+                </div>
+            </div>
+
+            <div class="nx2-faq-item">
+                <button class="nx2-faq-question" type="button" aria-expanded="false">
+                    How is a smart home installation priced?
+                    <i data-lucide="plus"></i>
+                </button>
+                <div class="nx2-faq-answer" hidden>
+                    Pricing depends on the number of devices, installation complexity, wiring, network requirements and integrations. A tailored assessment provides a more accurate quote.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="nx2-final-cta">
+    <div class="nx2-container">
+        <div class="nx2-cta-inner">
+
+            <div class="nx2-cta-copy">
+                <h2>Make room for a smarter life.</h2>
+                <p>
+                    Start with what matters most and build a connected home that feels natural to use.
+                </p>
+            </div>
+
+            <a href="#nx2Portal" class="nx2-btn nx2-btn--cyan">
+                Plan your smart home <i data-lucide="arrow-up-right"></i>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<script>
+/* =========================================================
+   ICON INITIALISATION
+========================================================= */
+
+function nx2RenderIcons() {
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
+}
+
+nx2RenderIcons();
+
+/* =========================================================
+   LIGHT / DARK THEME
+========================================================= */
+
+const nx2ThemeToggle = document.getElementById("nx2ThemeToggle");
+const nx2Root = document.documentElement;
+
+nx2ThemeToggle.addEventListener("click", () => {
+    const isDark = nx2Root.getAttribute("data-theme") !== "dark";
+
+    nx2Root.setAttribute("data-theme", isDark ? "dark" : "light");
+
+    nx2ThemeToggle.innerHTML = isDark
+        ? '<i data-lucide="sun"></i>'
+        : '<i data-lucide="moon"></i>';
+
+    nx2ThemeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light theme" : "Switch to dark theme"
+    );
+
+    nx2RenderIcons();
+});
+
+/* =========================================================
+   HERO WORD ROTATION
+========================================================= */
+
+const nx2HeroWords = [
+    "reimagined.",
+    "simplified.",
+    "more intuitive.",
+    "beautifully connected."
+];
+
+const nx2HeroWord = document.getElementById("nx2HeroWord");
+const nx2ReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+let nx2WordIndex = 0;
+
+nx2HeroWord.style.transition = "opacity .2s ease";
+
+if (!nx2ReducedMotion) {
+    window.setInterval(() => {
+        nx2WordIndex = (nx2WordIndex + 1) % nx2HeroWords.length;
+        nx2HeroWord.style.opacity = "0";
+
+        window.setTimeout(() => {
+            nx2HeroWord.textContent = nx2HeroWords[nx2WordIndex];
+            nx2HeroWord.style.opacity = "1";
+        }, 200);
+    }, 2800);
+}
+
+/* =========================================================
+   SCENE SWITCHER
+========================================================= */
+
+const nx2ScenesData = {
+    welcome: {
+        title: "Welcome home.",
+        description: "Let compatible lighting, temperature and connected devices work together to create a comfortable arrival.",
+        imageTitle: "Welcome home",
+        subtitle: "A warmer way to arrive",
+        image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1100&q=85"
+    },
+
+    focus: {
+        title: "Find your focus.",
+        description: "Create a considered workspace with task lighting and compatible devices arranged around your working routine.",
+        imageTitle: "Focus mode",
+        subtitle: "Space to think clearly",
+        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85"
+    },
+
+    movie: {
+        title: "Set the scene.",
+        description: "Bring your entertainment setup together with compatible lighting scenes and easy-to-reach controls.",
+        imageTitle: "Movie night",
+        subtitle: "Your own cinematic atmosphere",
+        image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1100&q=85"
+    },
+
+    sleep: {
+        title: "Wind down well.",
+        description: "Build a relaxing bedtime routine using compatible lights, climate controls and scheduled automations.",
+        imageTitle: "Good night",
+        subtitle: "A calmer end to your day",
+        image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1100&q=85"
+    }
+};
+
+const nx2SceneButtons = document.querySelectorAll(".nx2-scene-option");
+const nx2SceneImage = document.getElementById("nx2SceneImage");
+
+nx2SceneButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const selectedScene = nx2ScenesData[button.dataset.scene];
+
+        if (!selectedScene) return;
+
+        nx2SceneButtons.forEach(item => {
+            const active = item === button;
+            item.classList.toggle("active", active);
+            item.setAttribute("aria-pressed", String(active));
+        });
+
+        document.getElementById("nx2SceneTitle").textContent = selectedScene.title;
+        document.getElementById("nx2SceneDescription").textContent = selectedScene.description;
+        document.getElementById("nx2SceneImageTitle").textContent = selectedScene.imageTitle;
+        document.getElementById("nx2SceneImageSubtitle").textContent = selectedScene.subtitle;
+        document.getElementById("nx2SceneStatus").textContent =
+            selectedScene.imageTitle + " selected — explore your ideal setup.";
+
+        if (nx2ReducedMotion) {
+            nx2SceneImage.src = selectedScene.image;
+            nx2SceneImage.alt = selectedScene.imageTitle + " smart home scene";
+            return;
+        }
+
+        nx2SceneImage.style.opacity = ".25";
+
+        window.setTimeout(() => {
+            nx2SceneImage.src = selectedScene.image;
+            nx2SceneImage.alt = selectedScene.imageTitle + " smart home scene";
+            nx2SceneImage.style.opacity = "1";
+        }, 150);
+    });
+});
+
+/* =========================================================
+   INTERACTIVE DEVICE SWITCHES
+   Visual demo only; does not control real hardware.
+========================================================= */
+
+document.querySelectorAll(".nx2-switch").forEach(toggle => {
+    toggle.addEventListener("click", () => {
+        const currentlyOn = toggle.getAttribute("aria-checked") === "true";
+        const nextState = !currentlyOn;
+
+        toggle.setAttribute("aria-checked", String(nextState));
+
+        const deviceRow = toggle.closest(".nx2-device-row");
+        const status = deviceRow.querySelector(".nx2-device-status");
+        const label = toggle.getAttribute("aria-label");
+
+        if (label.includes("lights")) {
+            status.textContent = nextState ? "Lights are on" : "Lights are off";
+        } else if (label.includes("climate")) {
+            status.textContent = nextState ? "Comfort setting active" : "Climate control paused";
+        } else {
+            status.textContent = nextState ? "Monitoring enabled" : "Monitoring paused";
+        }
+    });
+});
+
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
+
+document.querySelectorAll(".nx2-faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        const answer = button.nextElementSibling;
+
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        answer.hidden = isExpanded;
+    });
+});
+
+/* =========================================================
+   PORTAL FORM DEMO
+========================================================= */
+
+const nx2LoginForm = document.getElementById("nx2LoginForm");
+const nx2FormMessage = document.getElementById("nx2FormMessage");
+
+nx2LoginForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    nx2FormMessage.textContent =
+        "This is a front-end preview. Connect a secure authentication backend to enable sign-in.";
+});
+
+document.getElementById("nx2Forgot").addEventListener("click", event => {
+    event.preventDefault();
+
+    nx2FormMessage.textContent =
+        "Password recovery needs to be connected to your authentication service.";
+});
+</script>
+
+</body>
+</html>

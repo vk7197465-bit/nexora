@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nexora| Home Automation &amp; Smart Home Installer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="header.css">
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="rb-header" id="rbHeader">
+
+    <div class="rb-header-inner">
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="rb-brand">
+
+            <img
+                src="images/sm1.png"
+                alt="NexoraSmart Home Logo"
+                class="rb-logo"
+            >
+
+            <span class="rb-brand-text">
+
+                <span class="rb-brand-name">
+                    <span class="rb-brand-primary">NEX</span>
+                    <span class="rb-brand-secondary">ORA</span>
+                </span>
+
+                <span class="rb-brand-tagline">
+                    SMART LIVING 
+                </span>
+
+            </span>
+
+        </a>
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav class="rb-main-nav">
+
+            <!-- HOME -->
+
+            <div class="rb-home-dropdown">
+
+                <a href="index.html" class="rb-nav-link">
+                    Home
+                    <i data-lucide="chevron-down"></i>
+                </a>
+
+                <div class="rb-dropdown">
+
+                    <div class="rb-dropdown-heading">
+                        Discover NEXORA
+                    </div>
+
+                    <a href="index.html" class="rb-dropdown-link">
+                        <strong>Home 1</strong>
+                    </a>
+
+                    <a href="home-2.html" class="rb-dropdown-link">
+                        <strong>Home 2</strong>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- ABOUT -->
+
+            <a href="about.html" class="rb-nav-link">
+                About Us
+            </a>
+
+            <!-- SOLUTIONS -->
+
+            <a href="solutions.html" class="rb-nav-link">
+                Solutions
+            </a>
+
+            <!-- PRICING -->
+
+            <a href="pricing.html" class="rb-nav-link">
+                Pricing
+            </a>
+
+            <!-- CONTACT -->
+
+            <a href="contact.html" class="rb-nav-link">
+                Contact
+            </a>
+
+            <!-- DASHBOARD -->
+
+            <a href="dashboard.html" class="rb-nav-link">
+                Dashboard
+            </a>
+
+        </nav>
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="rb-header-actions">
+
+            <!-- DARK / LIGHT -->
+
+            <button
+                class="rb-control-btn"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle dark mode"
+                title="Dark / Light">
+
+                <i data-lucide="moon"></i>
+
+            </button>
+
+            <!-- RTL -->
+
+            <button
+                class="rb-control-btn"
+                id="rtlToggle"
+                type="button"
+                aria-label="Toggle RTL"
+                title="RTL / LTR">
+
+                <i data-lucide="arrow-left-right"></i>
+
+            </button>
+
+            <!-- SMART LOGIN -->
+
+            <a href="login.html" class="rb-reservation-btn">
+
+                <span>Smart Login</span>
+
+                <i data-lucide="arrow-up-right"></i>
+
+            </a>
+
+            <!-- MOBILE MENU -->
+
+            <button
+                class="rb-menu-btn"
+                id="menuToggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false">
+
+                <i data-lucide="menu"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+
+    <div class="rb-mobile-menu" id="mobileMenu">
+
+        <!-- HOME -->
+
+        <div class="rb-mobile-home">
+
+            <button
+                class="rb-mobile-home-head"
+                id="mobileHomeToggle"
+                type="button">
+
+                <span>Home</span>
+
+                <i data-lucide="chevron-down"></i>
+
+            </button>
+
+            <div class="rb-mobile-submenu" id="mobileHomeSubmenu">
+
+                <a href="index.html" class="rb-mobile-sub-link">
+                    Home 1
+                </a>
+
+                <a href="home-2.html" class="rb-mobile-sub-link">
+                    Home 2
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- SOLUTIONS -->
+
+        <a href="solutions.html" class="rb-mobile-link">
+            Solutions
+        </a>
+
+        <!-- ABOUT -->
+
+        <a href="about.html" class="rb-mobile-link">
+            About Us
+        </a>
+
+        <!-- PRICING -->
+
+        <a href="pricing.html" class="rb-mobile-link">
+            Pricing
+        </a>
+
+        <!-- CONTACT -->
+
+        <a href="contact.html" class="rb-mobile-link">
+            Contact
+        </a>
+
+        <!-- DASHBOARD -->
+
+        <a href="dashboard.html" class="rb-mobile-link">
+            Dashboard
+        </a>
+
+        <!-- SMART LOGIN -->
+
+        <a href="login.html" class="rb-mobile-reservation">
+
+            Open Smart Dashboard
+
+            <i data-lucide="arrow-up-right"></i>
+
+        </a>
+
+    </div>
+
+</header>
+
+<!-- =========================================================
+     YOUR PAGE CONTENT
+========================================================= -->
+
+
+<!-- ==========================================================
+     NEXORA SMART LIVING — PREMIUM ABOUT PAGE
+     8 Complete Sections | No Header | No Footer
+     HTML + CSS + JavaScript
+========================================================== -->
+
+<main class="nxa-about">
+
+<style>
+.nxa-about{
+    --na-primary:var(--primary,#0F4C81);
+    --na-secondary:var(--secondary,#00B4D8);
+    --na-dark:#071B2D;
+    --na-text:#24374A;
+    --na-muted:#708094;
+    --na-bg:var(--bg,#F5F9FC);
+    --na-surface:var(--surface,#FFFFFF);
+    --na-border:rgba(15,76,129,.13);
+    font-family:inherit;
+    color:var(--na-text);
+    background:var(--na-bg);
+    overflow:hidden;
+}
+.nxa-about *{box-sizing:border-box}
+.nxa-about img{display:block;width:100%;height:100%;object-fit:cover}
+.nxa-about a{text-decoration:none}
+.nxa-about .na-container{
+    width:min(1160px,calc(100% - 44px));
+    margin:auto;
+}
+.nxa-about .na-section{padding:86px 0}
+.nxa-about .na-eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    max-width:100%;padding:9px 13px;
+    border:1px solid rgba(0,180,216,.3);
+    border-radius:50px;
+    background:rgba(0,180,216,.07);
+    color:var(--na-primary);
+    font-size:10px;font-weight:800;
+    letter-spacing:1.5px;text-transform:uppercase;
+}
+.nxa-about .na-eyebrow:before{
+    content:"";width:7px;height:7px;flex-shrink:0;
+    border-radius:50%;background:var(--na-secondary);
+    box-shadow:0 0 12px var(--na-secondary);
+}
+.nxa-about .na-heading{
+    margin:18px 0;color:var(--na-dark);
+    font-size:clamp(31px,4vw,47px);
+    line-height:1.13;letter-spacing:-1.6px;
+    font-weight:750;
+}
+.nxa-about .na-heading span{color:var(--na-primary)}
+.nxa-about .na-description{
+    margin:0;color:var(--na-muted);
+    font-size:14px;line-height:1.9;
+}
+.nxa-about .na-center{text-align:center}
+.nxa-about .na-center .na-description{
+    max-width:690px;margin-inline:auto;
+}
+.nxa-about .na-btn{
+    display:inline-flex;justify-content:center;align-items:center;
+    gap:11px;min-height:48px;padding:0 20px;
+    border:1px solid transparent;border-radius:7px;
+    background:var(--secondary);color:#fff;
+    font-size:12px;font-weight:750;
+    transition:transform .3s,background .3s,box-shadow .3s;
+}
+.nxa-about .na-btn:hover{
+    transform:translateY(-3px);
+    background:var(--secondary);
+    box-shadow:0 12px 28px rgba(0,180,216,.2);
+}
+.nxa-about .na-btn-light{
+    background:var(--primary);color:white;
+}
+.nxa-about .na-btn-light:hover{color:#fff}
+.nxa-about .na-arrow{font-size:18px;line-height:1}
+.nxa-about .na-reveal{
+    opacity:0;transform:translateY(22px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+.nxa-about .na-reveal.na-visible{
+    opacity:1;transform:translateY(0);
+}
+
+/* ==========================================================
+   01 — NEW PREMIUM HERO
+========================================================== */
+.nxa-about .na-hero{
+    position:relative;
+    padding:74px 0 70px;
+    background:
+      radial-gradient(ellipse at 10% 15%,rgba(0,180,216,.09),transparent 37%),
+      var(--na-bg);
+}
+.nxa-about .na-hero-grid{
+    display:grid;
+    grid-template-columns:1.02fr .98fr;
+    align-items:center;
+    gap:58px;
+}
+.nxa-about .na-hero-copy{position:relative;z-index:2}
+.nxa-about .na-hero h1{
+    margin:23px 0 21px;
+    color:var(--na-dark);
+    font-size:clamp(43px,5.1vw,66px);
+    line-height:1.045;letter-spacing:-2.7px;
+    font-weight:800;
+}
+.nxa-about .na-hero h1 span{
+    display:block;color:var(--na-primary);
+}
+.nxa-about .na-hero h1 em{
+    color:var(--na-secondary);font-style:normal;
+}
+.nxa-about .na-hero-text{
+    max-width:500px;color:var(--na-muted);
+    font-size:14px;line-height:1.95;
+}
+.nxa-about .na-hero-actions{
+    display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;
+}
+.nxa-about .na-hero-secondary{
+    display:inline-flex;align-items:center;justify-content:center;
+    gap:10px;padding:0 17px;min-height:48px;
+    background: var(--primary);
+    border:1px solid var(--na-border);border-radius:7px;
+    color:white;font-size:12px;font-weight:750;
+    transition:border-color .3s,color .3s;
+}
+.nxa-about .na-hero-secondary:hover{
+    border-color:var(--na-secondary);color:var(--na-primary);
+}
+.nxa-about .na-hero-trust{
+    display:flex;flex-wrap:wrap;gap:17px;
+    margin-top:30px;padding-top:22px;
+    border-top:1px solid var(--na-border);
+}
+.nxa-about .na-trust-item{
+    display:flex;align-items:center;gap:8px;
+    color:var(--na-text);font-size:11px;font-weight:650;
+}
+.nxa-about .na-trust-dot{
+    display:grid;place-items:center;
+    width:22px;height:22px;flex-shrink:0;
+    border-radius:50%;background:rgba(0,180,216,.12);
+    color:var(--na-primary);font-size:12px;
+}
+.nxa-about .na-hero-visual{
+    position:relative;min-width:0;padding:0 0 30px 20px;
+}
+.nxa-about .na-hero-image{
+    position:relative;height:475px;overflow:hidden;
+    border-radius:17px;background:#dce8f0;
+    box-shadow:0 25px 65px rgba(7,27,45,.13);
+}
+.nxa-about .na-hero-image img{
+    transition:transform .8s;
+    animation:na-image-enter 1.1s ease both;
+}
+.nxa-about .na-hero-visual:hover .na-hero-image img{
+    transform:scale(1.045);
+}
+.nxa-about .na-hero-image:after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(4,19,34,.3),transparent 42%);
+    pointer-events:none;
+}
+.nxa-about .na-image-label{
+    position:absolute;left:20px;bottom:20px;z-index:1;
+    color:#fff;font-size:11px;letter-spacing:.7px;
+}
+.nxa-about .na-image-label strong{
+    display:block;margin-bottom:5px;font-size:16px;letter-spacing:0;
+}
+.nxa-about .na-float-card{
+    position:absolute;z-index:2;
+    display:flex;align-items:center;gap:12px;
+    padding:14px 17px;border:1px solid rgba(255,255,255,.8);
+    border-radius:11px;background:rgba(255,255,255,.96);
+    box-shadow:0 14px 35px rgba(7,27,45,.12);
+    animation:na-float 4.5s ease-in-out infinite;
+}
+.nxa-about .na-float-top{top:35px;left:-8px}
+.nxa-about .na-float-bottom{right:-10px;bottom:0;animation-delay:-2s}
+.nxa-about .na-float-icon{
+    display:grid;place-items:center;flex-shrink:0;
+    width:40px;height:40px;border-radius:10px;
+    background:rgba(0,180,216,.1);color:var(--na-primary);
+    font-size:18px;font-weight:800;
+}
+.nxa-about .na-float-card strong{
+    display:block;margin-bottom:4px;color:var(--na-dark);font-size:12px;
+}
+.nxa-about .na-float-card small{
+    display:block;color:var(--na-muted);font-size:10px;
+}
+.nxa-about .na-hero-orb{
+    position:absolute;right:-35px;top:-27px;
+    width:110px;height:110px;border-radius:50%;
+    border:1px solid rgba(0,180,216,.22);
+    pointer-events:none;
+}
+.nxa-about .na-hero-orb:after{
+    content:"";position:absolute;inset:13px;
+    border:1px dashed rgba(15,76,129,.25);border-radius:50%;
+}
+@keyframes na-float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-7px)}
+}
+@keyframes na-image-enter{
+    from{opacity:.65;transform:scale(1.035)}
+    to{opacity:1;transform:scale(1)}
+}
+
+/* ==========================================================
+   02 — OUR STORY
+========================================================== */
+.nxa-about .na-story-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    align-items:center;gap:65px;
+}
+.nxa-about .na-story-visual{
+    position:relative;min-height:420px;padding:0 35px 35px 0;
+}
+.nxa-about .na-story-main{
+    height:390px;overflow:hidden;border-radius:14px;
+}
+.nxa-about .na-story-main img,
+.nxa-about .na-story-small img{transition:transform .7s}
+.nxa-about .na-story-visual:hover img{transform:scale(1.04)}
+.nxa-about .na-story-small{
+    position:absolute;right:0;bottom:0;
+    width:44%;height:165px;overflow:hidden;
+    border:7px solid var(--na-bg);border-radius:12px;
+}
+.nxa-about .na-story-badge{
+    position:absolute;left:-12px;top:24px;
+    padding:15px 18px;background:#fff;border-radius:9px;
+    box-shadow:0 12px 35px rgba(7,27,45,.12);
+}
+.nxa-about .na-story-badge strong{
+    display:block;color:var(--na-primary);font-size:18px;
+}
+.nxa-about .na-story-badge small{
+    color:var(--na-muted);font-size:10px;
+}
+.nxa-about .na-story-copy .na-description{margin-bottom:15px}
+.nxa-about .na-check-list{
+    display:grid;gap:13px;margin:23px 0 27px;padding:0;list-style:none;
+}
+.nxa-about .na-check-list li{
+    display:flex;align-items:flex-start;gap:11px;
+    font-size:12px;font-weight:650;line-height:1.7;
+}
+.nxa-about .na-check{
+    display:grid;place-items:center;flex-shrink:0;
+    width:21px;height:21px;border-radius:50%;
+    background:rgba(0,180,216,.13);color:var(--na-primary);
+}
+
+/* ==========================================================
+   03 — VALUES
+========================================================== */
+.nxa-about .na-values{background:var(--bg)}
+.nxa-about .na-value-grid{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:20px;margin-top:40px;
+}
+.nxa-about .na-value-card{
+    position:relative;min-height:305px;overflow:hidden;
+    border-radius:12px;background:var(--na-dark);isolation:isolate;
+}
+.nxa-about .na-value-card>img{
+    position:absolute;inset:0;z-index:-2;transition:transform .7s;
+}
+.nxa-about .na-value-card:hover>img{transform:scale(1.08)}
+.nxa-about .na-value-card:after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(0deg,rgba(4,19,34,.96),rgba(4,19,34,.05) 85%);
+}
+.nxa-about .na-value-copy{
+    position:absolute;left:23px;right:23px;bottom:23px;color:#fff;
+}
+.nxa-about .na-value-number{
+    display:block;margin-bottom:12px;color:#72e7f6;
+    font-size:10px;letter-spacing:2px;font-weight:800;
+}
+.nxa-about .na-value-copy h3{margin:0 0 10px;font-size:21px}
+.nxa-about .na-value-copy p{
+    margin:0;color:rgba(255,255,255,.77);
+    font-size:12px;line-height:1.8;
+}
+
+/* ==========================================================
+   04 — SOLUTIONS
+========================================================== */
+.nxa-about .na-solutions-grid{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:20px;margin-top:40px;
+}
+.nxa-about .na-solution-card{
+    overflow:hidden;border:1px solid var(--na-border);
+    border-radius:12px;background:var(--na-surface);
+    transition:transform .3s,box-shadow .3s;
+}
+.nxa-about .na-solution-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 17px 38px rgba(15,76,129,.1);
+}
+.nxa-about .na-solution-image{
+    height:205px;overflow:hidden;background:#e4edf5;
+}
+.nxa-about .na-solution-image img{transition:transform .6s}
+.nxa-about .na-solution-card:hover .na-solution-image img{
+    transform:scale(1.06);
+}
+.nxa-about .na-solution-body{padding:22px}
+.nxa-about .na-solution-body h3{
+    margin:0 0 10px;color:var(--na-dark);font-size:18px;
+}
+.nxa-about .na-solution-body p{
+    min-height:88px;margin:0 0 17px;
+    color:var(--na-muted);font-size:12px;line-height:1.85;
+}
+.nxa-about .na-link{
+    display:inline-flex;align-items:center;gap:9px;
+    color:var(--na-primary);font-size:11px;font-weight:800;
+}
+.nxa-about .na-link:hover{color:var(--na-secondary)}
+
+/* ==========================================================
+   05 — WHY CHOOSE US
+========================================================== */
+.nxa-about .na-difference{background:var(--na-dark);color:#fff}
+.nxa-about .na-difference-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    align-items:center;gap:58px;
+}
+.nxa-about .na-difference .na-heading{color:#fff}
+.nxa-about .na-difference .na-description{color:#b9c8d6}
+.nxa-about .na-difference-image{
+    height:450px;overflow:hidden;border-radius:14px;
+}
+.nxa-about .na-difference-image img{transition:transform .7s}
+.nxa-about .na-difference-image:hover img{transform:scale(1.05)}
+.nxa-about .na-benefits{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:22px 24px;margin-top:28px;
+}
+.nxa-about .na-benefit{
+    padding-top:16px;border-top:1px solid rgba(255,255,255,.15);
+}
+.nxa-about .na-benefit-num{
+    display:grid;place-items:center;width:33px;height:33px;
+    margin-bottom:12px;border-radius:8px;
+    background:rgba(0,180,216,.14);color:#78e6f5;
+    font-size:11px;font-weight:800;
+}
+.nxa-about .na-benefit h3{margin:0 0 8px;font-size:14px}
+.nxa-about .na-benefit p{
+    margin:0;color:#b3c1d0;font-size:11px;line-height:1.8;
+}
+
+/* ==========================================================
+   06 — PROCESS
+========================================================== */
+.nxa-about .na-process-grid{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:17px;margin-top:40px;
+}
+.nxa-about .na-process-card{
+    padding:23px 19px;border:1px solid var(--na-border);
+    border-radius:11px;background:var(--na-surface);
+    transition:border-color .3s,transform .3s;
+}
+.nxa-about .na-process-card:hover{
+    transform:translateY(-4px);border-color:var(--na-secondary);
+}
+.nxa-about .na-process-top{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-bottom:25px;color:var(--na-primary);
+    font-size:24px;font-weight:800;
+}
+.nxa-about .na-process-top span{
+    display:grid;place-items:center;width:35px;height:35px;
+    border-radius:9px;background:rgba(0,180,216,.1);
+    color:var(--na-secondary);font-size:16px;
+}
+.nxa-about .na-process-card h3{
+    margin:0 0 10px;color:var(--na-dark);font-size:16px;
+}
+.nxa-about .na-process-card p{
+    margin:0;color:var(--na-muted);font-size:12px;line-height:1.8;
+}
+
+/* ==========================================================
+   07 — LIFESTYLE IMAGE GALLERY
+========================================================== */
+.nxa-about .na-gallery{background:var(--bg)}
+.nxa-about .na-gallery-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr .85fr;
+    grid-template-rows:190px 190px;
+    gap:13px;margin-top:40px;
+}
+.nxa-about .na-gallery-item{
+    position:relative;overflow:hidden;
+    border-radius:11px;background:#dce8f0;
+}
+.nxa-about .na-gallery-item:first-child{grid-row:span 2}
+.nxa-about .na-gallery-item img{transition:transform .7s}
+.nxa-about .na-gallery-item:hover img{transform:scale(1.07)}
+.nxa-about .na-gallery-item:after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(4,19,34,.77),transparent 60%);
+}
+.nxa-about .na-gallery-label{
+    position:absolute;z-index:1;left:16px;right:10px;bottom:15px;
+    color:#fff;font-size:12px;font-weight:750;
+}
+
+/* ==========================================================
+   08 — FINAL CTA
+========================================================== */
+.nxa-about .na-cta-section{padding:75px 0}
+.nxa-about .na-cta{
+    position:relative;overflow:hidden;isolation:isolate;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:30px;padding:48px;
+    border-radius:15px;background:var(--na-primary);
+}
+.nxa-about .na-cta:before{
+    content:"";position:absolute;z-index:-1;
+    width:300px;height:300px;right:8%;top:-210px;
+    border:1px solid rgba(255,255,255,.18);border-radius:50%;
+}
+.nxa-about .na-cta:after{
+    content:"";position:absolute;z-index:-1;
+    width:220px;height:220px;right:12%;bottom:-185px;
+    border:1px dashed rgba(255,255,255,.2);border-radius:50%;
+}
+.nxa-about .na-cta-copy{max-width:650px}
+.nxa-about .na-cta .na-eyebrow{
+    color:#d4faff;border-color:rgba(255,255,255,.23);
+    background:rgba(255,255,255,.08);
+}
+.nxa-about .na-cta h2{
+    margin:17px 0 12px;color:#fff;
+    font-size:clamp(27px,3.5vw,40px);
+    line-height:1.18;letter-spacing:-1px;
+}
+.nxa-about .na-cta p{
+    margin:0;color:rgba(255,255,255,.8);
+    font-size:13px;line-height:1.9;
+}
+.nxa-about .na-cta .na-btn{
+    flex-shrink:0;backgroun:var(--secondary);color:white;
+}
+.nxa-about .na-cta .na-btn:hover{
+    background:var(--na-secondary);color:#fff;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+@media(max-width:950px){
+    .nxa-about .na-section{padding:70px 0}
+    .nxa-about .na-hero-grid{gap:35px}
+    .nxa-about .na-hero-image{height:410px}
+    .nxa-about .na-story-grid,
+    .nxa-about .na-difference-grid{gap:35px}
+    .nxa-about .na-value-grid,
+    .nxa-about .na-solutions-grid{gap:14px}
+    .nxa-about .na-process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .nxa-about .na-cta{padding:35px}
+}
+@media(max-width:680px){
+    .nxa-about .na-container{width:calc(100% - 32px)}
+    .nxa-about .na-section{padding:57px 0}
+
+    .nxa-about .na-hero{padding:52px 0 47px}
+    .nxa-about .na-hero-grid{grid-template-columns:1fr;gap:35px}
+    .nxa-about .na-hero h1{
+        font-size:clamp(40px,10vw,55px);letter-spacing:-1.9px;
+    }
+    .nxa-about .na-hero-text{font-size:13px}
+    .nxa-about .na-hero-visual{padding:0 8px 25px 8px}
+    .nxa-about .na-hero-image{height:350px}
+    .nxa-about .na-float-top{left:-4px;top:18px}
+    .nxa-about .na-float-bottom{right:-4px;bottom:0}
+    .nxa-about .na-hero-orb{right:-10px}
+    .nxa-about .na-hero-trust{gap:12px}
+    .nxa-about .na-trust-item{font-size:10px}
+
+    .nxa-about .na-story-grid,
+    .nxa-about .na-difference-grid{grid-template-columns:1fr;gap:30px}
+    .nxa-about .na-story-visual{min-height:325px;margin:0 7px}
+    .nxa-about .na-story-main{height:290px}
+    .nxa-about .na-story-small{height:125px;width:43%}
+    .nxa-about .na-story-badge{left:-7px;top:15px}
+
+    .nxa-about .na-value-grid,
+    .nxa-about .na-solutions-grid{grid-template-columns:1fr}
+    .nxa-about .na-value-card{min-height:290px}
+    .nxa-about .na-solution-image{height:220px}
+    .nxa-about .na-solution-body p{min-height:0}
+    .nxa-about .na-difference-image{height:300px}
+    .nxa-about .na-benefits{gap:18px 15px}
+    .nxa-about .na-gallery-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:210px 145px 145px;
+        gap:10px;
+    }
+    .nxa-about .na-gallery-item:first-child{grid-row:span 2}
+    .nxa-about .na-gallery-item:last-child{grid-column:2}
+    .nxa-about .na-gallery-label{left:10px;bottom:11px;font-size:10px}
+    .nxa-about .na-cta-section{padding:45px 0}
+    .nxa-about .na-cta{
+        flex-direction:column;align-items:flex-start;
+        gap:22px;padding:28px 22px;
+    }
+}
+@media(max-width:390px){
+    .nxa-about .na-container{width:calc(100% - 28px)}
+    .nxa-about .na-hero h1{font-size:38px}
+    .nxa-about .na-hero-actions .na-btn,
+    .nxa-about .na-hero-actions .na-hero-secondary{width:100%}
+    .nxa-about .na-float-card{padding:10px}
+    .nxa-about .na-float-icon{width:32px;height:32px}
+    .nxa-about .na-float-card strong{font-size:10px}
+    .nxa-about .na-float-card small{font-size:9px}
+    .nxa-about .na-process-card{padding:19px 14px}
+    .nxa-about .na-gallery-grid{grid-template-rows:185px 130px 130px}
+}
+@media(prefers-reduced-motion:reduce){
+    .nxa-about *,
+    .nxa-about *:before,
+    .nxa-about *:after{
+        animation:none!important;transition:none!important;
+    }
+    .nxa-about .na-reveal{opacity:1;transform:none}
+}
+</style>
+
+<!-- 01. HERO — NEW SPLIT IMAGE DESIGN -->
+<section class="na-hero">
+    <div class="na-container na-hero-grid">
+
+        <div class="na-hero-copy na-reveal">
+            <span class="na-eyebrow">NEXORA SMART LIVING</span>
+
+            <h1>
+                A Smarter Home.
+                <span>A Better <em>Everyday.</em></span>
+            </h1>
+
+            <p class="na-hero-text">
+                Your home should do more than look beautiful. It should
+                make life easier, respond to your routines and give you
+                more control over the spaces you love. Nexora Smart Living
+                brings intelligent lighting, connected controls and
+                thoughtful automation together to create a more effortless
+                way of living.
+            </p>
+
+            <div class="na-hero-actions">
+                <a href="contact.html" class="na-btn">
+                    Plan Your Smart Home <span class="na-arrow">↗</span>
+                </a>
+                <a href="#na-story" class="na-hero-secondary">
+                    Discover Our Story <span class="na-arrow">↓</span>
+                </a>
+            </div>
+
+            <div class="na-hero-trust">
+                <div class="na-trust-item">
+                    <span class="na-trust-dot">✓</span>
+                    Lifestyle-led design
+                </div>
+                <div class="na-trust-item">
+                    <span class="na-trust-dot">✓</span>
+                    Connected solutions
+                </div>
+                <div class="na-trust-item">
+                    <span class="na-trust-dot">✓</span>
+                    Simple controls
+                </div>
+            </div>
+        </div>
+
+        <div class="na-hero-visual na-reveal">
+            <div class="na-hero-orb"></div>
+
+            <div class="na-hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
+                    alt="Beautiful modern home interior designed for connected living">
+
+                <div class="na-image-label">
+                    <strong>Live beautifully. Live intelligently.</strong>
+                    A more considered way to experience home.
+                </div>
+            </div>
+
+            <div class="na-float-card na-float-top">
+                <span class="na-float-icon">⌁</span>
+                <div>
+                    <strong>Smart by Design</strong>
+                    <small>Built around your routine</small>
+                </div>
+            </div>
+
+            <div class="na-float-card na-float-bottom">
+                <span class="na-float-icon">↗</span>
+                <div>
+                    <strong>Connected Living</strong>
+                    <small>Comfort at your fingertips</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- 03. OUR VALUES -->
+<section class="na-section na-values">
+    <div class="na-container">
+
+        <div class="na-center na-reveal">
+            <span class="na-eyebrow">WHAT WE BELIEVE</span>
+            <h2 class="na-heading">
+                Smart living starts with <span>people.</span>
+            </h2>
+            <p class="na-description">
+                The best technology fits naturally into your life.
+                Our philosophy brings together thoughtful design,
+                everyday usefulness and a personal approach to comfort.
+            </p>
+        </div>
+
+        <div class="na-value-grid">
+
+            <article class="na-value-card na-reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=800&q=80"
+                    alt="Welcoming living room with natural materials"
+                    loading="lazy">
+                <div class="na-value-copy">
+                    <span class="na-value-number">01 / COMFORT</span>
+                    <h3>Everyday Ease</h3>
+                    <p>
+                        Make ordinary routines simpler with convenient
+                        controls, personalized scenes and useful automation
+                        designed around the way you live.
+                    </p>
+                </div>
+            </article>
+
+            <article class="na-value-card na-reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+                    alt="Connected home technology and smart controls"
+                    loading="lazy">
+                <div class="na-value-copy">
+                    <span class="na-value-number">02 / INTELLIGENCE</span>
+                    <h3>Purposeful Technology</h3>
+                    <p>
+                        We focus on useful features and compatible
+                        technologies that help your home feel connected
+                        without making everyday life complicated.
+                    </p>
+                </div>
+            </article>
+
+            <article class="na-value-card na-reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80"
+                    alt="Elegant residential interior with carefully planned details"
+                    loading="lazy">
+                <div class="na-value-copy">
+                    <span class="na-value-number">03 / DESIGN</span>
+                    <h3>Technology in Harmony</h3>
+                    <p>
+                        A connected home should feel cohesive. We consider
+                        functionality, aesthetics and how each feature
+                        contributes to your overall living space.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+<!-- 02. ABOUT OUR STORY -->
+<section class="na-section" id="na-story">
+    <div class="na-container na-story-grid">
+
+        <div class="na-story-visual na-reveal">
+            <div class="na-story-main">
+                <img
+                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85"
+                    alt="Bright modern home with elegant architecture"
+                    loading="lazy">
+            </div>
+
+            <div class="na-story-small">
+                <img
+                    src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80"
+                    alt="Thoughtfully designed residential interior"
+                    loading="lazy">
+            </div>
+
+            <div class="na-story-badge">
+                <strong>Designed for You</strong>
+                <small>Technology with purpose</small>
+            </div>
+        </div>
+
+        <div class="na-story-copy na-reveal">
+            <span class="na-eyebrow">OUR STORY</span>
+
+            <h2 class="na-heading">
+                We believe your home should work <span>around you.</span>
+            </h2>
+
+            <p class="na-description">
+                At Nexora Smart Living, our vision is to make smart home
+                technology feel natural, accessible and genuinely useful.
+                We believe innovation matters most when it solves everyday
+                problems rather than adding unnecessary complexity.
+            </p>
+
+            <p class="na-description">
+                That is why we approach every space with a focus on the
+                people who live in it. Your morning routine, preferred
+                lighting, privacy, comfort and entertainment habits all
+                help shape the experience we aim to create.
+            </p>
+
+            <p class="na-description">
+                From individual smart devices to connected home features,
+                we help you explore practical options that suit your space,
+                preferences and budget. The result is a home that feels
+                more personal, more convenient and easier to manage.
+            </p>
+
+            <ul class="na-check-list">
+                <li><span class="na-check">✓</span> Planning based on your real lifestyle and needs</li>
+                <li><span class="na-check">✓</span> Compatible devices selected with care</li>
+                <li><span class="na-check">✓</span> Clean, considered installation and configuration</li>
+                <li><span class="na-check">✓</span> Clear guidance to help you use your new system</li>
+            </ul>
+
+            <a href="services.html" class="na-btn">
+                Explore Our Solutions <span class="na-arrow">↗</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-- 04. SMART HOME SOLUTIONS -->
+<section class="na-section">
+    <div class="na-container">
+
+        <div class="na-center na-reveal">
+            <span class="na-eyebrow">OUR EXPERTISE</span>
+            <h2 class="na-heading">
+                One connected home. <span>Endless possibilities.</span>
+            </h2>
+            <p class="na-description">
+                Explore smart home features that help you shape your
+                environment, simplify everyday tasks and make better
+                use of the spaces you enjoy most.
+            </p>
+        </div>
+
+        <div class="na-solutions-grid">
+
+            <article class="na-solution-card na-reveal">
+                <div class="na-solution-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80"
+                        alt="Decorative lighting in a contemporary home"
+                        loading="lazy">
+                </div>
+                <div class="na-solution-body">
+                    <h3>Smart Lighting</h3>
+                    <p>
+                        Create comfortable lighting scenes for relaxing,
+                        working, entertaining and winding down. Depending
+                        on compatible equipment, adjust brightness and
+                        schedules to suit your daily routine.
+                    </p>
+                    <a class="na-link" href="services.html">
+                        Discover Lighting <span>↗</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="na-solution-card na-reveal">
+                <div class="na-solution-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+                        alt="Modern smart home control equipment"
+                        loading="lazy">
+                </div>
+                <div class="na-solution-body">
+                    <h3>Smart Device Controls</h3>
+                    <p>
+                        Bring compatible devices into a more convenient
+                        control experience. Explore centralized access,
+                        useful routines and supported app-based controls
+                        for your home.
+                    </p>
+                    <a class="na-link" href="services.html">
+                        Discover Smart Controls <span>↗</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="na-solution-card na-reveal">
+                <div class="na-solution-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=800&q=80"
+                        alt="Modern living space with elegant window treatments"
+                        loading="lazy">
+                </div>
+                <div class="na-solution-body">
+                    <h3>Automated Curtains</h3>
+                    <p>
+                        Add convenience to your windows with compatible
+                        motorized curtains. Depending on the setup,
+                        schedules and controls can help manage daylight
+                        and privacy throughout the day.
+                    </p>
+                    <a class="na-link" href="services.html">
+                        Discover Curtain Automation <span>↗</span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- 05. WHY NEXORA -->
+<section class="na-section na-difference">
+    <div class="na-container na-difference-grid">
+
+        <div class="na-reveal">
+            <span class="na-eyebrow">THE NEXORA DIFFERENCE</span>
+
+            <h2 class="na-heading">
+                A smarter home should feel <span>effortless.</span>
+            </h2>
+
+            <p class="na-description">
+                Choosing smart technology is not just about selecting
+                devices. It is about understanding how those devices
+                fit into your home, how easy they are to use and how
+                well they support your daily routines.
+            </p>
+
+            <p class="na-description" style="margin-top:15px">
+                Our approach emphasizes practical planning, suitable
+                product choices and a clear installation process.
+                We aim to make the journey from exploring possibilities
+                to using your new setup straightforward and reassuring.
+            </p>
+
+            <div class="na-benefits">
+
+                <div class="na-benefit">
+                    <span class="na-benefit-num">01</span>
+                    <h3>Personalized Planning</h3>
+                    <p>
+                        Every recommendation starts with your requirements,
+                        available space and intended use.
+                    </p>
+                </div>
+
+                <div class="na-benefit">
+                    <span class="na-benefit-num">02</span>
+                    <h3>Simple Experiences</h3>
+                    <p>
+                        We prioritize understandable controls and
+                        features that have a clear everyday purpose.
+                    </p>
+                </div>
+
+                <div class="na-benefit">
+                    <span class="na-benefit-num">03</span>
+                    <h3>Thoughtful Integration</h3>
+                    <p>
+                        Compatible devices are considered together
+                        to create a cohesive home experience.
+                    </p>
+                </div>
+
+                <div class="na-benefit">
+                    <span class="na-benefit-num">04</span>
+                    <h3>Clear Guidance</h3>
+                    <p>
+                        Understand the key controls, settings and
+                        supported features of your installed system.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="na-difference-image na-reveal">
+            <img
+                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85"
+                alt="Premium contemporary home with thoughtful interior design"
+                loading="lazy">
+        </div>
+
+    </div>
+</section>
+
+<!-- 06. OUR PROCESS -->
+<section class="na-section" id="na-process">
+    <div class="na-container">
+
+        <div class="na-center na-reveal">
+            <span class="na-eyebrow">HOW WE WORK</span>
+            <h2 class="na-heading">
+                From your first idea to <span>everyday comfort.</span>
+            </h2>
+            <p class="na-description">
+                A well-planned smart home begins with understanding
+                your needs. Our four-step approach helps organize
+                the process and keep expectations clear.
+            </p>
+        </div>
+
+        <div class="na-process-grid">
+
+            <article class="na-process-card na-reveal">
+                <div class="na-process-top">01 <span>↗</span></div>
+                <h3>Discover Your Needs</h3>
+                <p>
+                    We discuss your space, preferred features, daily
+                    routines and budget to understand what matters most.
+                </p>
+            </article>
+
+            <article class="na-process-card na-reveal">
+                <div class="na-process-top">02 <span>⌘</span></div>
+                <h3>Plan Your Setup</h3>
+                <p>
+                    We identify suitable devices, compatibility
+                    requirements, installation considerations and
+                    practical options for your home.
+                </p>
+            </article>
+
+            <article class="na-process-card na-reveal">
+                <div class="na-process-top">03 <span>＋</span></div>
+                <h3>Install and Configure</h3>
+                <p>
+                    The selected equipment is installed and configured
+                    according to the agreed scope and its supported
+                    features.
+                </p>
+            </article>
+
+            <article class="na-process-card na-reveal">
+                <div class="na-process-top">04 <span>✓</span></div>
+                <h3>Learn and Enjoy</h3>
+                <p>
+                    We explain the main controls and help you understand
+                    how to use the features included in your setup.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- 07. SMART LIVING GALLERY -->
+<section class="na-section na-gallery">
+    <div class="na-container">
+
+        <div class="na-center na-reveal">
+            <span class="na-eyebrow">INSPIRED BY EVERYDAY LIFE</span>
+            <h2 class="na-heading">
+                Designed for the moments <span>that matter.</span>
+            </h2>
+            <p class="na-description">
+                A welcoming living room, lighting that suits the evening
+                or curtains that open with your morning routine. Smart
+                living is about making the little details work better
+                for you and your family.
+            </p>
+        </div>
+
+        <div class="na-gallery-grid">
+
+            <div class="na-gallery-item na-reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85"
+                    alt="Open and inviting modern living space"
+                    loading="lazy">
+                <span class="na-gallery-label">Spaces That Welcome You</span>
+            </div>
+
+            <div class="na-gallery-item na-reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80"
+                    alt="Ambient home lighting"
+                    loading="lazy">
+                <span class="na-gallery-label">Lighting for Every Mood</span>
+            </div>
+
+            <div class="na-gallery-item na-reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=700&q=80"
+                    alt="Comfortable contemporary living room"
+                    loading="lazy">
+                <span class="na-gallery-label">Comfort in Every Detail</span>
+            </div>
+
+            <div class="na-gallery-item na-reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=80"
+                    alt="Carefully designed residential interior"
+                    loading="lazy">
+                <span class="na-gallery-label">Technology Meets Design</span>
+            </div>
+
+            <div class="na-gallery-item na-reveal">
+                <img
+                    src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=700&q=80"
+                    alt="Warm and relaxing home interior"
+                    loading="lazy">
+                <span class="na-gallery-label">Made for Everyday Living</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 08. FINAL CALL TO ACTION -->
+<section class="na-cta-section" id="na-contact">
+    <div class="na-container">
+
+        <div class="na-cta na-reveal">
+            <div class="na-cta-copy">
+                <span class="na-eyebrow">LET'S BUILD SOMETHING BETTER</span>
+
+                <h2>Your next chapter in smart living starts here.</h2>
+
+                <p>
+                    Whether you are planning a new home, upgrading a
+                    favorite room or exploring automation for the first
+                    time, let's find a solution that makes sense for you.
+                    Share your ideas with us and take the first step
+                    towards a more connected home.
+                </p>
+            </div>
+
+            <a href="contact.html" class="na-btn">
+                Discuss Your Project <span class="na-arrow">↗</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<script>
+(function () {
+    const root = document.querySelector(".nxa-about");
+    if (!root || root.dataset.naReady === "true") return;
+
+    root.dataset.naReady = "true";
+
+    const elements = root.querySelectorAll(".na-reveal");
+
+    if (!("IntersectionObserver" in window)) {
+        elements.forEach(function (element) {
+            element.classList.add("na-visible");
+        });
+        return;
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("na-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -25px 0px"
+    });
+
+    elements.forEach(function (element) {
+        observer.observe(element);
+    });
+})();
+</script>
+<script>/* =========================================
+   NEXORA — AUTO ACTIVE NAVIGATION
+========================================= */
+
+function setActiveNavigation() {
+
+    // Get the current page filename
+    const currentPage = (
+        window.location.pathname.split("/").pop() || "index.html"
+    ).toLowerCase();
+
+    // Remove active states from all navigation links
+    document.querySelectorAll(
+        ".rb-nav-link, .rb-mobile-link, .rb-mobile-sub-link"
+    ).forEach(link => {
+        link.classList.remove("active");
+        link.removeAttribute("aria-current");
+    });
+
+    // Match links by their actual HTML filename
+    document.querySelectorAll(
+        ".rb-main-nav a[href], " +
+        ".rb-mobile-menu a[href]"
+    ).forEach(link => {
+
+        const href = link.getAttribute("href");
+
+        if (!href || href.startsWith("#")) return;
+
+        const linkPage = href
+            .split("/")
+            .pop()
+            .split("?")[0]
+            .split("#")[0]
+            .toLowerCase();
+
+        if (linkPage !== currentPage) return;
+
+        // Highlight the matching navigation link
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+
+        // If Home 1 or Home 2 is active,
+        // highlight the desktop Home dropdown too
+        const homeDropdown = link.closest(".rb-home-dropdown");
+
+        if (homeDropdown) {
+            const homeLink = homeDropdown.querySelector(
+                ":scope > .rb-nav-link"
+            );
+
+            if (homeLink) {
+                homeLink.classList.add("active");
+            }
+        }
+
+    });
+}
+
+// Run on page load
+document.addEventListener(
+    "DOMContentLoaded",
+    setActiveNavigation
+);
+
+// Also run immediately for scripts placed at the end of body
+setActiveNavigation();</script>
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="rb-footer">
+
+    <div class="rb-footer-inner">
+
+        <!-- FOOTER GRID -->
+
+        <div class="rb-footer-grid">
+
+            <!-- BRAND COLUMN -->
+
+            <div class="rb-footer-column rb-footer-brand-column">
+
+                <a href="index.html" class="rb-footer-brand">
+
+                    <img
+                        src="images/sm1.png"
+                        alt="NexoraSmart Home Logo"
+                        class="rb-footer-logo"
+                    >
+
+                    <span class="rb-footer-brand-text">
+
+                        <span class="rb-footer-brand-name">
+
+                            <span class="rb-brand-primary">
+                                NEX
+                            </span>
+                            <span class="rb-brand-secondary">
+                              ORA
+                            </span>
+
+                        </span>
+
+                        <span class="rb-footer-tagline">
+                             SMART LIVING 
+                        </span>
+
+                    </span>
+
+                </a>
+
+                <p class="rb-footer-description">
+                    Transform your home with intelligent lighting,
+                    connected devices, smart security and seamless
+                    automation designed around your lifestyle.
+                </p>
+
+                <!-- SOCIAL -->
+
+                <div class="rb-socials">
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="Facebook">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="YouTube">
+
+                        <i class="fa-brands fa-youtube"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="rb-social"
+                       aria-label="LinkedIn">
+
+                        <i class="fa-brands fa-linkedin-in"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- EXPLORE -->
+
+            <div class="rb-footer-column">
+
+                <h3>Explore</h3>
+
+                <div class="rb-footer-links">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="about.html">
+                        About Us
+                    </a>
+
+                    <a href="solutions.html">
+                        Smart Solutions
+                    </a>
+
+                    <a href="pricing.html">
+                        Pricing Packages
+                    </a>
+
+                    <a href="contact.html">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- SMART SOLUTIONS -->
+
+            <div class="rb-footer-column">
+
+                <h3>Smart Solutions</h3>
+
+                <div class="rb-footer-links">
+
+                    <a href="solutions.html#lighting">
+                        Smart Lighting
+                    </a>
+
+                    <a href="solutions.html#security">
+                        Smart Security
+                    </a>
+
+                    <a href="solutions.html#climate">
+                        Climate Control
+                    </a>
+
+                    <a href="solutions.html#devices">
+                        Connected Devices
+                    </a>
+
+                    <a href="solutions.html#automation">
+                        Home Automation
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- OUR SERVICES -->
+
+            <div class="rb-footer-column">
+
+                <h3>Our Services</h3>
+
+                <div class="rb-footer-links">
+
+                    <a href="solutions.html">
+                        Smart Home Installation
+                    </a>
+
+                    <a href="solutions.html#consultation">
+                        Home Automation Planning
+                    </a>
+
+                    <a href="solutions.html#integration">
+                        Device Integration
+                    </a>
+
+                    <a href="solutions.html#support">
+                        System Support
+                    </a>
+
+                    <a href="pricing.html">
+                        Installation Packages
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- CONTACT -->
+
+            <div class="rb-footer-column">
+
+<h3>Contact</h3>
+
+<div class="rb-contact-links">
+
+    <a href="tel:+910000000000" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="phone"></i>
+        </span>
+        <span>Contact Our Team</span>
+    </a>
+
+    <a href="mailto:hello@nexora04.com" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="mail"></i>
+        </span>
+        <span>hello@nexora04.com</span>
+    </a>
+
+    <a href="contact.html" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="map-pin"></i>
+        </span>
+        <span>Service Locations</span>
+    </a>
+
+    <!-- Added contact link -->
+    <a href="contact.html" class="rb-contact-link">
+        <span class="rb-contact-icon">
+            <i data-lucide="clock"></i>
+        </span>
+        <span>Business Hours</span>
+    </a>
+
+</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="rb-footer-bottom">
+
+            <p class="rb-copyright">
+
+                © <span id="currentYear"></span>
+                NEXORA04.
+                Smarter Homes. Better Living.
+
+            </p>
+
+            <div class="rb-bottom-links">
+
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms
+                </a>
+
+                <a href="accessibility.html">
+                    Accessibility
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+
+/* =========================================================
+   LUCIDE
+========================================================= */
+
+lucide.createIcons();
+
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const rbHeader =
+    document.getElementById("rbHeader");
+
+window.addEventListener("scroll", () => {
+
+    rbHeader.classList.toggle(
+        "scrolled",
+        window.scrollY > 15
+    );
+
+});
+
+/* =========================================================
+   DARK / LIGHT
+========================================================= */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const savedTheme =
+    localStorage.getItem("rootBloomTheme");
+
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-theme");
+}
+
+function updateThemeIcon() {
+
+    themeToggle.innerHTML =
+        document.body.classList.contains("dark-theme")
+            ? '<i data-lucide="sun"></i>'
+            : '<i data-lucide="moon"></i>';
+
+    lucide.createIcons();
+
+}
+
+updateThemeIcon();
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark-theme");
+
+    const isDark =
+        document.body.classList.contains("dark-theme");
+
+    localStorage.setItem(
+        "rootBloomTheme",
+        isDark ? "dark" : "light"
+    );
+
+    updateThemeIcon();
+
+});
+
+/* =========================================================
+   RTL / LTR
+========================================================= */
+
+const rtlToggle =
+    document.getElementById("rtlToggle");
+
+const savedDirection =
+    localStorage.getItem("rootBloomDirection");
+
+document.documentElement.dir =
+    savedDirection === "rtl"
+        ? "rtl"
+        : "ltr";
+
+rtlToggle.addEventListener("click", () => {
+
+    const isRTL =
+        document.documentElement.dir === "rtl";
+
+    document.documentElement.dir =
+        isRTL ? "ltr" : "rtl";
+
+    localStorage.setItem(
+        "rootBloomDirection",
+        isRTL ? "ltr" : "rtl"
+    );
+
+});
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+menuToggle.addEventListener("click", () => {
+
+    const opened =
+        mobileMenu.classList.toggle("active");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        opened
+    );
+
+    menuToggle.innerHTML =
+        opened
+            ? '<i data-lucide="x"></i>'
+            : '<i data-lucide="menu"></i>';
+
+    lucide.createIcons();
+
+});
+
+/* =========================================================
+   MOBILE HOME
+========================================================= */
+
+const mobileHomeToggle =
+    document.getElementById("mobileHomeToggle");
+
+const mobileHomeSubmenu =
+    document.getElementById("mobileHomeSubmenu");
+
+mobileHomeToggle.addEventListener("click", () => {
+
+    mobileHomeSubmenu.classList.toggle("active");
+
+    mobileHomeToggle.classList.toggle("open");
+
+});
+
+/* =========================================================
+   CLOSE MOBILE MENU ON LINK CLICK
+========================================================= */
+
+document
+    .querySelectorAll(
+        ".rb-mobile-link, .rb-mobile-sub-link, .rb-mobile-reservation"
+    )
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mobileMenu.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.innerHTML =
+                '<i data-lucide="menu"></i>';
+
+            lucide.createIcons();
+
+        });
+
+    });
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+        mobileMenu.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuToggle.innerHTML =
+            '<i data-lucide="menu"></i>';
+
+        lucide.createIcons();
+
+    }
+
+});
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+/* =========================================================
+   FINAL ICON INITIALIZATION
+========================================================= */
+
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>

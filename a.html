@@ -1,0 +1,956 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexora | Intelligent Living Solutions</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+/* =========================================
+   NEXORA — FULL IMAGE SOLUTIONS EXPERIENCE
+========================================= */
+
+.nxs-hero,
+.nxs-hero * {
+    box-sizing: border-box;
+}
+
+.nxs-hero {
+    --accent: #00c5dc;
+    --ink: #ffffff;
+    --muted: rgba(255,255,255,.74);
+
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    width: 100%;
+    overflow: hidden;
+    background: #071426;
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+}
+
+.nxs-hero a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nxs-hero button {
+    font: inherit;
+}
+
+.nxs-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background-image:
+        linear-gradient(90deg,
+            rgba(4,14,29,.97) 0%,
+            rgba(4,14,29,.90) 32%,
+            rgba(4,14,29,.58) 57%,
+            rgba(4,14,29,.25) 100%),
+        linear-gradient(0deg,
+            rgba(3,12,25,.58),
+            transparent 55%),
+        var(--scene-image);
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.035);
+    transition: background-image .45s ease;
+    animation: nxs-background-enter 1.1s ease both;
+}
+
+.nxs-grain {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    opacity: .12;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+}
+
+.nxs-shell {
+    position: relative;
+    width: min(1440px, 100%);
+    min-height: 100svh;
+    margin: auto;
+    padding: 36px clamp(22px, 5.5vw, 88px) 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nxs-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.nxs-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nxs-brand-mark {
+    width: 43px;
+    height: 43px;
+    border: 1px solid rgba(0,197,220,.6);
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(0,197,220,.10);
+    color: var(--accent);
+}
+
+.nxs-brand-mark svg {
+    width: 22px;
+    height: 22px;
+}
+
+.nxs-brand-name {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.nxs-brand-name span {
+    color: var(--accent);
+}
+
+.nxs-brand-sub {
+    display: block;
+    margin-top: 3px;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    color: rgba(255,255,255,.62);
+}
+
+.nxs-top-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.78);
+}
+
+.nxs-top-note::before {
+    content: "";
+    width: 26px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.nxs-main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 235px;
+    align-items: center;
+    gap: clamp(28px, 5vw, 80px);
+    padding: clamp(60px, 10vh, 112px) 0 65px;
+}
+
+.nxs-copy {
+    width: 100%;
+    max-width: 690px;
+    animation: nxs-copy-enter .8s .1s ease both;
+}
+
+.nxs-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    margin-bottom: 27px;
+    border: 1px solid rgba(0,197,220,.35);
+    border-radius: 100px;
+    background: rgba(0,197,220,.07);
+    color: #8beaf5;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nxs-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 13px var(--accent);
+}
+
+.nxs-heading {
+    max-width: 760px;
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(48px, 6.1vw, 91px);
+    line-height: 1.04;
+    font-weight: 600;
+    letter-spacing: -2.7px;
+    text-wrap: balance;
+}
+
+.nxs-heading em {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.nxs-description {
+    max-width: 515px;
+    margin: 27px 0 0;
+    font-size: clamp(14px, 1.2vw, 17px);
+    line-height: 1.9;
+    color: var(--muted);
+}
+
+.nxs-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 33px;
+}
+
+.nxs-button {
+    min-height: 54px;
+    padding: 0 23px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: transform .25s ease, background .25s ease;
+}
+
+.nxs-button:hover {
+    transform: translateY(-3px);
+}
+
+.nxs-button-primary {
+    color: #041827 !important;
+    background: var(--accent);
+    box-shadow: 0 8px 32px rgba(0,197,220,.17);
+}
+
+.nxs-button-primary:hover {
+    background: #65e6f1;
+}
+
+.nxs-button-outline {
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.045);
+    color: white;
+}
+
+.nxs-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.nxs-proof {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 50px;
+}
+
+.nxs-proof-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    border: 1px solid rgba(0,197,220,.5);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(0,197,220,.08);
+    color: var(--accent);
+}
+
+.nxs-proof-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.nxs-proof-copy {
+    padding-left: 16px;
+    border-left: 1px solid rgba(255,255,255,.28);
+}
+
+.nxs-proof-copy strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.nxs-proof-copy span {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: rgba(255,255,255,.62);
+}
+
+/* RIGHT-SIDE CLICKABLE SCENE SELECTOR */
+
+.nxs-selector {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid rgba(255,255,255,.19);
+    border-radius: 17px;
+    background: rgba(6,17,34,.48);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 22px 65px rgba(0,0,0,.15);
+    animation: nxs-copy-enter .8s .3s ease both;
+}
+
+.nxs-selector-label {
+    margin: 4px 9px 13px;
+    color: rgba(255,255,255,.52);
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nxs-option {
+    position: relative;
+    width: 100%;
+    min-height: 65px;
+    margin-bottom: 5px;
+    padding: 12px 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background .25s ease, border-color .25s ease;
+}
+
+.nxs-option:last-child {
+    margin-bottom: 0;
+}
+
+.nxs-option:hover {
+    background: rgba(255,255,255,.07);
+}
+
+.nxs-option[aria-pressed="true"] {
+    border-color: rgba(0,197,220,.42);
+    background: rgba(0,197,220,.11);
+}
+
+.nxs-option-icon {
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: rgba(255,255,255,.08);
+    color: rgba(255,255,255,.75);
+}
+
+.nxs-option[aria-pressed="true"] .nxs-option-icon {
+    background: var(--accent);
+    color: #061624;
+}
+
+.nxs-option-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.nxs-option-text {
+    min-width: 0;
+    flex: 1;
+}
+
+.nxs-option-text strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.nxs-option-text small {
+    display: block;
+    margin-top: 3px;
+    color: rgba(255,255,255,.48);
+    font-size: 9px;
+}
+
+.nxs-option-arrow {
+    width: 14px;
+    height: 14px;
+    opacity: 0;
+    color: var(--accent);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.nxs-option[aria-pressed="true"] .nxs-option-arrow {
+    opacity: 1;
+    transform: translateX(2px);
+}
+
+.nxs-selector-foot {
+    margin: 12px 5px 2px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 9px;
+    color: rgba(255,255,255,.54);
+}
+
+.nxs-online {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.nxs-online::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #42e5a3;
+    box-shadow: 0 0 8px rgba(66,229,163,.6);
+}
+
+/* BOTTOM IMAGE STATUS */
+
+.nxs-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.16);
+}
+
+.nxs-bottom-caption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,.64);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nxs-bottom-caption svg {
+    width: 15px;
+    height: 15px;
+    color: var(--accent);
+}
+
+.nxs-bottom-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,.55);
+    font-size: 10px;
+}
+
+.nxs-bottom-right strong {
+    color: white;
+    font-weight: 600;
+}
+
+/* CONTENT CHANGE */
+
+.nxs-copy.is-changing {
+    animation: nxs-swap .35s ease both;
+}
+
+@keyframes nxs-copy-enter {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nxs-background-enter {
+    from { opacity: .65; transform: scale(1.07); }
+    to { opacity: 1; transform: scale(1.035); }
+}
+
+@keyframes nxs-swap {
+    0% { opacity: .35; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+    .nxs-shell {
+        padding: 28px 32px;
+    }
+
+    .nxs-main {
+        grid-template-columns: minmax(0, 1fr) 215px;
+        gap: 25px;
+        padding: 85px 0 55px;
+    }
+
+    .nxs-heading {
+        font-size: clamp(46px, 6.5vw, 68px);
+        letter-spacing: -1.8px;
+    }
+
+    .nxs-description {
+        font-size: 14px;
+    }
+
+    .nxs-backdrop {
+        background-position: 58% center;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .nxs-hero,
+    .nxs-shell {
+        min-height: 100svh;
+    }
+
+    .nxs-shell {
+        padding: 23px 20px 20px;
+    }
+
+    .nxs-backdrop {
+        background-image:
+            linear-gradient(180deg,
+                rgba(4,14,29,.53) 0%,
+                rgba(4,14,29,.72) 26%,
+                rgba(4,14,29,.94) 55%,
+                #061426 100%),
+            var(--scene-image);
+        background-size: cover;
+        background-position: 58% center;
+    }
+
+    .nxs-brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+    }
+
+    .nxs-brand-name {
+        font-size: 16px;
+    }
+
+    .nxs-top-note {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .nxs-top-note::before {
+        width: 15px;
+    }
+
+    .nxs-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        padding: clamp(100px, 18vh, 160px) 0 35px;
+    }
+
+    .nxs-copy {
+        max-width: 100%;
+    }
+
+    .nxs-eyebrow {
+        padding: 9px 12px;
+        margin-bottom: 21px;
+        font-size: 9px;
+        letter-spacing: 1.4px;
+    }
+
+    .nxs-heading {
+        max-width: 530px;
+        font-size: clamp(43px, 10.8vw, 66px);
+        letter-spacing: -1.7px;
+        line-height: 1.06;
+    }
+
+    .nxs-description {
+        max-width: 440px;
+        margin-top: 20px;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .nxs-actions {
+        gap: 10px;
+        margin-top: 24px;
+    }
+
+    .nxs-button {
+        min-height: 48px;
+        padding: 0 15px;
+        font-size: 11px;
+    }
+
+    .nxs-proof {
+        margin-top: 28px;
+    }
+
+    .nxs-selector {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .nxs-selector-label {
+        margin-bottom: 10px;
+    }
+
+    .nxs-option {
+        min-height: 58px;
+        padding: 9px;
+    }
+
+    .nxs-option-icon {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+    }
+
+    .nxs-option-text strong {
+        font-size: 11px;
+    }
+
+    .nxs-bottom {
+        padding-top: 16px;
+        align-items: flex-start;
+    }
+
+    .nxs-bottom-caption,
+    .nxs-bottom-right {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 380px) {
+    .nxs-shell {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .nxs-heading {
+        font-size: 41px;
+    }
+
+    .nxs-actions {
+        align-items: stretch;
+    }
+
+    .nxs-button {
+        padding: 0 11px;
+    }
+
+    .nxs-bottom-right {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nxs-hero *,
+    .nxs-hero *::before,
+    .nxs-hero *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body style="margin:0">
+
+<section class="nxs-hero" id="nexora-solutions"
+    style="--scene-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90')">
+
+    <div class="nxs-backdrop" aria-hidden="true"></div>
+    <div class="nxs-grain" aria-hidden="true"></div>
+
+    <div class="nxs-shell">
+
+        <header class="nxs-top">
+            <a class="nxs-brand" href="index.html" aria-label="Nexora home">
+                <span class="nxs-brand-mark">
+                    <i data-lucide="house-plug"></i>
+                </span>
+                <span>
+                    <span class="nxs-brand-name">NEX<span>ORA</span></span>
+                    <span class="nxs-brand-sub">SMART LIVING</span>
+                </span>
+            </a>
+
+            <div class="nxs-top-note">Intelligent living · Reimagined</div>
+        </header>
+
+        <main class="nxs-main">
+
+            <div class="nxs-copy" id="nxs-copy" aria-live="polite">
+
+                <div class="nxs-eyebrow">
+                    <span class="nxs-eyebrow-dot"></span>
+                    <span id="nxs-eyebrow-text">ABOUT NEXORA SMART LIVING</span>
+                </div>
+
+                <h1 class="nxs-heading" id="nxs-heading">
+                    Technology that feels like <em>home.</em>
+                </h1>
+
+                <p class="nxs-description" id="nxs-description">
+                    We bring lighting, comfort, security, and connected
+                    devices together to make everyday living simpler,
+                    smarter, and more personal.
+                </p>
+
+                <div class="nxs-actions">
+                    <a href="#nxs-selector" class="nxs-button nxs-button-primary"
+                       id="nxs-primary-link">
+                        Explore solutions
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                    <a href="contact.html" class="nxs-button nxs-button-outline">
+                        Talk to our team
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="nxs-proof">
+                    <span class="nxs-proof-icon">
+                        <i data-lucide="house"></i>
+                    </span>
+
+                    <div class="nxs-proof-copy">
+                        <strong id="nxs-proof-title">Designed around your lifestyle</strong>
+                        <span id="nxs-proof-description">
+                            Connected living, made more intuitive.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="nxs-selector" id="nxs-selector"
+                aria-label="Explore smart home solutions">
+
+                <p class="nxs-selector-label">Explore our solutions</p>
+
+                <button class="nxs-option" type="button"
+                    data-scene="lighting" aria-pressed="false">
+                    <span class="nxs-option-icon">
+                        <i data-lucide="lightbulb"></i>
+                    </span>
+                    <span class="nxs-option-text">
+                        <strong>Smart Lighting</strong>
+                        <small>Set your own atmosphere</small>
+                    </span>
+                    <i class="nxs-option-arrow" data-lucide="arrow-up-right"></i>
+                </button>
+
+                <button class="nxs-option" type="button"
+                    data-scene="climate" aria-pressed="false">
+                    <span class="nxs-option-icon">
+                        <i data-lucide="thermometer"></i>
+                    </span>
+                    <span class="nxs-option-text">
+                        <strong>Climate Control</strong>
+                        <small>Comfort that adapts</small>
+                    </span>
+                    <i class="nxs-option-arrow" data-lucide="arrow-up-right"></i>
+                </button>
+
+                <button class="nxs-option" type="button"
+                    data-scene="security" aria-pressed="false">
+                    <span class="nxs-option-icon">
+                        <i data-lucide="shield-check"></i>
+                    </span>
+                    <span class="nxs-option-text">
+                        <strong>Home Security</strong>
+                        <small>Confidence, day and night</small>
+                    </span>
+                    <i class="nxs-option-arrow" data-lucide="arrow-up-right"></i>
+                </button>
+
+                <button class="nxs-option" type="button"
+                    data-scene="connected" aria-pressed="true">
+                    <span class="nxs-option-icon">
+                        <i data-lucide="house-plug"></i>
+                    </span>
+                    <span class="nxs-option-text">
+                        <strong>Connected Living</strong>
+                        <small>Everything working together</small>
+                    </span>
+                    <i class="nxs-option-arrow" data-lucide="arrow-up-right"></i>
+                </button>
+
+                <div class="nxs-selector-foot">
+                    <span>YOUR HOME, YOUR RULES</span>
+                    <span class="nxs-online">Always in control</span>
+                </div>
+            </aside>
+
+        </main>
+
+        <footer class="nxs-bottom">
+            <div class="nxs-bottom-caption">
+                <i data-lucide="scan-line"></i>
+                Thoughtfully connected. Beautifully lived.
+            </div>
+
+            <div class="nxs-bottom-right">
+                <span>EXPERIENCE</span>
+                <strong id="nxs-current-scene">04 / 04</strong>
+            </div>
+        </footer>
+
+    </div>
+</section>
+
+<script>
+(() => {
+    const root = document.getElementById("nexora-solutions");
+    if (!root || root.dataset.initialized === "true") return;
+    root.dataset.initialized = "true";
+
+    const copy = root.querySelector("#nxs-copy");
+    const heading = root.querySelector("#nxs-heading");
+    const description = root.querySelector("#nxs-description");
+    const eyebrow = root.querySelector("#nxs-eyebrow-text");
+    const proofTitle = root.querySelector("#nxs-proof-title");
+    const proofDescription = root.querySelector("#nxs-proof-description");
+    const primaryLink = root.querySelector("#nxs-primary-link");
+    const currentScene = root.querySelector("#nxs-current-scene");
+    const backdrop = root.querySelector(".nxs-backdrop");
+    const options = [...root.querySelectorAll(".nxs-option")];
+
+    const scenes = {
+        lighting: {
+            eyebrow: "INTELLIGENT LIGHTING",
+            heading: "Set the mood. <em>Instantly.</em>",
+            description: "Create the right atmosphere for every moment. From gentle morning light to immersive evening scenes, your lighting follows your life.",
+            proofTitle: "Lighting that understands the moment",
+            proofDescription: "Personal scenes. Effortless control.",
+            image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90",
+            cta: "Discover smart lighting",
+            href: "solutions.html#smart-lighting",
+            number: "01 / 04",
+            accent: "#00c5dc"
+        },
+        climate: {
+            eyebrow: "PERSONALISED COMFORT",
+            heading: "Comfort that feels <em>natural.</em>",
+            description: "Bring climate and connected controls together for a home that feels right throughout the day, while helping you manage energy more thoughtfully.",
+            proofTitle: "Your comfort, intelligently managed",
+            proofDescription: "A more considered way to live.",
+            image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90",
+            cta: "Discover climate control",
+            href: "solutions.html#climate-control",
+            number: "02 / 04",
+            accent: "#a9b8ff"
+        },
+        security: {
+            eyebrow: "SMART HOME PROTECTION",
+            heading: "Peace of mind. <em>Built in.</em>",
+            description: "Bring cameras, access control, sensors, and connected alerts into one considered experience designed to help you feel more secure at home.",
+            proofTitle: "Protection with a clearer view",
+            proofDescription: "Connected security, on your terms.",
+            image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2200&q=90",
+            cta: "Discover home security",
+            href: "solutions.html#home-security",
+            number: "03 / 04",
+            accent: "#79e5b2"
+        },
+        connected: {
+            eyebrow: "ABOUT NEXORA SMART LIVING",
+            heading: "Technology that feels like <em>home.</em>",
+            description: "We bring lighting, comfort, security, and connected devices together to make everyday living simpler, smarter, and more personal.",
+            proofTitle: "Designed around your lifestyle",
+            proofDescription: "Connected living, made more intuitive.",
+            image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90",
+            cta: "Explore solutions",
+            href: "solutions.html",
+            number: "04 / 04",
+            accent: "#00c5dc"
+        }
+    };
+
+    function setScene(key) {
+        const scene = scenes[key];
+        if (!scene) return;
+
+        options.forEach(button => {
+            button.setAttribute(
+                "aria-pressed",
+                String(button.dataset.scene === key)
+            );
+        });
+
+        copy.classList.remove("is-changing");
+        void copy.offsetWidth;
+        copy.classList.add("is-changing");
+
+        eyebrow.textContent = scene.eyebrow;
+        heading.innerHTML = scene.heading;
+        description.textContent = scene.description;
+        proofTitle.textContent = scene.proofTitle;
+        proofDescription.textContent = scene.proofDescription;
+        primaryLink.innerHTML =
+            `${scene.cta} <i data-lucide="arrow-up-right"></i>`;
+        primaryLink.href = scene.href;
+        currentScene.textContent = scene.number;
+
+        root.style.setProperty("--scene-image", `url("${scene.image}")`);
+        root.style.setProperty("--accent", scene.accent);
+
+        backdrop.style.backgroundImage = `
+            linear-gradient(90deg,
+                rgba(4,14,29,.97) 0%,
+                rgba(4,14,29,.90) 32%,
+                rgba(4,14,29,.58) 57%,
+                rgba(4,14,29,.25) 100%),
+            linear-gradient(0deg, rgba(3,12,25,.58), transparent 55%),
+            url("${scene.image}")
+        `;
+
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+    }
+
+    options.forEach(button => {
+        button.addEventListener("click", () => {
+            setScene(button.dataset.scene);
+        });
+    });
+
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
+})();
+</script>
+
+</body>
+</html>
